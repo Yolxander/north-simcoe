@@ -11,7 +11,7 @@
         </p>
         <hr class="w-10 md:w-48 h-1 my-4 border-0 rounded bg-brown" />
         <h2 class="text-4xl md:text-7xl font-bold mb-4 text-brown">
-          Top propety management company in Simcoe County.
+          Top property management company in Simcoe County.
         </h2>
         <hr class="w-10 md:w-48 h-1 my-4 border-0 rounded bg-brown" />
         <a

@@ -11,7 +11,7 @@
         </h2>
         <hr class="w-10 h-1 my-4 border-0 rounded bg-teal" />
         <h3
-          class="text-4xl font-extrabold mb-4 text-brown font-libre-baskerville"
+          class="text-3xl font-extrabold mb-4 text-brown font-libre-baskerville"
         >
           Our services lorem ipsum dolor.
         </h3>
@@ -33,7 +33,7 @@
       >
         <div>
           <div
-            class="w-56 p-2 border-solid border-teal border-4 rounded-xl mb-4 mr-4"
+            class="w-full md:w-56 p-2 border-solid border-teal border-4 rounded-xl mb-4 mr-4"
           >
             <font-awesome-icon
               :icon="['fas', 'house-chimney']"
@@ -47,7 +47,7 @@
             </p>
           </div>
           <div
-            class="w-56 p-2 border-solid border-teal border-4 rounded-xl mb-4 mr-4"
+            class="w-full md:w-56 p-2 border-solid border-teal border-4 rounded-xl mb-4 mr-4"
           >
             <font-awesome-icon
               :icon="['fas', 'building']"
@@ -63,7 +63,7 @@
         </div>
         <div>
           <div
-            class="w-56 p-2 border-solid border-teal border-4 rounded-xl mb-4"
+            class="w-full md:w-56 p-2 border-solid border-teal border-4 rounded-xl mb-4"
           >
             <font-awesome-icon
               :icon="['fas', 'dollar-sign']"
@@ -79,7 +79,7 @@
             </p>
           </div>
           <div
-            class="w-56 p-2 border-solid border-teal border-4 rounded-xl mr-4"
+            class="w-full md:w-56 p-2 border-solid border-teal border-4 rounded-xl mr-4"
           >
             <font-awesome-icon
               :icon="['fas', 'screwdriver-wrench']"

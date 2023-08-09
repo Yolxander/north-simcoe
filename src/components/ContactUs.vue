@@ -8,7 +8,7 @@
       </h2>
       <hr class="w-10 h-1 my-4 border-0 rounded bg-teal" />
       <h3
-        class="text-4xl font-extrabold mb-4 text-brown font-libre-baskerville"
+        class="text-3xl font-extrabold mb-4 text-brown font-libre-baskerville"
       >
         Ready to start?
       </h3>

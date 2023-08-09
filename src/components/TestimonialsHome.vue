@@ -1,4 +1,14 @@
 <template>
+  <div class="max-w-screen-xl p-10 md:p-28 md:text-end">
+    <h2 class="text-sm font-extrabold mb-4 text-brown font-libre-baskerville">
+      TESTIMONIALS
+    </h2>
+    <hr class="w-10 h-1 my-4 border-0 rounded bg-teal mx-0 md:ml-auto" />
+
+    <h3 class="text-3xl font-extrabold mb-4 text-brown font-libre-baskerville">
+      What our clients say about us.
+    </h3>
+  </div>
   <swiper
     :slides-per-view="1"
     :pagination="{
