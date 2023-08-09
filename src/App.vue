@@ -1,26 +1,33 @@
+<!-- App.vue -->
+
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+
+    <TopNavBar />
+    <NavBarSide />
+    <router-view />
+    <FooterGlobal />
+
+  </div>
+
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import "tailwindcss/tailwind.css";
+import TopNavBar from "./components/NavBarTop.vue";
+import NavBarSide from "./components/NavBarSide.vue";
+import FooterGlobal from "./components/FooterGlobal.vue";
+
+import router from "./router";
 
 export default {
-  name: 'App',
   components: {
-    HelloWorld
-  }
-}
+    TopNavBar,
+    NavBarSide,
+    FooterGlobal,
+  },
+  router,
+};
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style></style>
