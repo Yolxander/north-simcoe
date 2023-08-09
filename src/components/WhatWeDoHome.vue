@@ -1,9 +1,9 @@
 <template>
-  <div class="max-w-screen-xl mx-auto p-4 py-8">
+  <div class="max-w-screen-xl mx-auto py-8">
     <div
       class="max-w-screen-xl p-10 md:p-28 md:pr-0 mx-auto flex flex-wrap md:flex-nowrap md:items-center md:space-x-8 md:gap-5"
     >
-      <div class="py-10 md:py-0 md:w-1/3">
+      <div class="md:w-1/3">
         <h2
           class="text-sm font-extrabold mb-4 text-brown font-libre-baskerville"
         >
@@ -29,7 +29,7 @@
         </button>
       </div>
       <div
-        class="flex justify-center flex-wrap md:w-2/3 text-brown text-center"
+        class="flex justify-center flex-wrap py-4 md:py-0 md:w-2/3 text-brown text-center"
       >
         <div>
           <div

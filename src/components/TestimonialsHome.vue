@@ -163,7 +163,6 @@
         </figcaption>
       </div>
     </swiper-slide>
-    <swiper-slide></swiper-slide>
   </swiper>
 </template>
 
@@ -190,8 +189,8 @@ export default {
 <style>
 .swiper {
   height: 100%;
-  overflow-y: visible;
-  width: 300px;
+  overflow: visible;
+  width: 80%;
 }
 
 .swiper-slide {
@@ -205,7 +204,7 @@ export default {
 
 .swiper-button-prev {
   color: #93c3bf;
-  left: 700px;
+  left: 0;
   top: 0;
   position: absolute;
 }
@@ -227,6 +226,10 @@ export default {
 @media (min-width: 1024px) {
   .swiper {
     width: 800px;
+  }
+
+  .swiper-button-prev {
+    left: 700px;
   }
 }
 </style>

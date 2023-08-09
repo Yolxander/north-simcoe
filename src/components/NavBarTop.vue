@@ -1,9 +1,9 @@
 <template>
   <nav
-    class="bg-white md:bg-transparent h-[100px] fixed z-20 md:h-auto md:right-0 w-full"
+    class="bg-white md:bg-transparent fixed z-20 md:h-auto md:right-0 w-full border-b-4 border-double border-teal md:border-b-0"
   >
     <div
-      class="w-full max-w-screen-xl flex flex-wrap items-center justify-between md:justify-end"
+      class="w-full max-w-screen-xl flex flex-wrap items-center justify-between p-4 md:justify-end"
     >
       <!-- Flex container for "Call Us" and "Navigation Links" -->
       <div
@@ -38,97 +38,24 @@
             alt="North Simcoe Logo"
           />
         </router-link>
-        <!-- Mobile Menu Button -->
-        <button
-          data-collapse-toggle="navbar-default"
-          type="button"
-          class="inline-flex items-center w-20 h-20 justify-center text-sm text-brown rounded-lg hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-          aria-controls="navbar-default"
-          aria-expanded="false"
-        >
-          <span class="sr-only">Open main menu</span>
-          <svg
-            class="w-10 h-10"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 17 14"
-          >
-            <path
-              stroke="#2F2F2F"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M1 1h15M1 7h15M1 13h15"
-            />
-          </svg>
-        </button>
-      </div>
 
-      <!-- Mobile Menu -->
-      <!-- <div class="md:hidden w-full" id="navbar-default">
-        <ul
-          class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
-        >
-          <li>
-            <router-link
-              to="/"
-              class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
-              aria-current="page"
-            >
-              Home
-            </router-link>
-          </li>
-          <li>
-            <router-link
-              to="/our-company"
-              class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-            >
-              Our Company
-            </router-link>
-          </li>
-          <li>
-            <router-link
-              to="#"
-              class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-            >
-              Services
-            </router-link>
-          </li>
-          <li>
-            <router-link
-              to="#"
-              class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-            >
-              Forms
-            </router-link>
-          </li>
-          <li>
-            <router-link
-              to="#"
-              class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-            >
-              Testimonials
-            </router-link>
-          </li>
-          <li>
-            <router-link
-              to="#"
-              class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-            >
-              Blog
-            </router-link>
-          </li>
-          <li>
-            <router-link
-              to="#"
-              class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-            >
-              Contact
-            </router-link>
-          </li>
-        </ul>
-      </div> -->
+        <div>
+          <div tabindex="1" @click="toggleMenu">
+            <div
+              class="line w-[35px] h-1 bg-brown mb-1 transition-opacity duration-300 ease"
+              :class="{ 'opacity-0': isMenuOpen }"
+            ></div>
+            <div
+              class="line w-[35px] h-1 bg-brown mb-1 transition-transform duration-300 ease transform"
+              :class="{ 'rotate-45 absolute': isMenuOpen }"
+            ></div>
+            <div
+              class="line w-[35px] h-1 bg-brown mb-1 transition-transform duration-300 ease transform"
+              :class="{ '-rotate-45': isMenuOpen }"
+            ></div>
+          </div>
+        </div>
+      </div>
     </div>
   </nav>
 </template>
@@ -136,6 +63,16 @@
 <script>
 export default {
   name: "HeaderGlobal",
+  data() {
+    return {
+      isMenuOpen: false,
+    };
+  },
+  methods: {
+    toggleMenu() {
+      this.isMenuOpen = !this.isMenuOpen;
+    },
+  },
 };
 </script>
 

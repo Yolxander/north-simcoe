@@ -1,15 +1,12 @@
 <!-- App.vue -->
 
 <template>
-  <div>
-
+  <div class="overflow-hidden">
     <TopNavBar />
     <NavBarSide />
     <router-view />
     <FooterGlobal />
-
   </div>
-
 </template>
 
 <script>
