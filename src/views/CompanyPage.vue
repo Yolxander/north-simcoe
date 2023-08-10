@@ -18,7 +18,7 @@ export default {
     return {
       intro: [
         {
-          title: "ABOUT US",
+          title: "ABOUT USS",
           subtitle: "Full Service Property Management Team.",
           textleft:
             "Are you getting tired of the concern, phone calls, filling vacancies, dealing with strangers and having no time to enjoy life? You know you made the right decision to buy that income property, but things just aren’t as rosy as you believed they would be. The markets are plummeting so you don’t want to go back to that roller coaster ride.",
