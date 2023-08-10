@@ -1,16 +1,16 @@
 <template>
-  <div class="hero-container h-[80vh]">
+  <div
+    class="hero-container h-[60vh] flex items-end md:items center pl-4 pb-4 md:pl-28 md:pb-10"
+  >
     <div class="hero-overlay"></div>
     <div
-      class="flex md:flex-row md:items-center md:space-x-8 md:justify-between max-w-screen-xl p-10 md:p-28 mx-auto relative"
+      class="flex flex-col justify-center md:w-4/5 font-libre-baskerville absolute"
     >
-      <div class="flex flex-col justify-center md:w-4/5 font-libre-baskerville">
-        <p class="text-lg mb-4 text-brown font-bold">
-          NORTH SIMCOE PROPERTY MANAGEMENT
-        </p>
-        <hr class="w-10 md:w-48 h-1 my-4 border-0 rounded bg-brown" />
-        <h2 class="text-4xl md:text-7xl font-bold mb-4 text-brown">About Us</h2>
-      </div>
+      <p class="text-m md:mb-4 text-brown font-bold">
+        NORTH SIMCOE PROPERTY MANAGEMENT
+      </p>
+      <hr class="w-10 md:w-48 h-1 my-4 border-0 rounded bg-brown" />
+      <h2 class="text-4xl md:text-7xl font-bold mb-4 text-brown">About Us</h2>
     </div>
   </div>
 </template>

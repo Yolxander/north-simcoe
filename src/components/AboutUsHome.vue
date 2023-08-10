@@ -23,10 +23,10 @@
         We are lorem ipsum dolor sit amet.
       </h3>
       <p class="font-source-serif">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla rhoncus
-        purus eget ligula aliquam, eu fermentum lectus feugiat. Sed sit amet
-        nisl quis ipsum gravida congue. Aenean ut mi nunc. Donec facilisis
-        tristique arcu vel venenatis. Duis vehicula lacinia aliquam.
+        North Simcoe Property Management is a full service property management
+        company located in Simcoe County. We work with landlords by helping them
+        enjoy all the benefits of owning investment properties by taking away
+        all the stress and hassles of dealing with day to day.
       </p>
       <button
         type="button"
