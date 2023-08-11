@@ -13,8 +13,15 @@
         Ready to start?
       </h3>
       <p>Lorem ipsum dolor sit amet.</p>
-      <div>
-        <div></div>
+      <div class="md:mt-24">
+        <p
+          class="text-2xl font-extrabold mb-4 text-brown font-libre-baskerville"
+        >
+          <span class="mr-4 text-teal"
+            ><font-awesome-icon :icon="['fas', 'envelope']"
+          /></span>
+          <a href="mailto:info@northsimcoe.com">info@northsimcoe.com</a>
+        </p>
       </div>
     </div>
 

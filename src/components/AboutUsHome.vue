@@ -28,12 +28,13 @@
         enjoy all the benefits of owning investment properties by taking away
         all the stress and hassles of dealing with day to day.
       </p>
-      <button
+      <router-link
+        to="/our-company"
         type="button"
         class="text-brown bg-teal font-bold rounded-full text-sm px-5 py-2.5 text-center mt-3 hover:bg-tealdark hover:text-white focus:outline-none focus:ring-4 focus:ring-tealdark"
       >
         READ MORE
-      </button>
+      </router-link>
     </div>
   </div>
 </template>

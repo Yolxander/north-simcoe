@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="bg-white md:bg-transparent fixed z-20 md:h-auto md:right-0 w-full border-b-4 border-double border-teal md:border-b-0"
+    class="bg-transparent fixed z-20 md:h-auto md:right-0 w-full border-b-4 border-double border-teal md:border-b-0 backdrop-filter backdrop-blur-lg md:backdrop-blur-none"
   >
     <div
       class="w-full max-w-screen-xl flex flex-wrap items-center justify-between p-4 md:justify-end"
@@ -34,7 +34,7 @@
         <router-link to="/" class="flex items-center block md:hidden">
           <img
             src="../assets/logo-text.png"
-            class="max-w-[150px]"
+            class="max-w-[200px]"
             alt="North Simcoe Logo"
           />
         </router-link>

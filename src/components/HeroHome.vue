@@ -3,20 +3,20 @@
     <div class="hero-overlay"></div>
     <!-- Bluish overlay -->
     <div
-      class="flex md:flex-row md:items-center md:space-x-8 md:justify-between max-w-screen-xl h-screen p-10 md:p-28 mx-auto relative"
+      class="flex md:flex-row md:items-center md:space-x-8 md:justify-between max-w-screen-xl h-screen p-10 pt-20 md:p-28 mx-auto relative"
     >
       <div class="flex flex-col justify-center md:w-4/5 font-libre-baskerville">
-        <p class="text-lg mb-4 text-brown font-bold">
+        <p class="text-lg mb-4 text-white font-bold">
           NORTH SIMCOE PROPERTY MANAGEMENT
         </p>
-        <hr class="w-10 md:w-48 h-1 my-4 border-0 rounded bg-brown" />
-        <h2 class="text-4xl md:text-7xl font-bold mb-4 text-brown">
+        <hr class="w-10 md:w-48 h-1 my-4 border-0 rounded bg-white" />
+        <h2 class="text-4xl md:text-7xl font-bold mb-4 text-white">
           Top property management company in Simcoe County.
         </h2>
-        <hr class="w-10 md:w-48 h-1 my-4 border-0 rounded bg-brown" />
+        <hr class="w-10 md:w-48 h-1 my-4 border-0 rounded bg-white" />
         <a
           href="#"
-          class="inline-flex items-center py-2.5 text-2xl text-2xl font-semibold text-center text-brown hover:underline focus:ring-4 focus:outline-none focus:ring-gray-600 dark:bg-gray-600 dark:hover:bg-gray-600 dark:focus:ring-gray-600"
+          class="inline-flex items-center py-2.5 text-2xl text-2xl font-semibold text-center text-white hover:underline focus:ring-4 focus:outline-none focus:ring-gray-600 dark:bg-gray-600 dark:hover:bg-gray-600 dark:focus:ring-gray-600"
         >
           Learn more
           <svg

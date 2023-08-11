@@ -1,16 +1,16 @@
 <template>
   <div
-    class="hero-container h-[60vh] flex items-end md:items center pl-4 pb-4 md:pl-28 md:pb-10"
+    class="hero-container-global h-[60vh] flex items-end md:items center p-10 pt-20 md:pl-28 md:pb-10"
   >
     <div class="hero-overlay"></div>
     <div
       class="flex flex-col justify-center md:w-4/5 font-libre-baskerville absolute"
     >
-      <p class="text-m md:mb-4 text-brown font-bold">
+      <p class="text-m md:mb-4 text-white font-bold">
         NORTH SIMCOE PROPERTY MANAGEMENT
       </p>
-      <hr class="w-10 md:w-48 h-1 my-4 border-0 rounded bg-brown" />
-      <h1 class="text-4xl md:text-7xl font-bold mb-4 text-brown">
+      <hr class="w-10 md:w-48 h-1 my-4 border-0 rounded bg-white" />
+      <h1 class="text-4xl md:text-7xl font-bold mb-4 text-white">
         Our Company
       </h1>
     </div>
@@ -25,9 +25,9 @@ export default {
 
 <style>
 /* Custom styling for the Hero component here */
-.hero-container {
+.hero-container-global {
   position: relative;
-  background-image: url("../assets/hero1.jpeg");
+  background-image: url("../assets/hero-global.jpeg");
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -39,6 +39,6 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(147, 195, 191, 0.6);
+  background-color: rgba(0, 128, 128, 0.6);
 }
 </style>

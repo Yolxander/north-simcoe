@@ -1,7 +1,7 @@
 <template>
   <div class="max-w-screen-xl mx-auto py-8">
     <div
-      class="max-w-screen-xl px-4 pb-4 md:pl-28 md:py-10 mx-auto flex flex-wrap md:flex-nowrap md:items-center md:space-x-8 md:gap-5"
+      class="max-w-screen-xl p-10 pr-4 md:pl-28 md:py-10 mx-auto flex flex-wrap md:flex-nowrap md:items-center md:space-x-8 md:gap-5"
     >
       <div class="md:w-1/2 self-end mb-6 md:mb-0">
         <h2
