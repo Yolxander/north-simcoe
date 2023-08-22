@@ -2,10 +2,10 @@
 
 <template>
   <div class="overflow-hidden">
-    <TopNavBar />
-    <NavBarSide />
+    <TopNavBar :current-route="$route.path" />
+    <NavBarSide :current-route="$route.path" />
     <router-view />
-    <FooterGlobal />
+    <FooterGlobal  />
   </div>
 </template>
 
@@ -25,6 +25,7 @@ export default {
   },
   router,
 };
+console.log(router)
 </script>
 
 <style></style>

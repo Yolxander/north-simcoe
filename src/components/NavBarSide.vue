@@ -8,7 +8,7 @@
     </router-link>
 
     <!-- Social Icons -->
-    <div class="flex flex-col items-center mb-4">
+    <div v-if="showIcons"  class="flex flex-col items-center mb-4">
       <a href="#" class="text-brown hover:text-gray-800">
         <font-awesome-icon :icon="['fab', 'instagram']" />
       </a>
@@ -25,5 +25,34 @@
 <script>
 export default {
   name: "NavBarSide",
+    props: ['currentRoute'],
+
+    data() {
+        return {
+            showIcons: true,
+        };
+    },
+    created() {
+        this.handleRouteChange()
+    },
+
+
+    watch: {
+        currentRoute() {
+            this.handleRouteChange()
+        }
+    },
+
+    methods: {
+        handleRouteChange() {
+            if(this.currentRoute === '/'){
+                console.log(this.currentRoute)
+                this.showIcons = false
+            } else {
+                this.showIcons = true
+                console.log(this.currentRoute)
+            }
+        }
+    },
 };
 </script>

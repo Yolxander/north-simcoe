@@ -9,7 +9,9 @@
       <div
         class="flex w-full justify-between items-center md:space-x-8 md:w-auto md:pl-2 md:border md:border-transparent md:border-solid md:border-1 md:backdrop-filter md:backdrop-blur-sm md:rounded"
       >
-        <p class="text-brown">
+          <SocialIcons v-if="!showPhoneNumber" />
+
+        <p v-if="showPhoneNumber"  class="text-brown">
           <a href="tel:+16475001747" class="flex items-center">
             <svg
               class="svg-inline--fa fa-phone text-3xl"
@@ -29,7 +31,7 @@
             </svg>
             <span class="pl-2 hidden md:block">+1 (647) 500-1747</span>
           </a>
-        </p>
+        </p >
         <!-- Logo -->
         <router-link to="/" class="flex items-center block md:hidden">
           <img
@@ -39,7 +41,7 @@
           />
         </router-link>
 
-        <div>
+        <div v-if="showPhoneNumber" >
           <div tabindex="1" @click="toggleMenu">
             <div
               class="line w-[35px] h-1 bg-brown mb-1 transition-opacity duration-300 ease"
@@ -55,24 +57,53 @@
             ></div>
           </div>
         </div>
+
       </div>
     </div>
   </nav>
 </template>
 
 <script>
+import SocialIcons from "@/components/SocialIcons.vue";
+// import ContactUs from "@/components/ContactUs.vue";
+// import HeroGlobal from "@/components/HeroGlobal.vue";
+// import LayoutTwoSections from "@/components/LayoutTwoSections.vue";
 export default {
-  name: "HeaderGlobal",
+  name: "NavBarTop",
+    components: {SocialIcons},
+    props: ['currentRoute'],
   data() {
     return {
       isMenuOpen: false,
+        showPhoneNumber: true,
     };
   },
-  methods: {
+    created() {
+        this.handleRouteChange()
+    },
+
+
+    watch: {
+        currentRoute() {
+            this.handleRouteChange()
+        }
+    },
+
+    methods: {
     toggleMenu() {
       this.isMenuOpen = !this.isMenuOpen;
     },
+      handleRouteChange() {
+          if(this.currentRoute=== '/'){
+              console.log(this.currentRoute)
+              this.showPhoneNumber = false
+          } else {
+              this.showPhoneNumber = true
+              console.log(this.currentRoute)
+          }
+      }
   },
+
 };
 </script>
 
