@@ -33,6 +33,17 @@
 
 
 <script>
+import nodemailer from 'nodemailer';
+
+const transporter = nodemailer.createTransport({
+    host: 'email-smtp.ca-central-1.amazonaws.com',
+    port: 587,
+    auth: {
+        user: 'AKIATS6MDL7B3SXR2DDV',
+        pass: 'BCQ+pZg+oIiVZcKToHJ1udo4wH1yU6tbXYu0f4QPWjyY'
+    }
+});
+
 export default {
 
     data() {
@@ -45,6 +56,12 @@ export default {
     methods: {
 
         submit() {
+            transporter.sendMail({
+                from: 'yolxanderjaca@gmail.com',
+                to: 'jacacanada@gmail.com',
+                subject: 'Test email',
+                text: 'This is a test email sent using Amazon SES and Nodemailer in Vue.js'
+            });
             // Submit logic
             this.submitted = true
 

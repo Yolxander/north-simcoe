@@ -5,7 +5,9 @@
     <div class="social-icons w-[300px] flex justify-between">
 
         <button class="icon-btn">
-            <font-awesome-icon :icon="['fas', 'phone']" size="2x"/>
+            <a href="tel:+16475001747">
+                <font-awesome-icon :icon="['fas', 'phone']" size="2x"/>
+            </a>
         </button>
 
         <button class="icon-btn">
