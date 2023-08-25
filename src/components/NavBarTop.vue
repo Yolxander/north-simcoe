@@ -7,7 +7,7 @@
     >
       <!-- Flex container for "Call Us" and "Navigation Links" -->
       <div
-        class="flex w-full justify-between items-center md:space-x-8 md:w-auto md:pl-2 md:border md:border-transparent md:border-solid md:border-1 md:backdrop-filter md:backdrop-blur-sm md:rounded"
+        class="nav-container flex w-full  items-center md:space-x-8 md:w-auto md:pl-2 md:border md:border-transparent md:border-solid md:border-1 md:backdrop-filter md:backdrop-blur-sm md:rounded"
       >
 
           <!-- Logo -->
@@ -18,7 +18,7 @@
                       alt="North Simcoe Logo"
               />
           </router-link>
-          <SocialIcons v-if="!showPhoneNumber" />
+          <SocialIcons v-if="!showPhoneNumber" id="socials"/>
 
         <p v-if="showPhoneNumber"  class="text-brown">
           <a href="tel:+16475001747" class="flex items-center">
@@ -108,5 +108,16 @@ export default {
 </script>
 
 <style>
-/* Custom styling for the HeaderGlobal component here */
+
+.nav-container{
+    justify-content: center;
+}
+@media screen and (max-width: 612px) {
+    #socials{
+        display: none;
+    }
+    .nav-container{
+        justify-content: center;
+    }
+}
 </style>

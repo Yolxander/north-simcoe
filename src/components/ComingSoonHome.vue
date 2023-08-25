@@ -16,6 +16,10 @@
 <!--        <hr class="w-10 md:w-48 h-1 my-4 border-0 rounded bg-white" />-->
               <div>
                   <SubscriptionForm />
+                  <div class="social-mobile">
+                      <SocialIcons class="mt-8 " />
+                  </div>
+
               </div>
       </div>
 
@@ -26,10 +30,12 @@
 
 <script>
 import SubscriptionForm from './SubscriptionForm.vue'
+import SocialIcons from "@/components/SocialIcons.vue";
 
 export default {
   name: "HeroHome",
     components: {
+        SocialIcons,
         SubscriptionForm
     }
 };
@@ -59,6 +65,10 @@ export default {
     width: 60%;
 }
 
+.social-mobile{
+    display: none;
+}
+
 @media screen and (max-width: 912px) {
     .hero-text{
         font-size: 35px;
@@ -70,6 +80,10 @@ export default {
     .hero-text{
         font-size: 20px;
         width: 100%;
+    }
+
+    .social-mobile{
+        display: block;
     }
 }
 </style>

@@ -84,13 +84,9 @@ button:hover {
 
 @media screen and (max-width: 612px) {
     .social-icons{
-        width: 140px;
+        width: 90%;
     }
 
-    button {
-        width: 40px;
-        height: 40px;
-    }
 }
 
 </style>
