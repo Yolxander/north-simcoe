@@ -11,7 +11,7 @@
             Coming Soon
         </h2>
           <p class="text-white w-[60%] text-2xl">
-              Exciting things are just around the corner at Simcoe Property Management! While we're preparing to unveil something special, we want to ensure you have all the essential information at your fingertips:
+              Exciting things are just around the corner at North Simcoe Property Management! While we're preparing to unveil something special, we want to ensure you have all the essential information at your fingertips:
           </p>
 <!--        <hr class="w-10 md:w-48 h-1 my-4 border-0 rounded bg-white" />-->
               <div>
@@ -39,7 +39,7 @@ export default {
 /* Custom styling for the Hero component here */
 .hero-container {
   position: relative;
-  background-image: url("../assets/hero1.jpeg");
+    background-image: url("../assets/font-singlehouse.jpg");
   background-size: cover;
   background-position: center;
   height: 100vh;

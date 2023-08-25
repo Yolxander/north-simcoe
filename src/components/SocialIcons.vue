@@ -2,23 +2,27 @@
 
 <template>
 
-    <div class="social-icons w-[300px] flex justify-between">
+    <div class="social-icons w-[300px] flex justify-between text-white ">
 
-        <button class="icon-btn">
-            <a href="tel:+16475001747">
-                <font-awesome-icon :icon="['fas', 'phone']" size="2x"/>
-            </a>
-        </button>
+        <a href="tel:+16475001747">
+            <button class="icon-btn">
+                    <font-awesome-icon :icon="['fas', 'phone']" size="1x" />
+            </button>
+        </a>
 
-        <button class="icon-btn">
-            <font-awesome-icon
-                :icon="['fab', 'facebook-f']" size="2x"
-            />
-        </button>
+        <a href="https://www.facebook.com/people/North-Simcoe-Property-Management/100091986706375/?mibextid=D4KYl">
+            <button class="icon-btn">
+                    <font-awesome-icon
+                        :icon="['fab', 'facebook-f']" size="1x"
+                    />
+            </button>
+        </a>
 
-        <button class="icon-btn">
-            <font-awesome-icon :icon="['fab', 'instagram']" size="2x" />
-        </button>
+        <a href="https://instagram.com/northsimcoe_propertymanagement?igshid=MzRlODBiNWFlZA==">
+            <button class="icon-btn">
+                  <font-awesome-icon :icon="['fab', 'instagram']" size="1x" />
+            </button>
+        </a>
 
 
     </div>
@@ -45,8 +49,8 @@ export default {
 /*}*/
 
 button {
-    width: 70px;
-    height: 70px;
+    width: 50px;
+    height: 50px;
     margin: 20px;
     outline: none;
     border: none;

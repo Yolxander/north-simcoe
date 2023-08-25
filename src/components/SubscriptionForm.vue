@@ -6,20 +6,20 @@
 
         <div class="content">
 
-            <form class="subscription" :class="{ done: submitted }">
+            <form ref="form" class="subscription" :class="{ done: submitted }">
 
                 <input
                         v-model="email"
                         class="add-email"
                         type="email"
-                        placeholder="signmeup@email.com"
+                        placeholder="myemail@email.com"
                 >
 
                 <button
                         @click.prevent="submit"
                         class="submit-email"
                 >
-                    <span class="before-submit">Join</span>
+                    <span class="before-submit">Receive</span>
                     <span class="after-submit">Thank you!</span>
                 </button>
 
@@ -33,16 +33,7 @@
 
 
 <script>
-import nodemailer from 'nodemailer';
-
-const transporter = nodemailer.createTransport({
-    host: 'email-smtp.ca-central-1.amazonaws.com',
-    port: 587,
-    auth: {
-        user: 'AKIATS6MDL7B3SXR2DDV',
-        pass: 'BCQ+pZg+oIiVZcKToHJ1udo4wH1yU6tbXYu0f4QPWjyY'
-    }
-});
+import emailjs from '@emailjs/browser';
 
 export default {
 
@@ -56,12 +47,16 @@ export default {
     methods: {
 
         submit() {
-            transporter.sendMail({
-                from: 'yolxanderjaca@gmail.com',
-                to: 'jacacanada@gmail.com',
-                subject: 'Test email',
-                text: 'This is a test email sent using Amazon SES and Nodemailer in Vue.js'
-            });
+            emailjs.send('service_v98lvdp', 'template_zwprldn', {
+                email: this.email
+            }, 'NxLLnhlEW3KDj2zPO')
+                .then((result) => {
+                    console.log('SUCCESS!', result.text);
+                    console.log('INFO', this.email);
+                })
+                .catch((error) => {
+                    console.log('FAILED...', error.text);
+                });
             // Submit logic
             this.submitted = true
 

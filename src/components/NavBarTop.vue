@@ -95,11 +95,9 @@ export default {
     },
       handleRouteChange() {
           if(this.currentRoute=== '/'){
-              console.log(this.currentRoute)
               this.showPhoneNumber = false
           } else {
               this.showPhoneNumber = true
-              console.log(this.currentRoute)
           }
       }
   },
