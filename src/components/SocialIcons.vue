@@ -79,17 +79,17 @@ button:hover {
 }
 
 .social-icons{
-    width: 300px;
+    width: 250px;
 }
 
 @media screen and (max-width: 612px) {
     .social-icons{
-        width: 150px;
+        width: 140px;
     }
 
     button {
-        width: 45px;
-        height: 45px;
+        width: 40px;
+        height: 40px;
     }
 }
 

@@ -164,4 +164,14 @@ export default {
     visibility: visible;
     opacity: 1;
 }
+
+@media screen and (max-width: 612px) {
+    .subscription {
+        width: 80%;
+    }
+
+    .subscription .add-email{
+        border-radius: 20px;
+    }
+}
 </style>
