@@ -2,7 +2,7 @@
 
 <template>
 
-    <div class="social-icons w-[300px] flex justify-between text-white ">
+    <div class="social-icons flex justify-between text-white">
 
         <a href="tel:+16475001747">
             <button class="icon-btn">
@@ -75,6 +75,21 @@ button:hover {
     }
     to {
         transform: scale(1);
+    }
+}
+
+.social-icons{
+    width: 300px;
+}
+
+@media screen and (max-width: 612px) {
+    .social-icons{
+        width: 150px;
+    }
+
+    button {
+        width: 45px;
+        height: 45px;
     }
 }
 
