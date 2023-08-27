@@ -17,7 +17,7 @@
                       alt="North Simcoe Logo"
               />
           </router-link>
-          <SocialIcons v-if="!showPhoneNumber" id="socials"/>
+<!--          <SocialIcons v-if="!showPhoneNumber" id="socials"/>-->
 
         <p v-if="showPhoneNumber"  class="text-brown">
           <a href="tel:+16475001747" class="flex items-center">
@@ -78,13 +78,13 @@
 </template>
 
 <script>
-import SocialIcons from "@/components/SocialIcons.vue";
+// import SocialIcons from "@/components/SocialIcons.vue";
 // import ContactUs from "@/components/ContactUs.vue";
 // import HeroGlobal from "@/components/HeroGlobal.vue";
 // import LayoutTwoSections from "@/components/LayoutTwoSections.vue";
 export default {
   name: "NavBarTop",
-    components: {SocialIcons},
+    // components: {SocialIcons},
     props: ['currentRoute'],
   data() {
     return {
