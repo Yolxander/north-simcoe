@@ -6,9 +6,20 @@
       class="w-full max-w-screen-xl flex flex-wrap items-center justify-between p-4 md:justify-end"
     >
       <div
-        class="flex w-full justify-between items-center md:space-x-8 md:w-auto md:pl-2 md:border md:border-transparent md:border-solid md:border-1 md:backdrop-filter md:backdrop-blur-sm md:rounded relative"
+        class="nav-container flex w-full  items-center md:space-x-8 md:w-auto md:pl-2 md:border md:border-transparent md:border-solid md:border-1 md:backdrop-filter md:backdrop-blur-sm md:rounded"
       >
-        <p class="text-brown">
+
+          <!-- Logo -->
+          <router-link to="/" class="flex items-center block md:hidden">
+              <img
+                      src="../assets/logo-text.png"
+                      class="max-w-[200px]"
+                      alt="North Simcoe Logo"
+              />
+          </router-link>
+          <SocialIcons v-if="!showPhoneNumber" id="socials"/>
+
+        <p v-if="showPhoneNumber"  class="text-brown">
           <a href="tel:+16475001747" class="flex items-center">
             <svg
               class="svg-inline--fa fa-phone text-3xl"
@@ -60,27 +71,65 @@
           <a href="/our-company" class="block text-brown mb-2">OUR COMPANY</a>
           <a href="/contact" class="block text-brown">CONTACT</a>
         </div>
+
       </div>
     </div>
   </nav>
 </template>
 
 <script>
+import SocialIcons from "@/components/SocialIcons.vue";
+// import ContactUs from "@/components/ContactUs.vue";
+// import HeroGlobal from "@/components/HeroGlobal.vue";
+// import LayoutTwoSections from "@/components/LayoutTwoSections.vue";
 export default {
-  name: "HeaderGlobal",
+  name: "NavBarTop",
+    components: {SocialIcons},
+    props: ['currentRoute'],
   data() {
     return {
       isMenuOpen: false,
+        showPhoneNumber: true,
     };
   },
-  methods: {
+    created() {
+        this.handleRouteChange()
+    },
+
+
+    watch: {
+        currentRoute() {
+            this.handleRouteChange()
+        }
+    },
+
+    methods: {
     toggleMenu() {
       this.isMenuOpen = !this.isMenuOpen;
     },
+      handleRouteChange() {
+          if(this.currentRoute=== '/'){
+              this.showPhoneNumber = false
+          } else {
+              this.showPhoneNumber = true
+          }
+      }
   },
+
 };
 </script>
 
 <style>
-/* Custom styling for the HeaderGlobal component here */
+
+.nav-container{
+    justify-content: center;
+}
+@media screen and (max-width: 612px) {
+    #socials{
+        display: none;
+    }
+    .nav-container{
+        justify-content: center;
+    }
+}
 </style>
