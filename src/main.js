@@ -37,6 +37,9 @@ const app = createApp(App);
 
 app.config.globalProperties.$gsap = gsap;
 
+//changes browser tap name to custom desired title
+document.title = 'North Simcoe PM';
+
 app.use(router);
 app.component("font-awesome-icon", FontAwesomeIcon);
 app.mount("#app");

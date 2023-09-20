@@ -6,8 +6,11 @@ import CompanyPage from "../views/CompanyPage.vue";
 // import ApplicationForm from "../views/ApplicationForm.vue";
 // import Blog from "../views/Blog.vue";
 import Contact from "../views/Contact.vue";
+// import Contact from "../views/Contact.vue";
+// import ComingSoonHome from "@/components/ComingSoonHome.vue";
 
 const routes = [
+  // { path: "/", component:ComingSoonHome },
   { path: "/", component: Home },
   { path: "/our-company", component: CompanyPage },
 //   { path: "/services", component: Services },
