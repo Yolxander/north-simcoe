@@ -3,7 +3,7 @@
     class="bg-transparent fixed z-20 md:h-auto md:right-0 w-full border-b-4 border-double border-teal md:border-b-0 backdrop-filter backdrop-blur-lg md:backdrop-blur-none"
   >
     <div
-      class="w-full max-w-screen-xl flex flex-wrap items-center justify-between p-4 md:justify-end"
+      class="w-full max-w-screen-xl flex flex-wrap items-center justify-between md:p-4 md:justify-end"
     >
       <div
         class="flex w-full justify-between items-center md:space-x-8 md:w-auto md:pl-2 md:border md:border-transparent md:border-solid md:border-1 md:backdrop-filter md:backdrop-blur-sm md:rounded relative"
@@ -54,7 +54,7 @@
         </div>
         <div
           v-show="isMenuOpen"
-          class="md:absolute md:top-[-20px] md:right-[-45px] mt-2 md:mt-0 md:w-[300px] md:h-screen p-4 bg-white backdrop-filter backdrop-blur-sm rounded z-5 flex flex-col items-end justify-center font-libre-baskerville md:text-2xl md:px-8"
+          class="absolute h-screen inset-0 m-0 md:top-[-20px] md:right-[-45px] md:bottom-0 md:left-0 md:text-2xl bg-white backdrop-filter backdrop-blur-sm rounded z-5 flex flex-col items-start justify-center font-libre-baskerville p-4"
         >
           <a href="/" class="block text-brown mb-2">HOME</a>
           <a href="/our-company" class="block text-brown mb-2">OUR COMPANY</a>

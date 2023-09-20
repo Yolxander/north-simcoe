@@ -2,6 +2,7 @@
   <HeroHome />
   <AboutUsHome />
   <WhatWeDoHome />
+  <ServiceAriaHome />
   <TestimonialsHome />
   <ContactUs />
 </template>
@@ -12,6 +13,7 @@ import "tailwindcss/tailwind.css";
 import HeroHome from "../components/HeroHome.vue";
 import AboutUsHome from "../components/AboutUsHome.vue";
 import WhatWeDoHome from "../components/WhatWeDoHome.vue";
+import ServiceAriaHome from "../components/ServiceAriaHome.vue";
 import TestimonialsHome from "../components/TestimonialsHome.vue";
 import ContactUs from "../components/ContactUs.vue";
 
@@ -21,6 +23,7 @@ export default {
     HeroHome,
     AboutUsHome,
     WhatWeDoHome,
+    ServiceAriaHome,
     TestimonialsHome,
     ContactUs,
   },

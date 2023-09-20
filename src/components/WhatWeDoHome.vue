@@ -42,9 +42,6 @@
             <h4 class="font-bold mb-2 font-libre-baskerville">
               RESIDENTIAL PROPERTY MANAGEMENT
             </h4>
-            <p class="font-source-serif">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            </p>
           </div>
           <div
             class="w-full md:w-56 p-2 border-solid border-teal border-4 rounded-xl mb-4 mr-4"
@@ -56,15 +53,13 @@
             <h4 class="font-bold mb-2 font-libre-baskerville">
               COMMERCIAL PROPERTY MANAGEMENT
             </h4>
-            <p class="font-source-serif">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            </p>
           </div>
         </div>
         <div>
           <div
             class="w-full md:w-56 p-2 border-solid border-teal border-4 rounded-xl mb-4"
           >
+            <br />
             <font-awesome-icon
               :icon="['fas', 'dollar-sign']"
               class="text-5xl mb-2"
@@ -73,14 +68,11 @@
               CUSTOM PRICING
             </h4>
             <br />
-            <p class="font-source-serif">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Consequatur, quos?
-            </p>
           </div>
           <div
             class="w-full md:w-56 p-2 border-solid border-teal border-4 rounded-xl mr-4"
           >
+            <br />
             <font-awesome-icon
               :icon="['fas', 'screwdriver-wrench']"
               class="text-5xl mb-2"
@@ -88,10 +80,6 @@
             <h4 class="font-bold mb-2 font-libre-baskerville">
               FULL PROPERTY MAINTENANCE
             </h4>
-            <p class="font-source-serif">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et, illo
-              molestiae.
-            </p>
           </div>
         </div>
       </div>

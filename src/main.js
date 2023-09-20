@@ -11,6 +11,7 @@ import {
   faDollarSign,
   faScrewdriverWrench,
   faEnvelope,
+  faLocationDot,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebookF,
@@ -28,7 +29,8 @@ library.add(
   faFacebookF,
   faInstagram,
   faLinkedinIn,
-  faEnvelope
+  faEnvelope,
+  faLocationDot
 );
 
 const app = createApp(App);
