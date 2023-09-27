@@ -402,7 +402,317 @@
           <div
               class="flex flex-col mb-2 z-10 relative bg-white rounded-lg shadow-md p-4 border-4 border-solid border-teal"
           >
-                section two
+              <!-- Residential History--------------------------------------------->
+              <p class="mb-4 text-[22px] text-gray-700">
+                  Residential History:
+              </p>
+              <!-- Present Address Field -->
+              <div class="relative z-0 w-full mb-4 group">
+                  <input
+                      type="text"
+                      name="present_address"
+                      id="present_address"
+                      class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer"
+                      placeholder=" "
+                      required
+                  />
+                  <label
+                      for="present_address"
+                      class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                  >Present Address</label>
+              </div>
+
+              <!-- City Field -->
+              <div class="relative z-0 w-full mb-4 group">
+                  <input
+                      type="text"
+                      name="city"
+                      id="city"
+                      class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer"
+                      placeholder=" "
+                      required
+                  />
+                  <label
+                      for="city"
+                      class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                  >City</label>
+              </div>
+
+              <!-- Province Field -->
+              <div class="relative z-0 w-full mb-4 group">
+                  <input
+                      type="text"
+                      name="province"
+                      id="province"
+                      class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer"
+                      placeholder=" "
+                      required
+                  />
+                  <label
+                      for="province"
+                      class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                  >Province</label>
+              </div>
+
+              <!-- Postal Code Field -->
+              <div class="relative z-0 w-full mb-4 group">
+                  <input
+                      type="text"
+                      name="postal_code"
+                      id="postal_code"
+                      pattern="[A-Za-z][0-9][A-Za-z] [0-9][A-Za-z][0-9]"
+                      title="Please enter a valid Canadian postal code (e.g., A1A 1A1)"
+                      class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer"
+                      placeholder=" "
+                      required
+                  />
+                  <label
+                      for="postal_code"
+                      class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                  >Postal Code</label>
+              </div>
+
+              <!-- How Long at This Address Field -->
+              <div class="relative z-0 w-full mb-4 group">
+                  <input
+                      type="text"
+                      name="duration_at_address"
+                      id="duration_at_address"
+                      class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer"
+                      placeholder=" "
+                      required
+                  />
+                  <label
+                      for="duration_at_address"
+                      class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                  >How long at this address</label>
+              </div>
+
+              <!-- Landlord/Lessor Name Field -->
+              <div class="relative z-0 w-full mb-4 group">
+                  <input
+                      type="text"
+                      name="landlord_name"
+                      id="landlord_name"
+                      class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer"
+                      placeholder=" "
+                      required
+                  />
+                  <label
+                      for="landlord_name"
+                      class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                  >Landlord/Lessor Name</label>
+              </div>
+
+              <!-- Landlord/Lessor Phone # Field -->
+              <div class="relative z-0 w-full mb-4 group">
+                  <input
+                      type="tel"
+                      name="landlord_phone"
+                      id="landlord_phone"
+                      class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer"
+                      placeholder=" "
+                      required
+                  />
+                  <label
+                      for="landlord_phone"
+                      class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                  >Landlord/Lessor Phone #</label>
+              </div>
+
+              <!-- Address #1--------------------------------------------->
+              <p class="mb-4 text-[20px] text-gray-700">
+                  Previous Address #1:
+              </p>
+              <!-- City Field -->
+              <div class="relative z-0 w-full mb-4 group">
+                  <input
+                      type="text"
+                      name="city"
+                      id="city"
+                      class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer"
+                      placeholder=" "
+                      required
+                  />
+                  <label
+                      for="city"
+                      class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                  >City</label>
+              </div>
+
+              <!-- Province Field -->
+              <div class="relative z-0 w-full mb-4 group">
+                  <input
+                      type="text"
+                      name="province"
+                      id="province"
+                      class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer"
+                      placeholder=" "
+                      required
+                  />
+                  <label
+                      for="province"
+                      class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                  >Province</label>
+              </div>
+
+              <!-- Postal Code Field -->
+              <!-- Include the Postal Code Field code from the previous response -->
+
+              <!-- How Long at This Address Field -->
+              <div class="relative z-0 w-full mb-4 group">
+                  <input
+                      type="text"
+                      name="duration_at_address"
+                      id="duration_at_address"
+                      class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer"
+                      placeholder=" "
+                      required
+                  />
+                  <label
+                      for="duration_at_address"
+                      class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                  >How long at this address</label>
+              </div>
+
+              <!-- Landlord/Lessor Name Field -->
+              <div class="relative z-0 w-full mb-4 group">
+                  <input
+                      type="text"
+                      name="landlord_name"
+                      id="landlord_name"
+                      class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer"
+                      placeholder=" "
+                      required
+                  />
+                  <label
+                      for="landlord_name"
+                      class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                  >Landlord/Lessor Name</label>
+              </div>
+
+              <!-- Landlord/Lessor Phone # Field -->
+              <div class="relative z-0 w-full mb-4 group">
+                  <input
+                      type="tel"
+                      name="landlord_phone"
+                      id="landlord_phone"
+                      class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer"
+                      placeholder=" "
+                      required
+                  />
+                  <label
+                      for="landlord_phone"
+                      class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                  >Landlord/Lessor Phone #</label>
+              </div>
+
+              <!-- Address #2--------------------------------------------->
+              <p class="mb-4 text-[20px] text-gray-700">
+                  Previous Address #2:
+              </p>
+              <!-- City Field -->
+              <div class="relative z-0 w-full mb-4 group">
+                  <input
+                      type="text"
+                      name="city"
+                      id="city"
+                      class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer"
+                      placeholder=" "
+                      required
+                  />
+                  <label
+                      for="city"
+                      class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                  >City</label>
+              </div>
+
+              <!-- Province Field -->
+              <div class="relative z-0 w-full mb-4 group">
+                  <input
+                      type="text"
+                      name="province"
+                      id="province"
+                      class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer"
+                      placeholder=" "
+                      required
+                  />
+                  <label
+                      for="province"
+                      class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                  >Province</label>
+              </div>
+
+              <!-- Postal Code Field -->
+              <!-- Include the Postal Code Field code from the previous response -->
+
+              <!-- How Long at This Address Field -->
+              <div class="relative z-0 w-full mb-4 group">
+                  <input
+                      type="text"
+                      name="duration_at_address"
+                      id="duration_at_address"
+                      class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer"
+                      placeholder=" "
+                      required
+                  />
+                  <label
+                      for="duration_at_address"
+                      class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                  >How long at this address</label>
+              </div>
+
+              <!-- Landlord/Lessor Name Field -->
+              <div class="relative z-0 w-full mb-4 group">
+                  <input
+                      type="text"
+                      name="landlord_name"
+                      id="landlord_name"
+                      class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer"
+                      placeholder=" "
+                      required
+                  />
+                  <label
+                      for="landlord_name"
+                      class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                  >Landlord/Lessor Name</label>
+              </div>
+
+              <!-- Landlord/Lessor Phone # Field -->
+              <div class="relative z-0 w-full mb-4 group">
+                  <input
+                      type="tel"
+                      name="landlord_phone"
+                      id="landlord_phone"
+                      class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer"
+                      placeholder=" "
+                      required
+                  />
+                  <label
+                      for="landlord_phone"
+                      class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                  >Landlord/Lessor Phone #</label>
+              </div>
+
+              <!-- Applicant #1 Employment--------------------------------------------->
+              <p class="mb-4 text-[20px] text-gray-700">
+                  Applicant #1 Employment:
+              </p>
+              <!-- Employer Name Field -->
+              <div class="relative z-0 w-full mb-4 group">
+                  <input
+                      type="text"
+                      name="employer_name"
+                      id="employer_name"
+                      class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer"
+                      placeholder=" "
+                      required
+                  />
+                  <label
+                      for="employer_name"
+                      class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                  >Employer Name</label>
+              </div>
 
           </div>
           <div
