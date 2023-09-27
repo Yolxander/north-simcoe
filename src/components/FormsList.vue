@@ -4,7 +4,7 @@
   >
 
 
-    <div class="w-full relative">
+    <div v-if="currentStep === 1" class="w-full relative">
       <div
         class="flex flex-col mb-2 z-10 relative bg-white rounded-lg shadow-md p-4 border-4 border-solid border-teal"
       >
@@ -308,11 +308,7 @@
           </div>
 
 
-          <!-- Applicant #1--------------------------------------------->
-          <p class="mb-4 text-[20px] text-gray-700">
-              Dependants:
-          </p>
-          <!-- Dependants Section -->
+          <!-- Dependants Section ------------------------------------>
           <div class="relative z-0 w-full mb-4">
               <p class="mb-2 text-sm text-gray-700 font-medium">Dependants</p>
 
@@ -391,20 +387,39 @@
           </div>
 
 
+
       </div>
       <div
         class="bg-teal w-[300px] h-[250px] absolute top-[-20px] right-[-20px] md:top-[-40px] md:right-[-40px] z-negative"
       ></div>
 
-        <button
-                type="submit"
-                class="text-brown bg-teal hover:bg-tealdark hover:text-white focus:ring-4 focus:outline-none focus:ring-teal font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
-        >
-            Submit
+        <button @click.prevent="nextStep" class="text-brown bg-teal hover:bg-tealdark hover:text-white focus:ring-4 focus:outline-none focus:ring-teal font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">
+            Next
         </button>
     </div>
 
+      <div v-if="currentStep === 2" class="w-full relative">
+          <div
+              class="flex flex-col mb-2 z-10 relative bg-white rounded-lg shadow-md p-4 border-4 border-solid border-teal"
+          >
+                section two
 
+          </div>
+          <div
+              class="bg-teal w-[300px] h-[250px] absolute top-[-20px] right-[-20px] md:top-[-40px] md:right-[-40px] z-negative"
+          ></div>
+
+          <!-- Back Button -->
+          <button @click.prevent="previousStep" class="text-brown bg-teal hover:bg-tealdark hover:text-white focus:ring-4 focus:outline-none focus:ring-teal font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center mr-2">
+              Back
+          </button>
+          <button
+              type="submit"
+              class="text-brown bg-teal hover:bg-tealdark hover:text-white focus:ring-4 focus:outline-none focus:ring-teal font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+          >
+              Submit
+          </button>
+      </div>
   </form>
 </template>
 
@@ -415,11 +430,18 @@ export default {
         return {
             dependants: [{}], // Start with one empty dependant
             selectedPetOption: '',
+            currentStep: 1,
         };
     },
     methods: {
         addDependant() {
             this.dependants.push({});
+        },
+        nextStep() {
+            this.currentStep++; // Increment current step when Next is clicked
+        },
+        previousStep() {
+            this.currentStep--; // Decrement current step when Back is clicked
         }
     }
 };
