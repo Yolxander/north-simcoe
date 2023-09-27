@@ -317,10 +317,10 @@
               <p class="mb-2 text-sm text-gray-700 font-medium">Dependants</p>
 
               <!-- This div will be repeated for each dependant -->
-              <div v-for="(dependant, index) in dependants" :key="index" class="mb-4 group">
+              <div v-for="(dependant, index) in dependants" :key="index" class="mb-4 group flex items-center">
 
                   <!-- Dependant Name Field -->
-                  <div class="relative z-0 w-1/2 mb-4 inline-block pr-2">
+                  <div class="relative z-0 w-1/2 mb-4 inline-block pr-2 flex-grow">
                       <input
                           type="text"
                           :name="`dependant_name_${index}`"
@@ -336,7 +336,7 @@
                   </div>
 
                   <!-- Dependant Date of Birth Field -->
-                  <div class="relative z-0 w-1/2 mb-4 inline-block pl-2">
+                  <div class="relative z-0 w-1/2 mb-4 inline-block pl-2 flex-grow">
                       <input
                           type="date"
                           :name="`dependant_dob_${index}`"
@@ -349,12 +349,47 @@
                           class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                       >Date of birth</label>
                   </div>
+
+                  <!-- Button to add another dependant -->
+                  <button @click.prevent="addDependant" class="text-teal hover:underline ml-4">Add</button>
               </div>
-
-              <!-- Button to add another dependant -->
-              <button @click.prevent="addDependant" class="text-teal hover:underline">Add</button>
-
           </div>
+
+
+          <!-- Do you have pets ?-->
+          <div class="relative z-0 w-full mb-4 group">
+              <select
+                  v-model="selectedPetOption"
+                  name="have_pet"
+                  id="have_pet"
+                  class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer"
+                  required
+              >
+                  <option value="" disabled selected>Select an option</option>
+                  <option value="yes">Yes</option>
+                  <option value="no">No</option>
+              </select>
+              <label
+                  for="have_pet"
+                  class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+              >Do you have pets?</label>
+          </div>
+
+          <!-- Please describe your pet Field -->
+          <div v-if="selectedPetOption === 'yes'" class="relative z-0 w-full mb-4 group">
+            <textarea
+                name="pet_description"
+                id="pet_description"
+                rows="2"
+                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer"
+                placeholder=" "
+            ></textarea>
+              <label
+                  for="pet_description"
+                  class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+              >Please describe your pet</label>
+          </div>
+
 
       </div>
       <div
@@ -379,6 +414,7 @@ export default {
     data() {
         return {
             dependants: [{}], // Start with one empty dependant
+            selectedPetOption: '',
         };
     },
     methods: {
