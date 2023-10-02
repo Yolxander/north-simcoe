@@ -85,9 +85,9 @@
           <!-- Name Field -->
           <div class="relative z-0 w-full mb-4 group">
               <input
-                  v-model="form.applicant1_name"
+                  v-model="form.applicant1.name"
                   type="text"
-                  name="applicant1_name"
+                  name="name"
                   id="name"
                   class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer"
                   placeholder=" "
@@ -102,9 +102,9 @@
           <!-- Current Address Field -->
           <div class="relative z-0 w-full mb-4 group">
               <input
-                  v-model="form.applicant1_current_address"
+                  v-model="form.applicant1.current_address"
                   type="text"
-                  name="applicant1_current_address"
+                  name="current_address"
                   id="applicant1_current_address"
                   class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer"
                   placeholder=" "
@@ -119,9 +119,9 @@
           <!-- Home Phone Field -->
           <div class="relative z-0 w-full mb-4 group">
               <input
-                  v-model="form.applicant1_home_phone"
+                  v-model="form.applicant1.home_phone"
                   type="tel"
-                  name="applicant1_home_phone"
+                  name="home_phone"
                   id="applicant1_home_phone"
                   class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer"
                   placeholder=" "
@@ -136,10 +136,10 @@
           <!-- Cell Phone Field -->
           <div class="relative z-0 w-full mb-4 group">
               <input
-                  v-model="form.applicant1_cell_phone"
+                  v-model="form.applicant1.cellphone"
                   type="tel"
-                  name="applicant1_cell_phone"
-                  id="applicant1_cell_phone"
+                  name="cellphone"
+                  id="applicant1_cellphone"
                   class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer"
                   placeholder=" "
                   required
@@ -153,9 +153,9 @@
           <!-- Email Address Field -->
           <div class="relative z-0 w-full mb-4 group">
               <input
-                  v-model="form.applicant1_email_address"
+                  v-model="form.applicant1.email_address"
                   type="email"
-                  name="applicant1_email_address"
+                  name="email_address"
                   id="applicant1_email_address"
                   class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer"
                   placeholder=" "
@@ -170,9 +170,9 @@
           <!-- Date of Birth Field -->
           <div class="relative z-0 w-full mb-4 group">
               <input
-                  v-model="form.applicant1_date_of_birth"
+                  v-model="form.applicant1.date_of_birth"
                   type="date"
-                  name="applicant1_date_of_birth"
+                  name="date_of_birth"
                   id="applicant1_date_of_birth"
                   class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer"
                   required
@@ -186,9 +186,9 @@
           <!-- S.I.N. Field -->
           <div class="relative z-0 w-full mb-4 group">
               <input
-                  v-model="form.applicant1_sin"
+                  v-model="form.applicant1.sin"
                   type="text"
-                  name="applicant1_sin"
+                  name="sin"
                   id="applicant1_sin"
                   class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer"
                   placeholder=" "
@@ -201,16 +201,16 @@
           </div>
 
 
-          <!-- Applicant #1--------------------------------------------->
+          <!-- Applicant #2--------------------------------------------->
           <p class="mb-4 text-[20px] text-gray-700">
               Applicant #2:
           </p>
           <!-- Name Field -->
           <div class="relative z-0 w-full mb-4 group">
               <input
-                  v-model="form.applicant2_name"
+                  v-model="form.applicant2.name"
                   type="text"
-                  name="applicant2_name"
+                  name="name"
                   id="applicant2_name"
                   class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer"
                   placeholder=" "
@@ -225,9 +225,9 @@
           <!-- Current Address Field -->
           <div class="relative z-0 w-full mb-4 group">
               <input
-                  v-model="form.applicant2_current_address"
+                  v-model="form.applicant2.current_address"
                   type="text"
-                  name="applicant2_current_address"
+                  name="current_address"
                   id="applicant2_current_address"
                   class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer"
                   placeholder=" "
@@ -242,7 +242,7 @@
           <!-- Home Phone Field -->
           <div class="relative z-0 w-full mb-4 group">
               <input
-                  v-model="form.applicant2_home_phone"
+                  v-model="form.applicant2.home_phone"
                   type="tel"
                   name="home_phone"
                   id="home_phone"
@@ -259,9 +259,9 @@
           <!-- Cell Phone Field -->
           <div class="relative z-0 w-full mb-4 group">
               <input
-                  v-model="form.applicant2_cell_phone"
+                  v-model="form.applicant2.cellphone"
                   type="tel"
-                  name="applicant2_cell_phone"
+                  name="cellphone"
                   id="applicant2_cell_phone"
                   class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer"
                   placeholder=" "
@@ -276,9 +276,9 @@
           <!-- Email Address Field -->
           <div class="relative z-0 w-full mb-4 group">
               <input
-                  v-model="form.applicant2_email_address"
+                  v-model="form.applicant2.email_address"
                   type="email"
-                  name="applicant2_email_address"
+                  name="email_address"
                   id="applicant2_email_address"
                   class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer"
                   placeholder=" "
@@ -293,9 +293,9 @@
           <!-- Date of Birth Field -->
           <div class="relative z-0 w-full mb-4 group">
               <input
-                  v-model="form.applicant2_date_of_birth"
+                  v-model="form.applicant2.date_of_birth"
                   type="date"
-                  name="applicant2_date_of_birth"
+                  name="date_of_birth"
                   id="applicant2_date_of_birth"
                   class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer"
                   required
@@ -309,9 +309,9 @@
           <!-- S.I.N. Field -->
           <div class="relative z-0 w-full mb-4 group">
               <input
-                  v-model="form.applicant2_sin"
+                  v-model="form.applicant2.sin"
                   type="text"
-                  name="applicant2_sin"
+                  name="sin"
                   id="applicant2_sin"
                   class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer"
                   placeholder=" "
@@ -322,7 +322,6 @@
                   class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
               >S.I.N.</label>
           </div>
-
 
 
           <!-- Dependants Section ------------------------------------->
@@ -393,6 +392,7 @@
           <!-- Please describe your pet Field -->
           <div v-if="selectedPetOption === 'yes'" class="relative z-0 w-full mb-4 group">
             <textarea
+                v-model="form.pet_description"
                 name="pet_description"
                 id="pet_description"
                 rows="2"
@@ -476,7 +476,6 @@
                   >Province</label>
               </div>
 
-
               <!-- Postal Code Field -->
               <div class="relative z-0 w-full mb-4 group">
                   <input
@@ -553,7 +552,7 @@
               <!-- City Field -->
               <div class="relative z-0 w-full mb-4 group">
                   <input
-                      v-model="form.city"
+                      v-model="form.previous_addresses[0].city"
                       type="text"
                       name="city"
                       id="city"
@@ -570,7 +569,7 @@
               <!-- Province Field -->
               <div class="relative z-0 w-full mb-4 group">
                   <input
-                      v-model="form.province"
+                      v-model="form.previous_addresses[0].province"
                       type="text"
                       name="province"
                       id="province"
@@ -585,11 +584,27 @@
               </div>
 
               <!-- Include the Postal Code Field code from the previous response -->
+              <!-- Postal Code Field -->
+              <div class="relative z-0 w-full mb-4 group">
+                  <input
+                      v-model="form.previous_addresses[0].postal_code"
+                      type="text"
+                      name="postal_code"
+                      id="postal_code"
+                      title="Please enter a valid Canadian postal code (e.g., A1A 1A1)"
+                      class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer"
+                      placeholder=" "
+                  />
+                  <label
+                      for="postal_code"
+                      class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                  >Postal Code</label>
+              </div>
 
               <!-- How Long at This Address Field -->
               <div class="relative z-0 w-full mb-4 group">
                   <input
-                      v-model="form.duration_at_address"
+                      v-model="form.previous_addresses[0].duration_at_address"
                       type="text"
                       name="duration_at_address"
                       id="duration_at_address"
@@ -606,7 +621,7 @@
               <!-- Landlord/Lessor Name Field -->
               <div class="relative z-0 w-full mb-4 group">
                   <input
-                      v-model="form.landlord_name"
+                      v-model="form.previous_addresses[0].landlord_name"
                       type="text"
                       name="landlord_name"
                       id="landlord_name"
@@ -623,7 +638,7 @@
               <!-- Landlord/Lessor Phone # Field -->
               <div class="relative z-0 w-full mb-4 group">
                   <input
-                      v-model="form.landlord_phone"
+                      v-model="form.previous_addresses[0].landlord_phone"
                       type="tel"
                       name="landlord_phone"
                       id="landlord_phone"
@@ -645,7 +660,7 @@
               <!-- City Field -->
               <div class="relative z-0 w-full mb-4 group">
                   <input
-                      v-model="form.city2"
+                      v-model="form.previous_addresses[1].city"
                       type="text"
                       name="city2"
                       id="city2"
@@ -662,7 +677,7 @@
               <!-- Province Field -->
               <div class="relative z-0 w-full mb-4 group">
                   <input
-                      v-model="form.province2"
+                      v-model="form.previous_addresses[1].province"
                       type="text"
                       name="province2"
                       id="province2"
@@ -677,11 +692,26 @@
               </div>
 
               <!-- Include the Postal Code Field code from the previous response with appropriate modifications -->
-
+              <!-- Postal Code Field -->
+              <div class="relative z-0 w-full mb-4 group">
+                  <input
+                      v-model="form.previous_addresses[1].postal_code"
+                      type="text"
+                      name="postal_code"
+                      id="postal_code"
+                      title="Please enter a valid Canadian postal code (e.g., A1A 1A1)"
+                      class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer"
+                      placeholder=" "
+                  />
+                  <label
+                      for="postal_code"
+                      class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                  >Postal Code</label>
+              </div>
               <!-- How Long at This Address Field -->
               <div class="relative z-0 w-full mb-4 group">
                   <input
-                      v-model="form.duration_at_address2"
+                      v-model="form.previous_addresses[1].duration_at_address"
                       type="text"
                       name="duration_at_address2"
                       id="duration_at_address2"
@@ -698,7 +728,7 @@
               <!-- Landlord/Lessor Name Field -->
               <div class="relative z-0 w-full mb-4 group">
                   <input
-                      v-model="form.landlord_name2"
+                      v-model="form.previous_addresses[1].landlord_name"
                       type="text"
                       name="landlord_name2"
                       id="landlord_name2"
@@ -715,7 +745,7 @@
               <!-- Landlord/Lessor Phone # Field -->
               <div class="relative z-0 w-full mb-4 group">
                   <input
-                      v-model="form.landlord_phone2"
+                      v-model="form.previous_addresses[1].landlord_phone"
                       type="tel"
                       name="landlord_phone2"
                       id="landlord_phone2"
@@ -772,6 +802,8 @@
 </template>
 
 <script>
+import { jsPDF } from "jspdf";
+import "jspdf-autotable"
 export default {
   name: "FormsList",
     data() {
@@ -788,7 +820,7 @@ export default {
                     name: '',
                     current_address: '',
                     home_phone: '',
-                    cell_phone: '',
+                    cellphone: '',
                     email_address: '',
                     date_of_birth: '',
                     sin: ''
@@ -797,7 +829,7 @@ export default {
                     name: '',
                     current_address: '',
                     home_phone: '', // Note: Adjust the field name if necessary
-                    cell_phone: '',
+                    cellphone: '',
                     email_address: '',
                     date_of_birth: '',
                     sin: ''
@@ -845,21 +877,80 @@ export default {
             this.currentStep--; // Decrement current step when Back is clicked
         },
         submitForm() {
-            console.log('Form Data:', this.form);
-            this.downloadFormData()
+            console.log('Application Form:', this.form);
+            this.generatePDF(); // Call the PDF generation method
+        },
+        generatePDF() {
+            const doc = new jsPDF({
+                orientation: "portrait",
+                unit: "in",
+                format: "letter"
+            });
+
+            // Title
+            const applicantName = this.form.applicant1 ? this.form.applicant1.name : 'Application Form';
+            const title = applicantName + ' Application Form';
+
+            // Title
+            doc.setFontSize(16).text(title, 0.5, 1.0);
+            // Line under title
+            doc.setLineWidth(0.01).line(0.5, 1.1, 8.0, 1.1);
+
+            const body = this.prepareBody(this.form);
+            doc.autoTable({
+                columns: [
+                    { title: "Field", dataKey: "field" },
+                    { title: "Content", dataKey: "content" }
+                ],
+                body,
+                margin: { left: 0.5, top: 1.25 }
+            });
+
+            // Optional: Add more text, etc.
+            const fileName = applicantName.replace(/ /g, ' ') + ' Application Form.pdf'; // replace spaces with underscores
+            doc.save(fileName);
         },
 
-        downloadFormData() {
-            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(this.form));
-            const downloadAnchorNode = document.createElement('a');
-            downloadAnchorNode.setAttribute("href", dataStr);
-            downloadAnchorNode.setAttribute("download", "formData.json");
-            document.body.appendChild(downloadAnchorNode); // required for firefox
-            downloadAnchorNode.click();
-            downloadAnchorNode.remove();
+        prepareBody(data, prefix = '') {
+            let body = [];
+
+            for (const key in data) {
+                if (Object.hasOwnProperty.call(data, key)) {
+                    const value = data[key];
+                    let fullKey = prefix ? `${prefix}.${key}` : key;
+
+                    // Make replacements here
+                    fullKey = fullKey.replace('applicant1.', 'Applicant 1: ');
+                    fullKey = fullKey.replace('applicant2.', 'Applicant 2: ');
+                    fullKey = fullKey.replace('previous_addresses[0].', 'Previous Addresses (Applicant 1): ');
+                    fullKey = fullKey.replace('previous_addresses[1].', 'Previous Addresses (Applicant 2): ');
+
+                    if (value && typeof value === 'object') {
+                        if (Array.isArray(value)) {
+                            value.forEach((item, index) => {
+                                body = body.concat(this.prepareBody(item, `${fullKey}[${index}]`));
+                            });
+                        } else {
+                            body = body.concat(this.prepareBody(value, fullKey));
+                        }
+                    } else {
+                        body.push({ field: fullKey + ':', content: value }); // Added ':' after the field
+                    }
+                }
+            }
+
+            return body;
         }
+
+
     }
+
 };
 </script>
 
-<style></style>
+<style scoped>
+.padding {
+    padding: 10px;
+}
+</style>
+
