@@ -903,7 +903,14 @@ export default {
                     { title: "Content", dataKey: "content" }
                 ],
                 body,
-                margin: { left: 0.5, top: 1.25 }
+                margin: { left: 0.5, top: 1.25 },
+                didDrawCell: (data) => {
+                    if (data.section === 'body' && data.cell.raw.isHeader) {
+                        doc.setFont("helvetica", "bold");
+                    } else {
+                        doc.setFont("helvetica"); // You might need to reset to the normal style
+                    }
+                }
             });
 
             // Optional: Add more text, etc.
@@ -918,6 +925,11 @@ export default {
                 if (Object.hasOwnProperty.call(data, key)) {
                     const value = data[key];
                     let fullKey = prefix ? `${prefix}.${key}` : key;
+
+                    // Check if this is the first previous address and insert header if it is
+                    if (fullKey === 'previous_addresses[0].city') {
+                        body.push({ field: 'Previous Addr #1:', content: '', isHeader: true }); // Added isHeader: true
+                    }
 
                     // Make replacements here
                     fullKey = fullKey.replace('applicant1.', 'Applicant 1: ');
@@ -941,6 +953,7 @@ export default {
 
             return body;
         }
+
 
 
     }
