@@ -11,7 +11,7 @@
       </p>
       <hr class="w-10 md:w-48 h-1 my-4 border-0 rounded bg-white" />
       <h1 class="text-4xl md:text-7xl font-bold mb-4 text-white">
-        Our Company
+        {{ hero.title }}
       </h1>
     </div>
   </div>
@@ -19,7 +19,13 @@
 
 <script>
 export default {
-  name: "HeroHome",
+  name: "HeroGlobal",
+  props: {
+    hero: {
+      type: Object,
+      required: true,
+    },
+  },
 };
 </script>
 
