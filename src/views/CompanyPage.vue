@@ -1,5 +1,5 @@
 <template>
-  <HeroGlobal />
+  <HeroGlobal  hero=""/>
   <LayoutTwoSections :intro="intro" />
   <LayoutTwoSections :intro="serviceAreas" />
   <ContactUs />
