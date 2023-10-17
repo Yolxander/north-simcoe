@@ -17,7 +17,7 @@
         <p
           class="text-2xl font-extrabold mb-4 text-brown font-libre-baskerville"
         >
-          <span class="mr-4 text-teal"
+          <span class="mr-4 text-tealdark"
             ><font-awesome-icon :icon="['fas', 'envelope']"
           /></span>
           <a href="mailto:info@northsimcoe.com">info@northsimcoe.com</a>

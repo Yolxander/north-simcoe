@@ -1,5 +1,12 @@
 <template>
   <HeroHome />
+  <p
+    class="text-4xl font-extrabold text-brown font-libre-baskerville p-40 max-w-screen-xl"
+  >
+    Your investment is our priority. Whether you're a landlord looking for
+    professional property management, or a tenant looking to rent, North Simcoe
+    Property Management has you covered.
+  </p>
   <AboutUsHome />
   <WhatWeDoHome />
   <ServiceAriaHome />
