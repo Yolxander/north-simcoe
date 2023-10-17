@@ -1,11 +1,11 @@
 <template>
   <form
-          class="contact-us max-w-screen-xl p-10 md:p-32 mx-auto flex flex-col flex-wrap md:flex-nowrap md:items-center md:space-x-8 md:gap-5"
+        class="contact-us max-w-screen-xl p-10 md:p-32 mx-auto flex flex-col flex-wrap md:flex-nowrap md:items-center md:space-x-8 md:gap-5"
           @submit.prevent="submitForm"
   >
 
 
-    <div v-if="currentStep === 1" class="w-full relative">
+    <div v-if="currentStep === 1 && showForm" class="w-full relative">
       <div
         class="flex flex-col mb-2 z-10 relative bg-white rounded-lg shadow-md p-4 border-4 border-solid border-teal"
       >
@@ -75,8 +75,6 @@
                   class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
               >Initial Monthly Rent will be</label>
           </div>
-
-
 
           <!-- Applicant #1--------------------------------------------->
           <p class="mb-4 text-[20px] text-gray-700">
@@ -417,7 +415,7 @@
         </button>
     </div>
 
-      <div v-if="currentStep === 2" class="w-full relative">
+      <div v-if="currentStep === 2 && showForm" class="w-full relative">
           <div
               class="flex flex-col mb-2 z-10 relative bg-white rounded-lg shadow-md p-4 border-4 border-solid border-teal"
           >
@@ -798,18 +796,28 @@
               Submit
           </button>
       </div>
+      <transition name="fade" class="transition" @before-enter="log" @enter="log">
+          <success-component v-if="showSuccessComponent" />
+      </transition>
+
   </form>
+
 </template>
 
-<script>
+<script>~``
 import { jsPDF } from "jspdf";
+import emailjs from '@emailjs/browser';
 import "jspdf-autotable"
+import SuccessComponent from "@/components/SuccessComponent.vue";
 export default {
   name: "FormsList",
+    components: {SuccessComponent},
     data() {
         return {
             dependants: [{}], // Start with one empty dependant
             selectedPetOption: '',
+            showSuccessComponent: false,
+            showForm: true,
             currentStep: 1,
             form: {
                 address: '',
@@ -867,6 +875,9 @@ export default {
         };
     },
     methods: {
+        log() {
+            console.log('Transition event triggered!');
+        },
         addDependant() {
             this.dependants.push({});
         },
@@ -878,7 +889,10 @@ export default {
         },
         submitForm() {
             console.log('Application Form:', this.form);
-            this.generatePDF(); // Call the PDF generation method
+            // this.generatePDF(); // Call the PDF generation method
+            this.submitEmail();
+            // this.showForm = false;
+            // this.showSuccessComponent = true;
         },
         generatePDF() {
             const doc = new jsPDF({
@@ -913,9 +927,7 @@ export default {
                 }
             });
 
-            // Optional: Add more text, etc.
-            const fileName = applicantName.replace(/ /g, ' ') + ' Application Form.pdf'; // replace spaces with underscores
-            doc.save(fileName);
+            return doc;
         },
 
         prepareBody(data, prefix = '') {
@@ -952,18 +964,60 @@ export default {
             }
 
             return body;
-        }
+        },
+
+        submitEmail() {
+            const companyEmail = 'jacacanada@gmail.com';
+            const applicantName = this.form.applicant1 ? this.form.applicant1.name : 'Application Form';
+            const fileName = applicantName.replace(/ /g, '_') + '_Application_Form.pdf';
+
+            // Generate the PDF and convert it to a base64-encoded string
+            const doc = this.generatePDF();
+            const pdfData = doc.output('datauristring').split(',')[1];
+
+            // Send the email with the PDF as an attachment
+            emailjs.send('service_v98lvdp', 'template_vyzsaql', {
+                email: companyEmail,
+                attachment: pdfData,
+                fileName: fileName
+            }, 'NxLLnhlEW3KDj2zPO')
+                .then((result) => {
+                    console.log('SUCCESS!', result.text);
+                    console.log('INFO', companyEmail);
+                })
+                .catch((error) => {
+                    console.log('FAILED...', error.text);
+                });
+
+            // Submit logic
+            this.submitted = true;
+
+            // Reset after delay
+            setTimeout(() => {
+                this.submitted = false;
+                // this.email = ''; // No need to reset the email here
+                this.showSuccess()
+            }, 2000);
+        },
 
 
-
+        showSuccess() {
+            this.showForm = false;
+            this.showSuccessComponent = true;
+        },
     }
 
 };
 </script>
 
 <style scoped>
-.padding {
-    padding: 10px;
+.transition > div.fade-enter-active,
+.transition > div.fade-leave-active {
+    transition: opacity 2s;
+}
+.transition > div.fade-enter,
+.transition > div.fade-leave-to {
+    opacity: 0;
 }
 </style>
 
