@@ -1,16 +1,27 @@
 <template>
   <HeroHome />
-  <LayoutTwoSections :intro="intro" />
-  <AboutUsHome />
-  <WhatWeDoHome />
-  <ServiceAriaHome />
-  <TestimonialsHome />
-  <ContactUs />
+  <ObserverComponent classToToggle="fadeInTop" playOnce="true">
+    <LayoutTwoSections :intro="intro" />
+  </ObserverComponent>
+  <ObserverComponent classToToggle="fadeInRight" playOnce="true">
+    <AboutUsHome />
+  </ObserverComponent>
+  <ObserverComponent classToToggle="fadeInLeft" playOnce="true">
+    <WhatWeDoHome />
+  </ObserverComponent>
+  <ObserverComponent classToToggle="fadeInRight" playOnce="true">
+    <ServiceAriaHome />
+  </ObserverComponent>
+  <ObserverComponent classToToggle="fadeInLeft" playOnce="true">
+    <TestimonialsHome />
+  </ObserverComponent>
+  <ObserverComponent classToToggle="fadeInBottom" playOnce="true">
+    <ContactUs />
+  </ObserverComponent>
 </template>
 
 <script>
 import "tailwindcss/tailwind.css";
-// import { gsapSectionMixin } from "../mixins/gsapSectionMixin";
 import HeroHome from "../components/HeroHome.vue";
 import AboutUsHome from "../components/AboutUsHome.vue";
 import WhatWeDoHome from "../components/WhatWeDoHome.vue";
@@ -18,6 +29,7 @@ import ServiceAriaHome from "../components/ServiceAriaHome.vue";
 import TestimonialsHome from "../components/TestimonialsHome.vue";
 import LayoutTwoSections from "../components/LayoutTwoSections.vue";
 import ContactUs from "../components/ContactUs.vue";
+import ObserverComponent from "../components/IntersectionObserver.vue";
 
 export default {
   name: "HomePage",
@@ -29,6 +41,7 @@ export default {
     ServiceAriaHome,
     TestimonialsHome,
     ContactUs,
+    ObserverComponent,
   },
   data() {
     return {
@@ -44,19 +57,6 @@ export default {
       ],
     };
   },
-  // mixins: [gsapSectionMixin],
-  // data() {
-  //   return {
-  //     testimonials: [
-  //       {
-  //         content:
-  //           "Lorem ipsum dolor sit amet, North Simcoe elit. Similique et ipsum accusamus perferendis iusto ullam a, quidem accusantium? Nostrum est harum eius optio quod odio fugiat eaqueipsa obcaecati!",
-  //         author: "Micheal Gough",
-  //         occupation: "CEO at Google",
-  //       },
-  //     ],
-  //   };
-  // },
 };
 </script>
 
