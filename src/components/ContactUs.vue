@@ -12,12 +12,12 @@
       >
         Ready to start?
       </h3>
-      <p>Lorem ipsum dolor sit amet.</p>
+      <p class="font-source-serif">Reach out to us now!</p>
       <div class="md:mt-24">
         <p
           class="text-2xl font-extrabold mb-4 text-brown font-libre-baskerville"
         >
-          <span class="mr-4 text-teal"
+          <span class="mr-4 text-tealdark"
             ><font-awesome-icon :icon="['fas', 'envelope']"
           /></span>
           <a href="mailto:info@northsimcoe.com">info@northsimcoe.com</a>
