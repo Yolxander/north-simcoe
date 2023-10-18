@@ -802,16 +802,17 @@
 
   </form>
 
+
 </template>
 
 <script>~``
 import { jsPDF } from "jspdf";
 import emailjs from '@emailjs/browser';
 import "jspdf-autotable"
-import SuccessComponent from "@/components/SuccessComponent.vue";
+// import SuccessComponent from "@/components/SuccessComponent.vue";
 export default {
   name: "FormsList",
-    components: {SuccessComponent},
+    // components: {SuccessComponent},
     data() {
         return {
             dependants: [{}], // Start with one empty dependant
@@ -889,17 +890,19 @@ export default {
         },
         submitForm() {
             console.log('Application Form:', this.form);
-            // this.generatePDF(); // Call the PDF generation method
-            this.submitEmail();
-            // this.showForm = false;
-            // this.showSuccessComponent = true;
+            this.submitEmail()
+                .then(() => {
+                    this.showForm = false;
+                    this.showSuccessComponent = true;
+                });
         },
         generatePDF() {
-            const doc = new jsPDF({
-                orientation: "portrait",
-                unit: "in",
-                format: "letter"
-            });
+            return new Promise((resolve) => {
+                    const doc = new jsPDF({
+                        orientation: "portrait",
+                        unit: "in",
+                        format: "letter"
+                    });
 
             // Title
             const applicantName = this.form.applicant1 ? this.form.applicant1.name : 'Application Form';
@@ -927,9 +930,13 @@ export default {
                 }
             });
 
-            return doc;
-        },
+            doc.setProperties({
+                title: "Application Form"
+            });
 
+                resolve(doc.output('datauristring'));
+            });
+        },
         prepareBody(data, prefix = '') {
             let body = [];
 
@@ -967,37 +974,30 @@ export default {
         },
 
         submitEmail() {
-            const companyEmail = 'jacacanada@gmail.com';
-            const applicantName = this.form.applicant1 ? this.form.applicant1.name : 'Application Form';
-            const fileName = applicantName.replace(/ /g, '_') + '_Application_Form.pdf';
+            return new Promise((resolve, reject) => {
+                const companyEmail = 'jacacanada@gmail.com';
+                const applicantName = this.form.applicant1 ? this.form.applicant1.name : 'Application Form';
+                const fileName = applicantName.replace(/ /g, '_') + '_Application_Form.pdf';
 
-            // Generate the PDF and convert it to a base64-encoded string
-            const doc = this.generatePDF();
-            const pdfData = doc.output('datauristring').split(',')[1];
+                this.generatePDF().then(dataUrl => {
+                    const pdfData = dataUrl.split(',');
 
-            // Send the email with the PDF as an attachment
-            emailjs.send('service_v98lvdp', 'template_vyzsaql', {
-                email: companyEmail,
-                attachment: pdfData,
-                fileName: fileName
-            }, 'NxLLnhlEW3KDj2zPO')
-                .then((result) => {
-                    console.log('SUCCESS!', result.text);
-                    console.log('INFO', companyEmail);
-                })
-                .catch((error) => {
-                    console.log('FAILED...', error.text);
+                    emailjs.send('service_v98lvdp', 'template_vyzsaql', {
+                        email: companyEmail,
+                        attachment: pdfData,
+                        fileName: fileName
+                    }, 'NxLLnhlEW3KDj2zPO')
+                        .then((result) => {
+                            console.log('SUCCESS!', result.text);
+                            console.log('INFO', companyEmail);
+                            resolve(); // Resolve the promise when email is sent successfully
+                        })
+                        .catch((error) => {
+                            console.log('FAILED...', error.text);
+                            reject(error); // Reject the promise on error
+                        });
                 });
-
-            // Submit logic
-            this.submitted = true;
-
-            // Reset after delay
-            setTimeout(() => {
-                this.submitted = false;
-                // this.email = ''; // No need to reset the email here
-                this.showSuccess()
-            }, 2000);
+            });
         },
 
 
