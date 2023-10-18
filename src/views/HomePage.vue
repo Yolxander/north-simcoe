@@ -1,12 +1,6 @@
 <template>
   <HeroHome />
-  <p
-    class="text-4xl font-extrabold text-brown font-libre-baskerville p-40 max-w-screen-xl"
-  >
-    Your investment is our priority. Whether you're a landlord looking for
-    professional property management, or a tenant looking to rent, North Simcoe
-    Property Management has you covered.
-  </p>
+  <LayoutTwoSections :intro="intro" />
   <AboutUsHome />
   <WhatWeDoHome />
   <ServiceAriaHome />
@@ -22,17 +16,33 @@ import AboutUsHome from "../components/AboutUsHome.vue";
 import WhatWeDoHome from "../components/WhatWeDoHome.vue";
 import ServiceAriaHome from "../components/ServiceAriaHome.vue";
 import TestimonialsHome from "../components/TestimonialsHome.vue";
+import LayoutTwoSections from "../components/LayoutTwoSections.vue";
 import ContactUs from "../components/ContactUs.vue";
 
 export default {
   name: "HomePage",
   components: {
     HeroHome,
+    LayoutTwoSections,
     AboutUsHome,
     WhatWeDoHome,
     ServiceAriaHome,
     TestimonialsHome,
     ContactUs,
+  },
+  data() {
+    return {
+      intro: [
+        {
+          title: "CLIENT FOCUS",
+          subtitle: "Your investment is our priority.",
+          textleft: "",
+          textrightP1: "",
+          textrightP2:
+            "Whether you're a landlord looking for professional property management, or a tenant looking to rent, North Simcoe Property Management has you covered.",
+        },
+      ],
+    };
   },
   // mixins: [gsapSectionMixin],
   // data() {
