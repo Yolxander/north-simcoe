@@ -20,13 +20,13 @@
       <h3
         class="text-3xl font-extrabold mb-4 text-brown font-libre-baskerville"
       >
-        We are lorem ipsum dolor sit amet.
+        Stress-Free Landlord Solutions.
       </h3>
       <p class="font-source-serif">
-        North Simcoe Property Management is a full service property management
-        company located in Simcoe County. We work with landlords by helping them
-        enjoy all the benefits of owning investment properties by taking away
-        all the stress and hassles of dealing with day to day.
+        We are a full service property management company located in Simcoe
+        County. We work with landlords by helping them enjoy all the benefits of
+        owning investment properties by taking away all the stress and hassles
+        of dealing with day to day.
       </p>
       <router-link
         to="/our-company"
