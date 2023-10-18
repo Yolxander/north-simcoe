@@ -20,7 +20,7 @@
       <h3
         class="text-3xl font-extrabold mb-4 text-brown font-libre-baskerville"
       >
-        Stress-Free Landlord Solutions.
+        Your Simcoe Rental Experts.
       </h3>
       <p class="font-source-serif">
         We are a full service property management company located in Simcoe
@@ -31,7 +31,7 @@
       <router-link
         to="/our-company"
         type="button"
-        class="text-brown bg-teal font-bold rounded-full text-sm px-5 py-2.5 text-center mt-3 hover:bg-tealdark hover:text-white focus:outline-none focus:ring-4 focus:ring-tealdark"
+        class="text-brown bg-teal hover:bg-tealdark hover:text-white focus:ring-4 focus:outline-none focus:ring-teal font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
       >
         READ MORE
       </router-link>

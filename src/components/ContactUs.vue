@@ -12,7 +12,7 @@
       >
         Ready to start?
       </h3>
-      <p>Lorem ipsum dolor sit amet.</p>
+      <p class="font-source-serif">Reach out to us now!</p>
       <div class="md:mt-24">
         <p
           class="text-2xl font-extrabold mb-4 text-brown font-libre-baskerville"
