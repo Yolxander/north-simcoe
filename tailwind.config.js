@@ -8,8 +8,8 @@ module.exports = {
         tealdark: "#008080",
       },
       fontFamily: {
-        "source-serif": ['"Source Serif Pro"', "serif"],
-        "libre-baskerville": ['"Libre Baskerville"', "serif"],
+        "open-sans": ["'Open Sans', sans-serif"],
+        "archivo": ["'Archivo', sans-serif"],
       },
     },
   },

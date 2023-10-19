@@ -1,11 +1,13 @@
 <template>
   <div class="max-w-screen-xl p-10 md:p-28 md:text-end">
-    <h2 class="text-sm font-extrabold mb-4 text-brown font-libre-baskerville">
+    <h2
+      class="text-sm font-semibold mb-4 text-brown font-semibold font-archivo"
+    >
       TESTIMONIALS
     </h2>
     <hr class="w-10 h-1 my-4 border-0 rounded bg-teal mx-0 md:ml-auto" />
 
-    <h3 class="text-3xl font-extrabold mb-4 text-brown font-libre-baskerville">
+    <h3 class="text-3xl mb-4 text-brown font-semibold font-archivo">
       What our clients say about us.
     </h3>
   </div>
@@ -32,7 +34,9 @@
           />
         </svg>
         <blockquote>
-          <p class="text-2xl italic font-medium text-brown dark:text-white">
+          <p
+            class="text-2xl italic font-medium text-brown dark:text-white font-open-sans"
+          >
             "Lorem ipsum dolor sit amet, North Simcoe elit. Similique et ipsum
             accusamus ut perferendis iusto ullam a, quidem accusantium? Nostrum
             est harum eius optio quod odio fugiat eaque ipsa obcaecati!"
@@ -48,10 +52,11 @@
           <div
             class="flex items-center divide-x-2 divide-teal dark:divide-teal"
           >
-            <cite class="pr-3 font-medium text-brown dark:text-white"
+            <cite
+              class="pr-3 font-medium text-brown dark:text-white font-open-sans"
               >Micheal Gough</cite
             >
-            <cite class="pl-3 text-sm text-brown dark:text-white"
+            <cite class="pl-3 text-sm text-brown dark:text-white font-open-sans"
               >CEO at Google</cite
             >
           </div>

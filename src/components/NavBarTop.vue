@@ -6,20 +6,11 @@
       class="w-full max-w-screen-xl flex flex-wrap items-center justify-between md:p-4 md:justify-end"
     >
       <div
-        class="nav-container flex w-full  items-center md:space-x-8 md:w-auto md:pl-2 md:border md:border-transparent md:border-solid md:border-1 md:backdrop-filter md:backdrop-blur-sm md:rounded"
+        class="nav-container flex w-full items-center justify-between px-10 p-4 md:space-x-8 md:w-auto md:pl-2 md:border md:border-transparent md:border-solid md:border-1 md:backdrop-filter md:backdrop-blur-sm md:rounded"
       >
+        <!--          <SocialIcons v-if="!showPhoneNumber" id="socials"/>-->
 
-          <!-- Logo -->
-          <router-link to="/" class="flex items-center block md:hidden">
-              <img
-                      src="../assets/logo-text.png"
-                      class="max-w-[200px]"
-                      alt="North Simcoe Logo"
-              />
-          </router-link>
-<!--          <SocialIcons v-if="!showPhoneNumber" id="socials"/>-->
-
-        <p v-if="showPhoneNumber"  class="text-brown">
+        <p v-if="showPhoneNumber" class="text-brown">
           <a href="tel:+16475001747" class="flex items-center">
             <svg
               class="svg-inline--fa fa-phone text-3xl"
@@ -65,13 +56,12 @@
         </div>
         <div
           v-show="isMenuOpen"
-          class="absolute h-screen inset-0 m-0 md:top-[-20px] md:right-[-45px] md:bottom-0 md:left-0 md:text-2xl bg-white backdrop-filter backdrop-blur-sm rounded z-5 flex flex-col items-start justify-center font-libre-baskerville p-4"
+          class="absolute h-screen inset-0 m-0 md:top-[-20px] md:right-[-45px] md:bottom-0 md:left-0 md:text-2xl bg-white backdrop-filter backdrop-blur-sm rounded z-5 flex flex-col items-start justify-center font-archivo p-4"
         >
           <a href="/" class="block text-brown mb-2">HOME</a>
           <a href="/our-company" class="block text-brown mb-2">OUR COMPANY</a>
           <a href="/contact" class="block text-brown">CONTACT</a>
         </div>
-
       </div>
     </div>
   </nav>
@@ -84,52 +74,49 @@
 // import LayoutTwoSections from "@/components/LayoutTwoSections.vue";
 export default {
   name: "NavBarTop",
-    // components: {SocialIcons},
-    props: ['currentRoute'],
+  // components: {SocialIcons},
+  props: ["currentRoute"],
   data() {
     return {
       isMenuOpen: false,
-        showPhoneNumber: true,
+      showPhoneNumber: true,
     };
   },
-    created() {
-        this.handleRouteChange()
+  created() {
+    this.handleRouteChange();
+  },
+
+  watch: {
+    currentRoute() {
+      this.handleRouteChange();
     },
+  },
 
-
-    watch: {
-        currentRoute() {
-            this.handleRouteChange()
-        }
-    },
-
-    methods: {
+  methods: {
     toggleMenu() {
       this.isMenuOpen = !this.isMenuOpen;
     },
-      handleRouteChange() {
-          if(this.currentRoute=== '/'){
-              this.showPhoneNumber = false
-          } else {
-              this.showPhoneNumber = true
-          }
+    handleRouteChange() {
+      if (this.currentRoute === "/") {
+        this.showPhoneNumber = false;
+      } else {
+        this.showPhoneNumber = true;
       }
+    },
   },
-
 };
 </script>
 
 <style>
-
-.nav-container{
-    justify-content: center;
+.nav-container {
+  justify-content: center;
 }
 @media screen and (max-width: 612px) {
-    #socials{
-        display: none;
-    }
-    .nav-container{
-        justify-content: center;
-    }
+  #socials {
+    display: none;
+  }
+  .nav-container {
+    justify-content: center;
+  }
 }
 </style>

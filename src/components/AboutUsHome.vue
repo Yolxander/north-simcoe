@@ -13,16 +13,14 @@
       ></div>
     </div>
     <div class="py-10 md:py-0 md:w-1/2">
-      <h2 class="text-sm font-extrabold mb-4 text-brown font-libre-baskerville">
+      <h2 class="text-sm font-semibold mb-4 text-brown font-archivo">
         ABOUT US
       </h2>
       <hr class="w-10 h-1 my-4 border-0 rounded bg-teal" />
-      <h3
-        class="text-3xl font-extrabold mb-4 text-brown font-libre-baskerville"
-      >
+      <h3 class="text-3xl font-semibold mb-4 text-brown font-archivo">
         Your Simcoe Rental Experts.
       </h3>
-      <p class="font-source-serif">
+      <p class="font-open-sans text-2xl text-brown">
         We are a full service property management company located in Simcoe
         County. We work with landlords by helping them enjoy all the benefits of
         owning investment properties by taking away all the stress and hassles
@@ -31,7 +29,7 @@
       <router-link
         to="/our-company"
         type="button"
-        class="text-brown bg-teal hover:bg-tealdark hover:text-white focus:ring-4 focus:outline-none focus:ring-teal font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+        class="text-brown bg-teal hover:bg-tealdark hover:text-white focus:ring-4 focus:outline-none focus:ring-teal font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center mt-4"
       >
         READ MORE
       </router-link>
