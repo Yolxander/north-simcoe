@@ -2,6 +2,7 @@
   <form
         class="contact-us max-w-screen-xl p-10 md:p-32 mx-auto flex flex-col flex-wrap md:flex-nowrap md:items-center md:space-x-8 md:gap-5"
           @submit.prevent="submitForm"
+        id="form"
   >
 
 
@@ -815,6 +816,7 @@ export default {
     // components: {SuccessComponent},
     data() {
         return {
+            pdfData: null, // change this to null
             dependants: [{}], // Start with one empty dependant
             selectedPetOption: '',
             showSuccessComponent: false,
@@ -888,55 +890,46 @@ export default {
         previousStep() {
             this.currentStep--; // Decrement current step when Back is clicked
         },
-        submitForm() {
-            console.log('Application Form:', this.form);
-            this.submitEmail()
-                .then(() => {
-                    this.showForm = false;
-                    this.showSuccessComponent = true;
-                });
+        async submitForm() {
+            this.pdfData = await this.generatePDF();
+            setTimeout(async () => {
+                this.sendEmail();
+            }, 2000);
         },
-        generatePDF() {
+        async generatePDF() {
             return new Promise((resolve) => {
-                    const doc = new jsPDF({
-                        orientation: "portrait",
-                        unit: "in",
-                        format: "letter"
-                    });
+                const doc = new jsPDF({ orientation: "portrait", unit: "in", format: "letter" });
 
-            // Title
-            const applicantName = this.form.applicant1 ? this.form.applicant1.name : 'Application Form';
-            const title = applicantName + ' Application Form';
+                // Title
+                const applicantName = this.form.applicant1 ? this.form.applicant1.name : 'Application Form';
+                const title = applicantName + ' Application Form';
 
-            // Title
-            doc.setFontSize(16).text(title, 0.5, 1.0);
-            // Line under title
-            doc.setLineWidth(0.01).line(0.5, 1.1, 8.0, 1.1);
+                // Title
+                doc.setFontSize(16).text(title, 0.5, 1.0);
+                // Line under title
+                doc.setLineWidth(0.01).line(0.5, 1.1, 8.0, 1.1);
 
-            const body = this.prepareBody(this.form);
-            doc.autoTable({
-                columns: [
-                    { title: "Field", dataKey: "field" },
-                    { title: "Content", dataKey: "content" }
-                ],
-                body,
-                margin: { left: 0.5, top: 1.25 },
-                didDrawCell: (data) => {
-                    if (data.section === 'body' && data.cell.raw.isHeader) {
-                        doc.setFont("helvetica", "bold");
-                    } else {
-                        doc.setFont("helvetica"); // You might need to reset to the normal style
+                const body = this.prepareBody(this.form);
+                doc.autoTable({
+                    columns: [
+                        { title: "Field", dataKey: "field" },
+                        { title: "Content", dataKey: "content" }
+                    ],
+                    body,
+                    margin: { left: 0.5, top: 1.25 },
+                    didDrawCell: (data) => {
+                        if (data.section === 'body' && data.cell.raw.isHeader) {
+                            doc.setFont("helvetica", "bold");
+                        } else {
+                            doc.setFont("helvetica"); // You might need to reset to the normal style
+                        }
                     }
-                }
-            });
-
-            doc.setProperties({
-                title: "Application Form"
-            });
-
-                resolve(doc.output('datauristring'));
+                });
+                console.log('finish pdf')
+                resolve(doc);
             });
         },
+
         prepareBody(data, prefix = '') {
             let body = [];
 
@@ -973,33 +966,23 @@ export default {
             return body;
         },
 
-        submitEmail() {
-            return new Promise((resolve, reject) => {
-                const companyEmail = 'jacacanada@gmail.com';
-                const applicantName = this.form.applicant1 ? this.form.applicant1.name : 'Application Form';
-                const fileName = applicantName.replace(/ /g, '_') + '_Application_Form.pdf';
+        sendEmail() {
+            const serviceID = "default_service";
+            const templateID = "template_vyzsaql";
 
-                this.generatePDF().then(dataUrl => {
-                    const pdfData = dataUrl.split(',');
+            emailjs
+                .sendForm(serviceID, templateID, "#form", "NxLLnhlEW3KDj2zPO")
+                .then(
+                    () => {
+                        this.pdfData = "";
+                        console.log('finish pdf')
+                    },
+                    (err) => {
+                        alert(JSON.stringify(err));
+                    }
 
-                    emailjs.send('service_v98lvdp', 'template_vyzsaql', {
-                        email: companyEmail,
-                        attachment: pdfData,
-                        fileName: fileName
-                    }, 'NxLLnhlEW3KDj2zPO')
-                        .then((result) => {
-                            console.log('SUCCESS!', result.text);
-                            console.log('INFO', companyEmail);
-                            resolve(); // Resolve the promise when email is sent successfully
-                        })
-                        .catch((error) => {
-                            console.log('FAILED...', error.text);
-                            reject(error); // Reject the promise on error
-                        });
-                });
-            });
+                );
         },
-
 
         showSuccess() {
             this.showForm = false;

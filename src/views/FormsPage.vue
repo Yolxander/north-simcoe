@@ -1,18 +1,21 @@
 <template>
 <!--  <HeroGlobal />-->
   <FormsList />
+<!--  <FormsListDemo />-->
 </template>
 
 <script>
 import "tailwindcss/tailwind.css";
 import FormsList from "@/components/FormsList.vue";
 // import HeroGlobal from "../components/HeroGlobal.vue";
-
+// import FormsListDemo from "@/components/FormsListDemo.vue";
 export default {
   name: "FormsPage",
   components: {
       FormsList,
     // HeroGlobal,
+    //   FormsListDemo
+
   },
   data() {
     return {

@@ -9,14 +9,14 @@
         class="nav-container flex w-full  items-center md:space-x-8 md:w-auto md:pl-2 md:border md:border-transparent md:border-solid md:border-1 md:backdrop-filter md:backdrop-blur-sm md:rounded"
       >
 
-          <!-- Logo -->
-          <router-link to="/" class="flex items-center block md:hidden">
-              <img
-                      src="../assets/logo-text.png"
-                      class="max-w-[200px]"
-                      alt="North Simcoe Logo"
-              />
-          </router-link>
+<!--          &lt;!&ndash; Logo &ndash;&gt;-->
+<!--          <router-link to="/" class="flex items-center block md:hidden sm:hidden">-->
+<!--              <img-->
+<!--                      src="../assets/logo-text.png"-->
+<!--                      class="max-w-[200px]"-->
+<!--                      alt="North Simcoe Logo"-->
+<!--              />-->
+<!--          </router-link>-->
 <!--          <SocialIcons v-if="!showPhoneNumber" id="socials"/>-->
 
         <p v-if="showPhoneNumber"  class="text-brown">
