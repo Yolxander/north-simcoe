@@ -3,20 +3,16 @@
     class="contact-us max-w-screen-xl p-10 md:p-32 mx-auto flex flex-wrap md:flex-nowrap md:items-center md:space-x-8 md:gap-5"
   >
     <div class="py-10 md:py-0 md:w-3/5">
-      <h2 class="text-sm font-extrabold mb-4 text-brown font-libre-baskerville">
+      <h2 class="text-sm font-semibold mb-4 text-brown font-archivo">
         CONTACT US
       </h2>
       <hr class="w-10 h-1 my-4 border-0 rounded bg-teal" />
-      <h3
-        class="text-3xl font-extrabold mb-4 text-brown font-libre-baskerville"
-      >
+      <h3 class="text-3xl font-semibold mb-4 text-brown font-archivo">
         Ready to start?
       </h3>
-      <p class="font-source-serif">Reach out to us now!</p>
+      <p class="font-open-sans text-brown text-2xl">Reach out to us now!</p>
       <div class="md:mt-24">
-        <p
-          class="text-2xl font-extrabold mb-4 text-brown font-libre-baskerville"
-        >
+        <p class="text-2xl font-semibold mb-4 text-brown font-archivo">
           <span class="mr-4 text-tealdark"
             ><font-awesome-icon :icon="['fas', 'envelope']"
           /></span>
@@ -77,7 +73,7 @@
       ></div>
       <button
         type="submit"
-        class="text-brown bg-teal hover:bg-tealdark hover:text-white focus:ring-4 focus:outline-none focus:ring-teal font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+        class="text-brown bg-teal hover:bg-tealdark hover:text-white focus:ring-4 focus:outline-none focus:ring-teal font-medium rounded-lg text-sm w-auto sm:w-auto px-5 py-2.5 text-center"
       >
         Submit
       </button>

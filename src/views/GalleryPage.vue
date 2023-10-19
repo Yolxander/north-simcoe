@@ -1,7 +1,7 @@
 <template>
   <HeroGlobal :hero="hero" />
   <div class="pl-8 py-12 md:p-24">
-    <h3 class="text-2xl font-extrabold text-brown font-libre-baskerville">
+    <h3 class="text-2xl font-semibold text-brown font-archivo">
       See some of the beautiful properties we manage!
     </h3>
   </div>

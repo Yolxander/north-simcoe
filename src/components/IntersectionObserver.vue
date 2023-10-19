@@ -21,7 +21,7 @@ export default {
     const options = {
       root: null,
       rootMargin: "0px",
-      threshold: 0.1,
+      threshold: 0.3,
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -48,20 +48,27 @@ export default {
 </script>
 
 <style scoped>
+.observer {
+  visibility: hidden;
+}
 .fadeInTop {
   animation: fadeInTop 1s ease-in-out;
+  visibility: visible;
 }
 
 .fadeInBottom {
   animation: fadeInBottom 1s ease-in-out;
+  visibility: visible;
 }
 
 .fadeInLeft {
   animation: fadeInLeft 1s ease-in-out;
+  visibility: visible;
 }
 
 .fadeInRight {
   animation: fadeInRight 1s ease-in-out;
+  visibility: visible;
 }
 
 @keyframes fadeInRight {
