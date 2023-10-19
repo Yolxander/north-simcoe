@@ -24,7 +24,7 @@
         <button
           @click="navigateToServicesPage"
           type="button"
-          class="text-brown bg-teal hover:bg-tealdark hover:text-white focus:ring-4 focus:outline-none focus:ring-teal rounded-lg text-sm w-full w-auto px-5 py-2.5 text-center font-semibold font-archivo mt-4"
+          class="text-brown bg-teal hover:bg-tealdark hover:text-white focus:ring-4 focus:outline-none focus:ring-teal rounded-lg text-sm w-auto px-5 py-2.5 text-center font-semibold font-archivo mt-4"
         >
           FIND OUT MORE
         </button>

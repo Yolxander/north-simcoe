@@ -56,7 +56,7 @@
         </div>
         <div
           v-show="isMenuOpen"
-          class="absolute h-screen inset-0 m-0 md:top-[-20px] md:right-[-45px] md:bottom-0 md:left-0 md:text-2xl bg-white backdrop-filter backdrop-blur-sm rounded z-5 flex flex-col items-start justify-center font-archivo p-4"
+          class="absolute h-screen inset-0 m-0 md:top-[-20px] md:right-[-45px] md:bottom-0 md:left-0 text-4xl bg-white backdrop-filter backdrop-blur-sm rounded z-5 flex flex-col items-start justify-center font-archivo p-4 md:w-[500px]"
         >
           <a href="/" class="block text-brown mb-2">HOME</a>
           <a href="/our-company" class="block text-brown mb-2">OUR COMPANY</a>

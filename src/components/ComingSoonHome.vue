@@ -69,9 +69,6 @@ export default {
 }
 
 @media screen and (max-width: 912px) {
-  .hero-container {
-    height: 80vh;
-  }
   .hero-text {
     font-size: 35px;
     width: 100%;
