@@ -76,6 +76,7 @@ import View from "ol/View";
 import {defaults as defaultControls, ScaleLine} from "ol/control";
 import {Tile as TileLayer, Vector as VectorLayer} from "ol/layer";
 import {OSM, Vector as VectorSource} from "ol/source";
+import {useHead} from "@vueuse/head";
 
 export default {
     name: "ContactPage",
@@ -89,6 +90,20 @@ export default {
                 title: "CONTACTS",
             },
         };
+    },
+    setup() {
+
+        useHead({
+            // Can be static or computed
+            title: 'Contacts',
+            meta: [
+                {
+                    name: `description`,
+                    content: 'this is the contact page',
+                },
+            ],
+
+        })
     },
     async mounted() {
         await this.initiateMap();
