@@ -1,7 +1,7 @@
 <template>
   <div class="max-w-screen-xl mx-auto py-8">
     <div
-      class="max-w-screen-xl p-10 md:p-28 md:pr-0 mx-auto flex flex-wrap md:flex-nowrap md:items-center md:space-x-8 md:gap-5"
+      class="max-w-screen-xl p-10 md:pt-28 md:pl-28 md:pr-0 pb-0 mx-auto flex flex-wrap md:flex-nowrap md:items-center md:space-x-8 md:gap-5"
     >
       <div class="md:w-2/5">
         <h2
@@ -20,14 +20,6 @@
           property maintenance and beyond, we provide full service property
           management on residential, commercial, and mixed-use buildings.
         </p>
-
-        <button
-          @click="navigateToServicesPage"
-          type="button"
-          class="text-brown bg-teal hover:bg-tealdark hover:text-white focus:ring-4 focus:outline-none focus:ring-teal rounded-lg text-sm w-auto px-5 py-2.5 text-center font-semibold font-archivo mt-4"
-        >
-          FIND OUT MORE
-        </button>
       </div>
       <div
         class="flex justify-center flex-wrap py-4 md:py-0 md:w-3/5 text-brown text-center text-xl"
@@ -82,6 +74,17 @@
           </div>
         </div>
       </div>
+    </div>
+    <div
+      class="flex justify-center max-w-screen-xl px-10 md:px-28 md:justify-start"
+    >
+      <button
+        @click="navigateToServicesPage"
+        type="button"
+        class="text-brown bg-teal hover:bg-tealdark hover:text-white focus:ring-4 focus:outline-none focus:ring-teal rounded-lg text-sm w-auto px-5 py-2.5 text-center font-semibold font-archivo mt-4"
+      >
+        FIND OUT MORE
+      </button>
     </div>
   </div>
 </template>
