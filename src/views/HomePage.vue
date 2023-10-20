@@ -30,7 +30,7 @@ import TestimonialsHome from "../components/TestimonialsHome.vue";
 import LayoutTwoSections from "../components/LayoutTwoSections.vue";
 import ContactUs from "../components/ContactUs.vue";
 import ObserverComponent from "../components/IntersectionObserver.vue";
-
+import { useHead } from '@vueuse/head'
 export default {
   name: "HomePage",
   components: {
@@ -57,6 +57,20 @@ export default {
       ],
     };
   },
+    setup() {
+
+        useHead({
+            // Can be static or computed
+            title: 'Home',
+            meta: [
+                {
+                    name: `description`,
+                    content: 'this is the home page',
+                },
+            ],
+
+        })
+    },
 };
 </script>
 

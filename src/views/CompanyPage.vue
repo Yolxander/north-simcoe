@@ -58,6 +58,7 @@ import HeroGlobal from "../components/HeroGlobal.vue";
 import LayoutTwoSections from "../components/LayoutTwoSections.vue";
 import ServiceAriaHome from "../components/ServiceAriaHome.vue";
 import ObserverComponent from "../components/IntersectionObserver.vue";
+import {useHead} from "@vueuse/head";
 
 export default {
   name: "CompanyPage",
@@ -95,6 +96,20 @@ export default {
       ],
     };
   },
+    setup() {
+
+        useHead({
+            // Can be static or computed
+            title: 'Our Company',
+            meta: [
+                {
+                    name: `description`,
+                    content: 'this is the our company page',
+                },
+            ],
+
+        })
+    },
 };
 </script>
 
