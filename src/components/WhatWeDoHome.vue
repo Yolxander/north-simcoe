@@ -30,11 +30,11 @@
         </button>
       </div>
       <div
-        class="flex justify-center flex-wrap py-4 md:py-0 md:w-3/5 text-brown text-center"
+        class="flex justify-center flex-wrap py-4 md:py-0 md:w-3/5 text-brown text-center text-xl"
       >
-        <div>
+        <div class="max-w-230">
           <div
-            class="w-full md:w-56 p-2 border-solid border-teal border-4 rounded-xl mb-4 mr-4"
+            class="md:w-56 xs:mr-4 p-2 border-solid border-teal border-4 rounded-xl mb-4"
           >
             <font-awesome-icon
               :icon="['fas', 'house-chimney']"
@@ -45,7 +45,7 @@
             </h4>
           </div>
           <div
-            class="w-full md:w-56 p-2 border-solid border-teal border-4 rounded-xl mb-4 mr-4"
+            class="md:w-56 p-2 xs:mr-4 border-solid border-teal border-4 rounded-xl mb-4"
           >
             <font-awesome-icon
               :icon="['fas', 'building']"
@@ -56,7 +56,7 @@
             </h4>
           </div>
         </div>
-        <div>
+        <div class="max-w-230">
           <div
             class="w-full md:w-56 p-2 border-solid border-teal border-4 rounded-xl mb-4"
           >
@@ -66,6 +66,7 @@
               class="text-5xl mb-2"
             />
             <h4 class="font-semibold mb-2 font-archivo">CUSTOM PRICING</h4>
+            <br />
           </div>
           <div
             class="w-full md:w-56 p-2 border-solid border-teal border-4 rounded-xl mr-4"
