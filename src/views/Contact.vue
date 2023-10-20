@@ -5,7 +5,7 @@
       class="max-w-screen-xl p-10 md:p-32 mx-auto flex flex-col md:flex-row md:items-center md:space-x-8 md:gap-5"
     >
       <!-- Left Section -->
-      <div class="py-10 md:py-0 md:w-3/5">
+      <div class="md:py-0 md:w-3/5">
         <h2 class="text-sm font-semibold mb-4 text-brown font-archivo">
           HOW TO FIND US
         </h2>

@@ -1,5 +1,5 @@
 <template>
-  <div ref="observer" class="observer">
+  <div ref="observer" class="observer relative">
     <slot></slot>
   </div>
 </template>
