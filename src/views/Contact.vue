@@ -55,12 +55,13 @@
       <a href="#" class="text-blue-500 hover:underline">Get Directions ></a>
     </div>
 
-    <!-- Right Section - Map -->
-    <div class="md:w-2/5 bg-gray-200 rounded-lg p-4">
-      <!-- Embed your map here -->
+        <!-- Right Section - Map -->
+        <div className="md:w-2/5 bg-gray-200 rounded-lg p-4 map-container">
+            <!-- Embed your map here -->
+            <div id="map"></div>
+        </div>
     </div>
-  </div>
-  <ContactUs />
+    <ContactUs/>
 </template>
 
 <script>
@@ -68,20 +69,85 @@ import "tailwindcss/tailwind.css";
 import ContactUs from "../components/ContactUs.vue";
 import HeroGlobal from "../components/HeroGlobal.vue";
 
+// Import OpenLayers dependencies
+import "ol/ol.css";
+import Map from "ol/Map";
+import View from "ol/View";
+import {defaults as defaultControls, ScaleLine} from "ol/control";
+import {Tile as TileLayer, Vector as VectorLayer} from "ol/layer";
+import {OSM, Vector as VectorSource} from "ol/source";
+
 export default {
-  name: "ContactPage",
-  components: {
-    ContactUs,
-    HeroGlobal,
-  },
-  data() {
-    return {
-      hero: {
-        title: "CONTACTS",
-      },
-    };
-  },
+    name: "ContactPage",
+    components: {
+        ContactUs,
+        HeroGlobal,
+    },
+    data() {
+        return {
+            hero: {
+                title: "CONTACTS",
+            },
+        };
+    },
+    async mounted() {
+        await this.initiateMap();
+        this.$nextTick(() => {
+            this.map.updateSize();
+        });
+    },
+    methods: {
+        initiateMap() {
+            // create vector layer
+            var source = new VectorSource();
+            var vector = new VectorLayer({
+                source: source,
+            });
+            // create title layer
+            var raster = new TileLayer({
+                source: new OSM(),
+            });
+            // create map with 2 layers
+            this.map = new Map({
+                controls: defaultControls({
+                    attribution: false,  // Disable the attribution control
+                    zoom: true,  // Keep the zoom control
+                }).extend([
+                    new ScaleLine({
+                        units: "degrees",
+                    }),
+                ]),
+                target: "map",
+                layers: [raster, vector],
+                view: new View({
+                    projection: "EPSG:4326",
+                    center: [-79.95, 44.4773],  // Update the center coordinates here
+                    zoom: 8.5,
+                }),
+            });
+        },
+    },
 };
 </script>
+
+<style>
+/* Parent div */
+.map-container {
+    position: relative;
+    height: 50vh;
+}
+
+/* Map container */
+#map {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+/* Add other styles as needed */
+</style>
+
 
 <style></style>
