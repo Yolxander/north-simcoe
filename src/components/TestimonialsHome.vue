@@ -256,6 +256,7 @@ export default {
   justify-content: center;
   margin: 50px 20px 50px 0;
   text-align: center;
+  max-width: 270px;
 }
 
 .swiper-button-prev {
@@ -277,6 +278,12 @@ export default {
 
 .swiper-pagination-bullet {
   background: #93c3bf;
+}
+
+@media (min-width: 550px) {
+  .swiper-slide {
+    max-width: unset;
+  }
 }
 
 @media (min-width: 1024px) {
