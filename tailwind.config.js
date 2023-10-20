@@ -15,6 +15,9 @@ module.exports = {
         "open-sans": ["'Open Sans', sans-serif"],
         archivo: ["'Archivo', sans-serif"],
       },
+      screens: {
+        xs: "540px",
+      },
     },
   },
   plugins: [require("flowbite/plugin")],

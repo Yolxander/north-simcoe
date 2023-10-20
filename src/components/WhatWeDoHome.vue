@@ -34,7 +34,7 @@
       >
         <div class="max-w-230">
           <div
-            class="md:w-56 sm:mr-4 p-2 border-solid border-teal border-4 rounded-xl mb-4"
+            class="md:w-56 xs:mr-4 p-2 border-solid border-teal border-4 rounded-xl mb-4"
           >
             <font-awesome-icon
               :icon="['fas', 'house-chimney']"
@@ -45,7 +45,7 @@
             </h4>
           </div>
           <div
-            class="md:w-56 p-2 sm:mr-4 border-solid border-teal border-4 rounded-xl mb-4"
+            class="md:w-56 p-2 xs:mr-4 border-solid border-teal border-4 rounded-xl mb-4"
           >
             <font-awesome-icon
               :icon="['fas', 'building']"
