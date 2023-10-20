@@ -1,0 +1,29 @@
+name: Update Namecheap File Manager
+on:
+  push:
+    branches:
+      - main  # Change this to your main branch name
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build project
+        run: npm run build
+
+      - name: Update Namecheap File Manager
+        run: |
+          export DEPLOYPATH=/home/daymseta/repositories
+          cp -r dist/* $DEPLOYPATH
