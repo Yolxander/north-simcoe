@@ -26,4 +26,5 @@ jobs:
       - name: Update Namecheap File Manager
         run: |
           export DEPLOYPATH=/home/daymseta/repositories
+          mkdir -p $DEPLOYPATH
           cp -r dist/* $DEPLOYPATH
