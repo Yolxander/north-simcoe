@@ -1,6 +1,8 @@
 <template>
   <HeroGlobal :hero="hero" />
-  <LayoutTwoSections :intro="intro" />
+  <ObserverComponent classToToggle="fadeInTop" playOnce="true">
+    <LayoutTwoSections :intro="intro" />
+  </ObserverComponent>
   <div
     class="max-w-screen-xl p-10 md:p-28 mx-auto flex flex-col items-center text-center"
   >
@@ -9,20 +11,30 @@
     <h3 class="text-3xl font-semibold mb-4 text-brown font-archivo">
       Meet the talented team at North Simcoe Property Management:
     </h3>
-
     <!-- <div class="flex justify-center md:w-1/2 relative"> -->
-    <img
-      class="max-w-full rounded-xl max-h-[50vh] border-3 border-teal"
-      src="../assets/team.png"
-      alt=""
-    />
+    <ObserverComponent classToToggle="fadeInBottom" playOnce="true">
+      <img
+        class="max-w-full rounded-xl max-h-[50vh] border-3 border-teal"
+        src="../assets/team.png"
+        alt=""
+      />
+    </ObserverComponent>
     <!-- <div
         class="before-image bg-teal absolute right-[-15px] md:right-[15px] top-[-15px] md:top-[-25px] w-[calc(60%+40px)] h-[calc(60%+40px)] bg-teal-500 z-[-1]"
       ></div> -->
     <!-- </div> -->
   </div>
-  <LayoutTwoSections :intro="serviceAreas" />
-  <ContactUs />
+  <ObserverComponent classToToggle="fadeInLeft" playOnce="true">
+    <ServiceAriaHome
+      :title="serviceAreas[0].title"
+      :subtitle="serviceAreas[0].subtitle"
+      :description="serviceAreas[0].description"
+      :areasTitle="serviceAreas[0].areasTitle"
+    />
+  </ObserverComponent>
+  <ObserverComponent classToToggle="fadeInBottom" playOnce="true">
+    <ContactUs />
+  </ObserverComponent>
 </template>
 
 <script>
@@ -30,6 +42,8 @@ import "tailwindcss/tailwind.css";
 import ContactUs from "../components/ContactUs.vue";
 import HeroGlobal from "../components/HeroGlobal.vue";
 import LayoutTwoSections from "../components/LayoutTwoSections.vue";
+import ServiceAriaHome from "../components/ServiceAriaHome.vue";
+import ObserverComponent from "../components/IntersectionObserver.vue";
 
 export default {
   name: "CompanyPage",
@@ -37,6 +51,8 @@ export default {
     ContactUs,
     HeroGlobal,
     LayoutTwoSections,
+    ServiceAriaHome,
+    ObserverComponent,
   },
   data() {
     return {
@@ -56,14 +72,11 @@ export default {
       ],
       serviceAreas: [
         {
-          title: "SERIVCE AREAS",
-          subtitle: "Explore Our Coverage Area.",
-          textleft:
-            "North Simcoe serves several locations in and around the Simcoe County Area, York, Peel, Dufferin and Muskoka Region.",
-          textrightP1:
-            "Barrie | Midland | Orillia | Everett | Muskoka | Gravenhurst | Huntsville | Bracebridge | Shelburne",
-          textrightP2:
-            "Bradford | Newmarket/Aurora | Innisfil | Alliston | Tottenham | Caledon | Orangeville | Vaughan | Georgina",
+          title: "OUR COVERAGE AREA",
+          subtitle: "Servicing Simcoe County & Beyond",
+          description:
+            "North Simcoe Property Management serves several locations in and around the Simcoe County Area. We also service York, Peel, Dufferin and Muskoka Regions.",
+          areasTitle: "See our full list of communities below:",
         },
       ],
     };

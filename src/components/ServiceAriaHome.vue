@@ -4,20 +4,19 @@
   >
     <div class="py-10 md:py-0 md:w-1/2">
       <h2 class="text-sm font-semibold mb-4 text-brown font-archivo">
-        SERVICE ARIA
+        {{ title }}
       </h2>
       <hr class="w-10 h-1 my-4 border-0 rounded bg-teal" />
       <h3 class="text-3xl font-semibold mb-4 text-brown font-archivo">
-        Explore Our Coverage Area.
+        {{ subtitle }}
       </h3>
       <p class="font-open-sans text-2xl">
-        Don’t worry - we got you covered. Our team services across Simcoe
-        County, York, Dufferin, Muskoka, and Peel Regions.
+        {{ description }}
       </p>
     </div>
     <div class="md:w-1/2 relative">
       <h3 class="text-2xl font-semibold mb-4 text-brown font-archivo">
-        Some of the many areas we professionally manage properties in:
+        {{ areasTitle }}
       </h3>
       <div class="flex flex-wrap font-open-sans text-2xl justify-left">
         <div class="pr-4">
@@ -116,6 +115,25 @@
 <script>
 export default {
   name: "ServiceAriaHome",
+  props: {
+    title: {
+      type: String,
+      default: "SERVICE ARIA",
+    },
+    subtitle: {
+      type: String,
+      default: "Explore Our Coverage Area.",
+    },
+    description: {
+      type: String,
+      default:
+        "Don’t worry - we got you covered. Our team services across Simcoe County, York, Dufferin, Muskoka, and Peel Regions.",
+    },
+    areasTitle: {
+      type: String,
+      default: "Some of the many areas we professionally manage properties in:",
+    },
+  },
 };
 </script>
 
