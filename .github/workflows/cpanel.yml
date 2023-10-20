@@ -17,3 +17,4 @@ jobs:
           rm -rf $DEPLOYPATH
           mkdir -p $DEPLOYPATH
           cp -r dist $DEPLOYPATH
+          scp -P 21098 -r dist daymseta@63.250.38.97:$DEPLOYPATH
