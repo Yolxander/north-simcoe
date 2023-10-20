@@ -11,14 +11,6 @@
         Ready to start?
       </h3>
       <p class="font-open-sans text-brown text-2xl">Reach out to us now!</p>
-      <div class="md:mt-24">
-        <p class="text-2xl font-semibold mb-4 text-brown font-archivo">
-          <span class="mr-4 text-tealdark"
-            ><font-awesome-icon :icon="['fas', 'envelope']"
-          /></span>
-          <a href="mailto:info@northsimcoe.com">info@northsimcoe.com</a>
-        </p>
-      </div>
     </div>
 
     <form class="w-full relative md:w-2/5">

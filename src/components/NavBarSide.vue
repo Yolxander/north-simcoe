@@ -8,15 +8,18 @@
     </router-link>
 
     <!-- Social Icons -->
-    <div v-if="showIcons"  class="flex flex-col items-center mb-4">
-      <a href="#" class="text-brown hover:text-gray-800">
+    <div v-if="showIcons" class="flex flex-col items-center mb-4">
+      <a
+        href="https://www.instagram.com/northsimcoe_propertymanagement/?hl=en"
+        class="text-brown hover:text-gray-800 text-2xl"
+      >
         <font-awesome-icon :icon="['fab', 'instagram']" />
       </a>
-      <a href="#" class="text-brown hover:text-gray-800">
+      <a
+        href="https://www.alpha.facebook.com/people/North-Simcoe-Property-Management/100091986706375/?mibextid=LQQJ4d"
+        class="text-brown hover:text-gray-800 text-2xl"
+      >
         <font-awesome-icon :icon="['fab', 'facebook-f']" />
-      </a>
-      <a href="#" class="text-brown hover:text-gray-800">
-        <font-awesome-icon :icon="['fab', 'linkedin-in']" />
       </a>
     </div>
   </div>
@@ -25,34 +28,33 @@
 <script>
 export default {
   name: "NavBarSide",
-    props: ['currentRoute'],
+  props: ["currentRoute"],
 
-    data() {
-        return {
-            showIcons: true,
-        };
-    },
-    created() {
-        this.handleRouteChange()
-    },
+  data() {
+    return {
+      showIcons: true,
+    };
+  },
+  created() {
+    this.handleRouteChange();
+  },
 
-
-    watch: {
-        currentRoute() {
-            this.handleRouteChange()
-        }
+  watch: {
+    currentRoute() {
+      this.handleRouteChange();
     },
+  },
 
-    methods: {
-        handleRouteChange() {
-            if(this.currentRoute === '/'){
-                console.log(this.currentRoute)
-                this.showIcons = false
-            } else {
-                this.showIcons = true
-                console.log(this.currentRoute)
-            }
-        }
+  methods: {
+    handleRouteChange() {
+      if (this.currentRoute === "/") {
+        console.log(this.currentRoute);
+        this.showIcons = false;
+      } else {
+        this.showIcons = true;
+        console.log(this.currentRoute);
+      }
     },
+  },
 };
 </script>
