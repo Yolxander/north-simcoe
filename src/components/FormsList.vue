@@ -890,20 +890,26 @@ export default {
         previousStep() {
             this.currentStep--; // Decrement current step when Back is clicked
         },
-        async submitForm() {
+        submitForm() {
             console.log('Application Form:', this.form);
             this.generatePDF(); // Call the PDF generation method
-            await this.sendEmail();
         },
         generatePDF() {
-            const doc = new jsPDF({ orientation: "portrait", unit: "in", format: "letter" });
+            const doc = new jsPDF({
+                orientation: "portrait",
+                unit: "in",
+                format: "letter"
+            });
+
             // Title
             const applicantName = this.form.applicant1 ? this.form.applicant1.name : 'Application Form';
             const title = applicantName + ' Application Form';
+
             // Title
             doc.setFontSize(16).text(title, 0.5, 1.0);
             // Line under title
             doc.setLineWidth(0.01).line(0.5, 1.1, 8.0, 1.1);
+
             const body = this.prepareBody(this.form);
             doc.autoTable({
                 columns: [
@@ -920,21 +926,11 @@ export default {
                     }
                 }
             });
-            // Optional: Add more text, etc....
+
+            // Optional: Add more text, etc.
             const fileName = applicantName.replace(/ /g, ' ') + ' Application Form.pdf'; // replace spaces with underscores
-            const pdfData = doc.output('blob'); // Generate PDF blob
-            const pdfUrl = URL.createObjectURL(pdfData); // Create URL for the blob
-            this.pdfData = pdfUrl; // Set the PDF URL to the pdfData property
-
-            // Attach the generated PDF to the #form element
-            const formElement = document.querySelector('#form');
-            const linkElement = document.createElement('a');
-            linkElement.href = pdfUrl;
-            linkElement.download = fileName;
-            linkElement.textContent = 'Download PDF';
-            formElement.appendChild(linkElement);
+            doc.save(fileName);
         },
-
 
         prepareBody(data, prefix = '') {
             let body = [];
@@ -972,16 +968,16 @@ export default {
             return body;
         },
 
-        async sendEmail() {
+        sendEmail() {
             const serviceID = "default_service";
             const templateID = "template_vyzsaql";
 
-            await emailjs
+            emailjs
                 .sendForm(serviceID, templateID, "#form", "NxLLnhlEW3KDj2zPO")
                 .then(
                     () => {
                         this.pdfData = "";
-                        console.log('sent email')
+                        console.log('finish pdf')
                     },
                     (err) => {
                         alert(JSON.stringify(err));
