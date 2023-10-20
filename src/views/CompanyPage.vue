@@ -6,19 +6,21 @@
   <div
     class="max-w-screen-xl p-10 md:p-28 mx-auto flex flex-wrap md:flex-nowrap"
   >
-    <div class="md:w-3/5">
-      <h2 class="text-sm font-semibold text-brown font-archivo">
-        MEET THE TEAM
-      </h2>
-      <hr class="w-10 h-1 my-4 border-0 rounded bg-teal" />
-      <h3 class="text-3xl font-semibold mb-4 text-brown font-archivo">
-        Meet the talented team at North Simcoe PM
-      </h3>
-      <p class="font-open-sans text-brown text-2xl">
-        Meet the dynamic duo driving our success: Linda Shipley Rossi and Larry
-        Pomfret, who together seamlessly blend strategic vision and operational
-        wizardry to elevate every property under our care.
-      </p>
+    <div class="md:w-3/5 mb-6 md:mb-0">
+      <ObserverComponent classToToggle="fadeInTop" playOnce="true">
+        <h2 class="text-sm font-semibold text-brown font-archivo">
+          MEET THE TEAM
+        </h2>
+        <hr class="w-10 h-1 my-4 border-0 rounded bg-teal" />
+        <h3 class="text-3xl font-semibold mb-4 text-brown font-archivo">
+          Meet the talented team at North Simcoe PM
+        </h3>
+        <p class="font-open-sans text-brown text-2xl">
+          Meet the dynamic duo driving our success: Linda Shipley Rossi and
+          Larry Pomfret, who together seamlessly blend strategic vision and
+          operational wizardry to elevate every property under our care.
+        </p>
+      </ObserverComponent>
     </div>
     <!-- <div class="flex justify-center md:w-1/2 relative"> -->
     <ObserverComponent classToToggle="fadeInBottom" playOnce="true">
