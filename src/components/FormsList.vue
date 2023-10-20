@@ -810,10 +810,10 @@
 import { jsPDF } from "jspdf";
 import emailjs from '@emailjs/browser';
 import "jspdf-autotable"
-// import SuccessComponent from "@/components/SuccessComponent.vue";
+import SuccessComponent from "@/components/SuccessComponent.vue";
 export default {
   name: "FormsList",
-    // components: {SuccessComponent},
+    components: {SuccessComponent},
     data() {
         return {
             pdfData: null, // change this to null
@@ -891,44 +891,50 @@ export default {
             this.currentStep--; // Decrement current step when Back is clicked
         },
         async submitForm() {
-            this.pdfData = await this.generatePDF();
-            setTimeout(async () => {
-                this.sendEmail();
-            }, 2000);
+            console.log('Application Form:', this.form);
+            this.generatePDF(); // Call the PDF generation method
+            await this.sendEmail();
         },
-        async generatePDF() {
-            return new Promise((resolve) => {
-                const doc = new jsPDF({ orientation: "portrait", unit: "in", format: "letter" });
-
-                // Title
-                const applicantName = this.form.applicant1 ? this.form.applicant1.name : 'Application Form';
-                const title = applicantName + ' Application Form';
-
-                // Title
-                doc.setFontSize(16).text(title, 0.5, 1.0);
-                // Line under title
-                doc.setLineWidth(0.01).line(0.5, 1.1, 8.0, 1.1);
-
-                const body = this.prepareBody(this.form);
-                doc.autoTable({
-                    columns: [
-                        { title: "Field", dataKey: "field" },
-                        { title: "Content", dataKey: "content" }
-                    ],
-                    body,
-                    margin: { left: 0.5, top: 1.25 },
-                    didDrawCell: (data) => {
-                        if (data.section === 'body' && data.cell.raw.isHeader) {
-                            doc.setFont("helvetica", "bold");
-                        } else {
-                            doc.setFont("helvetica"); // You might need to reset to the normal style
-                        }
+        generatePDF() {
+            const doc = new jsPDF({ orientation: "portrait", unit: "in", format: "letter" });
+            // Title
+            const applicantName = this.form.applicant1 ? this.form.applicant1.name : 'Application Form';
+            const title = applicantName + ' Application Form';
+            // Title
+            doc.setFontSize(16).text(title, 0.5, 1.0);
+            // Line under title
+            doc.setLineWidth(0.01).line(0.5, 1.1, 8.0, 1.1);
+            const body = this.prepareBody(this.form);
+            doc.autoTable({
+                columns: [
+                    { title: "Field", dataKey: "field" },
+                    { title: "Content", dataKey: "content" }
+                ],
+                body,
+                margin: { left: 0.5, top: 1.25 },
+                didDrawCell: (data) => {
+                    if (data.section === 'body' && data.cell.raw.isHeader) {
+                        doc.setFont("helvetica", "bold");
+                    } else {
+                        doc.setFont("helvetica"); // You might need to reset to the normal style
                     }
-                });
-                console.log('finish pdf')
-                resolve(doc);
+                }
             });
+            // Optional: Add more text, etc....
+            const fileName = applicantName.replace(/ /g, ' ') + ' Application Form.pdf'; // replace spaces with underscores
+            const pdfData = doc.output('blob'); // Generate PDF blob
+            const pdfUrl = URL.createObjectURL(pdfData); // Create URL for the blob
+            this.pdfData = pdfUrl; // Set the PDF URL to the pdfData property
+
+            // Attach the generated PDF to the #form element
+            const formElement = document.querySelector('#form');
+            const linkElement = document.createElement('a');
+            linkElement.href = pdfUrl;
+            linkElement.download = fileName;
+            linkElement.textContent = 'Download PDF';
+            formElement.appendChild(linkElement);
         },
+
 
         prepareBody(data, prefix = '') {
             let body = [];
@@ -966,16 +972,16 @@ export default {
             return body;
         },
 
-        sendEmail() {
+        async sendEmail() {
             const serviceID = "default_service";
             const templateID = "template_vyzsaql";
 
-            emailjs
+            await emailjs
                 .sendForm(serviceID, templateID, "#form", "NxLLnhlEW3KDj2zPO")
                 .then(
                     () => {
                         this.pdfData = "";
-                        console.log('finish pdf')
+                        console.log('sent email')
                     },
                     (err) => {
                         alert(JSON.stringify(err));
