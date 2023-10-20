@@ -7,9 +7,13 @@ module.exports = {
         teal: "#93C3BF",
         tealdark: "#008080",
       },
+      maxWidth: {
+        230: "230px",
+        215: "215px",
+      },
       fontFamily: {
         "open-sans": ["'Open Sans', sans-serif"],
-        "archivo": ["'Archivo', sans-serif"],
+        archivo: ["'Archivo', sans-serif"],
       },
     },
   },
