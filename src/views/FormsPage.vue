@@ -15,7 +15,6 @@ export default {
       FormsList,
     // HeroGlobal,
     //   FormsListDemo
-
   },
   data() {
     return {

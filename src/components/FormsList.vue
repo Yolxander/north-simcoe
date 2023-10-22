@@ -801,9 +801,35 @@
           <success-component v-if="showSuccessComponent" />
       </transition>
 
+
+
   </form>
 
+    <form class="contact-us max-w-screen-xl p-10 md:p-32 mx-auto flex flex-col flex-wrap md:flex-nowrap md:items-center md:space-x-8 md:gap-5" @submit.prevent="submitForm" id="form2">
 
+        <div class="relative z-0 w-full mb-4 group">
+            <input
+                @change="handleFileChange"
+                type="file"
+                name="pdfData"
+                id="pdfData"
+                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer"
+            />
+            <label
+                for="pdfData"
+                class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+            >
+                PDF Data
+            </label>
+        </div>
+        <button
+            type="submit"
+            class="text-brown bg-teal hover:bg-tealdark hover:text-white focus:ring-4 focus:outline-none focus:ring-teal font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+        >
+            Submit
+        </button>
+
+    </form>
 </template>
 
 <script>~``
@@ -811,6 +837,7 @@ import { jsPDF } from "jspdf";
 import emailjs from '@emailjs/browser';
 import "jspdf-autotable"
 import SuccessComponent from "@/components/SuccessComponent.vue";
+// Add FileSaver import
 export default {
   name: "FormsList",
     components: {SuccessComponent},
@@ -891,8 +918,11 @@ export default {
             this.currentStep--; // Decrement current step when Back is clicked
         },
         submitForm() {
-            console.log('Application Form:', this.form);
-            this.generatePDF(); // Call the PDF generation method
+                // Generate and send the email with the attached PDF
+                this.sendEmail();
+        },
+        handleFileChange(event) {
+            this.pdfData = event.target.files[0];
         },
         generatePDF() {
             const doc = new jsPDF({
@@ -927,9 +957,7 @@ export default {
                 }
             });
 
-            // Optional: Add more text, etc.
-            const fileName = applicantName.replace(/ /g, ' ') + ' Application Form.pdf'; // replace spaces with underscores
-            doc.save(fileName);
+            return doc
         },
 
         prepareBody(data, prefix = '') {
@@ -968,22 +996,43 @@ export default {
             return body;
         },
 
-        sendEmail() {
+        async sendEmail() {
             const serviceID = "default_service";
             const templateID = "template_vyzsaql";
 
-            emailjs
-                .sendForm(serviceID, templateID, "#form", "NxLLnhlEW3KDj2zPO")
-                .then(
-                    () => {
-                        this.pdfData = "";
-                        console.log('finish pdf')
-                    },
-                    (err) => {
-                        alert(JSON.stringify(err));
-                    }
+            const doc = await this.generatePDF();
+            // get the output as blob
+            const pdfBlob = doc.output('blob');
 
-                );
+            const fileInput = document.querySelector('input[type="file"]');
+            // create File object
+            const pdfFile = new File([pdfBlob], `${this.form.applicant1.name}.pdf`, {type: 'application/pdf'});
+
+            // Now let's create a DataTransfer to get a FileList
+            const dataTransfer = new DataTransfer();
+            dataTransfer.items.add(pdfFile);
+            fileInput.files = dataTransfer.files;
+
+            // Convert the PDF blob to a data URL
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                this.sendFormWithPDF(serviceID, templateID);
+            };
+
+            reader.readAsDataURL(pdfBlob);
+        }
+        ,
+
+        sendFormWithPDF(serviceID, templateID) {
+            // Send the email with the attached PDF
+            emailjs.sendForm(serviceID, templateID, '#form2','NxLLnhlEW3KDj2zPO')
+                .then(() => {
+                    this.pdfData = "";
+                    console.log('finish email');
+                })
+                .catch((err) => {
+                    alert(JSON.stringify(err));
+                });
         },
 
         showSuccess() {
