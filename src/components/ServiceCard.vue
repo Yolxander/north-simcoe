@@ -4,15 +4,9 @@
       v-for="(service, index) in services"
       :key="service.id"
       :ref="`service-${service.id}`"
-      class="card mb-3"
-      :style="{
-        width: '1000px',
-        marginTop: computeMarginTop(index),
-        marginBottom: computeMarginTop(index),
-      }"
+      class="max-w-screen-xl mx-auto py-8"
     >
-      <div class="row g-0 flex">
-        <!-- Render icon on the left for even indexed services -->
+      <div class="flex flex-wrap md:flex-nowrap">
         <div
           v-if="index % 2 === 0"
           :style="{ width: '40%' }"
@@ -23,7 +17,7 @@
               :icon="['fas', service.icon]"
               class="text-5xl mb-2"
             />
-            <h4 class="mb-2 text-3xl font-semibold text-brown font-archivo">
+            <h4 class="mb-2 text-3xl font-extrabold text-brown font-archivo">
               {{ service.title }}
             </h4>
           </div>
@@ -37,7 +31,27 @@
             class="card-body font-open-sans"
             style="height: 100%; overflow-y: scroll"
           >
-            <ul class="card-text-list">
+            <p
+              v-for="(paragraph, index) in services[index].paragraph"
+              :key="index"
+              class="font-open-sans text-2xl text-brown mb-4"
+            >
+              {{ paragraph }}
+            </p>
+            <ul class="list-decimal list-inside pl-5">
+              <li
+                v-for="(item, index) in services[index].listItems"
+                :key="'item-' + index"
+                class="flex items-start font-open-sans text-2xl text-brown mb-4"
+              >
+                <font-awesome-icon
+                  :icon="['fas', 'circle']"
+                  class="text-sm mr-4 text-teal pt-3"
+                />
+                {{ item }}
+              </li>
+            </ul>
+            <!-- <ul class="card-text-list">
               <li v-for="(point, idx) in splitText(service.text)" :key="idx">
                 <span
                   v-if="
@@ -54,7 +68,7 @@
                   Start Application
                 </router-link>
               </li>
-            </ul>
+            </ul> -->
           </div>
         </div>
         <!-- Render icon on the right for odd indexed services -->
@@ -68,7 +82,7 @@
               :icon="['fas', service.icon]"
               class="text-5xl mb-2"
             />
-            <h4 class="mb-2 text-3xl font-semibold text-brown font-archivo">
+            <h4 class="mb-2 text-3xl font-extrabold text-brown font-archivo">
               {{ service.title }}
             </h4>
           </div>
@@ -82,10 +96,7 @@
 export default {
   name: "ServiceCard",
   props: {
-    services: {
-      type: Array,
-      required: true,
-    },
+    services: Object,
   },
   methods: {
     computeMarginTop(index) {
@@ -122,18 +133,11 @@ export default {
 </script>
 
 <style scoped>
-/* ... your existing styles ... */
-.row.g-0.flex {
-  display: flex;
-}
-
 .icon-container {
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 2rem;
-  border: solid 4px teal;
-  border-radius: 0.5rem;
 }
 
 .icon-content {
@@ -146,9 +150,6 @@ export default {
   align-items: center;
   flex-wrap: wrap;
   margin-top: 100px;
-}
-.card {
-  margin: 10px; /* Add margins between cards if needed */
 }
 
 /* Adjust these styles based on your design needs */
