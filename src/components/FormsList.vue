@@ -4,8 +4,6 @@
         @submit.prevent="submitForm"
         id="form"
     >
-
-
         <div v-if="currentStep === 1 && showForm" class="w-full relative">
             <div
                 class="flex flex-col mb-2 z-10 relative bg-white rounded-lg shadow-md p-4 border-4 border-solid border-teal"
@@ -987,6 +985,7 @@
                     <label for="banking_phone" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" >Banking Phone</label>
                 </div>
 
+                <p class="mb-4 text-[20px] text-gray-700 uppercase">References:</p>
                 <!-- References Fields -->
                 <div class="relative z-0 w-full mb-4 group">
                     <input v-model="form.references[0].name" type="text" name="reference_name" id="reference_name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer" placeholder=" " required />
@@ -1005,6 +1004,7 @@
                     <label for="reference_name" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" >Reference Relationship</label>
                 </div>
 
+                <p class="mb-4 text-[15px] text-gray-700 ">Other Reference:</p>
                 <!-- Repeat for other reference fields -->
                 <div class="relative z-0 w-full mb-4 group">
                     <input v-model="form.references[1].name" type="text" name="reference_name" id="reference_name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer" placeholder=" " required />
@@ -1034,7 +1034,7 @@
 
                     <div class="flex items-center">
                         <input v-model="form.agreed_to_conditions" type="checkbox" name="agreed_to_conditions" id="agreed_to_conditions" class="block py-2.5 px-2.5 text-sm text-gray-900 bg-transparent border-2 border-teal rounded-full appearance-none focus:outline-none focus:ring-0 focus:border-teal peer" required />
-                        <label for="agreed_to_conditions" class="peer-focus:font-medium text-sm text-gray-500 duration-300 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 ml-1" style="white-space: normal; width: 95%;">
+                        <label for="agreed_to_conditions" class="mt-2 peer-focus:font-medium text-sm text-gray-500 duration-300 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 ml-1" style="white-space: normal; width: 95%;">
                             I/we hereby declare that the information I have provided in this form is accurate. I/we hereby authorize the individual(s) or organization to whom this application is submitted to: a) contact my employer and all other references/previous landlords named in this application; b) perform a criminal check with the police; and c) obtain a credit report from an authorized Canadian credit bureau.
                         </label>
                     </div>
@@ -1087,8 +1087,6 @@
         <transition name="fade" class="transition" @before-enter="log" @enter="log">
             <success-component v-if="showSuccessComponent" />
         </transition>
-
-
 
     </form>
 
