@@ -3,26 +3,14 @@
     class="contact-us max-w-screen-xl p-10 md:p-32 mx-auto flex flex-wrap md:flex-nowrap md:items-center md:space-x-8 md:gap-5"
   >
     <div class="py-10 md:py-0 md:w-3/5">
-      <h2 class="text-sm font-extrabold mb-4 text-brown font-libre-baskerville">
+      <h2 class="text-sm font-semibold mb-4 text-brown font-archivo">
         CONTACT US
       </h2>
       <hr class="w-10 h-1 my-4 border-0 rounded bg-teal" />
-      <h3
-        class="text-3xl font-extrabold mb-4 text-brown font-libre-baskerville"
-      >
+      <h3 class="text-3xl font-semibold mb-4 text-brown font-archivo">
         Ready to start?
       </h3>
-      <p>Lorem ipsum dolor sit amet.</p>
-      <div class="md:mt-24">
-        <p
-          class="text-2xl font-extrabold mb-4 text-brown font-libre-baskerville"
-        >
-          <span class="mr-4 text-teal"
-            ><font-awesome-icon :icon="['fas', 'envelope']"
-          /></span>
-          <a href="mailto:info@northsimcoe.com">info@northsimcoe.com</a>
-        </p>
-      </div>
+      <p class="font-open-sans text-brown text-2xl">Reach out to us now!</p>
     </div>
 
     <form class="w-full relative md:w-2/5">
@@ -77,7 +65,7 @@
       ></div>
       <button
         type="submit"
-        class="text-brown bg-teal hover:bg-tealdark hover:text-white focus:ring-4 focus:outline-none focus:ring-teal font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+        class="text-brown bg-teal hover:bg-tealdark hover:text-white focus:ring-4 focus:outline-none focus:ring-teal font-medium rounded-lg text-sm w-auto sm:w-auto px-5 py-2.5 text-center"
       >
         Submit
       </button>

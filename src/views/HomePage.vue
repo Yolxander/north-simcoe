@@ -1,45 +1,76 @@
 <template>
   <HeroHome />
-  <AboutUsHome />
-  <WhatWeDoHome />
-  <ServiceAriaHome />
-  <TestimonialsHome />
-  <ContactUs />
+  <ObserverComponent classToToggle="fadeInTop" playOnce="true">
+    <LayoutTwoSections :intro="intro" />
+  </ObserverComponent>
+  <ObserverComponent classToToggle="fadeInRight" playOnce="true">
+    <AboutUsHome />
+  </ObserverComponent>
+  <ObserverComponent classToToggle="fadeInLeft" playOnce="true">
+    <WhatWeDoHome />
+  </ObserverComponent>
+  <ObserverComponent classToToggle="fadeInRight" playOnce="true">
+    <ServiceAriaHome />
+  </ObserverComponent>
+  <ObserverComponent classToToggle="fadeInLeft" playOnce="true">
+    <TestimonialsHome />
+  </ObserverComponent>
+  <ObserverComponent classToToggle="fadeInBottom" playOnce="true">
+    <ContactUs />
+  </ObserverComponent>
 </template>
 
 <script>
 import "tailwindcss/tailwind.css";
-// import { gsapSectionMixin } from "../mixins/gsapSectionMixin";
 import HeroHome from "../components/HeroHome.vue";
 import AboutUsHome from "../components/AboutUsHome.vue";
 import WhatWeDoHome from "../components/WhatWeDoHome.vue";
 import ServiceAriaHome from "../components/ServiceAriaHome.vue";
 import TestimonialsHome from "../components/TestimonialsHome.vue";
+import LayoutTwoSections from "../components/LayoutTwoSections.vue";
 import ContactUs from "../components/ContactUs.vue";
-
+import ObserverComponent from "../components/IntersectionObserver.vue";
+import { useHead } from '@vueuse/head'
 export default {
   name: "HomePage",
   components: {
     HeroHome,
+    LayoutTwoSections,
     AboutUsHome,
     WhatWeDoHome,
     ServiceAriaHome,
     TestimonialsHome,
     ContactUs,
+    ObserverComponent,
   },
-  // mixins: [gsapSectionMixin],
-  // data() {
-  //   return {
-  //     testimonials: [
-  //       {
-  //         content:
-  //           "Lorem ipsum dolor sit amet, North Simcoe elit. Similique et ipsum accusamus perferendis iusto ullam a, quidem accusantium? Nostrum est harum eius optio quod odio fugiat eaqueipsa obcaecati!",
-  //         author: "Micheal Gough",
-  //         occupation: "CEO at Google",
-  //       },
-  //     ],
-  //   };
-  // },
+  data() {
+    return {
+      intro: [
+        {
+          title: "CLIENT FOCUS",
+          subtitle: "Your investment is our priority.",
+          textleft: "",
+          textrightP1: "",
+          textrightP2:
+            "Whether you're a landlord looking for professional property management, or a tenant looking to rent, North Simcoe Property Management has you covered.",
+        },
+      ],
+    };
+  },
+    setup() {
+
+        useHead({
+            // Can be static or computed
+            title: 'Home',
+            meta: [
+                {
+                    name: `description`,
+                    content: 'this is the home page',
+                },
+            ],
+
+        })
+    },
 };
 </script>
 

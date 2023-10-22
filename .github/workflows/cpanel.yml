@@ -1,0 +1,20 @@
+name: Deploy to Namecheap Server
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Deploy to Namecheap Server
+        run: |
+          export DEPLOYPATH=/home/daymseta/repositories
+          rm -rf $DEPLOYPATH
+          mkdir -p $DEPLOYPATH
+          cp -r dist $DEPLOYPATH
+          scp -P 21098 -r dist daymseta@63.250.38.97:$DEPLOYPATH

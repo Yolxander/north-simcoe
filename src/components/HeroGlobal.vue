@@ -1,16 +1,14 @@
 <template>
   <div
-    class="hero-container-global h-[60vh] flex items-end md:items center p-10 pt-20 md:pl-28 md:pb-10"
+    class="hero-container-global h-[70vh] flex items-end md:items center p-10 pt-20 pl-10 md:pl-48 md:pb-10"
   >
     <div class="hero-overlay"></div>
-    <div
-      class="flex flex-col justify-center md:w-4/5 font-libre-baskerville absolute"
-    >
-      <p class="text-m md:mb-4 text-white font-bold">
+    <div class="flex flex-col justify-center md:w-4/5 font-archivo absolute">
+      <p class="text-m pr-2 md:mb-4 text-white font-semibold">
         NORTH SIMCOE PROPERTY MANAGEMENT
       </p>
       <hr class="w-10 md:w-48 h-1 my-4 border-0 rounded bg-white" />
-      <h1 class="text-4xl md:text-7xl font-bold mb-4 text-white">
+      <h1 class="text-4xl md:text-7xl font-semibold mb-4 text-white">
         {{ hero.title }}
       </h1>
     </div>

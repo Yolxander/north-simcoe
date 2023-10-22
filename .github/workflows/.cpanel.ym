@@ -1,0 +1,7 @@
+
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/daymseta/repositories
+    - npm install
+    - npm run build
+    - cp -r dist/* $DEPLOYPATH

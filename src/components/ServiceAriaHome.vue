@@ -3,28 +3,23 @@
     class="max-w-screen-xl p-10 md:p-28 mx-auto flex flex-wrap md:flex-nowrap md:items-center md:space-x-8 md:gap-5"
   >
     <div class="py-10 md:py-0 md:w-1/2">
-      <h2 class="text-sm font-extrabold mb-4 text-brown font-libre-baskerville">
-        SERVICE ARIA
+      <h2 class="text-sm font-semibold mb-4 text-brown font-archivo">
+        {{ title }}
       </h2>
       <hr class="w-10 h-1 my-4 border-0 rounded bg-teal" />
-      <h3
-        class="text-3xl font-extrabold mb-4 text-brown font-libre-baskerville"
-      >
-        Explore Our Coverage Area.
+      <h3 class="text-3xl font-semibold mb-4 text-brown font-archivo">
+        {{ subtitle }}
       </h3>
-      <p class="font-source-serif">
-        Don’t worry - we got you covered. Our team services across Simcoe
-        County, York, Dufferin, Muskoka, and Peel Regions.
+      <p class="font-open-sans text-2xl">
+        {{ description }}
       </p>
     </div>
     <div class="md:w-1/2 relative">
-      <h3
-        class="text-2xl font-extrabold mb-4 text-brown font-libre-baskerville"
-      >
-        Some of the many areas we professionally manage properties in:
+      <h3 class="text-2xl font-semibold mb-4 text-brown font-archivo">
+        {{ areasTitle }}
       </h3>
-      <div class="flex gap-4 justify-around">
-        <div>
+      <div class="flex flex-wrap font-open-sans text-2xl justify-left">
+        <div class="pr-4">
           <p>
             <font-awesome-icon
               class="mr-4 text-teal text-3xl"
@@ -120,6 +115,25 @@
 <script>
 export default {
   name: "ServiceAriaHome",
+  props: {
+    title: {
+      type: String,
+      default: "SERVICE AREA",
+    },
+    subtitle: {
+      type: String,
+      default: "Explore Our Coverage Area.",
+    },
+    description: {
+      type: String,
+      default:
+        "Don’t worry - we got you covered. Our team services across Simcoe County, York, Dufferin, Muskoka, and Peel Regions.",
+    },
+    areasTitle: {
+      type: String,
+      default: "Some of the many areas we professionally manage properties in:",
+    },
+  },
 };
 </script>
 

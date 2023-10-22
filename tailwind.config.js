@@ -7,9 +7,16 @@ module.exports = {
         teal: "#93C3BF",
         tealdark: "#008080",
       },
+      maxWidth: {
+        230: "230px",
+        215: "215px",
+      },
       fontFamily: {
-        "source-serif": ['"Source Serif Pro"', "serif"],
-        "libre-baskerville": ['"Libre Baskerville"', "serif"],
+        "open-sans": ["'Open Sans', sans-serif"],
+        archivo: ["'Archivo', sans-serif"],
+      },
+      screens: {
+        xs: "540px",
       },
     },
   },

@@ -8,22 +8,18 @@
       ]"
     >
       <div class="md:w-1/2 self-end mb-6 md:mb-0">
-        <h2
-          class="text-sm font-extrabold mb-4 text-brown font-libre-baskerville"
-        >
+        <h2 class="text-sm font-semibold mb-4 text-brown font-archivo">
           {{ intro[0].title }}
         </h2>
         <hr class="w-10 h-1 my-4 border-0 rounded bg-teal" />
-        <h3
-          class="text-3xl font-extrabold mb-4 text-brown font-libre-baskerville"
-        >
+        <h3 class="text-3xl font-semibold md:mb-4 text-brown font-archivo">
           {{ intro[0].subtitle }}
         </h3>
-        <p>
+        <p class="font-open-sans text-2xl text-brown">
           {{ intro[0].textleft }}
         </p>
       </div>
-      <div class="md:w-1/2 self-end">
+      <div class="md:w-1/2 self-end font-open-sans text-2xl text-brown">
         <p>
           {{ intro[0].textrightP1 }}
         </p>
