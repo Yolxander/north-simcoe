@@ -1,32 +1,157 @@
 <template>
   <HeroGlobal :hero="hero" />
-  <div class="pl-8 py-12 md:p-24">
-    <h3 class="text-2xl font-semibold text-brown font-archivo">
-      See some of the beautiful properties we manage!
+  <div class="p-12 md:p-24 text-center">
+    <h3 class="text-3xl font-semibold text-brown font-archivo">
+      See some of the beautiful properties we manage
     </h3>
   </div>
+
   <div
+    class="grid grid-cols-2 md:grid-cols-3 gap-4 pr-8 pl-8 pb-12 md:pl-24 md:pr-12"
+  >
+    <div>
+      <img
+        class="h-auto max-w-full rounded-lg"
+        src="../assets/gallery/gallery1.jpg"
+        alt=""
+      />
+    </div>
+    <div>
+      <img
+        class="h-auto max-w-full rounded-lg"
+        src="../assets/gallery/gallery2.jpg"
+        alt=""
+      />
+    </div>
+    <div>
+      <img
+        class="h-auto max-w-full rounded-lg"
+        src="../assets/gallery/gallery6.jpg"
+        alt=""
+      />
+    </div>
+    <div>
+      <img
+        class="h-auto max-w-full rounded-lg"
+        src="../assets/gallery/gallery4.jpg"
+        alt=""
+      />
+    </div>
+    <div>
+      <img
+        class="h-auto max-w-full rounded-lg"
+        src="../assets/gallery/gallery5.jpg"
+        alt=""
+      />
+    </div>
+    <div>
+      <img
+        class="h-auto max-w-full rounded-lg"
+        src="../assets/gallery/gallery3.jpg"
+        alt=""
+      />
+    </div>
+    <div>
+      <img
+        class="h-auto max-w-full rounded-lg"
+        src="../assets/gallery/gallery13.jpg"
+        alt=""
+      />
+    </div>
+    <div>
+      <img
+        class="h-auto max-w-full rounded-lg"
+        src="../assets/gallery/gallery8.jpg"
+        alt=""
+      />
+    </div>
+    <div>
+      <img
+        class="h-auto max-w-full rounded-lg"
+        src="../assets/gallery/gallery9.jpg"
+        alt=""
+      />
+    </div>
+    <div>
+      <img
+        class="h-auto max-w-full rounded-lg"
+        src="../assets/gallery/gallery14.jpg"
+        alt=""
+      />
+    </div>
+    <div>
+      <img
+        class="h-auto max-w-full rounded-lg"
+        src="../assets/gallery/gallery16.jpg"
+        alt=""
+      />
+    </div>
+    <div>
+      <img
+        class="h-auto max-w-full rounded-lg"
+        src="../assets/gallery/gallery12.jpg"
+        alt=""
+      />
+    </div>
+    <div>
+      <img
+        class="h-auto max-w-full rounded-lg"
+        src="../assets/gallery/gallery7.jpg"
+        alt=""
+      />
+    </div>
+    <div>
+      <img
+        class="h-auto max-w-full rounded-lg"
+        src="../assets/gallery/gallery10.jpg"
+        alt=""
+      />
+    </div>
+    <div>
+      <img
+        class="h-auto max-w-full rounded-lg"
+        src="../assets/gallery/gallery11.jpg"
+        alt=""
+      />
+    </div>
+    <div>
+      <img
+        class="h-auto max-w-full rounded-lg"
+        src="../assets/gallery/gallery17.jpg"
+        alt=""
+      />
+    </div>
+    <div>
+      <img
+        class="h-auto max-w-full rounded-lg"
+        src="../assets/gallery/gallery15.jpg"
+        alt=""
+      />
+    </div>
+  </div>
+
+  <!-- <div
     class="grid grid-cols-2 md:grid-cols-4 gap-4 pr-8 pl-8 pb-12 md:pl-24 md:pr-12"
   >
     <div class="grid gap-4">
       <div>
         <img
           class="h-auto max-w-full rounded-lg"
-          src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image.jpg"
+          src="../assets/gallery/gallery1.jpg"
           alt=""
         />
       </div>
       <div>
         <img
           class="h-auto max-w-full rounded-lg"
-          src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-1.jpg"
+          src="../assets/gallery/gallery2.jpg"
           alt=""
         />
       </div>
       <div>
         <img
           class="h-auto max-w-full rounded-lg"
-          src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-2.jpg"
+          src="../assets/gallery/gallery3.jpg"
           alt=""
         />
       </div>
@@ -35,21 +160,35 @@
       <div>
         <img
           class="h-auto max-w-full rounded-lg"
-          src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg"
+          src="../assets/gallery/gallery4.jpg"
           alt=""
         />
       </div>
       <div>
         <img
           class="h-auto max-w-full rounded-lg"
-          src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-4.jpg"
+          src="../assets/gallery/gallery5.jpg"
           alt=""
         />
       </div>
       <div>
         <img
           class="h-auto max-w-full rounded-lg"
-          src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-5.jpg"
+          src="../assets/gallery/gallery6.jpg"
+          alt=""
+        />
+      </div>
+      <div>
+        <img
+          class="h-auto max-w-full rounded-lg"
+          src="../assets/gallery/gallery14.jpg"
+          alt=""
+        />
+      </div>
+      <div>
+        <img
+          class="h-auto max-w-full rounded-lg"
+          src="../assets/gallery/gallery15.jpg"
           alt=""
         />
       </div>
@@ -58,21 +197,21 @@
       <div>
         <img
           class="h-auto max-w-full rounded-lg"
-          src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-6.jpg"
+          src="../assets/gallery/gallery7.jpg"
           alt=""
         />
       </div>
       <div>
         <img
           class="h-auto max-w-full rounded-lg"
-          src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-7.jpg"
+          src="../assets/gallery/gallery8.jpg"
           alt=""
         />
       </div>
       <div>
         <img
           class="h-auto max-w-full rounded-lg"
-          src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-8.jpg"
+          src="../assets/gallery/gallery9.jpg"
           alt=""
         />
       </div>
@@ -81,26 +220,40 @@
       <div>
         <img
           class="h-auto max-w-full rounded-lg"
-          src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-9.jpg"
+          src="../assets/gallery/gallery10.jpg"
           alt=""
         />
       </div>
       <div>
         <img
           class="h-auto max-w-full rounded-lg"
-          src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-10.jpg"
+          src="../assets/gallery/gallery11.jpg"
           alt=""
         />
       </div>
       <div>
         <img
           class="h-auto max-w-full rounded-lg"
-          src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-11.jpg"
+          src="../assets/gallery/gallery12.jpg"
+          alt=""
+        />
+      </div>
+      <div>
+        <img
+          class="h-auto max-w-full rounded-lg"
+          src="../assets/gallery/gallery13.jpg"
+          alt=""
+        />
+      </div>
+      <div>
+        <img
+          class="h-auto max-w-full rounded-lg"
+          src="../assets/gallery/gallery17.jpg"
           alt=""
         />
       </div>
     </div>
-  </div>
+  </div> -->
 
   <ContactUs />
 </template>

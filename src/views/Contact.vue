@@ -29,9 +29,9 @@
             </h3>
             <p class="font-open-sans text-brown text-2xl">Send us an email</p>
             <a
-              href="mailto:hello@myemaildigital.com"
+              href="mailto:info@northsimcoepm.ca"
               class="font-open-sans text-brown text-xl md:text-2xl"
-              >info@northsimcoepm.com</a
+              >info@northsimcoepm.ca</a
             >
           </div>
         </div>
@@ -97,7 +97,7 @@ import View from "ol/View";
 import { defaults as defaultControls, ScaleLine } from "ol/control";
 import { Tile as TileLayer, Vector as VectorLayer } from "ol/layer";
 import { OSM, Vector as VectorSource } from "ol/source";
-import {useHead} from "@vueuse/head";
+import { useHead } from "@vueuse/head";
 
 export default {
   name: "ContactPage",
@@ -119,20 +119,18 @@ export default {
       this.map.updateSize();
     });
   },
-    setup() {
-
-        useHead({
-            // Can be static or computed
-            title: 'Contacts',
-            meta: [
-                {
-                    name: `description`,
-                    content: 'this is the contact page',
-                },
-            ],
-
-        })
-    },
+  setup() {
+    useHead({
+      // Can be static or computed
+      title: "Contacts",
+      meta: [
+        {
+          name: `description`,
+          content: "this is the contact page",
+        },
+      ],
+    });
+  },
   methods: {
     initiateMap() {
       // create vector layer
