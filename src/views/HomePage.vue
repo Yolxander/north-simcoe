@@ -1,7 +1,7 @@
 <template>
   <HeroHome />
   <ObserverComponent classToToggle="fadeInTop" playOnce="true">
-    <LayoutTwoSections :intro="intro" />
+    <LayoutTwoSections id="next-section"  :intro="intro" />
   </ObserverComponent>
   <ObserverComponent classToToggle="fadeInRight" playOnce="true">
     <AboutUsHome />
