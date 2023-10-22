@@ -7,131 +7,129 @@
       </h3>
     </div>
   </ObserverComponent>
-  <ObserverComponent classToToggle="fadeInBottom" playOnce="true">
-    <div
-      class="grid grid-cols-2 md:grid-cols-3 gap-4 pr-8 pl-8 pb-12 md:pl-24 md:pr-12"
-    >
-      <div>
-        <img
-          class="h-auto max-w-full rounded-lg"
-          src="../assets/gallery/gallery1.jpg"
-          alt=""
-        />
-      </div>
-      <div>
-        <img
-          class="h-auto max-w-full rounded-lg"
-          src="../assets/gallery/gallery2.jpg"
-          alt=""
-        />
-      </div>
-      <div>
-        <img
-          class="h-auto max-w-full rounded-lg"
-          src="../assets/gallery/gallery6.jpg"
-          alt=""
-        />
-      </div>
-      <div>
-        <img
-          class="h-auto max-w-full rounded-lg"
-          src="../assets/gallery/gallery4.jpg"
-          alt=""
-        />
-      </div>
-      <div>
-        <img
-          class="h-auto max-w-full rounded-lg"
-          src="../assets/gallery/gallery5.jpg"
-          alt=""
-        />
-      </div>
-      <div>
-        <img
-          class="h-auto max-w-full rounded-lg"
-          src="../assets/gallery/gallery3.jpg"
-          alt=""
-        />
-      </div>
-      <div>
-        <img
-          class="h-auto max-w-full rounded-lg"
-          src="../assets/gallery/gallery13.jpg"
-          alt=""
-        />
-      </div>
-      <div>
-        <img
-          class="h-auto max-w-full rounded-lg"
-          src="../assets/gallery/gallery8.jpg"
-          alt=""
-        />
-      </div>
-      <div>
-        <img
-          class="h-auto max-w-full rounded-lg"
-          src="../assets/gallery/gallery9.jpg"
-          alt=""
-        />
-      </div>
-      <div>
-        <img
-          class="h-auto max-w-full rounded-lg"
-          src="../assets/gallery/gallery14.jpg"
-          alt=""
-        />
-      </div>
-      <div>
-        <img
-          class="h-auto max-w-full rounded-lg"
-          src="../assets/gallery/gallery16.jpg"
-          alt=""
-        />
-      </div>
-      <div>
-        <img
-          class="h-auto max-w-full rounded-lg"
-          src="../assets/gallery/gallery12.jpg"
-          alt=""
-        />
-      </div>
-      <div>
-        <img
-          class="h-auto max-w-full rounded-lg"
-          src="../assets/gallery/gallery7.jpg"
-          alt=""
-        />
-      </div>
-      <div>
-        <img
-          class="h-auto max-w-full rounded-lg"
-          src="../assets/gallery/gallery10.jpg"
-          alt=""
-        />
-      </div>
-      <div>
-        <img
-          class="h-auto max-w-full rounded-lg"
-          src="../assets/gallery/gallery11.jpg"
-          alt=""
-        />
-      </div>
-      <div>
-        <img
-          class="h-auto max-w-full rounded-lg"
-          src="../assets/gallery/gallery17.jpg"
-          alt=""
-        />
-      </div>
-      <div>
-        <img
-          class="h-auto max-w-full rounded-lg"
-          src="../assets/gallery/gallery15.jpg"
-          alt=""
-        />
-      </div>
+  <div
+    class="grid grid-cols-2 md:grid-cols-3 gap-4 pr-8 pl-8 pb-12 md:pl-24 md:pr-12"
+  >
+    <div>
+      <img
+        class="h-auto max-w-full rounded-lg"
+        src="../assets/gallery/gallery1.jpg"
+        alt=""
+      />
     </div>
-  </ObserverComponent>
+    <div>
+      <img
+        class="h-auto max-w-full rounded-lg"
+        src="../assets/gallery/gallery2.jpg"
+        alt=""
+      />
+    </div>
+    <div>
+      <img
+        class="h-auto max-w-full rounded-lg"
+        src="../assets/gallery/gallery6.jpg"
+        alt=""
+      />
+    </div>
+    <div>
+      <img
+        class="h-auto max-w-full rounded-lg"
+        src="../assets/gallery/gallery4.jpg"
+        alt=""
+      />
+    </div>
+    <div>
+      <img
+        class="h-auto max-w-full rounded-lg"
+        src="../assets/gallery/gallery5.jpg"
+        alt=""
+      />
+    </div>
+    <div>
+      <img
+        class="h-auto max-w-full rounded-lg"
+        src="../assets/gallery/gallery3.jpg"
+        alt=""
+      />
+    </div>
+    <div>
+      <img
+        class="h-auto max-w-full rounded-lg"
+        src="../assets/gallery/gallery13.jpg"
+        alt=""
+      />
+    </div>
+    <div>
+      <img
+        class="h-auto max-w-full rounded-lg"
+        src="../assets/gallery/gallery8.jpg"
+        alt=""
+      />
+    </div>
+    <div>
+      <img
+        class="h-auto max-w-full rounded-lg"
+        src="../assets/gallery/gallery9.jpg"
+        alt=""
+      />
+    </div>
+    <div>
+      <img
+        class="h-auto max-w-full rounded-lg"
+        src="../assets/gallery/gallery14.jpg"
+        alt=""
+      />
+    </div>
+    <div>
+      <img
+        class="h-auto max-w-full rounded-lg"
+        src="../assets/gallery/gallery16.jpg"
+        alt=""
+      />
+    </div>
+    <div>
+      <img
+        class="h-auto max-w-full rounded-lg"
+        src="../assets/gallery/gallery12.jpg"
+        alt=""
+      />
+    </div>
+    <div>
+      <img
+        class="h-auto max-w-full rounded-lg"
+        src="../assets/gallery/gallery7.jpg"
+        alt=""
+      />
+    </div>
+    <div>
+      <img
+        class="h-auto max-w-full rounded-lg"
+        src="../assets/gallery/gallery10.jpg"
+        alt=""
+      />
+    </div>
+    <div>
+      <img
+        class="h-auto max-w-full rounded-lg"
+        src="../assets/gallery/gallery11.jpg"
+        alt=""
+      />
+    </div>
+    <div>
+      <img
+        class="h-auto max-w-full rounded-lg"
+        src="../assets/gallery/gallery17.jpg"
+        alt=""
+      />
+    </div>
+    <div>
+      <img
+        class="h-auto max-w-full rounded-lg"
+        src="../assets/gallery/gallery15.jpg"
+        alt=""
+      />
+    </div>
+  </div>
   <ContactUs />
 </template>
 
