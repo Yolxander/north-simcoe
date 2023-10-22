@@ -10,6 +10,7 @@
       <div
         class="flex flex-col mb-2 z-10 relative bg-white rounded-lg shadow-md p-4 border-4 border-solid border-teal"
       >
+
           <!-- Address Field -->
           <div class="relative z-0 w-full mb-4 group">
               <input
@@ -322,52 +323,6 @@
               >S.I.N.</label>
           </div>
 
-
-          <!-- Dependants Section ------------------------------------->
-          <div class="relative z-0 w-full mb-4">
-              <p class="mb-2 text-sm text-gray-700 font-medium">Dependants</p>
-
-              <!-- This div will be repeated for each dependant -->
-              <div v-for="(dependant, index) in dependants" :key="index" class="mb-4 group flex items-center">
-
-                  <!-- Dependant Name Field -->
-                  <div class="relative z-0 w-1/2 mb-4 inline-block pr-2 flex-grow">
-                      <input
-                          v-model="dependant.name"
-                          type="text"
-                          :name="`dependant_name_${index}`"
-                          :id="`dependant_name_${index}`"
-                          class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer"
-                          placeholder=" "
-                          required
-                      />
-                      <label
-                          :for="`dependant_name_${index}`"
-                          class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                      >Name</label>
-                  </div>
-
-                  <!-- Dependant Date of Birth Field -->
-                  <div class="relative z-0 w-1/2 mb-4 inline-block pl-2 flex-grow">
-                      <input
-                          v-model="dependant.dob"
-                          type="date"
-                          :name="`dependant_dob_${index}`"
-                          :id="`dependant_dob_${index}`"
-                          class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer"
-                          required
-                      />
-                      <label
-                          :for="`dependant_dob_${index}`"
-                          class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                      >Date of birth</label>
-                  </div>
-
-                  <!-- Button to add another dependant -->
-                  <button @click.prevent="addDependant" class="text-teal hover:underline ml-4">Add</button>
-              </div>
-          </div>
-
           <!-- Do you have pets ?-->
           <div class="relative z-0 w-full mb-4 group">
               <select
@@ -415,8 +370,113 @@
             Next
         </button>
     </div>
-
       <div v-if="currentStep === 2 && showForm" class="w-full relative">
+          <div class="flex flex-col mb-2 z-10 relative bg-white rounded-lg shadow-md p-4 border-4 border-solid border-teal">
+              <!-- Have Pet Field -->
+              <div class="relative z-0 w-full mb-4 group">
+                  <input type="text" name="have_pet" id="have_pet" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer" placeholder=" " required />
+                  <label for="have_pet" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Have Pet</label>
+              </div>
+              <!-- Pet Description Field -->
+              <div class="relative z-0 w-full mb-4 group">
+                  <input type="text" name="pet_description" id="pet_description" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer" placeholder=" " required />
+                  <label for="pet_description" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Pet Description</label>
+              </div>
+              <!-- Dependants Section ------------------------------------->
+              <div class="relative z-0 w-full mb-4">
+                  <p class="mb-2 text-sm text-gray-700 font-medium">Dependants</p>
+
+                  <!-- This div will be repeated for each dependant -->
+                  <div v-for="(dependant, index) in dependants" :key="index" class="mb-4 group flex items-center">
+
+                      <!-- Dependant Name Field -->
+                      <div class="relative z-0 w-1/2 mb-4 inline-block pr-2 flex-grow">
+                          <input
+                              v-model="dependant.name"
+                              type="text"
+                              :name="`dependant_name_${index}`"
+                              :id="`dependant_name_${index}`"
+                              class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer"
+                              placeholder=" "
+                              required
+                          />
+                          <label
+                              :for="`dependant_name_${index}`"
+                              class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                          >Name</label>
+                      </div>
+
+                      <!-- Dependant Date of Birth Field -->
+                      <div class="relative z-0 w-1/2 mb-4 inline-block pl-2 flex-grow">
+                          <input
+                              v-model="dependant.dob"
+                              type="date"
+                              :name="`dependant_dob_${index}`"
+                              :id="`dependant_dob_${index}`"
+                              class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer"
+                              required
+                          />
+                          <label
+                              :for="`dependant_dob_${index}`"
+                              class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                          >Date of birth</label>
+                      </div>
+
+                      <!-- Button to add another dependant -->
+                      <button @click.prevent="addDependant" class="text-teal hover:underline ml-4">Add</button>
+                  </div>
+              </div>
+
+              <!-- Present Address Field -->
+              <div class="relative z-0 w-full mb-4 group">
+                  <input type="text" name="present_address" id="present_address" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer" placeholder=" " required />
+                  <label for="present_address" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Present Address</label>
+              </div>
+              <!-- City Field -->
+              <div class="relative z-0 w-full mb-4 group">
+                  <input type="text" name="city" id="city" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer" placeholder=" " required />
+                  <label for="city" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">City</label>
+              </div>
+              <!-- Province Field -->
+              <div class="relative z-0 w-full mb-4 group">
+                  <input type="text" name="province" id="province" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer" placeholder=" " required />
+                  <label for="province" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Province</label>
+              </div>
+              <!-- Postal Code Field -->
+              <div class="relative z-0 w-full mb-4 group">
+                  <input type="text" name="postal_code" id="postal_code" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer" placeholder=" " required />
+                  <label for="postal_code" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Postal Code</label>
+              </div>
+              <!-- Duration at Address Field -->
+              <div class="relative z-0 w-full mb-4 group">
+                  <input type="text" name="duration_at_address" id="duration_at_address" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer" placeholder=" " required />
+                  <label for="duration_at_address" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Duration at Address</label>
+              </div>
+              <!-- Landlord Name Field -->
+              <div class="relative z-0 w-full mb-4 group">
+                  <input type="text" name="landlord_name" id="landlord_name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer" placeholder=" " required />
+                  <label for="landlord_name" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Landlord Name</label>
+              </div>
+              <!-- Landlord Phone Field -->
+              <div class="relative z-0 w-full mb-4 group">
+                  <input type="tel" name="landlord_phone" id="landlord_phone" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer" placeholder=" " required />
+                  <label for="landlord_phone" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Landlord Phone</label>
+              </div>
+          </div>
+
+          <div
+              class="bg-teal w-[300px] h-[250px] absolute top-[-20px] right-[-20px] md:top-[-40px] md:right-[-40px] z-negative"
+          ></div>
+
+          <!-- Back Button -->
+          <button @click.prevent="previousStep" class="text-brown bg-teal hover:bg-tealdark hover:text-white focus:ring-4 focus:outline-none focus:ring-teal font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center mr-2">
+              Back
+          </button>
+          <button @click.prevent="nextStep" class="text-brown bg-teal hover:bg-tealdark hover:text-white focus:ring-4 focus:outline-none focus:ring-teal font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">
+              Next
+          </button>
+      </div>
+      <div v-if="currentStep === 3 && showForm" class="w-full relative">
           <div
               class="flex flex-col mb-2 z-10 relative bg-white rounded-lg shadow-md p-4 border-4 border-solid border-teal"
           >
@@ -805,7 +865,7 @@
 
   </form>
 
-    <form class="contact-us max-w-screen-xl p-10 md:p-32 mx-auto flex flex-col flex-wrap md:flex-nowrap md:items-center md:space-x-8 md:gap-5" @submit.prevent="submitForm" id="form2">
+    <form class="hidden contact-us max-w-screen-xl p-10 md:p-32 mx-auto flex flex-col flex-wrap md:flex-nowrap md:items-center md:space-x-8 md:gap-5" @submit.prevent="submitForm" id="form2">
 
         <div class="relative z-0 w-full mb-4 group">
             <input
@@ -822,12 +882,6 @@
                 PDF Data
             </label>
         </div>
-        <button
-            type="submit"
-            class="text-brown bg-teal hover:bg-tealdark hover:text-white focus:ring-4 focus:outline-none focus:ring-teal font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
-        >
-            Submit
-        </button>
 
     </form>
 </template>
@@ -861,16 +915,30 @@ export default {
                     cellphone: '',
                     email_address: '',
                     date_of_birth: '',
-                    sin: ''
+                    sin: '',
+                    employer_name: '',
+                    supervisor_name: '',
+                    employer_address: '',
+                    job_title: '',
+                    employer_phone: '',
+                    employment_duration: '',
+                    monthly_net_income: ''
                 },
                 applicant2: {
                     name: '',
                     current_address: '',
-                    home_phone: '', // Note: Adjust the field name if necessary
+                    home_phone: '',
                     cellphone: '',
                     email_address: '',
                     date_of_birth: '',
-                    sin: ''
+                    sin: '',
+                    employer_name: '',
+                    supervisor_name: '',
+                    employer_address: '',
+                    job_title: '',
+                    employer_phone: '',
+                    employment_duration: '',
+                    monthly_net_income: ''
                 },
                 have_pet: '',
                 pet_description: '',
@@ -900,8 +968,57 @@ export default {
                         landlord_phone: ''
                     }
                 ],
-                applicant1_employer_name: ''
+                other_income_sources: {
+                    type_of_income: '',
+                    monthly_net_income_from_other_sources: '',
+                    total_monthly_income: ''
+                },
+                vehicles: [
+                    {
+                        year: '',
+                        make: '',
+                        model: '',
+                        plate_number: '',
+                        drivers_license_no: '',
+                        parking_space_required: ''
+                    },
+                    {
+                        year: '',
+                        make: '',
+                        model: '',
+                        plate_number: '',
+                        drivers_license_no: '',
+                        parking_space_required: ''
+                    }
+                ],
+                banking_information: {
+                    banking_institution: '',
+                    address: '',
+                    phone: ''
+                },
+                references: [
+                    {
+                        name: '',
+                        address: '',
+                        phone_number: '',
+                        relationship: ''
+                    },
+                    {
+                        name: '',
+                        address: '',
+                        phone_number: '',
+                        relationship: ''
+                    }
+                ],
+                criminal_and_credit_check_comment: '',
+                applicant1_signature: '',
+                applicant1_signature_date: '',
+                applicant2_signature: '',
+                applicant2_signature_date: '',
+                witness_signature: '',
+                witness_name: ''
             }
+
         };
     },
     methods: {
@@ -920,6 +1037,7 @@ export default {
         submitForm() {
                 // Generate and send the email with the attached PDF
                 this.sendEmail();
+            this.showSuccess()
         },
         handleFileChange(event) {
             this.pdfData = event.target.files[0];
