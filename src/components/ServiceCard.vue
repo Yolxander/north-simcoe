@@ -1,36 +1,28 @@
 <template>
-  <div class="cards-container pl-[40px]">
+  <div
+    class="flex justify-center items-center flex-wrap md:pt-20 md:pl-48 md:pr-20"
+  >
     <div
       v-for="(service, index) in services"
       :key="service.id"
       :ref="`service-${service.id}`"
       class="max-w-screen-xl mx-auto py-8"
     >
-      <div class="flex flex-wrap md:flex-nowrap">
-        <div
-          v-if="index % 2 === 0"
-          :style="{ width: '40%' }"
-          class="icon-container"
-        >
-          <div class="icon-content">
+      <div class="flex flex-wrap md:flex-nowrap items-center">
+        <div v-if="index % 2 === 0" class="w-1/3">
+          <div class="text-center">
             <font-awesome-icon
               :icon="['fas', service.icon]"
-              class="text-5xl mb-2"
+              class="text-9xl mb-2 text-teal"
             />
-            <h4 class="mb-2 text-3xl font-extrabold text-brown font-archivo">
-              {{ service.title }}
-            </h4>
           </div>
         </div>
         <!-- Text content -->
-        <div
-          :style="{ width: '100%', marginLeft: '10%', marginRight: '3%' }"
-          class="ml-3"
-        >
-          <div
-            class="card-body font-open-sans"
-            style="height: 100%; overflow-y: scroll"
-          >
+        <div class="ml-3 w-2/3">
+          <div class="card-body font-open-sans">
+            <h3 class="text-3xl font-semibold md:mb-4 text-brown font-archivo">
+              {{ service.title }}
+            </h3>
             <p
               v-for="(paragraph, index) in services[index].paragraph"
               :key="index"
@@ -46,7 +38,7 @@
               >
                 <font-awesome-icon
                   :icon="['fas', 'circle']"
-                  class="text-sm mr-4 text-teal pt-3"
+                  class="text-sm mr-4 pt-3 text-teal"
                 />
                 {{ item }}
               </li>
@@ -72,19 +64,12 @@
           </div>
         </div>
         <!-- Render icon on the right for odd indexed services -->
-        <div
-          v-if="index % 2 === 1"
-          :style="{ width: '40%', marginLeft: '5%' }"
-          class="icon-container"
-        >
-          <div class="icon-content">
+        <div v-if="index % 2 === 1" class="w-1/3">
+          <div class="text-center">
             <font-awesome-icon
               :icon="['fas', service.icon]"
-              class="text-5xl mb-2"
+              class="text-9xl mb-2 text-teal"
             />
-            <h4 class="mb-2 text-3xl font-extrabold text-brown font-archivo">
-              {{ service.title }}
-            </h4>
           </div>
         </div>
       </div>
@@ -133,17 +118,6 @@ export default {
 </script>
 
 <style scoped>
-.icon-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-}
-
-.icon-content {
-  text-align: center;
-}
-
 .cards-container {
   display: flex;
   justify-content: center;
