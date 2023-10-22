@@ -16,8 +16,8 @@
           Meet the talented team at North Simcoe PM
         </h3>
         <p class="font-open-sans text-brown text-2xl">
-          Meet the dynamic duo driving our success: Linda Shipley Rossi and
-          Larry Pomfret, who together seamlessly blend strategic vision and
+          Meet the dynamic duo driving our success: Linda Shipley and Larry
+          Pomfret, who together seamlessly blend strategic vision and
           operational wizardry to elevate every property under our care.
         </p>
       </ObserverComponent>
@@ -58,7 +58,7 @@ import HeroGlobal from "../components/HeroGlobal.vue";
 import LayoutTwoSections from "../components/LayoutTwoSections.vue";
 import ServiceAriaHome from "../components/ServiceAriaHome.vue";
 import ObserverComponent from "../components/IntersectionObserver.vue";
-import {useHead} from "@vueuse/head";
+import { useHead } from "@vueuse/head";
 
 export default {
   name: "CompanyPage",
@@ -96,20 +96,18 @@ export default {
       ],
     };
   },
-    setup() {
-
-        useHead({
-            // Can be static or computed
-            title: 'Our Company',
-            meta: [
-                {
-                    name: `description`,
-                    content: 'this is the our company page',
-                },
-            ],
-
-        })
-    },
+  setup() {
+    useHead({
+      // Can be static or computed
+      title: "Our Company",
+      meta: [
+        {
+          name: `description`,
+          content: "this is the our company page",
+        },
+      ],
+    });
+  },
 };
 </script>
 
