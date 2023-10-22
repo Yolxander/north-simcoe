@@ -118,7 +118,7 @@ export default {
   props: {
     title: {
       type: String,
-      default: "SERVICE ARIA",
+      default: "SERVICE AREA",
     },
     subtitle: {
       type: String,
