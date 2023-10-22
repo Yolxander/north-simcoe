@@ -1,7 +1,6 @@
 <template>
   <HeroGlobal :hero="hero" />
   <ServiceCard :services="services" />
-  <!-- Here's the change -->
   <ContactUs />
 </template>
 
@@ -9,7 +8,7 @@
 import "tailwindcss/tailwind.css";
 import ContactUs from "../components/ContactUs.vue";
 import HeroGlobal from "../components/HeroGlobal.vue";
-import ServiceCard from "../components/ServiceCard.vue"; // Ensure this path is correct
+import ServiceCard from "../components/ServiceCard.vue";
 
 export default {
   name: "ServicesPage",
@@ -27,6 +26,7 @@ export default {
         {
           id: 1,
           icon: "house-chimney",
+          iconPos: "left",
           title: "Residential Property Management",
           paragraph: [
             "Owning a second home or investment (student) property doesn’t have to be stressful. At North Simcoe Property Management, we create custom plans for each rental property to ensure you’re getting the most out of your investment. Whether you’re out of the country, or just too busy to manage your property, we can take the stress out of the day to day that comes with being a landlord in Ontario.",
@@ -46,11 +46,14 @@ export default {
           paragraphEnd:
             "Ready to work with our team? Fill out a form below or reach out at",
           phone: "+1 (647) 500-1747",
+          link: "/forms-test",
+          linkTitle: "Fill in Residential App",
         },
 
         {
           id: 2,
           icon: "building",
+          iconPos: "right",
           title: "Commercial Property Management",
           paragraph: [
             "Commercial property management involves the management of any property used for business purposes, such as office buildings, warehouses, and retail spaces. It involves managing the day-to-day operations of the property, maintaining and improving the condition of the property, and ensuring compliance with local and Canadian laws.",
@@ -59,12 +62,13 @@ export default {
           paragraphEnd:
             "Ready to work with our team? Fill out a form below or reach out at",
           phone: "+1 (647) 500-1747",
-          link: "*Link to Commercial Application Form*",
-          linkTitle: "",
+          link: "/forms-test",
+          linkTitle: "Fill in Commercial App",
         },
         {
           id: 3,
           icon: "dollar-sign",
+          iconPos: "left",
           title: "Custom Pricing",
           paragraph: [
             "Mixed use property management involves managing properties that offer a combination of residential, commercial, and/or industrial uses. It requires a specific set of skills and knowledge to successfully manage all of the different elements.",
@@ -89,6 +93,7 @@ export default {
         {
           id: 4,
           icon: "screwdriver-wrench",
+          iconPos: "right",
           title: "Full Property Maintenance",
           paragraph: [
             "Maintaining a property in top-notch condition is crucial for its value preservation and the satisfaction of its tenants. At North Simcoe Property Management, we offer Full Property Maintenance services to alleviate property owners from the hassles associated with property upkeep.",
