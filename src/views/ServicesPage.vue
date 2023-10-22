@@ -1,6 +1,17 @@
 <template>
   <HeroGlobal :hero="hero" />
-  <ServiceCard :services="services" />
+  <ObserverComponent classToToggle="fadeInLeft" playOnce="true">
+    <ServiceCard :service="services[0]" />
+  </ObserverComponent>
+  <ObserverComponent classToToggle="fadeInRight" playOnce="true">
+    <ServiceCard :service="services[1]" />
+  </ObserverComponent>
+  <ObserverComponent classToToggle="fadeInLeft" playOnce="true">
+    <ServiceCard :service="services[2]" />
+  </ObserverComponent>
+  <ObserverComponent classToToggle="fadeInRight" playOnce="true">
+    <ServiceCard :service="services[3]" />
+  </ObserverComponent>
   <ContactUs />
 </template>
 
@@ -8,6 +19,7 @@
 import "tailwindcss/tailwind.css";
 import ContactUs from "../components/ContactUs.vue";
 import HeroGlobal from "../components/HeroGlobal.vue";
+import ObserverComponent from "../components/IntersectionObserver.vue";
 import ServiceCard from "../components/ServiceCard.vue";
 
 export default {
@@ -15,6 +27,7 @@ export default {
   components: {
     ContactUs,
     HeroGlobal,
+    ObserverComponent,
     ServiceCard,
   },
   data() {

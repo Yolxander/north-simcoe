@@ -2,12 +2,7 @@
   <div
     class="flex justify-center items-center flex-wrap p-10 md:pt-20 md:pl-48 md:pr-20"
   >
-    <div
-      v-for="service in services"
-      :key="service.id"
-      :ref="`service-${service.id}`"
-      class="max-w-screen-xl mx-auto py-8"
-    >
+    <div :ref="`service-${service.id}`" class="max-w-screen-xl mx-auto py-8">
       <div
         class="flex flex-wrap md:flex-nowrap items-center justify-center"
         :class="service.iconPos === 'left' ? 'flex-row' : 'flex-row-reverse'"
@@ -48,7 +43,7 @@
             </ul>
             <p class="font-open-sans text-2xl text-brown mb-4">
               {{ service.paragraphEnd }}
-              <a href="{{ service.phone }}"> {{ service.phone }} </a>
+              <a :href="service.phone"> {{ service.phone }} </a>
             </p>
             <router-link
               v-if="service.link && service.linkTitle"
@@ -69,7 +64,7 @@
 export default {
   name: "ServiceCard",
   props: {
-    services: Object,
+    service: Object,
   },
 };
 </script>
