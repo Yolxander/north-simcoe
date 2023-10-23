@@ -5,6 +5,7 @@ import "./styles/app.css";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { createHead } from '@vueuse/head'
+import { VueSignaturePad } from 'vue-signature-pad';
 import {
   faPhone,
   faBuilding,
@@ -48,4 +49,5 @@ document.title = 'North Simcoe PM';
 
 app.use(router).use(head);
 app.component("font-awesome-icon", FontAwesomeIcon);
+app.component("VueSignaturePad", VueSignaturePad);
 app.mount("#app");

@@ -75,7 +75,7 @@ export default {
           paragraphEnd:
             "Ready to work with our team? Fill out a form below or reach out at",
           phone: "+1 (647) 500-1747",
-          link: "/forms-test",
+          link: "/commercial-form",
           linkTitle: "Fill in Commercial App",
         },
         {

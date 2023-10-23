@@ -78,7 +78,7 @@ export default {
     width: 75px;
     height: 75px;
     border-radius: 50%;
-    background: #82ce34;
+    background: teal;
     padding: 10px;
     display: flex;
     justify-content: center;
@@ -93,7 +93,7 @@ export default {
 .modal-confirm .btn {
     color: #fff;
     border-radius: 4px;
-    background: #82ce34;
+    background: teal;
     text-decoration: none;
     transition: all 0.4s;
     line-height: normal;
@@ -101,7 +101,7 @@ export default {
     margin-top: 10px;
 }
 .modal-confirm .btn:hover, .modal-confirm .btn:focus {
-    background: #6fb32b;
+    background: teal;
     outline: none;
 }
 

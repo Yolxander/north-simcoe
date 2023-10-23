@@ -4,6 +4,7 @@
         @submit.prevent="submitForm"
         id="form"
     >
+        <h2 class="text-brown text-[30px]">TENANT RENTAL APPLICATION</h2>
         <div v-if="currentStep === 1 && showForm" class="w-full relative">
             <div
                 class="flex flex-col mb-2 z-10 relative bg-white rounded-lg shadow-md p-4 border-4 border-solid border-teal"
@@ -429,9 +430,6 @@
 
 
             </div>
-            <div
-                class="bg-teal w-[300px] h-[250px] absolute top-[-20px] right-[-20px] md:top-[-40px] md:right-[-40px] z-negative"
-            ></div>
 
             <button @click.prevent="nextStep" class="text-brown bg-teal hover:bg-tealdark hover:text-white focus:ring-4 focus:outline-none focus:ring-teal font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">
                 Next
@@ -530,10 +528,6 @@
                     <label for="landlord_phone" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Landlord Phone</label>
                 </div>
             </div>
-
-            <div
-                class="bg-teal w-[300px] h-[250px] absolute top-[-20px] right-[-20px] md:top-[-40px] md:right-[-40px] z-negative"
-            ></div>
 
             <!-- Back Button -->
             <button @click.prevent="previousStep" class="text-brown bg-teal hover:bg-tealdark hover:text-white focus:ring-4 focus:outline-none focus:ring-teal font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center mr-2">
@@ -886,10 +880,6 @@
 
 
             </div>
-            <div
-                class="bg-teal w-[300px] h-[250px] absolute top-[-20px] right-[-20px] md:top-[-40px] md:right-[-40px] z-negative"
-            ></div>
-
             <!-- Back Button -->
             <button @click.prevent="previousStep" class="text-brown bg-teal hover:bg-tealdark hover:text-white focus:ring-4 focus:outline-none focus:ring-teal font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center mr-2">
                 Back
@@ -1043,16 +1033,24 @@
 
 
                 <!-- Applicant 1 Signature Field -->
-                <div class="relative z-0 w-full mb-4 group">
-                    <input v-model="form.applicant1_signature" type="text" name="applicant1_signature" id="applicant1_signature" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer" placeholder=" " required />
-                    <label for="applicant1_signature" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" >Applicant 1 Signature</label>
-                </div>
+<!--                <div class="relative z-0 w-full mb-4 group">-->
+<!--                    <VueSignaturePad ref="applicant1_signature" />-->
+<!--                    <label class="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- left-0 text-teal">Applicant 1 Signature</label>-->
+<!--                    <div>-->
+<!--                        <button @click.prevent="save('applicant1_signature')" class="link-light bg-teal-500 ml-1 mr-5">Save</button>-->
+<!--                        <button @click.prevent="undo('applicant1_signature')" class="link-light bg-teal-500">Undo</button>-->
+<!--                    </div>-->
+<!--                </div>-->
 
                 <!-- Applicant 2 Signature Field -->
-                <div class="relative z-0 w-full mb-4 group">
-                    <input v-model="form.applicant2_signature" type="text" name="applicant2_signature" id="applicant2_signature" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer" placeholder=" " required />
-                    <label for="applicant2_signature" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" >Applicant 2 Signature</label>
-                </div>
+<!--                <div class="relative z-0 w-full mb-4 group">-->
+<!--                    <VueSignaturePad ref="applicant2_signature" />-->
+<!--                    <label class="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- left-0 text-teal">Applicant 2 Signature</label>-->
+<!--                    <div>-->
+<!--                        <button @click.prevent="save('applicant2_signature')" class="link-light bg-teal-500 ml-1 mr-5">Save</button>-->
+<!--                        <button @click.prevent="undo('applicant2_signature')" class="link-light bg-teal-500">Undo</button>-->
+<!--                    </div>-->
+<!--                </div>-->
 
                 <!-- Witness Name Field -->
                 <div class="relative z-0 w-full mb-4 group">
@@ -1061,16 +1059,18 @@
                 </div>
 
                 <!-- Witness Signature Field -->
-                <div class="relative z-0 w-full mb-4 group">
-                    <input v-model="form.witness_signature" type="text" name="witness_signature" id="witness_signature" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer" placeholder=" " required />
-                    <label for="witness_signature" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" >Witness Signature</label>
-                </div>
+<!--                <div class="relative z-0 w-full mb-4 group">-->
+<!--                    <VueSignaturePad ref="witness_signature" />-->
+<!--                    <label for="witness_signature" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" >Witness Signature</label>-->
+<!--                    <div>-->
+<!--                        <button @click.prevent="save('witness_signature')" class="link-light text-teal-600 bg-teal-500 ml-1 mr-5 cursor-pointer">Save</button>-->
+<!--                        <button @click.prevent="undo('witness_signature')" class="link-light text-teal-600 cursor-pointer">Undo</button>-->
+<!--                    </div>-->
+<!--                </div>-->
 
 
             </div>
-            <div
-                class="bg-teal w-[300px] h-[250px] absolute top-[-20px] right-[-20px] md:top-[-40px] md:right-[-40px] z-negative"
-            ></div>
+
 
             <!-- Back Button -->
             <button @click.prevent="previousStep" class="text-brown bg-teal hover:bg-tealdark hover:text-white focus:ring-4 focus:outline-none focus:ring-teal font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center mr-2">
@@ -1118,8 +1118,10 @@ import "jspdf-autotable"
 import SuccessComponent from "@/components/SuccessComponent.vue";
 // Add FileSaver import
 export default {
-    name: "FormsList",
-    components: {SuccessComponent},
+    name: "TenantApplicationForm",
+    components: {
+        SuccessComponent,
+    },
     data() {
         return {
             pdfData: null, // change this to null
@@ -1236,20 +1238,25 @@ export default {
                     }
                 ],
                 criminal_and_credit_check_comment: '',
-                applicant1_signature: '',
+                // applicant1_signature: '',
                 applicant1_signature_date: '',
-                applicant2_signature: '',
+                // applicant2_signature: '',
                 applicant2_signature_date: '',
                 agreed_to_conditions:'',
-                witness_signature: '',
+                // witness_signature: '',
                 witness_name: ''
             }
 
         };
     },
     methods: {
-        log() {
-            console.log('Transition event triggered!');
+        undo(fieldRef) {
+            this.$refs[fieldRef].undoSignature();
+        },
+        save(fieldRef) {
+            const { isEmpty, data } = this.$refs[fieldRef].saveSignature();
+            console.log(isEmpty);
+            console.log(data);
         },
         addDependant() {
             this.dependants.push({});
@@ -1264,6 +1271,7 @@ export default {
             // Generate and send the email with the attached PDF
             this.sendEmail();
             this.showSuccess()
+            // console.log(this.form.witness_signature)
         },
         handleFileChange(event) {
             this.pdfData = event.target.files[0];
@@ -1318,10 +1326,95 @@ export default {
                     }
 
                     // Make replacements here
-                    fullKey = fullKey.replace('applicant1.', 'Applicant 1: ');
-                    fullKey = fullKey.replace('applicant2.', 'Applicant 2: ');
-                    fullKey = fullKey.replace('previous_addresses[0].', 'Previous Addresses (Applicant 1): ');
-                    fullKey = fullKey.replace('previous_addresses[1].', 'Previous Addresses (Applicant 2): ');
+                    // Applicant 1
+                    fullKey = fullKey.replace('applicant1.name', 'Applicant #1 Name');
+                    fullKey = fullKey.replace('applicant1.current_address', 'Applicant #1 Current Address');
+                    fullKey = fullKey.replace('applicant1.home_phone', 'Applicant #1 Home Phone');
+                    fullKey = fullKey.replace('applicant1.cellphone', 'Applicant #1 Cell Phone');
+                    fullKey = fullKey.replace('applicant1.email_address', 'Applicant #1 Email');
+                    fullKey = fullKey.replace('applicant1.date_of_birth', 'Applicant #1 Date of Birth');
+                    fullKey = fullKey.replace('applicant1.sin', 'Applicant #1 SIN');
+
+// Applicant 2
+                    fullKey = fullKey.replace('applicant2.name', 'Applicant #2 Name');
+                    fullKey = fullKey.replace('applicant2.current_address', 'Applicant #2 Current Address');
+                    fullKey = fullKey.replace('applicant2.home_phone', 'Applicant #2 Home Phone');
+                    fullKey = fullKey.replace('applicant2.cellphone', 'Applicant #2 Cell Phone');
+                    fullKey = fullKey.replace('applicant2.email_address', 'Applicant #2 Email');
+                    fullKey = fullKey.replace('applicant2.date_of_birth', 'Applicant #2 Date of Birth');
+                    fullKey = fullKey.replace('applicant2.sin', 'Applicant #2 SIN');
+
+// Residential History
+                    fullKey = fullKey.replace('present_address', 'Present Address');
+                    fullKey = fullKey.replace('city', 'City');
+                    fullKey = fullKey.replace('province', 'Province');
+                    fullKey = fullKey.replace('postal_code', 'Postal Code');
+                    fullKey = fullKey.replace('duration_at_address', 'Duration at Address');
+                    fullKey = fullKey.replace('landlord_name', 'Landlord Name');
+                    fullKey = fullKey.replace('landlord_phone', 'Landlord Phone');
+
+// Employment
+                    fullKey = fullKey.replace('applicant1.employer_name', 'Applicant #1 Employer');
+                    fullKey = fullKey.replace('applicant1.supervisor_name', 'Applicant #1 Supervisor');
+                    fullKey = fullKey.replace('applicant1.employer_address', 'Applicant #1 Employer Address');
+                    fullKey = fullKey.replace('applicant1.job_title', 'Applicant #1 Job Title');
+                    fullKey = fullKey.replace('applicant1.employer_phone', 'Applicant #1 Employer Phone');
+                    fullKey = fullKey.replace('applicant1.employment_duration', 'Applicant #1 Employment Duration');
+                    fullKey = fullKey.replace('applicant1.monthly_net_income', 'Applicant #1 Monthly Income');
+
+                    fullKey = fullKey.replace('applicant2.employer_name', 'Applicant #2 Employer');
+                    fullKey = fullKey.replace('applicant2.supervisor_name', 'Applicant #2 Supervisor');
+                    fullKey = fullKey.replace('applicant2.employer_address', 'Applicant #2 Employer Address');
+                    fullKey = fullKey.replace('applicant2.job_title', 'Applicant #2 Job Title');
+                    fullKey = fullKey.replace('applicant2.employer_phone', 'Applicant #2 Employer Phone');
+                    fullKey = fullKey.replace('applicant2.employment_duration', 'Applicant #2 Employment Duration');
+                    fullKey = fullKey.replace('applicant2.monthly_net_income', 'Applicant #2 Monthly Income');
+
+                    // Vehicle 1
+                    fullKey = fullKey.replace('vehicles[0].year', 'Vehicle 1 Year');
+                    fullKey = fullKey.replace('vehicles[0].make', 'Vehicle 1 Make');
+                    fullKey = fullKey.replace('vehicles[0].model', 'Vehicle 1 Model');
+                    fullKey = fullKey.replace('vehicles[0].plate_number', 'Vehicle 1 Plate Number');
+                    fullKey = fullKey.replace('vehicles[0].drivers_license_no', 'Vehicle 1 Driver License');
+                    fullKey = fullKey.replace('vehicles[0].parking_space_required', 'Vehicle 1 Parking Space Required');
+
+// Vehicle 2
+                    fullKey = fullKey.replace('vehicles[1].year', 'Vehicle 2 Year');
+                    fullKey = fullKey.replace('vehicles[1].make', 'Vehicle 2 Make');
+                    fullKey = fullKey.replace('vehicles[1].model', 'Vehicle 2 Model');
+                    fullKey = fullKey.replace('vehicles[1].plate_number', 'Vehicle 2 Plate Number');
+                    fullKey = fullKey.replace('vehicles[1].drivers_license_no', 'Vehicle 2 Driver License');
+                    fullKey = fullKey.replace('vehicles[1].parking_space_required', 'Vehicle 2 Parking Space Required');
+
+                    // Previous Address 1
+                    fullKey = fullKey.replace('previous_addresses[0].City', 'Previous Address 1 City');
+                    fullKey = fullKey.replace('previous_addresses[0].Province', 'Previous Address 1 Province');
+                    fullKey = fullKey.replace('previous_addresses[0].Postal_code', 'Previous Address 1 Postal Code');
+                    fullKey = fullKey.replace('previous_addresses[0].Duration_at_address', 'Previous Address 1 Duration');
+                    fullKey = fullKey.replace('previous_addresses[0].Landlord_name', 'Previous Address 1 Landlord Name');
+                    fullKey = fullKey.replace('previous_addresses[0].Landlord_phone', 'Previous Address 1 Landlord Phone');
+
+// Previous Address 2
+                    fullKey = fullKey.replace('previous_addresses[1].City', 'Previous Address 2 City');
+                    fullKey = fullKey.replace('previous_addresses[1].Province', 'Previous Address 2 Province');
+                    fullKey = fullKey.replace('previous_addresses[1].Postal_code', 'Previous Address 2 Postal Code');
+                    fullKey = fullKey.replace('previous_addresses[1].Duration at_address', 'Previous Address 2 Duration');
+                    fullKey = fullKey.replace('previous_addresses[1].Landlord_name', 'Previous Address 2 Landlord Name');
+                    fullKey = fullKey.replace('previous_addresses[1].Landlord_phone', 'Previous Address 2 Landlord Phone');
+
+// References
+                    // References
+                    fullKey = fullKey.replace('references[0].name', 'Reference #1 Name');
+                    fullKey = fullKey.replace('references[0].address', 'Reference #1 Address');
+                    fullKey = fullKey.replace('references[0].phone_number', 'Reference #1 Phone');
+                    fullKey = fullKey.replace('references[0].relationship', 'Reference #1 Relationship');
+
+                    fullKey = fullKey.replace('references[2].name', 'Reference #2 Name');
+                    fullKey = fullKey.replace('references[2].address', 'Reference #2 Address');
+                    fullKey = fullKey.replace('references[2].phone_number', 'Reference #2 Phone');
+                    fullKey = fullKey.replace('references[2].relationship', 'Reference #2 Relationship');
+
+
 
                     if (value && typeof value === 'object') {
                         if (Array.isArray(value)) {
