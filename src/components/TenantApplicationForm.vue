@@ -4,7 +4,7 @@
         @submit.prevent="submitForm"
         id="form"
     >
-        <h2 class="text-brown text-[30px]">TENANT RENTAL APPLICATION</h2>
+        <h2 class="text-brown text-[30px]" v-if="showForm">TENANT RENTAL APPLICATION</h2>
         <div v-if="currentStep === 1 && showForm" class="w-full relative">
             <div
                 class="flex flex-col mb-2 z-10 relative bg-white rounded-lg shadow-md p-4 border-4 border-solid border-teal"
@@ -991,7 +991,7 @@
             </button>
         </div>
 
-<!--        <ProgressBar />-->
+        <progress-bar :value="progress" v-if="showForm"></progress-bar>
         <transition name="fade" class="transition" @before-enter="log" @enter="log">
             <success-component v-if="showSuccessComponent" />
         </transition>
@@ -1024,16 +1024,17 @@ import { jsPDF } from "jspdf";
 import emailjs from '@emailjs/browser';
 import "jspdf-autotable"
 import SuccessComponent from "@/components/SuccessComponent.vue";
-// import ProgressBar from "@/components/ProgressBar.vue";
+import ProgressBar from "@/components/ProgressBar.vue";
 // Add FileSaver import
 export default {
     name: "TenantApplicationForm",
     components: {
         SuccessComponent,
-        // ProgressBar,
+        ProgressBar,
     },
     data() {
         return {
+            progress: 0,
             pdfData: null, // change this to null
             dependants: [{}], // Start with one empty dependant
             selectedPetOption: '',
@@ -1173,9 +1174,15 @@ export default {
         },
         nextStep() {
             this.currentStep++; // Increment current step when Next is clicked
+            if (this.progress < 100) {
+                this.progress += 30;
+            }
         },
         previousStep() {
             this.currentStep--; // Decrement current step when Back is clicked
+            if (this.progress !== 0) {
+                this.progress -= 30;
+            }
         },
         submitForm() {
             // Generate and send the email with the attached PDF
@@ -1194,8 +1201,8 @@ export default {
             });
 
             // Title
-            const applicantName = this.form.applicant1 ? this.form.applicant1.name : 'Application Form';
-            const title = applicantName + ' Application Form';
+            const applicantName = this.this.form.applicant1.name;
+            const title = applicantName + 'Tenant Application Form';
 
             // Title
             doc.setFontSize(16).text(title, 0.5, 1.0);
@@ -1328,6 +1335,10 @@ export default {
                     fullKey = fullKey.replace('other_income_sources.monthly_net_income_from_other_sources', 'Monthly Net Income');
                     fullKey = fullKey.replace('other_income_sources.total_monthly_income', 'Monthly Income');
 
+
+                    fullKey = fullKey.replace('banking_information.banking_institution', 'Banking Institution');
+                    fullKey = fullKey.replace('banking_information.address', 'Bank Address');
+                    fullKey = fullKey.replace('banking_information.phone', 'Bank Phone');
 
                     if (value && typeof value === 'object') {
                         if (Array.isArray(value)) {

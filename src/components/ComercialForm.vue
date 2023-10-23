@@ -4,7 +4,7 @@
         @submit.prevent="submitForm"
         id="form"
     >
-        <h2 class="text-brown text-[30px]">COMMERCIAL RENTAL APPLICATION</h2>
+        <h2 class="text-brown text-[30px]" v-if="showForm">COMMERCIAL RENTAL APPLICATION</h2>
         <div v-if="currentStep === 1 && showForm" class="w-full relative">
             <div
                 class="flex flex-col mb-2 z-10 relative bg-white rounded-lg shadow-md p-4 border-4 border-solid border-teal"
@@ -331,6 +331,7 @@
             </button>
         </div>
 
+        <progress-bar :value="progress" v-if="showForm"></progress-bar>
         <transition name="fade" class="transition" @before-enter="log" @enter="log">
             <success-component v-if="showSuccessComponent" />
         </transition>
@@ -358,7 +359,10 @@
     </form>
 </template>
 
-<script>~``
+<script>
+import ProgressBar from "@/components/ProgressBar.vue";
+
+~``
 import { jsPDF } from "jspdf"
 import emailjs from '@emailjs/browser';
 import "jspdf-autotable"
@@ -367,10 +371,12 @@ import SuccessComponent from "@/components/SuccessComponent.vue";
 export default {
     name: "CommercialForm",
     components: {
+        ProgressBar,
         SuccessComponent,
     },
     data() {
         return {
+            progress: 0,
             pdfData: null, // change this to null
             showSuccessComponent: false,
             showForm: true,
@@ -469,9 +475,15 @@ export default {
         },
         nextStep() {
             this.currentStep++; // Increment current step when Next is clicked
+            if (this.progress < 100) {
+                this.progress += 90;
+            }
         },
         previousStep() {
             this.currentStep--; // Decrement current step when Back is clicked
+            if (this.progress !== 0) {
+                this.progress -= 90;
+            }
         },
         submitForm() {
             // Generate and send the email with the attached PDF
@@ -490,8 +502,8 @@ export default {
             });
 
             // Title
-            const applicantName = this.form.applicant1 ? this.form.applicant.name : 'Application Form';
-            const title = applicantName + ' Application Form';
+            const applicantName = this.form.applicant.name;
+            const title = applicantName + ' Commercial Application Form';
 
             // Title
             doc.setFontSize(16).text(title, 0.5, 1.0);
@@ -581,6 +593,10 @@ export default {
                     fullKey = fullKey.replace('references.phone_number', 'Reference 1 Phone Number');
 
                     // References
+                    fullKey = fullKey.replace('references[0].name', 'Reference 1 Name');
+                    fullKey = fullKey.replace('references[0].relationship', 'Reference 1 Relationship');
+                    fullKey = fullKey.replace('references[0].phone_number', 'Reference 1 Phone Number');
+
                     fullKey = fullKey.replace('references[1].name', 'Reference 2 Name');
                     fullKey = fullKey.replace('references[1].relationship', 'Reference 2 Relationship');
                     fullKey = fullKey.replace('references[1].phone_number', 'Reference 2 Phone Number');
