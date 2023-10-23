@@ -61,7 +61,7 @@
         </div>
         <div
           v-show="isMenuOpen"
-          class="test absolute h-screen inset-0 m-0 text-4xl bg-white backdrop-filter backdrop-blur-sm rounded z-5 flex flex-col items-start justify-center font-archivo p-6 md:w-screen md:left-[-30px] animate-link"
+          class="menu absolute h-screen inset-0 m-0 text-4xl bg-white backdrop-filter backdrop-blur-sm rounded z-5 flex flex-col items-start justify-center font-archivo p-6 md:w-screen md:left-[-30px] animate-link"
         >
           <router-link
             to="/home-test"
@@ -81,12 +81,30 @@
             active-class="text-tealdark"
             >SERVICES</router-link
           >
-          <router-link
-            to="/forms-test"
-            class="block text-brown mb-2"
-            active-class="text-tealdark"
-            >FORMS</router-link
-          >
+          <div class="group" :class="{ 'animate-chevron': showDropdown }">
+            <p class="block text-brown mb-2" @click="toggleDropdown">
+              FORMS
+              <font-awesome-icon
+                :icon="['fas', 'chevron-down']"
+                :class="showDropdown ? 'animate-chevron' : ''"
+                class="chevron"
+              />
+            </p>
+            <div v-if="showDropdown" class="w-48 z-10">
+              <router-link
+                to="/commercial-form"
+                class="block text-brown p-2"
+                active-class="text-tealdark"
+                >COMMERCIAL FORM</router-link
+              >
+              <router-link
+                to="/residential-form"
+                class="block text-brown p-2"
+                active-class="text-tealdark"
+                >RESIDENTIAL FORM</router-link
+              >
+            </div>
+          </div>
           <router-link
             to="/gallery-test"
             class="block text-brown mb-2"
@@ -114,6 +132,7 @@ export default {
     return {
       isMenuOpen: false,
       showPhoneNumber: true,
+      showDropdown: false,
     };
   },
   created() {
@@ -137,15 +156,28 @@ export default {
         this.showPhoneNumber = true;
       }
     },
+    toggleDropdown() {
+      this.showDropdown = !this.showDropdown;
+    },
   },
 };
 </script>
 
 <style>
-.test {
+.menu {
   /* TO DO: come maybe just use css, something buggy comes form tailwind */
   margin: 0 !important;
 }
+
+.chevron {
+  transform: rotate(0);
+  transition: transform 0.25s ease-out;
+}
+
+.chevron.animate-chevron {
+  transform: rotate(-180deg);
+}
+
 @media screen and (max-width: 612px) {
   #socials {
     display: none;
