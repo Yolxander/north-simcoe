@@ -10,64 +10,34 @@ body {
   max-width: 1440px;
 }
 
+.animate-link a {
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+
+  padding-bottom: 5px;
+}
+.animate-link a::after {
+  border-color: #93c3bf;
+  border-radius: 5px;
+  border-width: 3px;
+  bottom: 0;
+  content: "";
+  height: 0.05em;
+  left: 0;
+  position: absolute;
+  transition: transform 0.25s ease-out;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  width: 100%;
+}
+.animate-link a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
 @media (min-width: 1440px) {
   body {
     margin: auto;
   }
 }
-
-/* 
-Ensure these base styles, if not already present in your project 
-*/
-/* 
-*,
-*:after,
-*:before {
-  box-sizing: border-box;
-}
-
-a:hover,
-a:focus {
-  outline: none;
-}
-
-a.animate-link {
-  color: rgba(255, 255, 255, 0.8);
-  padding: 15px 25px;
-  position: relative;
-  display: block;
-  text-decoration: none;
-  text-transform: uppercase;
-  transition: 0.35s;
-}
-
-a.animate-link:before,
-a.animate-link:after {
-  content: "";
-  width: 100%;
-  border-bottom: 4px solid #0d83cc;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  opacity: 1;
-  transform: scale(1, 1);
-  transform-origin: right center 0;
-}
-
-a.animate-link:after {
-  opacity: 0;
-  transform: scale(0, 1);
-  transform-origin: left center 0;
-}
-
-a.animate-link:hover:before {
-  opacity: 0;
-  transform: scale(0, 1);
-  transition: opacity 0.2s ease-in-out 0.2s, transform 0.2s ease-in-out 0s;
-}
-
-a.animate-link:hover:after {
-  opacity: 1;
-  transform: scale(1, 1);
-  transition: transform 0.2s ease-in-out 0.25s;
-} */

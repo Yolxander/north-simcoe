@@ -31,14 +31,21 @@
           </a>
         </p>
         <!-- Logo -->
-        <router-link to="/" class="flex items-center block md:hidden">
+        <router-link
+          to="/"
+          class="flex items-center block md:hidden cursor-pointer"
+        >
           <img
             src="../assets/logo-text.png"
             class="max-w-[200px]"
             alt="North Simcoe Logo"
           />
         </router-link>
-        <div tabindex="1" @click="toggleMenu" class="relative z-10">
+        <div
+          tabindex="1"
+          @click="toggleMenu"
+          class="relative z-10 cursor-pointer"
+        >
           <div
             class="line w-[35px] h-[3px] bg-brown md:bg-brown mb-2 transition-opacity duration-300 ease"
             :class="{ 'opacity-0': isMenuOpen }"
@@ -54,14 +61,44 @@
         </div>
         <div
           v-show="isMenuOpen"
-          class="test absolute h-screen inset-0 m-0 text-4xl bg-white backdrop-filter backdrop-blur-sm rounded z-5 flex flex-col items-start justify-center font-archivo p-6 md:w-screen md:left-[-30px]"
+          class="test absolute h-screen inset-0 m-0 text-4xl bg-white backdrop-filter backdrop-blur-sm rounded z-5 flex flex-col items-start justify-center font-archivo p-6 md:w-screen md:left-[-30px] animate-link"
         >
-          <a href="/" class="block text-brown mb-2">HOME</a>
-          <a href="/our-company" class="block text-brown mb-2">OUR COMPANY</a>
-          <a href="/our-services" class="block text-brown mb-2">SERVICES</a>
-          <a href="/forms" class="block text-brown mb-2">FORMS</a>
-          <a href="/gallery" class="block text-brown mb-2">GALLERY</a>
-          <a href="/contact" class="block text-brown">CONTACT</a>
+          <router-link
+            to="/home-test"
+            class="block text-brown mb-2"
+            active-class="text-tealdark"
+            >HOME</router-link
+          >
+          <router-link
+            to="/our-company-test"
+            class="block text-brown mb-2"
+            active-class="text-tealdark"
+            >OUR COMPANY</router-link
+          >
+          <router-link
+            to="/services-test"
+            class="block text-brown mb-2"
+            active-class="text-tealdark"
+            >SERVICES</router-link
+          >
+          <router-link
+            to="/forms-test"
+            class="block text-brown mb-2"
+            active-class="text-tealdark"
+            >FORMS</router-link
+          >
+          <router-link
+            to="/gallery-test"
+            class="block text-brown mb-2"
+            active-class="text-tealdark"
+            >GALLERY</router-link
+          >
+          <router-link
+            to="/contact-test"
+            class="block text-brown"
+            active-class="text-tealdark"
+            >CONTACT</router-link
+          >
         </div>
       </div>
     </div>
