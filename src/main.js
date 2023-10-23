@@ -15,6 +15,7 @@ import {
   faLocationDot,
   faCircle,
   faShop,
+  faChevronDown,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebookF,
@@ -36,6 +37,7 @@ library.add(
   faLocationDot,
   faCircle,
   faShop,
+  faChevronDown,
 );
 
 const app = createApp(App);
