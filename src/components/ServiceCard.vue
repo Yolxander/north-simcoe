@@ -43,7 +43,9 @@
             </ul>
             <p class="font-open-sans text-2xl text-brown mb-4">
               {{ service.paragraphEnd }}
-              <a :href="service.phone"> {{ service.phone }} </a>
+              <a :href="service.phone" class="animate-link">
+                {{ service.phone }}
+              </a>
             </p>
             <router-link
               v-if="service.link && service.linkTitle"

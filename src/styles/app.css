@@ -5,3 +5,61 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,600;1,300;1,600&display=swap");
+
+/* App.css */
+
+/* 
+Ensure these base styles, if not already present in your project 
+*/
+/* 
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+a:hover,
+a:focus {
+  outline: none;
+}
+
+a.animate-link {
+  color: rgba(255, 255, 255, 0.8);
+  padding: 15px 25px;
+  position: relative;
+  display: block;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 0.35s;
+}
+
+a.animate-link:before,
+a.animate-link:after {
+  content: "";
+  width: 100%;
+  border-bottom: 4px solid #0d83cc;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  opacity: 1;
+  transform: scale(1, 1);
+  transform-origin: right center 0;
+}
+
+a.animate-link:after {
+  opacity: 0;
+  transform: scale(0, 1);
+  transform-origin: left center 0;
+}
+
+a.animate-link:hover:before {
+  opacity: 0;
+  transform: scale(0, 1);
+  transition: opacity 0.2s ease-in-out 0.2s, transform 0.2s ease-in-out 0s;
+}
+
+a.animate-link:hover:after {
+  opacity: 1;
+  transform: scale(1, 1);
+  transition: transform 0.2s ease-in-out 0.25s;
+} */
