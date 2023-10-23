@@ -20,19 +20,18 @@
       <h3 class="text-3xl font-semibold mb-4 text-brown font-archivo">
         Rental Property Management Experts.
       </h3>
-      <p class="font-open-sans text-2xl text-brown">
+      <p class="font-open-sans text-2xl text-brown mb-4">
         We are a full service property management company located in Simcoe
         County. We work with landlords by helping them enjoy all the benefits of
         owning investment properties by taking away all the stress and hassles
         of dealing with day to day.
       </p>
-      <button
-        @click="navigateToCompanyPage"
-        type="button"
+      <router-link
+        to="/our-company"
         class="text-brown bg-teal hover:bg-tealdark hover:text-white focus:ring-4 focus:outline-none focus:ring-teal rounded-lg text-sm w-auto px-5 py-2.5 text-center font-semibold font-archivo mt-4"
       >
         READ MORE
-      </button>
+      </router-link>
     </div>
   </div>
 </template>
@@ -40,11 +39,6 @@
 <script>
 export default {
   name: "AboutUsHome",
-  methods: {
-    navigateToCompanyPage() {
-      this.$router.push({ name: "CompanyPage" });
-    },
-  },
 };
 </script>
 

@@ -55,7 +55,6 @@ export default {
           ],
           listItems: [
             "Develop a comprehensive plan for managing properties.",
-            "Create a budget to cover all operational costs associated with proerty management",
             "Develop a tenant screening process to ensure the best tenants are chosen.",
             "Create an effective communication system with landlords and tenants.",
             "Establish policies and procedures for handling maintenance and repair issues.",

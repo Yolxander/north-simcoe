@@ -82,7 +82,10 @@
             >SERVICES</router-link
           >
           <div class="group" :class="{ 'animate-chevron': showDropdown }">
-            <p class="block text-brown mb-2" @click="toggleDropdown">
+            <p
+              class="block text-brown mb-2 cursor-pointer"
+              @click="toggleDropdown"
+            >
               FORMS
               <font-awesome-icon
                 :icon="['fas', 'chevron-down']"
