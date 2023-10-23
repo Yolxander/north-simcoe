@@ -1,6 +1,8 @@
 <template>
   <HeroGlobal :hero="hero" />
-  <LayoutTwoSections :intro="intro" />
+  <ObserverComponent classToToggle="fadeInTop" playOnce="true">
+    <LayoutTwoSections :intro="intro" />
+  </ObserverComponent>
   <ObserverComponent classToToggle="fadeInLeft" playOnce="true">
     <ServiceCard :service="services[0]" />
   </ObserverComponent>
