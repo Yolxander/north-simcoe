@@ -63,7 +63,7 @@ export default {
             "Monitor market trends to ensure competitive rental rates.",
             "Handle all Landlord Tenant Board issues",
           ],
-          link: "/residential",
+          link: "/residential-form",
           linkTitle: "Fill in Residential App",
         },
 
