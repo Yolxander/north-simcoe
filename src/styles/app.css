@@ -6,7 +6,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,600;1,300;1,600&display=swap");
 
-/* App.css */
+body {
+  max-width: 1440px;
+}
+
+@media (min-width: 1440px) {
+  body {
+    margin: auto;
+  }
+}
 
 /* 
 Ensure these base styles, if not already present in your project 
