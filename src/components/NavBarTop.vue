@@ -8,7 +8,7 @@
       <div
         class="flex w-full items-center justify-between px-10 p-4 md:space-x-8 md:w-auto md:pl-2 md:border md:border-transparent md:border-solid md:border-1 md:backdrop-filter md:backdrop-blur-lg md:bg-teal/40 md:rounded relative"
       >
-        <p v-if="showPhoneNumber" class="text-brown">
+        <p class="text-brown">
           <a href="tel:+16475001747" class="flex items-center">
             <svg
               class="svg-inline--fa fa-phone text-3xl"
@@ -61,22 +61,22 @@
         </div>
         <div
           v-show="isMenuOpen"
-          class="menu absolute h-screen inset-0 m-0 text-4xl bg-white backdrop-filter backdrop-blur-sm rounded z-5 flex flex-col items-start justify-center font-archivo p-6 md:w-screen md:left-[-30px] animate-link"
+          class="menu absolute h-screen inset-0 m-0 text-4xl bg-white backdrop-filter backdrop-blur-sm rounded z-6 flex flex-col items-start justify-center font-archivo p-6 md:w-screen md:left-[-30px] animate-link"
         >
           <router-link
-            to="/home-test"
+            to="/"
             class="block text-brown mb-2"
             active-class="text-tealdark"
             >HOME</router-link
           >
           <router-link
-            to="/our-company-test"
+            to="/our-company"
             class="block text-brown mb-2"
             active-class="text-tealdark"
             >OUR COMPANY</router-link
           >
           <router-link
-            to="/services-test"
+            to="/services"
             class="block text-brown mb-2"
             active-class="text-tealdark"
             >SERVICES</router-link
@@ -90,7 +90,7 @@
                 class="chevron"
               />
             </p>
-            <div v-if="showDropdown" class="w-48 z-10">
+            <div v-if="showDropdown" class="w-64 z-10 text-2xl">
               <router-link
                 to="/commercial-form"
                 class="block text-brown p-2"
@@ -106,13 +106,13 @@
             </div>
           </div>
           <router-link
-            to="/gallery-test"
+            to="/gallery"
             class="block text-brown mb-2"
             active-class="text-tealdark"
             >GALLERY</router-link
           >
           <router-link
-            to="/contact-test"
+            to="/contact"
             class="block text-brown"
             active-class="text-tealdark"
             >CONTACT</router-link
@@ -131,33 +131,21 @@ export default {
   data() {
     return {
       isMenuOpen: false,
-      showPhoneNumber: true,
       showDropdown: false,
     };
-  },
-  created() {
-    this.handleRouteChange();
-  },
-
-  watch: {
-    currentRoute() {
-      this.handleRouteChange();
-    },
   },
 
   methods: {
     toggleMenu() {
       this.isMenuOpen = !this.isMenuOpen;
     },
-    handleRouteChange() {
-      if (this.currentRoute === "/") {
-        this.showPhoneNumber = false;
-      } else {
-        this.showPhoneNumber = true;
-      }
-    },
     toggleDropdown() {
       this.showDropdown = !this.showDropdown;
+    },
+  },
+  watch: {
+    $route() {
+      this.isMenuOpen = false;
     },
   },
 };
