@@ -1,5 +1,5 @@
 <template>
-  <div class="hero-container">
+  <div class="hero-container xl:h-[40vh]">
     <div class="hero-overlay"></div>
     <div
       class="flex md:flex-row md:items-center md:space-x-8 md:justify-between max-w-screen-xl p-10 pt-20 md:p-28 mx-auto relative"
@@ -43,7 +43,7 @@ export default {
   background-image: url("../assets/hero1.jpeg");
   background-size: cover;
   background-position: center;
-  /* height: 100vh; */
+  height: 100vh;
   align-items: center;
   display: flex;
 }
