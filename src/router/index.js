@@ -23,7 +23,10 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL), // Added process.env.BASE_URL to ensure correct base path
   routes,
-
+  scrollBehavior() {
+    // always scroll to top
+    return { top: 0 };
+  },
 });
 
 export default router;
