@@ -1,10 +1,10 @@
 <template>
   <form
-    class="contact-us max-w-screen-xl p-10 md:p-32 mx-auto flex flex-col flex-wrap md:flex-nowrap md:items-center md:space-x-8 md:gap-5"
+    class="contact-us max-w-screen-xl pt-32 px-10 md:p-32 mx-auto flex flex-col flex-wrap md:flex-nowrap md:items-center md:space-x-8 md:gap-5"
     @submit.prevent="submitForm"
     id="form"
   >
-    <h2 class="text-brown text-[30px] pt-30" v-if="showForm">
+    <h2 class="text-brown text-[30px] text-center" v-if="showForm">
       COMMERCIAL RENTAL APPLICATION
     </h2>
     <div v-if="currentStep === 1 && showForm" class="w-full relative">
