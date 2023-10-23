@@ -12,7 +12,7 @@
           {{ intro[0].title }}
         </h2>
         <hr class="w-10 h-1 my-4 border-0 rounded bg-teal" />
-        <h3 class="text-3xl font-semibold md:mb-4 text-brown font-archivo">
+        <h3 class="text-3xl font-semibold mb-4 text-brown font-archivo">
           {{ intro[0].subtitle }}
         </h3>
         <p class="font-open-sans text-2xl text-brown">

@@ -7,7 +7,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,600;1,300;1,600&display=swap");
 
 body {
-  max-width: 2880px;
+  /* max-width: 2880px; */
+}
+.wrapper {
+  margin: 0 auto;
+  max-width: 1680px;
+  width: 100%;
 }
 
 .animate-link a {
