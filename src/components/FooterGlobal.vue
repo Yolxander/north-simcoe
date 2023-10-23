@@ -16,7 +16,13 @@
           <a href="/our-company" class="mr-4 hover:underline md:mr-6">About</a>
         </li>
         <li>
-          <a href="#" class="mr-4 hover:underline md:mr-6">Contact</a>
+          <a href="/gallery" class="mr-4 hover:underline md:mr-6">Gallery</a>
+        </li>
+        <li>
+          <a href="/gallery" class="mr-4 hover:underline md:mr-6">Services</a>
+        </li>
+        <li>
+          <a href="/contact-us" class="mr-4 hover:underline md:mr-6">Contact</a>
         </li>
       </ul>
     </div>
