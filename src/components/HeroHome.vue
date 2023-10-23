@@ -12,27 +12,9 @@
           Top property management company in Simcoe County.
         </h2>
         <hr class="w-10 md:w-48 h-1 my-4 border-0 rounded bg-white" />
-        <a
-          href="#"
-          class="inline-flex items-center py-2.5 text-2xl text-2xl font-semibold text-center text-white hover:underline focus:ring-4 focus:outline-none focus:ring-gray-600 dark:bg-gray-600 dark:hover:bg-gray-600 dark:focus:ring-gray-600"
-        >
-          Learn more
-          <svg
-            class="w-5 h-5 ml-2"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 14 10"
-          >
-            <path
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M1 5h12m0 0L9 1m4 4L9 9"
-            />
-          </svg>
-        </a>
+        <p class="text-lg mb-4 text-white">
+          Servicing Dufferin, York, Peel & Muskoka Regions
+        </p>
       </div>
     </div>
   </div>

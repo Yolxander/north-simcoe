@@ -62,6 +62,18 @@
               :icon="['fas', 'location-dot']"
             />Newmarket/Aurora
           </p>
+          <p>
+            <font-awesome-icon
+              class="mr-4 text-teal text-3xl"
+              :icon="['fas', 'location-dot']"
+            />Shelburne
+          </p>
+          <p>
+            <font-awesome-icon
+              class="mr-4 text-teal text-3xl"
+              :icon="['fas', 'location-dot']"
+            />Bolton
+          </p>
         </div>
         <div>
           <p>
@@ -105,6 +117,12 @@
               class="mr-4 text-teal text-3xl"
               :icon="['fas', 'location-dot']"
             />Georgina
+          </p>
+          <p>
+            <font-awesome-icon
+              class="mr-4 text-teal text-3xl"
+              :icon="['fas', 'location-dot']"
+            />Keswick
           </p>
         </div>
       </div>

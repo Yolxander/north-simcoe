@@ -23,14 +23,14 @@
             :icon="['fas', 'envelope']"
             class="text-teal mr-4 text-5xl"
           />
-          <div>
+          <div class="animate-link">
             <h3 class="text-xl font-semibold text-brown font-archivo align-end">
               Email
             </h3>
             <p class="font-open-sans text-brown text-2xl">Send us an email</p>
             <a
               href="mailto:info@northsimcoepm.ca"
-              class="font-open-sans text-brown text-xl md:text-2xl"
+              class="font-open-sans text-brown text-xl md:text-2xl animate-link"
               >info@northsimcoepm.ca</a
             >
           </div>
@@ -41,7 +41,7 @@
             :icon="['fas', 'phone']"
             class="text-teal mr-4 text-5xl"
           />
-          <div>
+          <div class="animate-link">
             <h3 class="text-xl font-semibold text-brown font-archivo align-end">
               Phone
             </h3>
