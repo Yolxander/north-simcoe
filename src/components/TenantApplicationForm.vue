@@ -665,220 +665,127 @@
                 </div>
 
 
-                <!-- Address #1--------------------------------------------->
-                <p class="mb-4 text-[20px] text-gray-700">
-                    Previous Address #1:
-                </p>
-                <!-- City Field -->
-                <div class="relative z-0 w-full mb-4 group">
-                    <input
-                        v-model="form.previous_addresses[0].city"
-                        type="text"
-                        name="city"
-                        id="city"
-                        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer"
-                        placeholder=" "
-                        required
-                    />
-                    <label
-                        for="city"
-                        class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                    >City</label>
-                </div>
-                <!-- Province Field -->
-                <div class="relative z-0 w-full mb-4 group">
-                    <input
-                        v-model="form.previous_addresses[0].province"
-                        type="text"
-                        name="province"
-                        id="province"
-                        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer"
-                        placeholder=" "
-                        required
-                    />
-                    <label
-                        for="province"
-                        class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                    >Province</label>
-                </div>
+                <div v-for="(address, index) in form.previous_addresses" :key="index">
 
-                <!-- Include the Postal Code Field code from the previous response -->
-                <!-- Postal Code Field -->
-                <div class="relative z-0 w-full mb-4 group">
-                    <input
-                        v-model="form.previous_addresses[0].postal_code"
-                        type="text"
-                        name="postal_code"
-                        id="postal_code"
-                        title="Please enter a valid Canadian postal code (e.g., A1A 1A1)"
-                        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer"
-                        placeholder=" "
-                    />
-                    <label
-                        for="postal_code"
-                        class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                    >Postal Code</label>
+                    <p class="mb-4 text-[20px] text-gray-700">
+                        Previous Address #{{ index + 1 }}:
+                    </p>
+
+                    <!-- City Field -->
+                    <div class="relative z-0 w-full mb-4 group">
+                        <input
+                            v-model="address.city"
+                            type="text"
+                            name="city"
+                            :id="'city' + index"
+                            class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer"
+                            placeholder=" "
+                            required
+                        >
+                        <label
+                            :for="'city' + index"
+                            class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                        >
+                            City
+                        </label>
+                    </div>
+
+                    <!-- Province Field -->
+                    <div class="relative z-0 w-full mb-4 group">
+                        <input
+                            v-model="address.province"
+                            type="text"
+                            name="province"
+                            :id="'province' + index"
+                            class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer"
+                            placeholder=" "
+                            required
+                        >
+                        <label
+                            :for="'province' + index"
+                            class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                        >
+                            Province
+                        </label>
+                    </div>
+
+                    <!-- Postal Code Field -->
+                    <div class="relative z-0 w-full mb-4 group">
+                        <input
+                            v-model="address.code"
+                            type="text"
+                            name="code"
+                            :id="'code' + index"
+                            title="Please enter a valid Canadian postal code (e.g., A1A 1A1)"
+                            class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer"
+                            placeholder=" "
+                        >
+                        <label
+                            :for="'code' + index"
+                            class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                        >
+                            Postal Code
+                        </label>
+                    </div>
+
+                    <!-- How Long at This Address Field -->
+                    <div class="relative z-0 w-full mb-4 group">
+                        <input
+                            v-model="address.duration"
+                            type="text"
+                            name="duration"
+                            :id="'duration' + index"
+                            class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer"
+                            placeholder=" "
+                            required
+                        >
+                        <label
+                            :for="'duration' + index"
+                            class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                        >
+                            How long at this address
+                        </label>
+                    </div>
+
+                    <!-- Landlord/Lessor Name Field -->
+                    <div class="relative z-0 w-full mb-4 group">
+                        <input
+                            v-model="address.landlord"
+                            type="text"
+                            name="landlord"
+                            :id="'landlord' + index"
+                            class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer"
+                            placeholder=" "
+                            required
+                        >
+                        <label
+                            :for="'landlord' + index"
+                            class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                        >
+                            Landlord/Lessor Name
+                        </label>
+                    </div>
+
+                    <!-- Landlord/Lessor Phone # Field -->
+                    <div class="relative z-0 w-full mb-4 group">
+                        <input
+                            v-model="address.phone"
+                            type="tel"
+                            name="phone"
+                            :id="'phone' + index"
+                            class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer"
+                            placeholder=" "
+                            required
+                        >
+                        <label
+                            :for="'phone' + index"
+                            class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                        >
+                            Landlord/Lessor Phone #
+                        </label>
+                    </div>
+
                 </div>
-
-                <!-- How Long at This Address Field -->
-                <div class="relative z-0 w-full mb-4 group">
-                    <input
-                        v-model="form.previous_addresses[0].duration_at_address"
-                        type="text"
-                        name="duration_at_address"
-                        id="duration_at_address"
-                        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer"
-                        placeholder=" "
-                        required
-                    />
-                    <label
-                        for="duration_at_address"
-                        class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                    >How long at this address</label>
-                </div>
-
-                <!-- Landlord/Lessor Name Field -->
-                <div class="relative z-0 w-full mb-4 group">
-                    <input
-                        v-model="form.previous_addresses[0].landlord_name"
-                        type="text"
-                        name="landlord_name"
-                        id="landlord_name"
-                        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer"
-                        placeholder=" "
-                        required
-                    />
-                    <label
-                        for="landlord_name"
-                        class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                    >Landlord/Lessor Name</label>
-                </div>
-
-                <!-- Landlord/Lessor Phone # Field -->
-                <div class="relative z-0 w-full mb-4 group">
-                    <input
-                        v-model="form.previous_addresses[0].landlord_phone"
-                        type="tel"
-                        name="landlord_phone"
-                        id="landlord_phone"
-                        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer"
-                        placeholder=" "
-                        required
-                    />
-                    <label
-                        for="landlord_phone"
-                        class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                    >Landlord/Lessor Phone #</label>
-                </div>
-
-
-                <!-- Address #2--------------------------------------------->
-                <p class="mb-4 text-[20px] text-gray-700">
-                    Previous Address #2:
-                </p>
-                <!-- City Field -->
-                <div class="relative z-0 w-full mb-4 group">
-                    <input
-                        v-model="form.previous_addresses[1].city"
-                        type="text"
-                        name="city2"
-                        id="city2"
-                        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer"
-                        placeholder=" "
-                        required
-                    />
-                    <label
-                        for="city2"
-                        class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                    >City</label>
-                </div>
-
-                <!-- Province Field -->
-                <div class="relative z-0 w-full mb-4 group">
-                    <input
-                        v-model="form.previous_addresses[1].province"
-                        type="text"
-                        name="province2"
-                        id="province2"
-                        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer"
-                        placeholder=" "
-                        required
-                    />
-                    <label
-                        for="province2"
-                        class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                    >Province</label>
-                </div>
-
-                <!-- Include the Postal Code Field code from the previous response with appropriate modifications -->
-                <!-- Postal Code Field -->
-                <div class="relative z-0 w-full mb-4 group">
-                    <input
-                        v-model="form.previous_addresses[1].postal_code"
-                        type="text"
-                        name="postal_code"
-                        id="postal_code"
-                        title="Please enter a valid Canadian postal code (e.g., A1A 1A1)"
-                        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer"
-                        placeholder=" "
-                    />
-                    <label
-                        for="postal_code"
-                        class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                    >Postal Code</label>
-                </div>
-                <!-- How Long at This Address Field -->
-                <div class="relative z-0 w-full mb-4 group">
-                    <input
-                        v-model="form.previous_addresses[1].duration_at_address"
-                        type="text"
-                        name="duration_at_address2"
-                        id="duration_at_address2"
-                        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer"
-                        placeholder=" "
-                        required
-                    />
-                    <label
-                        for="duration_at_address2"
-                        class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                    >How long at this address</label>
-                </div>
-
-                <!-- Landlord/Lessor Name Field -->
-                <div class="relative z-0 w-full mb-4 group">
-                    <input
-                        v-model="form.previous_addresses[1].landlord_name"
-                        type="text"
-                        name="landlord_name2"
-                        id="landlord_name2"
-                        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer"
-                        placeholder=" "
-                        required
-                    />
-                    <label
-                        for="landlord_name2"
-                        class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                    >Landlord/Lessor Name</label>
-                </div>
-
-                <!-- Landlord/Lessor Phone # Field -->
-                <div class="relative z-0 w-full mb-4 group">
-                    <input
-                        v-model="form.previous_addresses[1].landlord_phone"
-                        type="tel"
-                        name="landlord_phone2"
-                        id="landlord_phone2"
-                        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer"
-                        placeholder=" "
-                        required
-                    />
-                    <label
-                        for="landlord_phone2"
-                        class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                    >Landlord/Lessor Phone #</label>
-                </div>
-
-
             </div>
             <!-- Back Button -->
             <button @click.prevent="previousStep" class="text-brown bg-teal hover:bg-tealdark hover:text-white focus:ring-4 focus:outline-none focus:ring-teal font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center mr-2">
@@ -1084,6 +991,7 @@
             </button>
         </div>
 
+<!--        <ProgressBar />-->
         <transition name="fade" class="transition" @before-enter="log" @enter="log">
             <success-component v-if="showSuccessComponent" />
         </transition>
@@ -1116,11 +1024,13 @@ import { jsPDF } from "jspdf";
 import emailjs from '@emailjs/browser';
 import "jspdf-autotable"
 import SuccessComponent from "@/components/SuccessComponent.vue";
+// import ProgressBar from "@/components/ProgressBar.vue";
 // Add FileSaver import
 export default {
     name: "TenantApplicationForm",
     components: {
         SuccessComponent,
+        // ProgressBar,
     },
     data() {
         return {
@@ -1181,18 +1091,18 @@ export default {
                     {
                         city: '',
                         province: '',
-                        postal_code: '',
-                        duration_at_address: '',
-                        landlord_name: '',
-                        landlord_phone: ''
+                        code: '',
+                        duration: '',
+                        landlord: '',
+                        phone: ''
                     },
                     {
                         city: '',
                         province: '',
-                        postal_code: '',
-                        duration_at_address: '',
-                        landlord_name: '',
-                        landlord_phone: ''
+                        code: '',
+                        duration: '',
+                        landlord: '',
+                        phone: ''
                     }
                 ],
                 other_income_sources: {
@@ -1239,10 +1149,10 @@ export default {
                 ],
                 criminal_and_credit_check_comment: '',
                 // applicant1_signature: '',
-                applicant1_signature_date: '',
+                // applicant1_signature_date: '',
                 // applicant2_signature: '',
-                applicant2_signature_date: '',
-                agreed_to_conditions:'',
+                // applicant2_signature_date: '',
+                // agreed_to_conditions:'',
                 // witness_signature: '',
                 witness_name: ''
             }
@@ -1320,11 +1230,6 @@ export default {
                     const value = data[key];
                     let fullKey = prefix ? `${prefix}.${key}` : key;
 
-                    // Check if this is the first previous address and insert header if it is
-                    if (fullKey === 'previous_addresses[0].city') {
-                        body.push({ field: 'Previous Addr #1:', content: '', isHeader: true }); // Added isHeader: true
-                    }
-
                     // Make replacements here
                     // Applicant 1
                     fullKey = fullKey.replace('applicant1.name', 'Applicant #1 Name');
@@ -1370,7 +1275,7 @@ export default {
                     fullKey = fullKey.replace('applicant2.employment_duration', 'Applicant #2 Employment Duration');
                     fullKey = fullKey.replace('applicant2.monthly_net_income', 'Applicant #2 Monthly Income');
 
-                    // Vehicle 1
+                    // Vehicles
                     fullKey = fullKey.replace('vehicles[0].year', 'Vehicle 1 Year');
                     fullKey = fullKey.replace('vehicles[0].make', 'Vehicle 1 Make');
                     fullKey = fullKey.replace('vehicles[0].model', 'Vehicle 1 Model');
@@ -1378,7 +1283,6 @@ export default {
                     fullKey = fullKey.replace('vehicles[0].drivers_license_no', 'Vehicle 1 Driver License');
                     fullKey = fullKey.replace('vehicles[0].parking_space_required', 'Vehicle 1 Parking Space Required');
 
-// Vehicle 2
                     fullKey = fullKey.replace('vehicles[1].year', 'Vehicle 2 Year');
                     fullKey = fullKey.replace('vehicles[1].make', 'Vehicle 2 Make');
                     fullKey = fullKey.replace('vehicles[1].model', 'Vehicle 2 Model');
@@ -1386,34 +1290,43 @@ export default {
                     fullKey = fullKey.replace('vehicles[1].drivers_license_no', 'Vehicle 2 Driver License');
                     fullKey = fullKey.replace('vehicles[1].parking_space_required', 'Vehicle 2 Parking Space Required');
 
-                    // Previous Address 1
+// Previous Addresses
                     fullKey = fullKey.replace('previous_addresses[0].City', 'Previous Address 1 City');
                     fullKey = fullKey.replace('previous_addresses[0].Province', 'Previous Address 1 Province');
-                    fullKey = fullKey.replace('previous_addresses[0].Postal_code', 'Previous Address 1 Postal Code');
-                    fullKey = fullKey.replace('previous_addresses[0].Duration_at_address', 'Previous Address 1 Duration');
-                    fullKey = fullKey.replace('previous_addresses[0].Landlord_name', 'Previous Address 1 Landlord Name');
-                    fullKey = fullKey.replace('previous_addresses[0].Landlord_phone', 'Previous Address 1 Landlord Phone');
+                    fullKey = fullKey.replace('previous_addresses[0].code', 'Previous Address 1 Postal Code');
+                    fullKey = fullKey.replace('previous_addresses[0].duration', 'Previous Address 1 Duration');
+                    fullKey = fullKey.replace('previous_addresses[0].landlord', 'Previous Address 1 Landlord Name');
+                    fullKey = fullKey.replace('previous_addresses[0].phone', 'Previous Address 1 Landlord Phone');
 
-// Previous Address 2
                     fullKey = fullKey.replace('previous_addresses[1].City', 'Previous Address 2 City');
                     fullKey = fullKey.replace('previous_addresses[1].Province', 'Previous Address 2 Province');
-                    fullKey = fullKey.replace('previous_addresses[1].Postal_code', 'Previous Address 2 Postal Code');
-                    fullKey = fullKey.replace('previous_addresses[1].Duration at_address', 'Previous Address 2 Duration');
-                    fullKey = fullKey.replace('previous_addresses[1].Landlord_name', 'Previous Address 2 Landlord Name');
-                    fullKey = fullKey.replace('previous_addresses[1].Landlord_phone', 'Previous Address 2 Landlord Phone');
+                    fullKey = fullKey.replace('previous_addresses[1].code', 'Previous Address 2 Postal Code');
+                    fullKey = fullKey.replace('previous_addresses[1].duration', 'Previous Address 2 Duration');
+                    fullKey = fullKey.replace('previous_addresses[1].landlord', 'Previous Address 2 Landlord Name');
+                    fullKey = fullKey.replace('previous_addresses[1].phone', 'Previous Address 2 Landlord Phone');
 
 // References
-                    // References
-                    fullKey = fullKey.replace('references[0].name', 'Reference #1 Name');
-                    fullKey = fullKey.replace('references[0].address', 'Reference #1 Address');
-                    fullKey = fullKey.replace('references[0].phone_number', 'Reference #1 Phone');
-                    fullKey = fullKey.replace('references[0].relationship', 'Reference #1 Relationship');
+                    fullKey = fullKey.replace('references[0].name', 'Reference 1 Name');
+                    fullKey = fullKey.replace('references[0].address', 'Reference 1 Address');
+                    fullKey = fullKey.replace('references[0].phone_number', 'Reference 1 Phone');
+                    fullKey = fullKey.replace('references[0].relationship', 'Reference 1 Relationship');
 
-                    fullKey = fullKey.replace('references[2].name', 'Reference #2 Name');
-                    fullKey = fullKey.replace('references[2].address', 'Reference #2 Address');
-                    fullKey = fullKey.replace('references[2].phone_number', 'Reference #2 Phone');
-                    fullKey = fullKey.replace('references[2].relationship', 'Reference #2 Relationship');
+                    fullKey = fullKey.replace('references[1].name', 'Reference 2 Name');
+                    fullKey = fullKey.replace('references[1].address', 'Reference 2 Address');
+                    fullKey = fullKey.replace('references[1].phone_number', 'Reference 2 Phone');
+                    fullKey = fullKey.replace('references[1].relationship', 'Reference 2 Relationship');
 
+
+                    // Criminal and Credit Check
+                    fullKey = fullKey.replace('criminal_and_credit_check_comment', 'Criminal and Credit Check Comment');
+// Witness
+                    fullKey = fullKey.replace('witness_name', 'Witness Name');
+// Conditions
+                    fullKey = fullKey.replace('agreed_to_conditions', 'Agreed to Conditions');
+
+                    fullKey = fullKey.replace('other_income_sources.type_of_income', 'Income Type');
+                    fullKey = fullKey.replace('other_income_sources.monthly_net_income_from_other_sources', 'Monthly Net Income');
+                    fullKey = fullKey.replace('other_income_sources.total_monthly_income', 'Monthly Income');
 
 
                     if (value && typeof value === 'object') {
