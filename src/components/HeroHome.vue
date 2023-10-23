@@ -13,7 +13,7 @@
         </h2>
         <hr class="w-10 md:w-48 h-1 my-4 border-0 rounded bg-white" />
         <p class="text-lg mb-4 text-white">
-          Servicing Dufferin, York, Peel & Muskoka Regions
+          Servicing Simcoe, Dufferin, York, Peel & Muskoka Regions
         </p>
       </div>
     </div>
