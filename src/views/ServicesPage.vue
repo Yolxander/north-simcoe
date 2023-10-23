@@ -77,7 +77,7 @@ export default {
             "Commercial property management involves the management of any property used for business purposes, such as office buildings, warehouses, and retail spaces. It involves managing the day-to-day operations of the property, maintaining and improving the condition of the property, and ensuring compliance with local and Canadian laws.",
             "At North Simcoe Property Management, our responsibilities include finding tenants, collecting rent, handling tenant complaints, and performing regular maintenance and repairs.",
           ],
-          link: "/forms-test",
+          link: "/commercial-form",
           linkTitle: "Fill in Commercial App",
         },
         {
