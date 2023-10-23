@@ -1,5 +1,5 @@
 <template>
-  <div class="overflow-hidden">
+  <div class="overflow-hidden wrapper">
     <TopNavBar :current-route="$route.path" />
     <NavBarSide :current-route="$route.path" />
     <router-view />

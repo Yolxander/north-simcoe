@@ -3,7 +3,7 @@
     class="bg-transparent fixed z-20 md:h-auto md:right-0 w-full border-b-4 border-double border-teal md:border-b-0 backdrop-filter backdrop-blur-lg md:backdrop-blur-none"
   >
     <div
-      class="w-full max-w-screen-xl flex flex-wrap items-center justify-between md:justify-end"
+      class="w-full max-w-screen-xl flex flex-wrap items-center justify-between md:justify-end mx-auto"
     >
       <div
         class="flex w-full items-center justify-between px-10 p-4 md:space-x-8 md:w-auto md:pl-2 md:border md:border-transparent md:border-solid md:border-1 md:backdrop-filter md:backdrop-blur-lg md:bg-teal/40 md:rounded relative"

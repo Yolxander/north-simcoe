@@ -1,6 +1,6 @@
 <template>
   <div
-    class="hero-container-global h-[70vh] flex items-end md:items center p-10 pt-20 pl-10 md:pl-48 md:pb-10"
+    class="hero-container-global xl:h-[30vh] flex items-end md:items center p-10 pt-20 pl-10 md:pl-48 md:pb-10"
   >
     <div class="hero-overlay"></div>
     <div class="flex flex-col justify-center md:w-4/5 font-archivo absolute">
@@ -34,7 +34,7 @@ export default {
   background-image: url("../assets/hero-global.jpeg");
   background-size: cover;
   background-position: center;
-  height: 100vh;
+  height: 90vh;
 }
 
 .hero-overlay {
