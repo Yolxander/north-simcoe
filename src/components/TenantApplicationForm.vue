@@ -4,7 +4,8 @@
         @submit.prevent="submitForm"
         id="form"
     >
-        <h2 class="text-brown text-[30px]" v-if="showForm">TENANT RENTAL APPLICATION</h2>
+        <PdfGenerator/>
+            <h2 class="text-brown text-[30px]" v-if="showForm">TENANT RENTAL APPLICATION</h2>
         <div v-if="currentStep === 1 && showForm" class="w-full relative">
             <div
                 class="flex flex-col mb-2 z-10 relative bg-white rounded-lg shadow-md p-4 border-4 border-solid border-teal"
@@ -1025,12 +1026,14 @@ import emailjs from '@emailjs/browser';
 import "jspdf-autotable"
 import SuccessComponent from "@/components/SuccessComponent.vue";
 import ProgressBar from "@/components/ProgressBar.vue";
+import PdfGenerator from "@/components/PdfGenerator.vue";
 // Add FileSaver import
 export default {
     name: "TenantApplicationForm",
     components: {
         SuccessComponent,
         ProgressBar,
+        PdfGenerator
     },
     data() {
         return {
