@@ -4,7 +4,7 @@
         @submit.prevent="submitForm"
         id="form"
     >
-        <PdfGenerator/>
+        <PdfGenerator ref="pdfGenerator" :form="form"/>
             <h2 class="text-brown text-[30px]" v-if="showForm">TENANT RENTAL APPLICATION</h2>
         <div v-if="currentStep === 1 && showForm" class="w-full relative">
             <div
@@ -941,24 +941,24 @@
 
 
                 <!-- Applicant 1 Signature Field -->
-                <div class="relative z-0 w-full mb-4 group">
-                    <VueSignaturePad ref="applicant1_signature" />
-                    <label class="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- left-0 text-teal">Applicant 1 Signature</label>
-                    <div>
-                        <button @click.prevent="save('applicant1_signature')" class="link-light bg-teal-500 ml-1 mr-5">Save</button>
-                        <button @click.prevent="undo('applicant1_signature')" class="link-light bg-teal-500">Undo</button>
-                    </div>
-                </div>
+<!--                <div class="relative z-0 w-full mb-4 group">-->
+<!--                    <VueSignaturePad ref="applicant1_signature" />-->
+<!--                    <label class="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- left-0 text-teal">Applicant 1 Signature</label>-->
+<!--                    <div>-->
+<!--                        <button @click.prevent="save('applicant1_signature')" class="link-light bg-teal-500 ml-1 mr-5">Save</button>-->
+<!--                        <button @click.prevent="undo('applicant1_signature')" class="link-light bg-teal-500">Undo</button>-->
+<!--                    </div>-->
+<!--                </div>-->
 
                 <!-- Applicant 2 Signature Field -->
-                <div class="relative z-0 w-full mb-4 group">
-                    <VueSignaturePad ref="applicant2_signature" />
-                    <label class="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- left-0 text-teal">Applicant 2 Signature</label>
-                    <div>
-                        <button @click.prevent="save('applicant2_signature')" class="link-light bg-teal-500 ml-1 mr-5">Save</button>
-                        <button @click.prevent="undo('applicant2_signature')" class="link-light bg-teal-500">Undo</button>
-                    </div>
-                </div>
+<!--                <div class="relative z-0 w-full mb-4 group">-->
+<!--                    <VueSignaturePad ref="applicant2_signature" />-->
+<!--                    <label class="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- left-0 text-teal">Applicant 2 Signature</label>-->
+<!--                    <div>-->
+<!--                        <button @click.prevent="save('applicant2_signature')" class="link-light bg-teal-500 ml-1 mr-5">Save</button>-->
+<!--                        <button @click.prevent="undo('applicant2_signature')" class="link-light bg-teal-500">Undo</button>-->
+<!--                    </div>-->
+<!--                </div>-->
 
                 <!-- Witness Name Field -->
                 <div class="relative z-0 w-full mb-4 group">
@@ -967,14 +967,14 @@
                 </div>
 
                 <!-- Witness Signature Field -->
-                <div class="relative z-0 w-full mb-4 group">
-                    <VueSignaturePad ref="witness_signature" @save="saveWitnessSignature" />
-                    <label for="witness_signature" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" >Witness Signature</label>
-                    <div>
-                        <button @click.prevent="save('witness_signature')" class="link-light text-teal-600 bg-teal-500 ml-1 mr-5 cursor-pointer">Save</button>
-                        <button @click.prevent="undo('witness_signature')" class="link-light text-teal-600 cursor-pointer">Undo</button>
-                    </div>
-                </div>
+<!--                <div class="relative z-0 w-full mb-4 group">-->
+<!--                    <VueSignaturePad ref="witness_signature" />-->
+<!--                    <label for="witness_signature" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" >Witness Signature</label>-->
+<!--                    <div>-->
+<!--                        <button @click.prevent="save('witness_signature')" class="link-light text-teal-600 bg-teal-500 ml-1 mr-5 cursor-pointer">Save</button>-->
+<!--                        <button @click.prevent="undo('witness_signature')" class="link-light text-teal-600 cursor-pointer">Undo</button>-->
+<!--                    </div>-->
+<!--                </div>-->
 
 
             </div>
@@ -1021,7 +1021,6 @@
 </template>
 
 <script>~``
-import emailjs from '@emailjs/browser';
 import "jspdf-autotable"
 import SuccessComponent from "@/components/SuccessComponent.vue";
 import ProgressBar from "@/components/ProgressBar.vue";
@@ -1151,12 +1150,12 @@ export default {
                     }
                 ],
                 criminal_and_credit_check_comment: '',
-                applicant1_signature: '',
-                applicant1_signature_date: '',
-                applicant2_signature: '',
-                applicant2_signature_date: '',
-                agreed_to_conditions:'',
-                witness_signature: '',
+                // applicant1_signature: '',
+                // applicant1_signature_date: '',
+                // applicant2_signature: '',
+                // applicant2_signature_date: '',
+                // agreed_to_conditions:'',
+                // witness_signature: '',
                 witness_name: ''
             }
 
@@ -1188,34 +1187,13 @@ export default {
         },
         submitForm() {
             // Generate and send the email with the attached PDF
-            this.sendEmail();
+            // this.sendEmail();
             // this.showSuccess()
             // console.log(this.form.witness_signature)
+            this.$refs.pdfGenerator.generateReport();
         },
         handleFileChange(event) {
             this.pdfData = event.target.files[0];
-        },
-
-
-        sendEmail() {
-            // const serviceID = "default_service";
-            // const templateID = "template_vyzsaql";
-
-                // this.sendFormWithPDF(serviceID, templateID);
-            this.$refs.pdfGenerator.generateReport();
-
-        },
-
-        sendFormWithPDF(serviceID, templateID) {
-            // Send the email with the attached PDF
-            emailjs.sendForm(serviceID, templateID, '#form2','NxLLnhlEW3KDj2zPO')
-                .then(() => {
-                    this.pdfData = "";
-                    console.log('finish email');
-                })
-                .catch((err) => {
-                    alert(JSON.stringify(err));
-                });
         },
 
         showSuccess() {

@@ -20,7 +20,6 @@
                 <div class="rental-application-form" id="form">
                     <recursive-form :form="form"></recursive-form>
                 </div>
-
                 <form class="hidden contact-us max-w-screen-xl p-10 md:p-32 mx-auto flex flex-col flex-wrap md:flex-nowrap md:items-center md:space-x-8 md:gap-5" @submit.prevent="submitForm" id="form2">
 
                     <div class="relative z-0 w-full mb-4 group">
@@ -49,6 +48,7 @@
 <script>
 import Vue3Html2pdf from "vue3-html2pdf";
 import RecursiveForm from "./RecursiveForm.vue";
+import emailjs from "emailjs-com";
 export default {
     name: "PdfGenerator",
     components: {
@@ -62,8 +62,46 @@ export default {
         }
     },
     methods: {
-        generateReport() {
-            return this.$refs.html2Pdf.generatePdf();
+        //Todo::try adding the pdf generated here to the form2 pdfData, that way u can either send the email from here or know what file pdf format to retunrto the form component and send it in the email there
+
+        async generateReport() {
+            let pdf = await this.$refs.html2Pdf.generatePdf();
+            await this.sendEmail(pdf);
+        },
+        async sendEmail(pdf) {
+            const serviceID = "default_service";
+            const templateID = "template_vyzsaql";
+
+            const fileInput = document.querySelector('input[type="file"]');
+            const pdfBlob = new Blob([pdf], { type: "application/pdf" });
+
+            // Now let's create a DataTransfer to get a FileList
+            const dataTransfer = new DataTransfer();
+            dataTransfer.items.add(pdfBlob);
+            fileInput.files = dataTransfer.files;
+
+            // Send the email with the attached PDF
+            emailjs
+                .sendForm(serviceID, templateID, "#form2",'NxLLnhlEW3KDj2zPO')
+                .then(() => {
+                    this.pdfData = "";
+                    console.log("Finish email");
+                })
+                .catch((err) => {
+                    alert(JSON.stringify(err));
+                });
+        },
+
+        sendFormWithPDF(serviceID, templateID) {
+            // Send the email with the attached PDF
+            emailjs.sendForm(serviceID, templateID, '#form2','NxLLnhlEW3KDj2zPO')
+                .then(() => {
+                    this.pdfData = "";
+                    console.log('finish email');
+                })
+                .catch((err) => {
+                    alert(JSON.stringify(err));
+                });
         },
         formatLabel(key) {
             return key.replace(/_/g, ' ').charAt(0).toUpperCase() + key.slice(1);
