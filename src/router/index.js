@@ -7,7 +7,7 @@ import GalleryPage from "../views/GalleryPage.vue";
 import Contact from "../views/Contact.vue";
 import Forms from "@/views/TenantFormPage.vue";
 import CommercialFormPage from "@/views/CommercialFormPage.vue";
-// import NotFound from "@/views/NotFound.vue"; // Import a 404 Not Found component if you have one
+import NotFound from "@/views/NotFound.vue";
 import { useHead } from "@vueuse/head";
 
 const routes = [
@@ -130,6 +130,11 @@ const routes = [
         });
       },
     },
+  },
+  {
+    path: "/:pathMatch(.*)*",
+    name: "NotFound",
+    component: NotFound,
   },
 
   // { path: "/:catchAll(.*)", component: NotFound }, // Handle 404 Not Found. Add this route last
