@@ -4,15 +4,16 @@
         @submit.prevent="submitForm"
         id="form"
     >
-        <h2 class="text-brown text-[30px]" v-if="showForm">COMMERCIAL RENTAL APPLICATION</h2>
+        <PdfGenerator class="hidden" ref="pdfGenerator" :form="form"/>
+        <h1 class="text-brown text-[30px] pdfHeader" v-if="showForm">COMMERCIAL RENTAL APPLICATION</h1>
         <div v-if="currentStep === 1 && showForm" class="w-full relative">
             <div
                 class="flex flex-col mb-2 z-10 relative bg-white rounded-lg shadow-md p-4 border-4 border-solid border-teal"
             >
                 <p class="mb-4  text-[25px] text-gray-700">Applicants Name (Corporation or Individual)</p>
                 <!-- Applicant Name Field -->
-                <div class="relative z-0 w-full mb-4 group">
-                    <input v-model="form.applicant.name" type="text" name="name" id="name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer" placeholder=" " required />
+                <div class="relative z-0 w-full mb-6 group">
+                    <input v-model="form.applicant.name" type="text" name="name" id="name" class="block w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer" placeholder=" " required />
                     <label for="name" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" >Applicant Name</label>
                 </div>
 
@@ -361,16 +362,14 @@
 
 <script>
 import ProgressBar from "@/components/ProgressBar.vue";
-
-~``
-import { jsPDF } from "jspdf"
-import emailjs from '@emailjs/browser';
 import "jspdf-autotable"
 import SuccessComponent from "@/components/SuccessComponent.vue";
+import PdfGenerator from "@/components/PdfGenerator.vue";
 
 export default {
     name: "CommercialForm",
     components: {
+        PdfGenerator,
         ProgressBar,
         SuccessComponent,
     },
@@ -485,185 +484,17 @@ export default {
                 this.progress -= 90;
             }
         },
-        submitForm() {
-            // Generate and send the email with the attached PDF
-            this.sendEmail();
-            this.showSuccess()
-            // console.log(this.form.witness_signature)
-        },
+
         handleFileChange(event) {
             this.pdfData = event.target.files[0];
         },
-        generatePDF() {
-            const doc = new jsPDF({
-                orientation: "portrait",
-                unit: "in",
-                format: "letter"
-            });
-
-            // Title
-            const applicantName = this.form.applicant.name;
-            const title = applicantName + ' Commercial Application Form';
-
-            // Title
-            doc.setFontSize(16).text(title, 0.5, 1.0);
-            // Line under title
-            doc.setLineWidth(0.01).line(0.5, 1.1, 8.0, 1.1);
-
-            const body = this.prepareBody(this.form);
-            doc.autoTable({
-                columns: [
-                    { title: "Field", dataKey: "field" },
-                    { title: "Content", dataKey: "content" }
-                ],
-                body,
-                margin: { left: 0.5, top: 1.25 },
-                didDrawCell: (data) => {
-                    if (data.section === 'body' && data.cell.raw.isHeader) {
-                        doc.setFont("helvetica", "bold");
-                    } else {
-                        doc.setFont("helvetica"); // You might need to reset to the normal style
-                    }
-                }
-            });
-
-            return doc
-        },
-
-        prepareBody(data, prefix = '') {
-            let body = [];
-
-            for (const key in data) {
-                if (Object.hasOwnProperty.call(data, key)) {
-                    const value = data[key];
-                    let fullKey = prefix ? `${prefix}.${key}` : key;
-
-                    // Check if this is the first previous address and insert header if it is
-                    if (fullKey === 'previous_addresses[0].city') {
-                        body.push({ field: 'Previous Addr #1:', content: '', isHeader: true }); // Added isHeader: true
-                    }
-
-                    // Make replacements here
-                    // Applicant
-                    fullKey = fullKey.replace('applicant.name', 'Applicant Name');
-                    fullKey = fullKey.replace('applicant.premises_address', 'Address of Premises to be Rented');
-                    fullKey = fullKey.replace('applicant.required_date', 'Date Premises Required');
-                    fullKey = fullKey.replace('applicant.unit_type', 'Type of Unit Desired');
-                    fullKey = fullKey.replace('applicant.business_name', 'Legal Name of Business');
-                    fullKey = fullKey.replace('applicant.business_type', 'Type of Business');
-                    fullKey = fullKey.replace('applicant.business_duration', 'Business Duration');
-
-// Guarantor
-                    fullKey = fullKey.replace('guarantor.name', 'Guarantor Name');
-                    fullKey = fullKey.replace('guarantor.driver_license_number', "Driver's License Number");
-                    fullKey = fullKey.replace('guarantor.phone_number', 'Phone Number');
-                    fullKey = fullKey.replace('guarantor.email', 'Email');
-                    fullKey = fullKey.replace('guarantor.previous_address', 'Previous Address');
-                    fullKey = fullKey.replace('guarantor.duration_at_previous_address', 'Duration at Previous Address');
-                    fullKey = fullKey.replace('guarantor.ownership_status', 'Ownership Status');
-                    fullKey = fullKey.replace('guarantor.eviction_history', 'Eviction History');
-                    fullKey = fullKey.replace('guarantor.bankruptcy_history', 'Bankruptcy History');
-                    fullKey = fullKey.replace('guarantor.emergency_contact.name', 'Emergency Contact Name');
-                    fullKey = fullKey.replace('guarantor.emergency_contact.phone_number', 'Emergency Contact Phone Number');
-                    fullKey = fullKey.replace('guarantor.emergency_contact.email', 'Emergency Contact Email');
-
-// Credit Check
-                    fullKey = fullKey.replace('credit_check.applicant_birth_date', "Applicant's Birth Date");
-                    fullKey = fullKey.replace('credit_check.social_insurance_number', 'Social Insurance Number');
-
-// Co-Applicant
-                    fullKey = fullKey.replace('co_applicant.name', 'Co-Applicant Name');
-                    fullKey = fullKey.replace('co_applicant.driver_license_number', "Co-Applicant Driver's License Number");
-                    fullKey = fullKey.replace('co_applicant.phone_number', 'Co-Applicant Phone Number');
-                    fullKey = fullKey.replace('co_applicant.email', 'Co-Applicant Email');
-                    fullKey = fullKey.replace('co_applicant.previous_address', 'Co-Applicant Previous Address');
-                    fullKey = fullKey.replace('co_applicant.duration_at_previous_address', 'Co-Applicant Duration at Previous Address');
-                    fullKey = fullKey.replace('co_applicant.ownership_status', 'Co-Applicant Ownership Status');
-                    fullKey = fullKey.replace('co_applicant.eviction_history', 'Co-Applicant Eviction History');
-                    fullKey = fullKey.replace('co_applicant.bankruptcy_history', 'Co-Applicant Bankruptcy History');
-                    fullKey = fullKey.replace('co_applicant.emergency_contact.name', 'Co-Applicant Emergency Contact Name');
-                    fullKey = fullKey.replace('co_applicant.emergency_contact.phone_number', 'Co-Applicant Emergency Contact Phone Number');
-                    fullKey = fullKey.replace('co_applicant.emergency_contact.email', 'Co-Applicant Emergency Contact Email');
-                    fullKey = fullKey.replace('co_applicant.birth_date', 'Co-Applicant Birth Date');
-                    fullKey = fullKey.replace('co_applicant.social_insurance_number', 'Co-Applicant Social Insurance Number');
-
-// References
-                    fullKey = fullKey.replace('references.name', 'Reference 1 Name');
-                    fullKey = fullKey.replace('references.relationship', 'Reference 1 Relationship');
-                    fullKey = fullKey.replace('references.phone_number', 'Reference 1 Phone Number');
-
-                    // References
-                    fullKey = fullKey.replace('references[0].name', 'Reference 1 Name');
-                    fullKey = fullKey.replace('references[0].relationship', 'Reference 1 Relationship');
-                    fullKey = fullKey.replace('references[0].phone_number', 'Reference 1 Phone Number');
-
-                    fullKey = fullKey.replace('references[1].name', 'Reference 2 Name');
-                    fullKey = fullKey.replace('references[1].relationship', 'Reference 2 Relationship');
-                    fullKey = fullKey.replace('references[1].phone_number', 'Reference 2 Phone Number');
-
-                    fullKey = fullKey.replace('references[2].name', 'Reference 3 Name');
-                    fullKey = fullKey.replace('references[2].relationship', 'Reference 3 Relationship');
-                    fullKey = fullKey.replace('references[2].phone_number', 'Reference 3 Phone Number');
-
-                    fullKey = fullKey.replace('references[3].name', 'Reference 4 Name');
-                    fullKey = fullKey.replace('references[3].relationship', 'Reference 4 Relationship');
-                    fullKey = fullKey.replace('references[3].phone_number', 'Reference 4 Phone Number');
-
-
-                    if (value && typeof value === 'object') {
-                        if (Array.isArray(value)) {
-                            value.forEach((item, index) => {
-                                body = body.concat(this.prepareBody(item, `${fullKey}[${index}]`));
-                            });
-                        } else {
-                            body = body.concat(this.prepareBody(value, fullKey));
-                        }
-                    } else {
-                        body.push({ field: fullKey + ':', content: value }); // Added ':' after the field
-                    }
-                }
-            }
-
-            return body;
-        },
-
-        async sendEmail() {
-            const serviceID = "default_service";
-            const templateID = "template_vyzsaql";
-
-            const doc = await this.generatePDF();
-            // get the output as blob
-            const pdfBlob = doc.output('blob');
-
-            const fileInput = document.querySelector('input[type="file"]');
-            // create File object
-            const pdfFile = new File([pdfBlob], `${this.form.applicant.name}.pdf`, {type: 'application/pdf'});
-
-            // Now let's create a DataTransfer to get a FileList
-            const dataTransfer = new DataTransfer();
-            dataTransfer.items.add(pdfFile);
-            fileInput.files = dataTransfer.files;
-
-            // Convert the PDF blob to a data URL
-            const reader = new FileReader();
-            reader.onloadend = () => {
-                this.sendFormWithPDF(serviceID, templateID);
-            };
-
-            reader.readAsDataURL(pdfBlob);
-        }
-        ,
-
-        sendFormWithPDF(serviceID, templateID) {
-            // Send the email with the attached PDF
-            emailjs.sendForm(serviceID, templateID, '#form2','NxLLnhlEW3KDj2zPO')
-                .then(() => {
-                    this.pdfData = "";
-                    console.log('finish email');
-                })
-                .catch((err) => {
-                    alert(JSON.stringify(err));
-                });
+        submitForm() {
+            this.isSubmitted = true;
+            // Generate and send the email with the attached PDF
+            // this.sendEmail();
+            // this.showSuccess()
+            // console.log(this.form.witness_signature)
+            this.$refs.pdfGenerator.generateReport();
         },
 
         showSuccess() {

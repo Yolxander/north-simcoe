@@ -1,21 +1,17 @@
 <template>
     <div>
-        <div class="rental-application-form" id="form">
-            <recursive-form :form="form"></recursive-form>
-        </div>
         <button @click="generateReport">Generate PDF</button>
     </div>
 </template>
 
 <script>
 import html2pdf from 'html2pdf.js';
-import RecursiveForm from "./RecursiveForm.vue";
 import emailjs from "emailjs-com";
 
 export default {
     name: "PdfGenerator",
     components: {
-        RecursiveForm
+
     },
     props: {
         form: {
@@ -25,7 +21,23 @@ export default {
     },
     methods: {
         async generateReport() {
-            const element = document.getElementById('form');
+            const originalElement = document.getElementById('form');
+            const element = originalElement.cloneNode(true); // Create a copy of the element
+
+            // Set the cloned element to take the full width and height of the screen view
+            element.style.paddingLeft = '18px';
+            element.style.paddingRight = '20px';
+            element.style.width = '100%';
+            element.style.boxSizing = 'border-box';
+
+            // Remove unwanted elements
+            const unwantedElements = ['progress-bar', 'h1', 'transition', 'button.text-brown.bg-teal', 'button[type="submit"]', 'PdfGenerator.hidden'];
+            unwantedElements.forEach(selector => {
+                const elementToRemove = element.querySelector(selector);
+                if (elementToRemove) elementToRemove.remove();
+            });
+
+            // Generate PDF
             const pdfBlob = await html2pdf().from(element).outputPdf('blob');
             await this.sendEmail(pdfBlob);
         },
@@ -44,18 +56,16 @@ export default {
             if (fileSize > 500) {
                 alert('File size exceeds the limit of 500KB');
             } else {
-                await this.sendEmail(pdfBlob);
+                emailjs
+                    .sendForm(serviceID, templateID, "#form2", "NxLLnhlEW3KDj2zPO")
+                    .then(() => {
+                        this.pdfData = "";
+                        console.log("Finish email");
+                    })
+                    .catch((err) => {
+                        alert(JSON.stringify(err));
+                    });
             }
-
-            emailjs
-                .sendForm(serviceID, templateID, "#form2", "NxLLnhlEW3KDj2zPO")
-                .then(() => {
-                    this.pdfData = "";
-                    console.log("Finish email");
-                })
-                .catch((err) => {
-                    alert(JSON.stringify(err));
-                });
         },
         formatLabel(key) {
             return key.replace(/_/g, " ").charAt(0).toUpperCase() + key.slice(1);

@@ -1,7 +1,7 @@
 <template>
     <form
         class="contact-us max-w-screen-xl p-10 md:p-32 mx-auto flex flex-col flex-wrap md:flex-nowrap md:items-center md:space-x-8 md:gap-5"
-        @submit.prevent="submitForm"
+        @submit.prevent="submitForm" :class="{ submitted: isSubmitted }"
         id="form"
     >
         <PdfGenerator ref="pdfGenerator" :form="form"/>
@@ -951,14 +951,14 @@
 <!--                </div>-->
 
                 <!-- Applicant 2 Signature Field -->
-<!--                <div class="relative z-0 w-full mb-4 group">-->
-<!--                    <VueSignaturePad ref="applicant2_signature" />-->
-<!--                    <label class="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- left-0 text-teal">Applicant 2 Signature</label>-->
-<!--                    <div>-->
-<!--                        <button @click.prevent="save('applicant2_signature')" class="link-light bg-teal-500 ml-1 mr-5">Save</button>-->
-<!--                        <button @click.prevent="undo('applicant2_signature')" class="link-light bg-teal-500">Undo</button>-->
-<!--                    </div>-->
-<!--                </div>-->
+                <div class="relative z-0 w-full mb-4 group">
+                    <VueSignaturePad ref="applicant2_signature" />
+                    <label class="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- left-0 text-teal">Applicant 2 Signature</label>
+                    <div>
+                        <button @click.prevent="save('applicant2_signature')" class="link-light bg-teal-500 ml-1 mr-5">Save</button>
+                        <button @click.prevent="undo('applicant2_signature')" class="link-light bg-teal-500">Undo</button>
+                    </div>
+                </div>
 
                 <!-- Witness Name Field -->
                 <div class="relative z-0 w-full mb-4 group">
@@ -1000,7 +1000,6 @@
     </form>
 
     <form class="hidden contact-us max-w-screen-xl p-10 md:p-32 mx-auto flex flex-col flex-wrap md:flex-nowrap md:items-center md:space-x-8 md:gap-5" @submit.prevent="submitForm" id="form2">
-
         <div class="relative z-0 w-full mb-4 group">
             <input
                 @change="handleFileChange"
@@ -1016,7 +1015,6 @@
                 PDF Data
             </label>
         </div>
-
     </form>
 </template>
 
@@ -1036,6 +1034,7 @@ export default {
     data() {
         return {
             progress: 0,
+            isSubmitted: false,
             pdfData: null, // change this to null
             dependants: [{}], // Start with one empty dependant
             selectedPetOption: '',
@@ -1150,12 +1149,12 @@ export default {
                     }
                 ],
                 criminal_and_credit_check_comment: '',
-                // applicant1_signature: '',
-                // applicant1_signature_date: '',
-                // applicant2_signature: '',
-                // applicant2_signature_date: '',
-                // agreed_to_conditions:'',
-                // witness_signature: '',
+                applicant1_signature: '',
+                applicant1_signature_date: '',
+                applicant2_signature: '',
+                applicant2_signature_date: '',
+                agreed_to_conditions:'',
+                witness_signature: '',
                 witness_name: ''
             }
 
@@ -1186,6 +1185,7 @@ export default {
             }
         },
         submitForm() {
+            this.isSubmitted = true;
             // Generate and send the email with the attached PDF
             // this.sendEmail();
             // this.showSuccess()
@@ -1210,6 +1210,10 @@ export default {
 </script>
 
 <style scoped>
+.submitted {
+    width: 95%;
+    background: blue;
+}
 .transition > div.fade-enter-active,
 .transition > div.fade-leave-active {
     transition: opacity 2s;
