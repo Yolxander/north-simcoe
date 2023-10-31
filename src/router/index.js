@@ -7,7 +7,7 @@ import GalleryPage from "../views/GalleryPage.vue";
 import Contact from "../views/Contact.vue";
 import Forms from "@/views/TenantFormPage.vue";
 import CommercialFormPage from "@/views/CommercialFormPage.vue";
-// import NotFound from "@/views/NotFound.vue"; // Import a 404 Not Found component if you have one
+import NotFound from "@/views/NotFound.vue";
 
 const routes = [
   { path: "/", component: Home },
@@ -17,14 +17,17 @@ const routes = [
   { path: "/residential-form", component: Forms },
   { path: "/commercial-form", component: CommercialFormPage },
   { path: "/gallery", component: GalleryPage },
-  // { path: "/:catchAll(.*)", component: NotFound }, // Handle 404 Not Found. Add this route last
+  {
+    path: "/:pathMatch(.*)*",
+    name: "NotFound",
+    component: NotFound,
+  },
 ];
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL), // Added process.env.BASE_URL to ensure correct base path
+  history: createWebHistory(process.env.BASE_URL),
   routes,
   scrollBehavior() {
-    // always scroll to top
     return { top: 0 };
   },
 });
