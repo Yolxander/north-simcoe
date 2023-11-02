@@ -2,9 +2,9 @@
     <form
         class=" contact-us p-10 md:p-32 mx-auto flex flex-col flex-wrap md:flex-nowrap md:items-center md:space-x-8 md:gap-5 "
         @submit.prevent="submitForm"
-        id="form"   :style="{ width: this.isSubmitted ? '60vw' : 'auto' }">
+        id="form"   :style="{ width: this.isSubmitted ? '60vw' : '70vw' }">
         <PdfGenerator class="hidden" ref="pdfGenerator" :form="form"/>
-        <h1 class="text-brown text-[30px]" v-if="showForm">COMMERCIAL RENTAL APPLICATION</h1>
+        <h1 class="exclude-from-pdf text-brown text-[30px]" v-if="showForm">COMMERCIAL RENTAL APPLICATION</h1>
         <div v-if="currentStep === 1 && showForm || showAll" class="w-full relative">
             <div
                 class="flex flex-col mb-2 z-10 relative bg-white rounded-lg shadow-md p-4 border-4 border-solid border-teal"
@@ -134,7 +134,6 @@
 
 
             </div>
-
 
             <button @click.prevent="nextStep" class="exclude-from-pdf text-brown bg-teal hover:bg-tealdark hover:text-white focus:ring-4 focus:outline-none focus:ring-teal font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">
                 Next
@@ -318,14 +317,14 @@
                 </div>
 
                 <!-- Applicant Signature Field -->
-                <div class="relative z-0 w-full mb-4 group">
-                    <VueSignaturePad ref="form.applicant_signature.signature" />
-                    <label class="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- left-0">Applicant Signature</label>
-                    <div>
-                        <button @click.prevent="save('form.applicant_signature.signature')" class="exclude-from-pdf link-light bg-teal-500 ml-1 mr-5">Save</button>
-                        <button @click.prevent="undo('form.applicant_signature.signature')" class="exclude-from-pdf link-light bg-teal-500">Undo</button>
-                    </div>
-                </div>
+<!--                <div class="relative z-0 w-full mb-4 group">-->
+<!--                    <VueSignaturePad ref="form.applicant_signature.signature" />-->
+<!--                    <label class="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- left-0">Applicant Signature</label>-->
+<!--                    <div>-->
+<!--                        <button @click.prevent="save('form.applicant_signature.signature')" class="exclude-from-pdf link-light bg-teal-500 ml-1 mr-5">Save</button>-->
+<!--                        <button @click.prevent="undo('form.applicant_signature.signature')" class="exclude-from-pdf link-light bg-teal-500">Undo</button>-->
+<!--                    </div>-->
+<!--                </div>-->
 
             </div>
 
@@ -341,9 +340,6 @@
         </div>
 
         <progress-bar :value="progress" class="exclude-from-pdf" v-if="showForm"></progress-bar>
-        <transition name="fade" class="transition" @before-enter="log" @enter="log">
-            <success-component class="exclude-from-pdf" v-if="showSuccessComponent" />
-        </transition>
 
     </form>
 
@@ -365,13 +361,13 @@
             </label>
         </div>
 
+
     </form>
 </template>
 
 <script>
 import ProgressBar from "@/components/ProgressBar.vue";
 import "jspdf-autotable"
-import SuccessComponent from "@/components/SuccessComponent.vue";
 import PdfGenerator from "@/components/PdfGenerator.vue";
 
 export default {
@@ -379,7 +375,6 @@ export default {
     components: {
         PdfGenerator,
         ProgressBar,
-        SuccessComponent,
     },
     data() {
         return {
@@ -512,13 +507,11 @@ export default {
         },
         submitForm() {
             this.isSubmitted = true;
-            // Generate and send the email with the attached PDF
-            // this.sendEmail();
-            this.showSuccess()
             // console.log(this.form.witness_signature)
             this.showAll = true;
 
-            // Use Vue.nextTick to wait until the DOM has been updated
+            this.showFakeForm();
+            // // Use Vue.nextTick to wait until the DOM has been updated
             this.$nextTick(() => {
                 // Now call the generateReport function
                 this.$refs.pdfGenerator.generateReport().then(() => {
@@ -528,9 +521,8 @@ export default {
 
         },
 
-        showSuccess() {
-            this.showForm = false;
-            this.showSuccessComponent = true;
+        showFakeForm() {
+            window.scrollTo(0, 0);
         },
     }
 

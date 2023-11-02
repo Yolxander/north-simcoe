@@ -1,4 +1,7 @@
 <template>
+    <div
+        class=" contact-us p-10 md:p-32 mx-auto flex flex-col flex-wrap md:flex-nowrap md:items-center md:space-x-8 md:gap-5 "
+        id="form" >
     <div id="myModal" class="modal fade">
         <div class="modal-dialog modal-confirm">
             <div class="modal-content">
@@ -16,6 +19,7 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </template>
 

@@ -2,11 +2,11 @@
     <form
         class="contact-us max-w-screen-xl p-10 md:p-32 mx-auto flex flex-col flex-wrap md:flex-nowrap md:items-center md:space-x-8 md:gap-5"
         @submit.prevent="submitForm" :class="{ submitted: isSubmitted }"
-        id="form"
+        id="form" :style="{ width: this.isSubmitted ? '60vw' : '70vw' }"
     >
-        <PdfGenerator ref="pdfGenerator" :form="form"/>
+        <PdfGenerator class="hidden" ref="pdfGenerator" :form="form"/>
             <h2 class="text-brown text-[30px]" v-if="showForm">TENANT RENTAL APPLICATION</h2>
-        <div v-if="currentStep === 1 && showForm" class="w-full relative">
+        <div v-if="currentStep === 1 && showForm || showAll" class="w-full relative">
             <div
                 class="flex flex-col mb-2 z-10 relative bg-white rounded-lg shadow-md p-4 border-4 border-solid border-teal"
             >
@@ -432,21 +432,34 @@
 
             </div>
 
-            <button @click.prevent="nextStep" class="text-brown bg-teal hover:bg-tealdark hover:text-white focus:ring-4 focus:outline-none focus:ring-teal font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">
+            <button @click.prevent="nextStep" class="exclude-from-pdf text-brown bg-teal hover:bg-tealdark hover:text-white focus:ring-4 focus:outline-none focus:ring-teal font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">
                 Next
             </button>
         </div>
-        <div v-if="currentStep === 2 && showForm" class="w-full relative">
+        <div v-if="currentStep === 2 && showForm || showAll" class="w-full relative">
             <div class="flex flex-col mb-2 z-10 relative bg-white rounded-lg shadow-md p-4 border-4 border-solid border-teal">
                 <!-- Have Pet Field -->
-                <div class="relative z-0 w-full mb-4 group">
-                    <input type="text" name="have_pet" id="have_pet" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer" placeholder=" " required />
-                    <label for="have_pet" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Have Pet</label>
+                <div class="flex items-center">
+                    <input v-model="form.agreed_to_conditions" type="checkbox" name="have_pet" id="have_pet" class="block py-2.5 px-2.5 text-sm text-gray-900 bg-transparent border-2 border-teal rounded-full appearance-none focus:outline-none focus:ring-0 focus:border-teal peer" required />
+                    <label for="have_pet" class="mt-2 peer-focus:font-medium text-sm text-gray-500 duration-300 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 ml-1" style="white-space: normal; width: 95%;">
+                        Do you have pets ?
+                    </label>
                 </div>
                 <!-- Pet Description Field -->
                 <div class="relative z-0 w-full mb-4 group">
-                    <input type="text" name="pet_description" id="pet_description" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer" placeholder=" " required />
-                    <label for="pet_description" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Pet Description</label>
+                    <input
+                        v-model="form.pet_description"
+                        type="text"
+                        name="pet_description"
+                        id="pet_description"
+                        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer"
+                        placeholder=" "
+                        required
+                    />
+                    <label
+                        for="pet_description"
+                        class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                    >Pet Description</label>
                 </div>
                 <!-- Dependants Section ------------------------------------->
                 <div class="relative z-0 w-full mb-4">
@@ -489,56 +502,80 @@
                         </div>
 
                         <!-- Button to add another dependant -->
-                        <button @click.prevent="addDependant" class="text-teal hover:underline ml-4">Add</button>
+                        <button @click.prevent="addDependant" class="exclude-from-pdf text-teal hover:underline ml-4">Add</button>
                     </div>
                 </div>
 
                 <!-- Present Address Field -->
                 <div class="relative z-0 w-full mb-4 group">
-                    <input type="text" name="present_address" id="present_address" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer" placeholder=" " required />
-                    <label for="present_address" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Present Address</label>
+                    <input
+                        v-model="form.present_address"
+                        type="text"
+                        name="present_address"
+                        id="present_address"
+                        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer"
+                        placeholder=" "
+                        required
+                    />
+                    <label
+                        for="present_address"
+                        class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                    >Present Address</label>
                 </div>
                 <!-- City Field -->
                 <div class="relative z-0 w-full mb-4 group">
-                    <input type="text" name="city" id="city" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer" placeholder=" " required />
-                    <label for="city" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">City</label>
+                    <input
+                        v-model="form.city"
+                        type="text"
+                        name="city"
+                        id="city"
+                        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer"
+                        placeholder=" "
+                        required
+                    />
+                    <label
+                        for="city"
+                        class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                    >City</label>
                 </div>
+
                 <!-- Province Field -->
                 <div class="relative z-0 w-full mb-4 group">
-                    <input type="text" name="province" id="province" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer" placeholder=" " required />
+                    <input v-model="form.province" type="text" name="province" id="province" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer" placeholder=" " required />
                     <label for="province" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Province</label>
                 </div>
                 <!-- Postal Code Field -->
                 <div class="relative z-0 w-full mb-4 group">
-                    <input type="text" name="postal_code" id="postal_code" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer" placeholder=" " required />
+                    <input v-model="form.postal_code" type="text" name="postal_code" id="postal_code" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer" placeholder=" " required />
                     <label for="postal_code" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Postal Code</label>
                 </div>
                 <!-- Duration at Address Field -->
                 <div class="relative z-0 w-full mb-4 group">
-                    <input type="text" name="duration_at_address" id="duration_at_address" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer" placeholder=" " required />
+                    <input v-model="form.duration_at_address" type="text" name="duration_at_address" id="duration_at_address" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer" placeholder=" " required />
                     <label for="duration_at_address" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Duration at Address</label>
                 </div>
                 <!-- Landlord Name Field -->
                 <div class="relative z-0 w-full mb-4 group">
-                    <input type="text" name="landlord_name" id="landlord_name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer" placeholder=" " required />
+                    <input v-model="form.landlord_name" type="text" name="landlord_name" id="landlord_name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer" placeholder=" " required />
                     <label for="landlord_name" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Landlord Name</label>
                 </div>
                 <!-- Landlord Phone Field -->
                 <div class="relative z-0 w-full mb-4 group">
-                    <input type="tel" name="landlord_phone" id="landlord_phone" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer" placeholder=" " required />
+                    <input v-model="form.landlord_phone" type="tel" name="landlord_phone" id="landlord_phone" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer" placeholder=" " required />
                     <label for="landlord_phone" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Landlord Phone</label>
                 </div>
+
             </div>
 
             <!-- Back Button -->
-            <button @click.prevent="previousStep" class="text-brown bg-teal hover:bg-tealdark hover:text-white focus:ring-4 focus:outline-none focus:ring-teal font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center mr-2">
+            <button @click.prevent="previousStep" class="exclude-from-pdf text-brown bg-teal hover:bg-tealdark hover:text-white focus:ring-4 focus:outline-none focus:ring-teal font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center mr-2">
                 Back
             </button>
-            <button @click.prevent="nextStep" class="text-brown bg-teal hover:bg-tealdark hover:text-white focus:ring-4 focus:outline-none focus:ring-teal font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">
+            <button @click.prevent="nextStep" class="exclude-from-pdf text-brown bg-teal hover:bg-tealdark hover:text-white focus:ring-4 focus:outline-none focus:ring-teal font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">
                 Next
             </button>
         </div>
-        <div v-if="currentStep === 3 && showForm" class="w-full relative">
+        <div v-if="currentStep === 3 && showForm || showAll" class="w-full relative">
             <div
                 class="flex flex-col mb-2 z-10 relative bg-white rounded-lg shadow-md p-4 border-4 border-solid border-teal"
             >
@@ -789,14 +826,14 @@
                 </div>
             </div>
             <!-- Back Button -->
-            <button @click.prevent="previousStep" class="text-brown bg-teal hover:bg-tealdark hover:text-white focus:ring-4 focus:outline-none focus:ring-teal font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center mr-2">
+            <button @click.prevent="previousStep" class="exclude-from-pdf text-brown bg-teal hover:bg-tealdark hover:text-white focus:ring-4 focus:outline-none focus:ring-teal font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center mr-2">
                 Back
             </button>
-            <button @click.prevent="nextStep" class="text-brown bg-teal hover:bg-tealdark hover:text-white focus:ring-4 focus:outline-none focus:ring-teal font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">
+            <button @click.prevent="nextStep" class="exclude-from-pdf text-brown bg-teal hover:bg-tealdark hover:text-white focus:ring-4 focus:outline-none focus:ring-teal font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">
                 Next
             </button>
         </div>
-        <div v-if="currentStep === 4 && showForm" class="w-full relative">
+        <div v-if="currentStep === 4 && showForm || showAll" class="w-full relative">
             <div
                 class="flex flex-col mb-2 z-10 relative bg-white rounded-lg shadow-md p-4 border-4 border-solid border-teal"
             >
@@ -951,14 +988,14 @@
 <!--                </div>-->
 
                 <!-- Applicant 2 Signature Field -->
-                <div class="relative z-0 w-full mb-4 group">
-                    <VueSignaturePad ref="applicant2_signature" />
-                    <label class="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- left-0 text-teal">Applicant 2 Signature</label>
-                    <div>
-                        <button @click.prevent="save('applicant2_signature')" class="link-light bg-teal-500 ml-1 mr-5">Save</button>
-                        <button @click.prevent="undo('applicant2_signature')" class="link-light bg-teal-500">Undo</button>
-                    </div>
-                </div>
+<!--                <div class="relative z-0 w-full mb-4 group">-->
+<!--                    <VueSignaturePad ref="applicant2_signature" />-->
+<!--                    <label class="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- left-0 text-teal">Applicant 2 Signature</label>-->
+<!--                    <div>-->
+<!--                        <button @click.prevent="save('applicant2_signature')" class="link-light bg-teal-500 ml-1 mr-5">Save</button>-->
+<!--                        <button @click.prevent="undo('applicant2_signature')" class="link-light bg-teal-500">Undo</button>-->
+<!--                    </div>-->
+<!--                </div>-->
 
                 <!-- Witness Name Field -->
                 <div class="relative z-0 w-full mb-4 group">
@@ -981,21 +1018,18 @@
 
 
             <!-- Back Button -->
-            <button @click.prevent="previousStep" class="text-brown bg-teal hover:bg-tealdark hover:text-white focus:ring-4 focus:outline-none focus:ring-teal font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center mr-2">
+            <button @click.prevent="previousStep" class="exclude-from-pdf text-brown bg-teal hover:bg-tealdark hover:text-white focus:ring-4 focus:outline-none focus:ring-teal font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center mr-2">
                 Back
             </button>
             <button
                 type="submit"
-                class="text-brown bg-teal hover:bg-tealdark hover:text-white focus:ring-4 focus:outline-none focus:ring-teal font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+                class="exclude-from-pdf text-brown bg-teal hover:bg-tealdark hover:text-white focus:ring-4 focus:outline-none focus:ring-teal font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
             >
                 Submit
             </button>
         </div>
 
-        <progress-bar :value="progress" v-if="showForm"></progress-bar>
-        <transition name="fade" class="transition" @before-enter="log" @enter="log">
-            <success-component v-if="showSuccessComponent" />
-        </transition>
+        <progress-bar class="exclude-from-pdf" :value="progress" v-if="showForm"></progress-bar>
 
     </form>
 
@@ -1020,14 +1054,12 @@
 
 <script>~``
 import "jspdf-autotable"
-import SuccessComponent from "@/components/SuccessComponent.vue";
 import ProgressBar from "@/components/ProgressBar.vue";
 import PdfGenerator from "@/components/PdfGenerator.vue";
 // Add FileSaver import
 export default {
     name: "TenantApplicationForm",
     components: {
-        SuccessComponent,
         ProgressBar,
         PdfGenerator
     },
@@ -1035,6 +1067,7 @@ export default {
         return {
             progress: 0,
             isSubmitted: false,
+            showAll:false,
             pdfData: null, // change this to null
             dependants: [{}], // Start with one empty dependant
             selectedPetOption: '',
@@ -1188,17 +1221,25 @@ export default {
             this.isSubmitted = true;
             // Generate and send the email with the attached PDF
             // this.sendEmail();
-            // this.showSuccess()
+            this.showFakeForm()
             // console.log(this.form.witness_signature)
-            this.$refs.pdfGenerator.generateReport();
+            this.showAll = true;
+
+            // Use Vue.nextTick to wait until the DOM has been updated
+            this.$nextTick(() => {
+                // Now call the generateReport function
+                this.$refs.pdfGenerator.generateReport().then(() => {
+                    this.showAll = false;
+                });
+            });
+
         },
         handleFileChange(event) {
             this.pdfData = event.target.files[0];
         },
 
-        showSuccess() {
-            this.showForm = false;
-            this.showSuccessComponent = true;
+        showFakeForm() {
+            window.scrollTo(0, 0);
         },
 
         saveWitnessSignature(signature) {
@@ -1211,8 +1252,7 @@ export default {
 
 <style scoped>
 .submitted {
-    width: 95%;
-    background: blue;
+    width: 95%;;
 }
 .transition > div.fade-enter-active,
 .transition > div.fade-leave-active {

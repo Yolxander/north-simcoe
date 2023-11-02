@@ -32,12 +32,14 @@ export default {
             console.log(inputElements)
             inputElements.forEach(inputElement => {
                 // Exclude radio type inputs from style adjustments
-                if(inputElement.getAttribute('type') !== 'radio') {
+                if(inputElement.getAttribute('type') !== 'radio' && inputElement.getAttribute('type') !=='checkbox') {
                     inputElement.style.width = '100%'; // Adjust the width as needed
                     inputElement.style.fontSize = '12px'; // Adjust the font size as needed
                     inputElement.style.height = '50px'; // Adjust the height as needed
                     inputElement.style.lineHeight = '50px'; // Adjust the line-height as needed
                 }else if(inputElement.getAttribute('type') === 'radio') {
+                    inputElement.style.background = 'transparent';
+                }else if(inputElement.getAttribute('type') === 'checkbox') {
                     inputElement.style.background = 'transparent';
                 }
             });
@@ -63,9 +65,11 @@ export default {
                 margin: [0, 0, 10, 1], // Set the margins (top, right, bottom, left)
                 scale: 0.8
             }).from(element).outputPdf('blob', { compress: true });
+
             await this.sendEmail(pdfBlob);
         },
         async sendEmail(pdfBlob) {
+            this.$router.push('/success');
             const serviceID = "default_service";
             //TOdo::remember that i change the template id
             const templateID = "template_9q3x4cv";
