@@ -28,11 +28,18 @@ export default {
             element.style.paddingLeft = '20px';
 
             // Adjust the width of the input fields
-            const inputElements = element.querySelectorAll('input[type="text"]');
+            const inputElements = element.querySelectorAll('input');
             console.log(inputElements)
             inputElements.forEach(inputElement => {
-                inputElement.style.width = '100%'; // Adjust the width as needed
-                inputElement.style.fontSize = '10px'; // Adjust the font size as needed
+                // Exclude radio type inputs from style adjustments
+                if(inputElement.getAttribute('type') !== 'radio') {
+                    inputElement.style.width = '100%'; // Adjust the width as needed
+                    inputElement.style.fontSize = '12px'; // Adjust the font size as needed
+                    inputElement.style.height = '50px'; // Adjust the height as needed
+                    inputElement.style.lineHeight = '50px'; // Adjust the line-height as needed
+                }else if(inputElement.getAttribute('type') === 'radio') {
+                    inputElement.style.background = 'transparent';
+                }
             });
 
             // Hide elements with the 'exclude-from-pdf' class
