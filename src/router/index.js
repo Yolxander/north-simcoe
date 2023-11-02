@@ -8,7 +8,7 @@ import Contact from "../views/Contact.vue";
 import Forms from "@/views/TenantFormPage.vue";
 import CommercialFormPage from "@/views/CommercialFormPage.vue";
 // import NotFound from "@/views/NotFound.vue"; // Import a 404 Not Found component if you have one
-import CommercialForm from "@/components/ComercialForm.vue";
+// import CommercialForm from "@/components/ComercialForm.vue";
 import SuccessComponent from "@/components/SuccessComponent.vue";
 const routes = [
   { path: "/", component: Home },

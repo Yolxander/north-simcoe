@@ -72,7 +72,7 @@ export default {
             this.$router.push('/success');
             const serviceID = "default_service";
             //TOdo::remember that i change the template id
-            const templateID = "template_9q3x4cv";
+            const templateID = "template_vyzsaql";
             const fileInput = document.querySelector('input[type="file"]');
             const pdfFile = new File([pdfBlob], "example.pdf", { type: "application/pdf" });
             const dataTransfer = new DataTransfer();
