@@ -16,15 +16,15 @@
           Professional Property Management Services.
         </h3>
         <p class="font-open-sans text-2xl text-brown">
-          From finding quality tenants, FREE legal advice to 24/7 support +
-          property maintenance and beyond, we provide full service property
-          management on residential, commercial, and mixed-use buildings.
+          From finding quality tenants, FREE legal advice to property
+          maintenance and beyond, we provide full service property management on
+          residential, commercial, and mixed-use buildings.
         </p>
       </div>
       <div
         class="flex justify-center flex-wrap py-4 md:py-0 md:w-3/5 text-brown text-center text-xl"
       >
-        <div class="max-w-230">
+        <div class="">
           <div
             class="md:w-56 xs:mr-4 p-2 border-solid border-teal border-4 rounded-xl mb-4"
           >
@@ -37,6 +37,16 @@
             </h4>
           </div>
           <div
+            class="md:w-56 p-2 border-solid border-teal border-4 rounded-xl mb-4"
+          >
+            <font-awesome-icon :icon="['fas', 'shop']" class="text-5xl mb-2" />
+            <h4 class="font-semibold mb-2 font-archivo">
+              MIXED USE PROPERTY MANAGEMENT
+            </h4>
+          </div>
+        </div>
+        <div class="">
+          <div
             class="md:w-56 p-2 xs:mr-4 border-solid border-teal border-4 rounded-xl mb-4"
           >
             <font-awesome-icon
@@ -47,30 +57,14 @@
               COMMERCIAL PROPERTY MANAGEMENT
             </h4>
           </div>
-        </div>
-        <div class="max-w-230">
           <div
-            class="w-full md:w-56 p-2 border-solid border-teal border-4 rounded-xl mb-4"
+            class="w-full md:w-56 md:p-[22px] p-2 border-solid border-teal border-4 rounded-xl mr-4"
           >
-            <br />
             <font-awesome-icon
               :icon="['fas', 'dollar-sign']"
               class="text-5xl mb-2"
             />
             <h4 class="font-semibold mb-2 font-archivo">CUSTOM PRICING</h4>
-            <br />
-          </div>
-          <div
-            class="w-full md:w-56 p-2 border-solid border-teal border-4 rounded-xl mr-4"
-          >
-            <br />
-            <font-awesome-icon
-              :icon="['fas', 'screwdriver-wrench']"
-              class="text-5xl mb-2"
-            />
-            <h4 class="font-semibold mb-2 font-archivo">
-              FULL PROPERTY MAINTENANCE
-            </h4>
           </div>
         </div>
       </div>

@@ -17,7 +17,7 @@ module.exports = {
       },
       screens: {
         xs: "540px",
-      },
+        xl: "2000px",      },
     },
   },
   plugins: [require("flowbite/plugin")],

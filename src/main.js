@@ -15,7 +15,9 @@ import {
   faEnvelope,
   faLocationDot,
   faCircle,
-  faCheck
+  faCheck,
+  faShop,
+  faChevronDown,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebookF,
@@ -36,6 +38,8 @@ library.add(
   faEnvelope,
   faLocationDot,
   faCircle,
+  faShop,
+  faChevronDown,
     faCheck
 );
 
