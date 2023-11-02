@@ -41,7 +41,15 @@ export default {
                     inputElement.style.background = 'transparent';
                 }
             });
-
+            // Convert the signature canvas to an image
+            const signaturePadElement = element.querySelector('vue-signature-pad');
+            if (signaturePadElement) {
+                const signaturePad = this.$refs['form.applicant_signature.signature'];
+                const signatureImage = document.createElement('img');
+                signatureImage.src = signaturePad.saveSignature();
+                signaturePadElement.parentNode.replaceChild(signatureImage, signaturePadElement);
+                console.log('here')
+            }
             // Hide elements with the 'exclude-from-pdf' class
             const excludeElements = element.querySelectorAll('.exclude-from-pdf');
             excludeElements.forEach(excludeElement => {

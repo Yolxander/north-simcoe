@@ -317,6 +317,16 @@
 
                 </div>
 
+                <!-- Applicant Signature Field -->
+                <div class="relative z-0 w-full mb-4 group">
+                    <VueSignaturePad ref="form.applicant_signature.signature" />
+                    <label class="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- left-0">Applicant Signature</label>
+                    <div>
+                        <button @click.prevent="save('form.applicant_signature.signature')" class="exclude-from-pdf link-light bg-teal-500 ml-1 mr-5">Save</button>
+                        <button @click.prevent="undo('form.applicant_signature.signature')" class="exclude-from-pdf link-light bg-teal-500">Undo</button>
+                    </div>
+                </div>
+
             </div>
 
             <button @click.prevent="previousStep" class="exclude-from-pdf text-brown bg-teal hover:bg-tealdark hover:text-white focus:ring-4 focus:outline-none focus:ring-teal font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center mr-2">
@@ -469,6 +479,18 @@ export default {
         };
     },
     methods: {
+        undo(fieldRef) {
+            this.$refs[fieldRef].undoSignature();
+        },
+        save(fieldRef) {
+            const { isEmpty, data } = this.$refs[fieldRef].saveSignature();
+            if (!isEmpty) {
+                this.form.applicant_signature.signature = data;
+            }
+        },
+        saveWitnessSignature(signature) {
+            this.form.witness_signature = signature;
+        },
         addDependant() {
             this.dependants.push({});
         },
