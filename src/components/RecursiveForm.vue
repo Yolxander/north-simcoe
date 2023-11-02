@@ -34,9 +34,9 @@ export default {
 
 <style>
 .form-row {
-    padding: 15px 0;
+    /*padding: 15px 0;*/
     border-bottom: 2px solid #93c3bf;
-    margin-bottom: 15px;
+    /*margin-bottom: 15px;*/
 }
 
 .form-row:last-child {

@@ -25,25 +25,35 @@ export default {
             const element = originalElement.cloneNode(true); // Create a copy of the element
 
             // Set the cloned element to take the full width and height of the screen view
-            element.style.paddingLeft = '18px';
-            element.style.paddingRight = '20px';
-            element.style.width = '100%';
-            element.style.boxSizing = 'border-box';
+            element.style.paddingLeft = '20px';
 
-            // Remove unwanted elements
-            const unwantedElements = ['progress-bar', 'h1', 'transition', 'button.text-brown.bg-teal', 'button[type="submit"]', 'PdfGenerator.hidden'];
-            unwantedElements.forEach(selector => {
-                const elementToRemove = element.querySelector(selector);
-                if (elementToRemove) elementToRemove.remove();
+            // Adjust the width of the input fields
+            const inputElements = element.querySelectorAll('input[type="text"]');
+            console.log(inputElements)
+            inputElements.forEach(inputElement => {
+                inputElement.style.width = '100%'; // Adjust the width as needed
+                inputElement.style.fontSize = '10px'; // Adjust the font size as needed
             });
 
-            // Generate PDF
-            const pdfBlob = await html2pdf().from(element).outputPdf('blob');
+            // Hide elements with the 'exclude-from-pdf' class
+            const excludeElements = element.querySelectorAll('.exclude-from-pdf');
+            excludeElements.forEach(excludeElement => {
+                excludeElement.style.display = 'none';
+            });
+
+            // Generate PDF with adjusted page size and scale
+            const pdfBlob = await html2pdf().set({
+                format: 'A4', // Set the page size to A4
+                orientation: 'portrait', // Set the orientation to portrait
+                margin: [0, 0, 10, 1], // Set the margins (top, right, bottom, left)
+                scale: 0.8
+            }).from(element).outputPdf('blob', { compress: true });
             await this.sendEmail(pdfBlob);
         },
         async sendEmail(pdfBlob) {
             const serviceID = "default_service";
-            const templateID = "template_vyzsaql";
+            //TOdo::remember that i change the template id
+            const templateID = "template_9q3x4cv";
             const fileInput = document.querySelector('input[type="file"]');
             const pdfFile = new File([pdfBlob], "example.pdf", { type: "application/pdf" });
             const dataTransfer = new DataTransfer();
@@ -53,8 +63,8 @@ export default {
             const fileSize = pdfBlob.size / 1024; // size in KB
             console.log('Generated PDF size:', fileSize, 'KB');
 
-            if (fileSize > 500) {
-                alert('File size exceeds the limit of 500KB');
+            if (fileSize > 2000) {
+                alert('File size exceeds the limit of 2000KB');
             } else {
                 emailjs
                     .sendForm(serviceID, templateID, "#form2", "NxLLnhlEW3KDj2zPO")
@@ -78,10 +88,16 @@ export default {
 .rental-application-form {
     font-family: Arial, sans-serif;
     width: 95%;
-    border: 4px solid #93c3bf;
     border-radius: 10px;
     padding: 30px;
-    margin: 20px auto;
+    margin-right: 20px;
     box-sizing: border-box;
+
+    /* Add the following CSS properties */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
 }
 </style>

@@ -25,7 +25,7 @@ export default {
         },
         sendEmail() {
             const serviceID = "default_service";
-            const templateID = "template_vyzsaql";
+            const templateID = "template_9q3x4cv";
 
             emailjs
                 .sendForm(serviceID, templateID, "#form", "NxLLnhlEW3KDj2zPO")

@@ -1,16 +1,15 @@
-<template>
+<template >
     <form
-        class="contact-us max-w-screen-xl p-10 md:p-32 mx-auto flex flex-col flex-wrap md:flex-nowrap md:items-center md:space-x-8 md:gap-5"
+        class=" contact-us p-10 md:p-32 mx-auto flex flex-col flex-wrap md:flex-nowrap md:items-center md:space-x-8 md:gap-5 "
         @submit.prevent="submitForm"
-        id="form"
-    >
+        id="form"   :style="{ width: this.isSubmitted ? '60vw' : 'auto' }">
         <PdfGenerator class="hidden" ref="pdfGenerator" :form="form"/>
-        <h1 class="text-brown text-[30px] pdfHeader" v-if="showForm">COMMERCIAL RENTAL APPLICATION</h1>
-        <div v-if="currentStep === 1 && showForm" class="w-full relative">
+        <h1 class="text-brown text-[30px]" v-if="showForm">COMMERCIAL RENTAL APPLICATION</h1>
+        <div v-if="currentStep === 1 && showForm || showAll" class="w-full relative">
             <div
                 class="flex flex-col mb-2 z-10 relative bg-white rounded-lg shadow-md p-4 border-4 border-solid border-teal"
             >
-                <p class="mb-4  text-[25px] text-gray-700">Applicants Name (Corporation or Individual)</p>
+                <p class="mb-4 text-[25px] text-gray-700">Applicants Name (Corporation or Individual)</p>
                 <!-- Applicant Name Field -->
                 <div class="relative z-0 w-full mb-6 group">
                     <input v-model="form.applicant.name" type="text" name="name" id="name" class="block w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer" placeholder=" " required />
@@ -138,11 +137,11 @@
             </div>
 
 
-            <button @click.prevent="nextStep" class="text-brown bg-teal hover:bg-tealdark hover:text-white focus:ring-4 focus:outline-none focus:ring-teal font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">
+            <button @click.prevent="nextStep" class="exclude-from-pdf text-brown bg-teal hover:bg-tealdark hover:text-white focus:ring-4 focus:outline-none focus:ring-teal font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">
                 Next
             </button>
         </div>
-        <div v-if="currentStep === 2 && showForm" class="w-full relative">
+        <div v-if="currentStep === 2 && showForm || showAll" class="w-full relative">
             <div
                 class="flex flex-col mb-2 z-10 relative bg-white rounded-lg shadow-md p-4 border-4 border-solid border-teal"
             >
@@ -251,7 +250,7 @@
                     <label for="co_applicant_social_insurance_number" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Co-Applicant's Social Insurance Number</label>
                 </div>
 
-                <p class="mb-4 text-[20px] text-gray-700">References (Business, Bank, Client or Supplier)</p>
+                <p class="mb-4 text-[16px] text-gray-700">References (Business, Bank, Client or Supplier)</p>
 
                 <div v-for="(reference, index) in form.references" :key="index">
 
@@ -321,20 +320,20 @@
 
             </div>
 
-            <button @click.prevent="previousStep" class="text-brown bg-teal hover:bg-tealdark hover:text-white focus:ring-4 focus:outline-none focus:ring-teal font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center mr-2">
+            <button @click.prevent="previousStep" class="exclude-from-pdf text-brown bg-teal hover:bg-tealdark hover:text-white focus:ring-4 focus:outline-none focus:ring-teal font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center mr-2">
                 Back
             </button>
             <button
                 type="submit"
-                class="text-brown bg-teal hover:bg-tealdark hover:text-white focus:ring-4 focus:outline-none focus:ring-teal font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+                class="exclude-from-pdf text-brown bg-teal hover:bg-tealdark hover:text-white focus:ring-4 focus:outline-none focus:ring-teal font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
             >
                 Submit
             </button>
         </div>
 
-        <progress-bar :value="progress" v-if="showForm"></progress-bar>
+        <progress-bar :value="progress" class="exclude-from-pdf" v-if="showForm"></progress-bar>
         <transition name="fade" class="transition" @before-enter="log" @enter="log">
-            <success-component v-if="showSuccessComponent" />
+            <success-component class="exclude-from-pdf" v-if="showSuccessComponent" />
         </transition>
 
     </form>
@@ -376,6 +375,8 @@ export default {
     data() {
         return {
             progress: 0,
+            showAll: false,
+            isSubmitted:false,
             pdfData: null, // change this to null
             showSuccessComponent: false,
             showForm: true,
@@ -451,13 +452,13 @@ export default {
                     }
                 ],
                 //TODO::finish the signature
-                // lease_notes: '',
-                // applicant_signature: {
-                //     name: '',
-                //     signature: '',
-                //     business_title: '',
-                //     date: ''
-                // },
+                lease_notes: '',
+                applicant_signature: {
+                    name: '',
+                    signature: '',
+                    business_title: '',
+                    date: ''
+                },
                 // co_applicant_signature: {
                 //     name: '',
                 //     signature: '',
@@ -492,9 +493,18 @@ export default {
             this.isSubmitted = true;
             // Generate and send the email with the attached PDF
             // this.sendEmail();
-            // this.showSuccess()
+            this.showSuccess()
             // console.log(this.form.witness_signature)
-            this.$refs.pdfGenerator.generateReport();
+            this.showAll = true;
+
+            // Use Vue.nextTick to wait until the DOM has been updated
+            this.$nextTick(() => {
+                // Now call the generateReport function
+                this.$refs.pdfGenerator.generateReport().then(() => {
+                    this.showAll = false;
+                });
+            });
+
         },
 
         showSuccess() {
@@ -564,6 +574,21 @@ export default {
     opacity: 1;
     -webkit-transform: scale(1);
     transform: scale(1);
+}
+.rental-application-form {
+    font-family: Arial, sans-serif;
+    width: 95%;
+    border-radius: 10px;
+    padding: 30px;
+    margin-right: 20px;
+    box-sizing: border-box;
+
+    /* Add the following CSS properties */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
 }
 </style>
 

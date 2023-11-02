@@ -7,9 +7,9 @@ import GalleryPage from "../views/GalleryPage.vue";
 import Contact from "../views/Contact.vue";
 import ComingSoonHome from "@/components/ComingSoonHome.vue";
 import Forms from "@/views/TenantFormPage.vue";
-import CommercialFormPage from "@/views/CommercialFormPage.vue";
+// import CommercialFormPage from "@/views/CommercialFormPage.vue";
 // import NotFound from "@/views/NotFound.vue"; // Import a 404 Not Found component if you have one
-
+import CommercialForm from "@/components/ComercialForm.vue";
 const routes = [
   { path: "/", component: ComingSoonHome },
   { path: "/home-test", component: Home },
@@ -17,7 +17,7 @@ const routes = [
   { path: "/services-test", name: "ServicesPage", component: ServicesPage },
   { path: "/contact-test", component: Contact },
   { path: "/forms-test", component: Forms },
-  { path: "/commercial-form", component: CommercialFormPage },
+  { path: "/commercial-form", component: CommercialForm },
   { path: "/gallery-test", component: GalleryPage },
   // { path: "/:catchAll(.*)", component: NotFound }, // Handle 404 Not Found. Add this route last
 ];
