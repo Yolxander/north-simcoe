@@ -1226,7 +1226,7 @@ export default {
             // Use Vue.nextTick to wait until the DOM has been updated
             this.$nextTick(() => {
                 // Now call the generateReport function
-                this.$refs.pdfGenerator.generateReport().then(() => {
+                this.$refs.pdfGenerator.generateReport('Tenant Application').then(() => {
                     this.showAll = false;
                 });
             });

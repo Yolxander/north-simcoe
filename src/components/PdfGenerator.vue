@@ -21,7 +21,7 @@ export default {
         }
     },
     methods: {
-        async generateReport() {
+        async generateReport(name) {
             const element = document.getElementById('form');
             // Set the cloned element to take the full width and height of the screen view
             element.style.paddingLeft = '20px';
@@ -55,15 +55,15 @@ export default {
                 margin: [0, 0, 10, 1], // Set the margins (top, right, bottom, left)
                 scale: 0.8
             }).from(element).outputPdf('blob', { compress: true });
-            await this.sendEmail(pdfBlob);
+            await this.sendEmail(pdfBlob,name);
         },
-        async sendEmail(pdfBlob) {
+        async sendEmail(pdfBlob,name) {
             this.$router.push('/success');
             const serviceID = "default_service";
             //TOdo::remember that i change the template id
             const templateID = "template_9q3x4cv";
             const fileInput = document.querySelector('input[type="file"]');
-            const pdfFile = new File([pdfBlob], "example.pdf", { type: "application/pdf" });
+            const pdfFile = new File([pdfBlob], name+".pdf", { type: "application/pdf" });
             const dataTransfer = new DataTransfer();
             dataTransfer.items.add(pdfFile);
             fileInput.files = dataTransfer.files;

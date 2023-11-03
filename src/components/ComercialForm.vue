@@ -313,7 +313,32 @@
                             Phone
                         </label>
                     </div>
+                </div>
 
+                <!-- Name Field -->
+                <div class="relative z-0 w-full mb-4 group">
+                    <input
+                        v-model="form.lease_notes"
+                        type="text"
+                        name="lease_note"
+                        id="lease_note"
+                        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer"
+                        placeholder=" "
+                    />
+                    <label
+                        for="applicant1_name"
+                        class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                    >Lease Notes</label>
+                </div>
+
+                <!-- applicant Signature--------------------------------------------->
+                <p class="mb-4 text-[15px] text-gray-700">
+                    Applicant Signature:
+                </p>
+                <!-- Name Field -->
+                <div class="relative z-0 w-full mb-4 group">
+                    <input v-model="form.applicant_signature.name" type="text" name="name" id="name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer" placeholder=" " required />
+                    <label for="applicant_signature_name" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" >Name</label>
                 </div>
 
                 <!-- Applicant Signature Field -->
@@ -326,6 +351,49 @@
                     </div>
                 </div>
 
+                <!-- Business Title Field -->
+                <div class="relative z-0 w-full mb-4 group">
+                    <input v-model="form.applicant_signature.business_title" type="text" name="business_title" id="business_title" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer" placeholder=" " required />
+                    <label for="applicant_signature_business_title" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" >Business Title</label>
+                </div>
+
+                <!-- Date Field -->
+                <div class="relative z-0 w-full mb-4 group">
+                    <input v-model="form.applicant_signature.date" type="date" name="date" id="date" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer" required />
+                    <label for="applicant_signature_date" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" >Date</label>
+                </div>
+
+                <p class="mb-4 text-[15px] text-gray-700">
+                    Co-Applicant Signature:
+                </p>
+
+                <!-- Name Field -->
+                <div class="relative z-0 w-full mb-4 group">
+                    <input v-model="form.co_applicant_signature.name" type="text" name="name" id="name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer" placeholder=" " required />
+                    <label for="co_applicant_signature_name" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" >Name</label>
+                </div>
+
+                <!-- Co-Applicant Signature Field -->
+                <div class="relative z-0 w-full mb-4 group">
+                    <VueSignaturePad ref="form.co_applicant_signature.signature" />
+                    <label class="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- left-0">Co-Applicant Signature</label>
+                    <div>
+                        <button @click.prevent="save('form.co_applicant_signature.signature')" class="exclude-from-pdf link-light bg-teal-500 ml-1 mr-5">Save</button>
+                        <button @click.prevent="undo('form.co_applicant_signature.signature')" class="exclude-from-pdf link-light bg-teal-500">Undo</button>
+                    </div>
+                </div>
+
+                <!-- Business Title Field -->
+                <div class="relative z-0 w-full mb-4 group">
+                    <input v-model="form.co_applicant_signature.business_title" type="text" name="business_title" id="business_title" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer" placeholder=" " required />
+                    <label for="co_applicant_signature_business_title" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" >Business Title</label>
+                </div>
+
+                <!-- Date Field -->
+                <div class="relative z-0 w-full mb-4 group">
+                    <input v-model="form.co_applicant_signature.date" type="date" name="date" id="date" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer" required />
+                    <label for="co_applicant_signature_date" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" >Date</label>
+                </div>
             </div>
 
             <button @click.prevent="previousStep" class="exclude-from-pdf text-brown bg-teal hover:bg-tealdark hover:text-white focus:ring-4 focus:outline-none focus:ring-teal font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center mr-2">
@@ -463,12 +531,12 @@ export default {
                     business_title: '',
                     date: ''
                 },
-                // co_applicant_signature: {
-                //     name: '',
-                //     signature: '',
-                //     business_title: '',
-                //     date: ''
-                // }
+                co_applicant_signature: {
+                    name: '',
+                    signature: '',
+                    business_title: '',
+                    date: ''
+                }
             }
 
         };
@@ -514,7 +582,7 @@ export default {
             // // Use Vue.nextTick to wait until the DOM has been updated
             this.$nextTick(() => {
                 // Now call the generateReport function
-                this.$refs.pdfGenerator.generateReport().then(() => {
+                this.$refs.pdfGenerator.generateReport('Commercial Application').then(() => {
                     this.showAll = false;
                 });
             });
