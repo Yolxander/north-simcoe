@@ -439,11 +439,12 @@
         <div v-if="currentStep === 2 && showForm || showAll" class="w-full relative">
             <div class="flex flex-col mb-2 z-10 relative bg-white rounded-lg shadow-md p-4 border-4 border-solid border-teal">
                 <!-- Have Pet Field -->
-                <div class="flex items-center">
-                    <input v-model="form.agreed_to_conditions" type="checkbox" name="have_pet" id="have_pet" class="block py-2.5 px-2.5 text-sm text-gray-900 bg-transparent border-2 border-teal rounded-full appearance-none focus:outline-none focus:ring-0 focus:border-teal peer" required />
-                    <label for="have_pet" class="mt-2 peer-focus:font-medium text-sm text-gray-500 duration-300 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 ml-1" style="white-space: normal; width: 95%;">
-                        Do you have pets ?
-                    </label>
+                <div class="flex items-center relative z-0 w-full mb-4 group">
+                    <input v-model="form.agreed_to_conditions" type="checkbox" name="have_pet" id="have_pet" class="mt-4 border-top block py-2.5 px-2.5 text-sm text-gray-900 bg-transparent border-bottom border-2 border-teal rounded-full appearance-none focus:outline-none focus:ring-0 focus:border-teal peer" required />
+                    <label
+                        for="have_pet"
+                        class="mb-2 peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                    >Do you have pet ?</label>
                 </div>
                 <!-- Pet Description Field -->
                 <div class="relative z-0 w-full mb-4 group">
@@ -978,24 +979,24 @@
 
 
                 <!-- Applicant 1 Signature Field -->
-<!--                <div class="relative z-0 w-full mb-4 group">-->
-<!--                    <VueSignaturePad ref="applicant1_signature" />-->
-<!--                    <label class="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- left-0 text-teal">Applicant 1 Signature</label>-->
-<!--                    <div>-->
-<!--                        <button @click.prevent="save('applicant1_signature')" class="link-light bg-teal-500 ml-1 mr-5">Save</button>-->
-<!--                        <button @click.prevent="undo('applicant1_signature')" class="link-light bg-teal-500">Undo</button>-->
-<!--                    </div>-->
-<!--                </div>-->
+                <div class="relative z-0 w-full mb-4 group">
+                    <VueSignaturePad ref="applicant1_signature" />
+                    <label class="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- left-0 text-teal">Applicant 1 Signature</label>
+                    <div>
+                        <button @click.prevent="save('applicant1_signature')" class="link-light bg-teal-500 ml-1 mr-5">Save</button>
+                        <button @click.prevent="undo('applicant1_signature')" class="link-light bg-teal-500">Undo</button>
+                    </div>
+                </div>
 
                 <!-- Applicant 2 Signature Field -->
-<!--                <div class="relative z-0 w-full mb-4 group">-->
-<!--                    <VueSignaturePad ref="applicant2_signature" />-->
-<!--                    <label class="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- left-0 text-teal">Applicant 2 Signature</label>-->
-<!--                    <div>-->
-<!--                        <button @click.prevent="save('applicant2_signature')" class="link-light bg-teal-500 ml-1 mr-5">Save</button>-->
-<!--                        <button @click.prevent="undo('applicant2_signature')" class="link-light bg-teal-500">Undo</button>-->
-<!--                    </div>-->
-<!--                </div>-->
+                <div class="relative z-0 w-full mb-4 group">
+                    <VueSignaturePad ref="applicant2_signature" />
+                    <label class="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- left-0 text-teal">Applicant 2 Signature</label>
+                    <div>
+                        <button @click.prevent="save('applicant2_signature')" class="link-light bg-teal-500 ml-1 mr-5">Save</button>
+                        <button @click.prevent="undo('applicant2_signature')" class="link-light bg-teal-500">Undo</button>
+                    </div>
+                </div>
 
                 <!-- Witness Name Field -->
                 <div class="relative z-0 w-full mb-4 group">
@@ -1004,18 +1005,15 @@
                 </div>
 
                 <!-- Witness Signature Field -->
-<!--                <div class="relative z-0 w-full mb-4 group">-->
-<!--                    <VueSignaturePad ref="witness_signature" />-->
-<!--                    <label for="witness_signature" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" >Witness Signature</label>-->
-<!--                    <div>-->
-<!--                        <button @click.prevent="save('witness_signature')" class="link-light text-teal-600 bg-teal-500 ml-1 mr-5 cursor-pointer">Save</button>-->
-<!--                        <button @click.prevent="undo('witness_signature')" class="link-light text-teal-600 cursor-pointer">Undo</button>-->
-<!--                    </div>-->
-<!--                </div>-->
-
-
+                <div class="relative z-0 w-full mb-4 group">
+                    <VueSignaturePad ref="witness_signature" />
+                    <label for="witness_signature" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" >Witness Signature</label>
+                    <div>
+                        <button @click.prevent="save('witness_signature')" class="link-light text-teal-600 bg-teal-500 ml-1 mr-5 cursor-pointer">Save</button>
+                        <button @click.prevent="undo('witness_signature')" class="link-light text-teal-600 cursor-pointer">Undo</button>
+                    </div>
+                </div>
             </div>
-
 
             <!-- Back Button -->
             <button @click.prevent="previousStep" class="exclude-from-pdf text-brown bg-teal hover:bg-tealdark hover:text-white focus:ring-4 focus:outline-none focus:ring-teal font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center mr-2">

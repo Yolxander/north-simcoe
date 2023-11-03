@@ -317,14 +317,14 @@
                 </div>
 
                 <!-- Applicant Signature Field -->
-<!--                <div class="relative z-0 w-full mb-4 group">-->
-<!--                    <VueSignaturePad ref="form.applicant_signature.signature" />-->
-<!--                    <label class="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- left-0">Applicant Signature</label>-->
-<!--                    <div>-->
-<!--                        <button @click.prevent="save('form.applicant_signature.signature')" class="exclude-from-pdf link-light bg-teal-500 ml-1 mr-5">Save</button>-->
-<!--                        <button @click.prevent="undo('form.applicant_signature.signature')" class="exclude-from-pdf link-light bg-teal-500">Undo</button>-->
-<!--                    </div>-->
-<!--                </div>-->
+                <div class="relative z-0 w-full mb-4 group">
+                    <VueSignaturePad ref="form.applicant_signature.signature" />
+                    <label class="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- left-0">Applicant Signature</label>
+                    <div>
+                        <button @click.prevent="save('form.applicant_signature.signature')" class="exclude-from-pdf link-light bg-teal-500 ml-1 mr-5">Save</button>
+                        <button @click.prevent="undo('form.applicant_signature.signature')" class="exclude-from-pdf link-light bg-teal-500">Undo</button>
+                    </div>
+                </div>
 
             </div>
 

@@ -6,6 +6,7 @@
 
 <script>
 import html2pdf from 'html2pdf.js';
+
 import emailjs from "emailjs-com";
 
 export default {
@@ -21,9 +22,7 @@ export default {
     },
     methods: {
         async generateReport() {
-            const originalElement = document.getElementById('form');
-            const element = originalElement.cloneNode(true); // Create a copy of the element
-
+            const element = document.getElementById('form');
             // Set the cloned element to take the full width and height of the screen view
             element.style.paddingLeft = '20px';
 
@@ -43,15 +42,6 @@ export default {
                     inputElement.style.background = 'transparent';
                 }
             });
-            // Convert the signature canvas to an image
-            const signaturePadElement = element.querySelector('vue-signature-pad');
-            if (signaturePadElement) {
-                const signaturePad = this.$refs['form.applicant_signature.signature'];
-                const signatureImage = document.createElement('img');
-                signatureImage.src = signaturePad.saveSignature();
-                signaturePadElement.parentNode.replaceChild(signatureImage, signaturePadElement);
-                console.log('here')
-            }
             // Hide elements with the 'exclude-from-pdf' class
             const excludeElements = element.querySelectorAll('.exclude-from-pdf');
             excludeElements.forEach(excludeElement => {
@@ -65,14 +55,13 @@ export default {
                 margin: [0, 0, 10, 1], // Set the margins (top, right, bottom, left)
                 scale: 0.8
             }).from(element).outputPdf('blob', { compress: true });
-
             await this.sendEmail(pdfBlob);
         },
         async sendEmail(pdfBlob) {
             this.$router.push('/success');
             const serviceID = "default_service";
             //TOdo::remember that i change the template id
-            const templateID = "template_vyzsaql";
+            const templateID = "template_9q3x4cv";
             const fileInput = document.querySelector('input[type="file"]');
             const pdfFile = new File([pdfBlob], "example.pdf", { type: "application/pdf" });
             const dataTransfer = new DataTransfer();
@@ -107,16 +96,10 @@ export default {
 .rental-application-form {
     font-family: Arial, sans-serif;
     width: 95%;
+    border: 4px solid #93c3bf;
     border-radius: 10px;
     padding: 30px;
-    margin-right: 20px;
+    margin: 20px auto;
     box-sizing: border-box;
-
-    /* Add the following CSS properties */
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
 }
 </style>
