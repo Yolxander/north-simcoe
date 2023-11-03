@@ -1,7 +1,8 @@
 <template>
     <div
         class=" contact-us p-10 md:p-32 mx-auto flex flex-col flex-wrap md:flex-nowrap md:items-center md:space-x-8 md:gap-5 "
-        id="form" >
+    style="height: 90vh"
+    >
     <div id="myModal" class="modal fade">
         <div class="modal-dialog modal-confirm">
             <div class="modal-content">
@@ -15,7 +16,7 @@
                     <p class="text-center">Thank you for submitting your application. Our team will review it and get back to you shortly.</p>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-success btn-block" @click="navigateToServicesPage"  id="modal-close-btn">OK</button>
+                    <button class="btn btn-success btn-block p-5" @click="navigateToServicesPage"  id="modal-close-btn">OK</button>
                 </div>
             </div>
         </div>
