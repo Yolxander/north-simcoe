@@ -9,6 +9,7 @@ import Forms from "@/views/TenantFormPage.vue";
 import CommercialFormPage from "@/views/CommercialFormPage.vue";
 import NotFound from "@/views/NotFound.vue";
 import { useHead } from "@vueuse/head";
+import SuccessComponent from "@/components/SuccessComponent.vue";
 
 const routes = [
   {
@@ -125,6 +126,23 @@ const routes = [
             {
               name: `description`,
               content: "View our gallery of rental properties we manage here. North Simcoe PM professionally manages residential to commercial and mixed use buildings."
+            },
+          ],
+        });
+      },
+    },
+  },
+  {
+    path: "/success",
+    component: {
+      ...SuccessComponent,
+      setup() {
+        useHead({
+          title: "Thank You for Submitting",
+          meta: [
+            {
+              name: `description`,
+              content: "Your form has been submitted"
             },
           ],
         });
