@@ -60,20 +60,13 @@ export default {
         async sendEmail(pdfBlob,name) {
             this.$router.push('/success');
             const serviceID = "default_service";
-            //TOdo::remember that i change the template id
-            const templateID = "template_9q3x4cv";
+            const templateID = "template_vyzsaql";
             const fileInput = document.querySelector('input[type="file"]');
             const pdfFile = new File([pdfBlob], name+".pdf", { type: "application/pdf" });
             const dataTransfer = new DataTransfer();
             dataTransfer.items.add(pdfFile);
             fileInput.files = dataTransfer.files;
 
-            const fileSize = pdfBlob.size / 1024; // size in KB
-            console.log('Generated PDF size:', fileSize, 'KB');
-
-            if (fileSize > 2000) {
-                alert('File size exceeds the limit of 2000KB');
-            } else {
                 emailjs
                     .sendForm(serviceID, templateID, "#form2", "NxLLnhlEW3KDj2zPO")
                     .then(() => {
@@ -81,9 +74,9 @@ export default {
                         console.log("Finish email");
                     })
                     .catch((err) => {
-                        alert(JSON.stringify(err));
+                        console.log(JSON.stringify(err));
                     });
-            }
+
         },
         formatLabel(key) {
             return key.replace(/_/g, " ").charAt(0).toUpperCase() + key.slice(1);
