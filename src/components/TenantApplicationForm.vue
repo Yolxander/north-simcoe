@@ -1,6 +1,6 @@
 <template>
     <form
-        class="contact-us max-w-screen-xl p-10 md:p-32 mx-auto flex flex-col flex-wrap md:flex-nowrap md:items-center md:space-x-8 md:gap-5"
+        class="contact-us main_form max-w-screen-xl p-10 md:p-32 mx-auto flex flex-col flex-wrap md:flex-nowrap md:items-center md:space-x-8 md:gap-5"
         @submit.prevent="submitForm"
         :class="{ submitted: isSubmitted }"
         id="form"
@@ -1230,13 +1230,20 @@ export default {
 
             // Debug: Log the value of isMobileScreen
             console.log("Is Mobile Screen:", this.isMobileScreen);
+            let forms = document.getElementsByClassName('main_form');
 
             if (this.isMobileScreen) {
                 // Adjust screen size for mobile
                 document.body.style.width = '1024px';
                 this.fromSize = '80vw';
+
+                for (let form of forms) {
+                    form.style.marginLeft = '25px';
+                }
+
             }else {
-                this.fromSize = '60vw';
+                this.fromSize = '80vw';
+
             }
             // Generate and send the email with the attached PDF
             // this.sendEmail();
@@ -1270,8 +1277,8 @@ export default {
 </script>
 
 <style scoped>
-.contact-us{
-    /*margin-left: 30px;*/
+.main_form{
+    margin-left: 30px;
 }
 .submitted {
     width: 95%;;
@@ -1296,7 +1303,14 @@ export default {
 
     .second_form{
         margin-left: 0px;
-        margin-ri: 0px;
+    }
+
+    .main_form{
+        margin-top: 65px;
+        margin-left: 0px;
+    }
+    h2{
+        font-size: 15px;
     }
 
 }

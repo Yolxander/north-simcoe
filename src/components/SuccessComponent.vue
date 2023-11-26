@@ -1,6 +1,6 @@
 <template>
     <div
-        class=" contact-us p-10 md:p-32 mx-auto flex flex-col flex-wrap md:flex-nowrap md:items-center md:space-x-8 md:gap-5 "
+        class=" contact-us main_modal p-10 md:p-32 mx-auto flex flex-col flex-wrap md:flex-nowrap md:items-center md:space-x-8 md:gap-5 "
     style="height: 90vh"
     >
     <div id="myModal" class="modal fade">
@@ -32,6 +32,10 @@ export default {
         navigateToServicesPage() {
             this.$router.push({ name: 'ServicesPage' });
         },
+    },
+    mounted() {
+        // Reset the body width to its original state
+        document.body.style.width = '';
     }
 };
 </script>
@@ -118,4 +122,21 @@ export default {
     display: flex;
     justify-content: center;
 }
+
+@media only screen and (max-width: 767px) {
+    /* Select the elements you want to change the font size for */
+    .main_modal{
+        margin-top: 150px;
+    }
+    .modal-confirm{
+        width: 100%;
+        font-size: 12px;
+    }
+
+    .modal-confirm h4{
+        font-size: 15px;
+    }
+}
+
+
 </style>

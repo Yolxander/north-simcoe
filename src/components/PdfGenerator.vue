@@ -21,7 +21,7 @@ export default {
         }
     },
     methods: {
-        async generateReport(name) {
+        async generateReport() {
             const element = document.getElementById('form');
             // Set the cloned element to take the full width and height of the screen view
             element.style.paddingLeft = '20px';

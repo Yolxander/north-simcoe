@@ -1,10 +1,10 @@
 <template >
     <form
-        class=" contact-us p-10 md:p-32 mx-auto flex flex-col flex-wrap md:flex-nowrap md:items-center md:space-x-8 md:gap-5 "
+        class=" contact-us main_form p-10 md:p-32 mx-auto flex flex-col flex-wrap md:flex-nowrap md:items-center md:space-x-8 md:gap-5 "
         @submit.prevent="submitForm"
-        id="form"   :style="{ width: this.isSubmitted ? '60vw' : '70vw' }">
+        id="form"   :style="{ width: this.isSubmitted ? fromSize : '100vw' }">
         <PdfGenerator class="hidden" ref="pdfGenerator" :form="form"/>
-        <h1 class="exclude-from-pdf text-brown text-[30px]" v-if="showForm">COMMERCIAL RENTAL APPLICATION</h1>
+        <h2 class="exclude-from-pdf text-brown text-[30px]" v-if="showForm">COMMERCIAL RENTAL APPLICATION</h2>
         <div v-if="currentStep === 1 && showForm || showAll" class="w-full relative">
             <div
                 class="flex flex-col mb-2 z-10 relative bg-white rounded-lg shadow-md p-4 border-4 border-solid border-teal"
@@ -446,6 +446,8 @@ export default {
     },
     data() {
         return {
+            fromSize: 0,
+            isMobileScreen: false,
             progress: 0,
             showAll: false,
             isSubmitted:false,
@@ -574,9 +576,33 @@ export default {
             this.pdfData = event.target.files[0];
         },
         submitForm() {
-            this.isSubmitted = true;
-            // console.log(this.form.witness_signature)
             this.showAll = true;
+
+            this.isSubmitted = true;
+
+            // Debug: Log the current screen width
+            console.log("Current window.innerWidth:", window.innerWidth);
+            // Check if on a mobile device (typically consider < 768px as mobile)
+            this.isMobileScreen = window.innerWidth < 768;
+
+            // Debug: Log the value of isMobileScreen
+            console.log("Is Mobile Screen:", this.isMobileScreen);
+
+            let forms = document.getElementsByClassName('main_form');
+            for (let form of forms) {
+                form.style.marginLeft = '0px';
+            }
+            if (this.isMobileScreen) {
+                // Adjust screen size for mobile
+                // document.body.style.width = '1024px';
+                let forms = document.getElementsByClassName('main_form');
+                for (let form of forms) {
+                    form.style.marginLeft = '25px';
+                }
+                this.fromSize = '80vw';
+            }else {
+                this.fromSize = '60vw';
+            }
 
             this.showFakeForm();
             // // Use Vue.nextTick to wait until the DOM has been updated
@@ -598,6 +624,9 @@ export default {
 </script>
 
 <style scoped>
+.main_form{
+    margin-left: 30px;
+}
 .transition > div.fade-enter-active,
 .transition > div.fade-leave-active {
     transition: opacity 2s;
@@ -670,6 +699,21 @@ export default {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
+}
+
+@media only screen and (max-width: 767px) {
+    /* Select the elements you want to change the font size for */
+    .text-sm {
+        font-size: 12px;
+    }
+    .main_form{
+        margin-top: 65px;
+        margin-left: 0;
+    }
+    h2{
+        font-size: 15px;
+    }
+
 }
 </style>
 

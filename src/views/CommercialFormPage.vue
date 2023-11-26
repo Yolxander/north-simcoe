@@ -1,6 +1,9 @@
 <template>
 
-  <CommercialForm  />
+    <div style="width: 100vw; display:flex;justify-content: center;background: #00aaff">
+
+      <CommercialForm  />
+    </div>
 
 </template>
 
