@@ -48,14 +48,18 @@ export default {
                 excludeElement.style.display = 'none';
             });
 
-            // Generate PDF with adjusted page size and scale
+            // Generate PDF with adjusted page size, scale, and image quality
             const pdfBlob = await html2pdf().set({
                 format: 'A4', // Set the page size to A4
                 orientation: 'portrait', // Set the orientation to portrait
                 margin: [0, 0, 10, 1], // Set the margins (top, right, bottom, left)
-                scale: 0.8
+                scale: 0.8, // Adjust the scale to reduce file size
+                image: { type: 'jpeg', quality: 0.2 } // Adjust the image quality to reduce file size
             }).from(element).outputPdf('blob', { compress: true });
-            await this.sendEmail(pdfBlob,name);
+
+            console.log(pdfBlob.size);
+            await this.sendEmail(pdfBlob, name);
+
         },
         async sendEmail(pdfBlob,name) {
             this.$router.push('/success');

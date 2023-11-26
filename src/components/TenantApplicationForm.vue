@@ -1,11 +1,13 @@
 <template>
     <form
         class="contact-us max-w-screen-xl p-10 md:p-32 mx-auto flex flex-col flex-wrap md:flex-nowrap md:items-center md:space-x-8 md:gap-5"
-        @submit.prevent="submitForm" :class="{ submitted: isSubmitted }"
-        id="form" :style="{ width: this.isSubmitted ? '60vw' : '70vw' }"
+        @submit.prevent="submitForm"
+        :class="{ submitted: isSubmitted }"
+        id="form"
+        :style="{ width: this.isSubmitted ? fromSize : '100w'  }"
     >
         <PdfGenerator class="hidden" ref="pdfGenerator" :form="form"/>
-            <h2 class="text-brown text-[30px]" v-if="showForm">TENANT RENTAL APPLICATION</h2>
+            <h2 class="exclude-from-pdf text-brown text-[30px]" v-if="showForm">TENANT RENTAL APPLICATION</h2>
         <div v-if="currentStep === 1 && showForm || showAll" class="w-full relative">
             <div
                 class="flex flex-col mb-2 z-10 relative bg-white rounded-lg shadow-md p-4 border-4 border-solid border-teal"
@@ -1031,7 +1033,7 @@
 
     </form>
 
-    <form class="hidden contact-us max-w-screen-xl p-10 md:p-32 mx-auto flex flex-col flex-wrap md:flex-nowrap md:items-center md:space-x-8 md:gap-5" @submit.prevent="submitForm" id="form2">
+    <form class="hidden second_form max-w-screen-xl p-10 md:p-32 mx-auto flex flex-col flex-wrap md:flex-nowrap md:items-center md:space-x-8 md:gap-5" @submit.prevent="submitForm" id="form2">
         <div class="relative z-0 w-full mb-4 group">
             <input
                 @change="handleFileChange"
@@ -1063,6 +1065,8 @@ export default {
     },
     data() {
         return {
+            fromSize: 0,
+            isMobileScreen: false,
             progress: 0,
             isSubmitted: false,
             showAll:false,
@@ -1217,6 +1221,23 @@ export default {
         },
         submitForm() {
             this.isSubmitted = true;
+
+            // Debug: Log the current screen width
+            console.log("Current window.innerWidth:", window.innerWidth);
+
+            // Check if on a mobile device (typically consider < 768px as mobile)
+            this.isMobileScreen = window.innerWidth < 768;
+
+            // Debug: Log the value of isMobileScreen
+            console.log("Is Mobile Screen:", this.isMobileScreen);
+
+            if (this.isMobileScreen) {
+                // Adjust screen size for mobile
+                document.body.style.width = '1024px';
+                this.fromSize = '80vw';
+            }else {
+                this.fromSize = '60vw';
+            }
             // Generate and send the email with the attached PDF
             // this.sendEmail();
             this.showFakeForm()
@@ -1249,6 +1270,9 @@ export default {
 </script>
 
 <style scoped>
+.contact-us{
+    /*margin-left: 30px;*/
+}
 .submitted {
     width: 95%;;
 }
@@ -1260,5 +1284,24 @@ export default {
 .transition > div.fade-leave-to {
     opacity: 0;
 }
+@media only screen and (max-width: 767px) {
+    /* Select the elements you want to change the font size for */
+    .text-sm {
+        font-size: 12px;
+    }
+
+    .second_form{
+        padding-right: 10px;
+    }
+
+    .second_form{
+        margin-left: 0px;
+        margin-ri: 0px;
+    }
+
+}
+
+
+
 </style>
 

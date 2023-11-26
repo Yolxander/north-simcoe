@@ -114,4 +114,8 @@ export default {
     display: flex;
     flex-direction: column;
 }
+#myModal{
+    display: flex;
+    justify-content: center;
+}
 </style>

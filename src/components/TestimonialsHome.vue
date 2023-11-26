@@ -20,6 +20,48 @@
     :modules="modules"
     class="mySwiper"
   >
+      <swiper-slide>
+          <div class="bg-white rounded-lg shadow-md p-4">
+              <svg
+                      class="w-10 h-10 mx-auto mb-3 text-teal dark:text-teal"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="currentColor"
+                      viewBox="0 0 18 14"
+              >
+                  <path
+                          d="M6 0H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3H2a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Zm10 0h-4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3h-1a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Z"
+                  />
+              </svg>
+              <blockquote>
+                  <p
+                          class="text-2xl italic font-medium text-brown dark:text-white font-open-sans"
+                  >
+                      "As soon as we realized that we may be dealing with delinquent tenants, we know we would need a professional help and that’s when I reached out with Linda of North Simcoe Property Management.
+                      Not only she was able to collect back rent from our current tenant, but most importantly she gave us the peace of mind that we deserve, knowing that she will be there for us along with her
+                      paralegal team (which by the way free of charge should you need legal advice and filing to LTB). If you are a first time LL like us and do not really know all your rights as LL,
+                      do not hesitate to reach out for help!  Contact Linda of North Simcoe PM and she will not disappoint!
+
+                      Thank you Linda for looking after our property!
+                      "
+                  </p>
+              </blockquote>
+
+              <figcaption class="flex items-center justify-center mt-6 space-x-3">
+                  <div
+                          class="flex items-center divide-x-2 divide-teal dark:divide-teal"
+                  >
+                      <cite
+                              class="pr-3 font-medium text-brown dark:text-white font-open-sans"
+                      >Roni.</cite
+                      >
+                      <cite class="pl-3 text-sm text-brown dark:text-white font-open-sans"
+                      >Landlord</cite
+                      >
+                  </div>
+              </figcaption>
+          </div>
+      </swiper-slide>
     <swiper-slide>
       <div class="bg-white rounded-lg shadow-md p-4">
         <svg
@@ -219,6 +261,48 @@
         </figcaption>
       </div>
     </swiper-slide>
+      <swiper-slide>
+          <div class="bg-white rounded-lg shadow-md p-4">
+              <svg
+                      class="w-10 h-10 mx-auto mb-3 text-teal dark:text-teal"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="currentColor"
+                      viewBox="0 0 18 14"
+              >
+                  <path
+                          d="M6 0H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3H2a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Zm10 0h-4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3h-1a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Z"
+                  />
+              </svg>
+              <blockquote>
+                  <p
+                          class="text-2xl italic font-medium text-brown dark:text-white font-open-sans"
+                  >
+                      "As soon as we realized that we may be dealing with delinquent tenants, we know we would need a professional help and that’s when I reached out with Linda of North Simcoe Property Management.
+                      Not only she was able to collect back rent from our current tenant, but most importantly she gave us the peace of mind that we deserve, knowing that she will be there for us along with her
+                      paralegal team (which by the way free of charge should you need legal advice and filing to LTB). If you are a first time LL like us and do not really know all your rights as LL,
+                      do not hesitate to reach out for help!  Contact Linda of North Simcoe PM and she will not disappoint!
+
+                      Thank you Linda for looking after our property!
+                      "
+                  </p>
+              </blockquote>
+
+              <figcaption class="flex items-center justify-center mt-6 space-x-3">
+                  <div
+                          class="flex items-center divide-x-2 divide-teal dark:divide-teal"
+                  >
+                      <cite
+                              class="pr-3 font-medium text-brown dark:text-white font-open-sans"
+                      >Roni.</cite
+                      >
+                      <cite class="pl-3 text-sm text-brown dark:text-white font-open-sans"
+                      >Landlord</cite
+                      >
+                  </div>
+              </figcaption>
+          </div>
+      </swiper-slide>
   </swiper>
 </template>
 
