@@ -1,6 +1,6 @@
 <template>
 
-    <div style="width: 100vw; display:flex;justify-content: center;background: #00aaff">
+    <div style="width: 100vw; display:flex;justify-content: center;">
 
       <CommercialForm  />
     </div>
