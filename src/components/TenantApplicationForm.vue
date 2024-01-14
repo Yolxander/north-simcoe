@@ -1102,7 +1102,7 @@ export default {
             this.$refs[fieldRef].undoSignature();
         },
         save(fieldRef) {
-            const { isEmpty, data } = this.$refs[fieldRef].saveSignature();
+            const {isEmpty, data} = this.$refs[fieldRef].saveSignature();
             console.log(isEmpty);
             console.log(data);
         },
@@ -1122,8 +1122,6 @@ export default {
             }
         },
         submitForm() {
-            this.showAll = true;
-
             this.isSubmitted = true;
 
             // Debug: Log the current screen width
@@ -1135,26 +1133,29 @@ export default {
             console.log("Is Mobile Screen:", this.isMobileScreen);
 
             let forms = document.getElementsByClassName('main_form');
-            for (let form of forms) {
-                form.style.marginLeft = '0px';
-            }
+
             if (this.isMobileScreen) {
                 // Adjust screen size for mobile
                 document.body.style.width = '1024px';
-                let forms = document.getElementsByClassName('main_form');
+                this.fromSize = '80vw';
+
                 for (let form of forms) {
                     form.style.marginLeft = '25px';
                 }
-                this.fromSize = '80vw';
-            }else {
-                this.fromSize = '60vw';
-            }
 
-            this.showFakeForm();
-            // // Use Vue.nextTick to wait until the DOM has been updated
+            } else {
+                this.fromSize = '80vw';
+            }
+            // Generate and send the email with the attached PDF
+            // this.sendEmail();
+            this.showFakeForm()
+            // console.log(this.form.witness_signature)
+            this.showAll = true;
+
+            // Use Vue.nextTick to wait until the DOM has been updated
             this.$nextTick(() => {
                 // Now call the generateReport function
-                this.$refs.pdfGenerator.generateReport('Commercial Application').then(() => {
+                this.$refs.pdfGenerator.generateReport('Tenant Application').then(() => {
                     this.showAll = false;
                 });
             });
@@ -1172,7 +1173,6 @@ export default {
             this.form.witness_signature = signature;
         },
     }
-
 };
 </script>
 

@@ -22,44 +22,42 @@ export default {
     },
     methods: {
         async generateReport() {
-            const element = document.getElementById('form');
-            // Set the cloned element to take the full width and height of the screen view
-            element.style.paddingLeft = '20px';
+            // Ensure the DOM updates are completed before capturing the form
+            await this.$nextTick();
 
-            // Adjust the width of the input fields
-            const inputElements = element.querySelectorAll('input');
-            console.log(inputElements)
-            inputElements.forEach(inputElement => {
-                // Exclude radio type inputs from style adjustments
-                if(inputElement.getAttribute('type') !== 'radio' && inputElement.getAttribute('type') !=='checkbox') {
-                    inputElement.style.width = '100%'; // Adjust the width as needed
-                    inputElement.style.fontSize = '12px'; // Adjust the font size as needed
-                    inputElement.style.height = '50px'; // Adjust the height as needed
-                    inputElement.style.lineHeight = '50px'; // Adjust the line-height as needed
-                }else if(inputElement.getAttribute('type') === 'radio') {
-                    inputElement.style.background = 'transparent';
-                }else if(inputElement.getAttribute('type') === 'checkbox') {
-                    inputElement.style.background = 'transparent';
-                }
+            // Clone the form element to modify its style for PDF rendering
+            const originalElement = document.getElementById('form');
+            const clonedElement = originalElement.cloneNode(true);
+
+            // Apply styles needed for PDF rendering
+            clonedElement.style.width = 'auto';
+            clonedElement.style.paddingLeft = '20px';
+            clonedElement.querySelectorAll('input').forEach(inputElement => {
+                inputElement.style.width = '100%';
+                inputElement.style.fontSize = '12px';
+                inputElement.style.height = '50px';
+                inputElement.style.lineHeight = '50px';
             });
-            // Hide elements with the 'exclude-from-pdf' class
-            const excludeElements = element.querySelectorAll('.exclude-from-pdf');
-            excludeElements.forEach(excludeElement => {
+            clonedElement.querySelectorAll('.exclude-from-pdf').forEach(excludeElement => {
                 excludeElement.style.display = 'none';
             });
 
-            // Generate PDF with adjusted page size, scale, and image quality
+            // Append cloned element to the body temporarily
+            document.body.appendChild(clonedElement);
+
+            // Generate PDF
             const pdfBlob = await html2pdf().set({
-                format: 'A4', // Set the page size to A4
-                orientation: 'portrait', // Set the orientation to portrait
-                margin: [0, 0, 10, 1], // Set the margins (top, right, bottom, left)
-                scale: 0.8, // Adjust the scale to reduce file size
-                image: { type: 'jpeg', quality: 0.2 } // Adjust the image quality to reduce file size
-            }).from(element).outputPdf('blob', { compress: true });
+                format: 'A4',
+                orientation: 'portrait',
+                margin: [0, 0, 10, 1],
+                scale: 0.8,
+                image: { type: 'jpeg', quality: 0.2 }
+            }).from(clonedElement).outputPdf('blob', { compress: true });
 
-            console.log(pdfBlob.size);
-            await this.sendEmail(pdfBlob, name);
+            // Clean up: remove the cloned element
+            document.body.removeChild(clonedElement);
 
+            await this.sendEmail(pdfBlob, "Report_Name"); // Replace "Report_Name" as needed
         },
         async sendEmail(pdfBlob,name) {
             this.$router.push('/success');
