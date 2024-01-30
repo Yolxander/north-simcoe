@@ -581,24 +581,35 @@ export default {
             }
             if (this.isMobileScreen) {
                 // Adjust screen size for mobile
-                document.body.style.width = '1024px';
-                let forms = document.getElementsByClassName('main_form');
+                this.fromSize = '80vw';
+
                 for (let form of forms) {
                     form.style.marginLeft = '25px';
                 }
-                this.fromSize = '80vw';
-            }else {
+
+
+                // Use Vue.nextTick to wait until the DOM has been updated
+                this.$nextTick(() => {
+                    // Now call the generateReport function
+                    this.$refs.pdfGenerator.generateReportMobile('Tenant Application').then(() => {
+                        this.showAll = false;
+                    });
+                });
+
+            } else {
                 this.fromSize = '60vw';
+
+                this.showFakeForm();
+                // // Use Vue.nextTick to wait until the DOM has been updated
+                this.$nextTick(() => {
+                    // Now call the generateReport function
+                    this.$refs.pdfGenerator.generateReport('Commercial Application').then(() => {
+                        this.showAll = false;
+                    });
+                });
             }
 
-            this.showFakeForm();
-            // // Use Vue.nextTick to wait until the DOM has been updated
-            this.$nextTick(() => {
-                // Now call the generateReport function
-                this.$refs.pdfGenerator.generateReport('Commercial Application').then(() => {
-                    this.showAll = false;
-                });
-            });
+
 
         },
 

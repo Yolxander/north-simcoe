@@ -1,5 +1,5 @@
 <template>
-    <div class="main_form_containe">
+    <div class="main_form_container">
         <form
             class="contact-us main_form max-w-screen-xl p-10 md:p-32 mx-auto flex flex-col flex-wrap md:flex-nowrap md:items-center md:space-x-8 md:gap-5"
             @submit.prevent="submitForm"
@@ -99,6 +99,22 @@
                             for="applicant1_name"
                             class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                         >Name</label>
+                    </div>
+
+                    <div class="relative z-0 w-full mb-4 group">
+                        <input
+                            v-model="form.applicant1.previous_address"
+                            type="text"
+                            name="previous_address"
+                            id="applicant1_previous_address"
+                            class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer"
+                            placeholder=" "
+                            required
+                        />
+                        <label
+                            for="applicant1_previous_address"
+                            class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                        >Previous address</label>
                     </div>
 
                     <!-- Current Address Field -->
@@ -268,6 +284,22 @@
                         >Name</label>
                     </div>
 
+                    <div class="relative z-0 w-full mb-4 group">
+                        <input
+                            v-model="form.applicant2.previous_address"
+                            type="text"
+                            name="previous_address"
+                            id="applicant2_previous_address"
+                            class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer"
+                            placeholder=" "
+                            required
+                        />
+                        <label
+                            for="applicant2_previous_address"
+                            class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                        >Previous address</label>
+                    </div>
+
                     <!-- Current Address Field -->
                     <div class="relative z-0 w-full mb-4 group">
                         <input
@@ -294,7 +326,6 @@
                             id="home_phone"
                             class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer"
                             placeholder=" "
-                            required
                         />
                         <label
                             for="home_phone"
@@ -361,7 +392,7 @@
                             id="applicant2_sin"
                             class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer"
                             placeholder=" "
-                            required
+                            
                         />
                         <label
                             for="applicant2_sin"
@@ -412,13 +443,23 @@
                         <label for="applicant2_monthly_net_income" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" >Monthly Net Income</label>
                     </div>
 
+                    <!-- Do you have pets? Section with Conditional Check Mark -->
                     <div class="relative z-0 w-full mb-4 group">
                         <p class="text-sm text-gray-900 bg-transparent appearance-none focus:outline-none focus:ring-0 focus:border-black peer">Do you have pets?</p>
-                        <input v-model="form.have_pet" type="radio" name="have_pet" id="have_pet_yes" value="Yes" required style="margin-top: 10px;" />
-                        <label for="have_pet_yes" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent appearance-none focus:outline-none focus:ring-0 focus:border-black peer">Yes</label>
-                        <input v-model="form.have_pet" type="radio" name="have_pet" id="have_pet_no" value="No" required style="margin-top: 10px;" />
-                        <label for="have_pet_no" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer">No</label>
+                        <div class="flex items-center">
+                            <input v-if="!isSubmitted" v-model="form.have_pet" type="radio" name="have_pet" id="have_pet_yes" value="Yes" required style="margin-top: 10px;" />
+                            <label for="have_pet_yes" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent appearance-none focus:outline-none focus:ring-0 focus:border-black peer">Yes</label>
+                            <!-- Check Mark for Yes -->
+                            <span v-if="isSubmitted && form.have_pet === 'Yes'" class="text-green-500">&#10004;</span> <!-- Replace with an appropriate check mark symbol or SVG -->
+                        </div>
+                        <div class="flex items-center">
+                            <input v-if="!isSubmitted" v-model="form.have_pet" type="radio" name="have_pet" id="have_pet_no" value="No" required style="margin-top: 10px;" />
+                            <label for="have_pet_no" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer">No</label>
+                            <!-- Check Mark for No -->
+                            <span v-if="isSubmitted && form.have_pet === 'No'" class="text-green-500">&#10004;</span> <!-- Replace with an appropriate check mark symbol or SVG -->
+                        </div>
                     </div>
+
 
                     <!-- Dependants Section ------------------------------------->
                     <div class="relative z-0 w-full mb-4">
@@ -436,7 +477,7 @@
                                     :id="`dependant_name_${index}`"
                                     class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer"
                                     placeholder=" "
-                                    required
+                                    
                                 />
                                 <label
                                     :for="`dependant_name_${index}`"
@@ -452,7 +493,7 @@
                                     :name="`dependant_dob_${index}`"
                                     :id="`dependant_dob_${index}`"
                                     class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer"
-                                    required
+                                    
                                 />
                                 <label
                                     :for="`dependant_dob_${index}`"
@@ -474,7 +515,7 @@
                             id="present_address"
                             class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer"
                             placeholder=" "
-                            required
+                            
                         />
                         <label
                             for="present_address"
@@ -490,7 +531,7 @@
                             id="city"
                             class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer"
                             placeholder=" "
-                            required
+                            
                         />
                         <label
                             for="city"
@@ -500,27 +541,27 @@
 
                     <!-- Province Field -->
                     <div class="relative z-0 w-full mb-4 group">
-                        <input v-model="form.province" type="text" name="province" id="province" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer" placeholder=" " required />
+                        <input v-model="form.province" type="text" name="province" id="province" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer" placeholder=" "  />
                         <label for="province" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Province</label>
                     </div>
                     <!-- Postal Code Field -->
                     <div class="relative z-0 w-full mb-4 group">
-                        <input v-model="form.postal_code" type="text" name="postal_code" id="postal_code" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer" placeholder=" " required />
+                        <input v-model="form.postal_code" type="text" name="postal_code" id="postal_code" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer" placeholder=" "  />
                         <label for="postal_code" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Postal Code</label>
                     </div>
                     <!-- Duration at Address Field -->
                     <div class="relative z-0 w-full mb-4 group">
-                        <input v-model="form.duration_at_address" type="text" name="duration_at_address" id="duration_at_address" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer" placeholder=" " required />
+                        <input v-model="form.duration_at_address" type="text" name="duration_at_address" id="duration_at_address" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer" placeholder=" "  />
                         <label for="duration_at_address" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Duration at Address</label>
                     </div>
                     <!-- Landlord Name Field -->
                     <div class="relative z-0 w-full mb-4 group">
-                        <input v-model="form.landlord_name" type="text" name="landlord_name" id="landlord_name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer" placeholder=" " required />
+                        <input v-model="form.landlord_name" type="text" name="landlord_name" id="landlord_name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer" placeholder=" "  />
                         <label for="landlord_name" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Landlord Name</label>
                     </div>
                     <!-- Landlord Phone Field -->
                     <div class="relative z-0 w-full mb-4 group">
-                        <input v-model="form.landlord_phone" type="tel" name="landlord_phone" id="landlord_phone" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer" placeholder=" " required />
+                        <input v-model="form.landlord_phone" type="tel" name="landlord_phone" id="landlord_phone" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer" placeholder=" "  />
                         <label for="landlord_phone" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Landlord Phone</label>
                     </div>
 
@@ -537,7 +578,7 @@
                             id="present_address"
                             class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer"
                             placeholder=" "
-                            required
+                            
                         />
                         <label
                             for="present_address"
@@ -554,7 +595,7 @@
                             id="city"
                             class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer"
                             placeholder=" "
-                            required
+                            
                         />
                         <label
                             for="city"
@@ -571,7 +612,7 @@
                             id="province"
                             class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer"
                             placeholder=" "
-                            required
+                            
                         />
                         <label
                             for="province"
@@ -605,7 +646,7 @@
                             id="duration_at_address"
                             class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer"
                             placeholder=" "
-                            required
+                            
                         />
                         <label
                             for="duration_at_address"
@@ -622,7 +663,7 @@
                             id="landlord_name"
                             class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer"
                             placeholder=" "
-                            required
+                            
                         />
                         <label
                             for="landlord_name"
@@ -639,7 +680,7 @@
                             id="landlord_phone"
                             class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer"
                             placeholder=" "
-                            required
+                            
                         />
                         <label
                             for="landlord_phone"
@@ -663,7 +704,7 @@
                                 :id="'city' + index"
                                 class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer"
                                 placeholder=" "
-                                required
+                                
                             >
                             <label
                                 :for="'city' + index"
@@ -682,7 +723,7 @@
                                 :id="'province' + index"
                                 class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer"
                                 placeholder=" "
-                                required
+                                
                             >
                             <label
                                 :for="'province' + index"
@@ -720,7 +761,7 @@
                                 :id="'duration' + index"
                                 class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer"
                                 placeholder=" "
-                                required
+                                
                             >
                             <label
                                 :for="'duration' + index"
@@ -739,7 +780,7 @@
                                 :id="'landlord' + index"
                                 class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer"
                                 placeholder=" "
-                                required
+                                
                             >
                             <label
                                 :for="'landlord' + index"
@@ -758,7 +799,7 @@
                                 :id="'phone' + index"
                                 class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer"
                                 placeholder=" "
-                                required
+                                
                             >
                             <label
                                 :for="'phone' + index"
@@ -775,19 +816,19 @@
 
                     <!-- Type of Income Field -->
                     <div class="relative z-0 w-full mb-4 group">
-                        <input v-model="form.other_income_sources.type_of_income" type="text" name="type_of_income" id="type_of_income" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer" placeholder=" " required />
+                        <input v-model="form.other_income_sources.type_of_income" type="text" name="type_of_income" id="type_of_income" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer" placeholder=" "  />
                         <label for="type_of_income" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Type of Income</label>
                     </div>
 
                     <!-- Monthly Net Income from Other Sources Field -->
                     <div class="relative z-0 w-full mb-4 group">
-                        <input v-model="form.other_income_sources.monthly_net_income_from_other_sources" type="text" name="monthly_net_income_from_other_sources" id="monthly_net_income_from_other_sources" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer" placeholder=" " required />
+                        <input v-model="form.other_income_sources.monthly_net_income_from_other_sources" type="text" name="monthly_net_income_from_other_sources" id="monthly_net_income_from_other_sources" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer" placeholder=" "  />
                         <label for="monthly_net_income_from_other_sources" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Monthly Net Income from Other Sources</label>
                     </div>
 
                     <!-- Total Monthly Income Field -->
                     <div class="relative z-0 w-full mb-4 group">
-                        <input v-model="form.other_income_sources.total_monthly_income" type="text" name="total_monthly_income" id="total_monthly_income" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer" placeholder=" " required />
+                        <input v-model="form.other_income_sources.total_monthly_income" type="text" name="total_monthly_income" id="total_monthly_income" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer" placeholder=" "  />
                         <label for="total_monthly_income" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Total Monthly Income</label>
                     </div>
 
@@ -800,38 +841,38 @@
 
                         <!-- Year Field -->
                         <div class="relative z-0 w-full mb-4 group">
-                            <input v-model="vehicle.year" type="text" :name="`vehicle_year_${index}`" :id="`vehicle_year_${index}`" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer" placeholder=" " required />
+                            <input v-model="vehicle.year" type="text" :name="`vehicle_year_${index}`" :id="`vehicle_year_${index}`" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer" placeholder=" "  />
                             <label :for="`vehicle_year_${index}`" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Year</label>
                         </div>
 
                         <!-- Make Field -->
                         <div class="relative z-0 w-full mb-4 group">
-                            <input v-model="vehicle.make" type="text" :name="`vehicle_make_${index}`" :id="`vehicle_make_${index}`" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer" placeholder=" " required />
+                            <input v-model="vehicle.make" type="text" :name="`vehicle_make_${index}`" :id="`vehicle_make_${index}`" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer" placeholder=" "  />
                             <label :for="`vehicle_make_${index}`" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Make</label>
                         </div>
 
                         <!-- Model Field -->
                         <div class="relative z-0 w-full mb-4 group">
-                            <input v-model="vehicle.model" type="text" :name="`vehicle_model_${index}`" :id="`vehicle_model_${index}`" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer" placeholder=" " required />
+                            <input v-model="vehicle.model" type="text" :name="`vehicle_model_${index}`" :id="`vehicle_model_${index}`" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer" placeholder=" "  />
                             <label :for="`vehicle_model_${index}`" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Model</label>
                         </div>
 
                         <!-- Plate Number Field -->
                         <div class="relative z-0 w-full mb-4 group">
-                            <input v-model="vehicle.plate_number" type="text" :name="`vehicle_plate_number_${index}`" :id="`vehicle_plate_number_${index}`" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer" placeholder=" " required />
+                            <input v-model="vehicle.plate_number" type="text" :name="`vehicle_plate_number_${index}`" :id="`vehicle_plate_number_${index}`" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer" placeholder=" "  />
                             <label :for="`vehicle_plate_number_${index}`" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Plate Number</label>
                         </div>
 
                         <!-- Driver's License No. Field -->
                         <div class="relative z-0 w-full mb-4 group">
-                            <input v-model="vehicle.drivers_license_no" type="text" :name="`vehicle_drivers_license_no_${index}`" :id="`vehicle_drivers_license_no_${index}`" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer" placeholder=" " required />
+                            <input v-model="vehicle.drivers_license_no" type="text" :name="`vehicle_drivers_license_no_${index}`" :id="`vehicle_drivers_license_no_${index}`" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer" placeholder=" "  />
                             <label :for="`vehicle_drivers_license_no_${index}`" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Driver's License No.</label>
                         </div>
 
-                        <!-- Parking Space Required Field -->
+                        <!-- Parking Space  Field -->
                         <div class="relative z-0 w-full mb-4 group">
-                            <input v-model="vehicle.parking_space_required" type="text" :name="`vehicle_parking_space_required_${index}`" :id="`vehicle_parking_space_required_${index}`" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer" placeholder=" " required />
-                            <label :for="`vehicle_parking_space_required_${index}`" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Parking Space Required</label>
+                            <input v-model="vehicle.parking_space_" type="text" :name="`vehicle_parking_space__${index}`" :id="`vehicle_parking_space__${index}`" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer" placeholder=" "  />
+                            <label :for="`vehicle_parking_space__${index}`" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Parking Space </label>
                         </div>
                     </div>
 
@@ -839,58 +880,65 @@
                     <p class="mb-4 text-[20px] text-gray-700 uppercase">References:</p>
                     <!-- References Fields -->
                     <div class="relative z-0 w-full mb-4 group">
-                        <input v-model="form.references[0].name" type="text" name="reference_name" id="reference_name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer" placeholder=" " required />
+                        <input v-model="form.references[0].name" type="text" name="reference_name" id="reference_name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer" placeholder=" "  />
                         <label for="reference_name" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" >Reference Name</label>
                     </div>
                     <div class="relative z-0 w-full mb-4 group">
-                        <input v-model="form.references[0].address" type="text" name="reference_name" id="reference_name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer" placeholder=" " required />
+                        <input v-model="form.references[0].address" type="text" name="reference_name" id="reference_name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer" placeholder=" "  />
                         <label for="reference_name" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" >Reference Address</label>
                     </div>
                     <div class="relative z-0 w-full mb-4 group">
-                        <input v-model="form.references[0].phone_number" type="text" name="reference_name" id="reference_name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer" placeholder=" " required />
+                        <input v-model="form.references[0].phone_number" type="text" name="reference_name" id="reference_name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer" placeholder=" "  />
                         <label for="reference_name" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" >Reference Phone Number</label>
                     </div>
                     <div class="relative z-0 w-full mb-4 group">
-                        <input v-model="form.references[0].relationship" type="text" name="reference_relationship" id="reference_name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer" placeholder=" " required />
+                        <input v-model="form.references[0].relationship" type="text" name="reference_relationship" id="reference_name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer" placeholder=" "  />
                         <label for="reference_name" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" >Reference Relationship</label>
                     </div>
 
                     <p class="mb-4 text-[15px] text-gray-700 ">Other Reference:</p>
                     <!-- Repeat for other reference fields -->
                     <div class="relative z-0 w-full mb-4 group">
-                        <input v-model="form.references[1].name" type="text" name="reference_name" id="reference_name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer" placeholder=" " required />
+                        <input v-model="form.references[1].name" type="text" name="reference_name" id="reference_name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer" placeholder=" "  />
                         <label for="reference_name" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" >Reference Name</label>
                     </div>
                     <div class="relative z-0 w-full mb-4 group">
-                        <input v-model="form.references[1].address" type="text" name="reference_name" id="reference_name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer" placeholder=" " required />
+                        <input v-model="form.references[1].address" type="text" name="reference_name" id="reference_name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer" placeholder=" "  />
                         <label for="reference_name" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" >Reference Address</label>
                     </div>
                     <div class="relative z-0 w-full mb-4 group">
-                        <input v-model="form.references[1].phone_number" type="text" name="reference_name" id="reference_name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer" placeholder=" " required />
+                        <input v-model="form.references[1].phone_number" type="text" name="reference_name" id="reference_name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer" placeholder=" "  />
                         <label for="reference_name" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" >Reference Phone Number</label>
                     </div>
                     <div class="relative z-0 w-full mb-4 group">
-                        <input v-model="form.references[1].relationship" type="text" name="reference_relationship" id="reference_name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer" placeholder=" " required />
+                        <input v-model="form.references[1].relationship" type="text" name="reference_relationship" id="reference_name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer" placeholder=" "  />
                         <label for="reference_name" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" >Reference Relationship</label>
                     </div>
 
                     <p class="mb-4 text-[20px] text-gray-700">CRIMINAL AND CREDIT CHECK:</p>
 
-                    <div class="relative z-0 w-full mb-4 group">
                         <!-- Criminal and Credit Check Comment Field -->
-                        <div>
-                            <textarea v-model="form.criminal_and_credit_check_comment" name="criminal_and_credit_check_comment" id="criminal_and_credit_check_comment" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer" placeholder=" " required></textarea>
+                        <div class="relative z-0 w-full mb-4 group">
+                            <input v-model="form.criminal_and_credit_check_comment" name="criminal_and_credit_check_comment" id="criminal_and_credit_check_comment" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer" placeholder=" " required>
                             <label for="criminal_and_credit_check_comment" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" >Is there anything that we may find in a criminal and/or credit check that you would like to comment on?</label>
                         </div>
 
-                        <div class="flex items-center">
-                            <input v-model="form.agreed_to_conditions" type="checkbox" name="agreed_to_conditions" id="agreed_to_conditions" class="block py-2.5 px-2.5 text-sm text-gray-900 bg-transparent border-2 border-black rounded-full appearance-none focus:outline-none focus:ring-0 focus:border-black peer" required />
-                            <label for="agreed_to_conditions" class="mt-2 peer-focus:font-medium text-sm text-gray-500 duration-300 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 ml-1" style="white-space: normal; width: 95%;">
-                                I/we hereby declare that the information I have provided in this form is accurate. I/we hereby authorize the individual(s) or organization to whom this application is submitted to: a) contact my employer and all other references/previous landlords named in this application; b) perform a criminal check with the police; and c) obtain a credit report from an authorized Canadian credit bureau.
-                            </label>
-                        </div>
+                    <div class="flex items-center z-0 w-full mb-4 group">
+                        <!-- Checkbox for 'Agreed to Conditions', hidden after submission -->
+                        <input v-if="!isSubmitted" v-model="form.agreed_to_conditions" type="checkbox" name="agreed_to_conditions" id="agreed_to_conditions" class="block py-2.5 px-2.5 text-sm text-gray-900 bg-transparent border-2 border-black rounded-full appearance-none focus:outline-none focus:ring-0 focus:border-black peer" required />
 
+                        <!-- Label for the checkbox -->
+                        <label v-if="!isSubmitted" for="agreed_to_conditions" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer">
+                            I/we hereby declare that the information I have provided in this form is accurate. I/we hereby authorize the individual(s) or organization to whom this application is submitted to: a) contact my employer and all other references/previous landlords named in this application; b) perform a criminal check with the police; and c) obtain a credit report from an authorized Canadian credit bureau.
+                        </label>
+
+                        <!-- Display a check mark and shortened label after submission if the checkbox was checked -->
+                         <!-- Check mark symbol -->
+                        <label v-if="isSubmitted && form.agreed_to_conditions" for="agreed_to_conditions" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer">
+                            <span v-if="isSubmitted && form.agreed_to_conditions" class="text-green-500 mr-2">&#10004;</span>  I/we hereby declare that the information....
+                        </label>
                     </div>
+
 
 
                     <!-- Applicant 1 Signature Field -->
@@ -915,7 +963,7 @@
 
                     <!-- Witness Name Field -->
                     <div class="relative z-0 w-full mb-4 group">
-                        <input v-model="form.witness_name" type="text" name="witness_name" id="witness_name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer" placeholder=" " required />
+                        <input v-model="form.witness_name" type="text" name="witness_name" id="witness_name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer" placeholder=" "  />
                         <label for="witness_name" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" >Witness Name</label>
                     </div>
 
@@ -991,6 +1039,7 @@ export default {
                 applicant1: {
                     name: '',
                     current_address: '',
+                    previous_address: '',
                     home_phone: '',
                     cellphone: '',
                     email_address: '',
@@ -1007,6 +1056,7 @@ export default {
                 applicant2: {
                     name: '',
                     current_address: '',
+                    previous_address: '',
                     home_phone: '',
                     cellphone: '',
                     email_address: '',
@@ -1085,7 +1135,6 @@ export default {
                         relationship: ''
                     }
                 ],
-                criminal_and_credit_check_comment: '',
                 applicant1_signature: '',
                 applicant1_signature_date: '',
                 applicant2_signature: '',
@@ -1136,29 +1185,39 @@ export default {
 
             if (this.isMobileScreen) {
                 // Adjust screen size for mobile
-                document.body.style.width = '1024px';
                 this.fromSize = '80vw';
 
                 for (let form of forms) {
                     form.style.marginLeft = '25px';
                 }
 
+
+                // Use Vue.nextTick to wait until the DOM has been updated
+                this.$nextTick(() => {
+                    // Now call the generateReport function
+                    this.$refs.pdfGenerator.generateReportMobile('Tenant Application').then(() => {
+                        this.showAll = false;
+                    });
+                });
+
             } else {
                 this.fromSize = '80vw';
-            }
-            // Generate and send the email with the attached PDF
-            // this.sendEmail();
-            this.showFakeForm()
-            // console.log(this.form.witness_signature)
-            this.showAll = true;
 
-            // Use Vue.nextTick to wait until the DOM has been updated
-            this.$nextTick(() => {
-                // Now call the generateReport function
-                this.$refs.pdfGenerator.generateReport('Tenant Application').then(() => {
-                    this.showAll = false;
+                // Generate and send the email with the attached PDF
+                // this.sendEmail();
+                this.showFakeForm()
+                // console.log(this.form.witness_signature)
+                this.showAll = true;
+
+                // Use Vue.nextTick to wait until the DOM has been updated
+                this.$nextTick(() => {
+                    // Now call the generateReport function
+                    this.$refs.pdfGenerator.generateReport('Tenant Application').then(() => {
+                        this.showAll = false;
+                    });
                 });
-            });
+            }
+
 
         },
         handleFileChange(event) {
