@@ -1,9 +1,9 @@
 [build]
-  command = "npm run build"
-  publish = ".next"
+command = "npm run build" # The build command for Vue (ensure your package.json has this script)
+publish = "dist"          # Vue outputs built files to the 'dist' directory by default
 
 [[plugins]]
-  package = "@netlify/plugin-nextjs"
+package = "@netlify/plugin-vue"
 
 [build.environment]
-  NEXT_USE_NETLIFY_CACHE = "true"
+VUE_APP_ENV = "production" # Set the environment variable for Vue (if needed)
