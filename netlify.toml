@@ -1,6 +1,8 @@
 [build]
-command = "npm run build"  # Ensure this matches your Vue build command
-publish = "dist"          # Vue apps typically output to the "dist" directory
+command = "npm ci && npm run build"
+publish = "dist"
 
 [build.environment]
 NODE_ENV = "production"
+NPM_FLAGS = "--legacy-peer-deps"
+node_version = "16"
