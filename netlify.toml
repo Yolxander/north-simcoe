@@ -1,9 +1,6 @@
 [build]
-command = "npm run build" # The build command for Vue (ensure your package.json has this script)
-publish = "dist"          # Vue outputs built files to the 'dist' directory by default
-
-[[plugins]]
-package = "@netlify/plugin-vue"
+command = "npm run build"  # Ensure this matches your Vue build command
+publish = "dist"          # Vue apps typically output to the "dist" directory
 
 [build.environment]
-VUE_APP_ENV = "production" # Set the environment variable for Vue (if needed)
+NODE_ENV = "production"
