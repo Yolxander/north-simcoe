@@ -5,7 +5,8 @@
         @submit.prevent="submitForm"
         id="form"   :style="{ width: this.isSubmitted ? fromSize : '100vw' }">
         <PdfGenerator class="hidden" ref="pdfGenerator" :form="form"/>
-        <h2 class="text-brown" :class="isSubmitted ? 'text-[20px]' : 'text-[30px]'" v-if="showForm">COMMERCIAL RENTAL APPLICATION</h2>
+      <h2 class="text-brown" :class="isSubmitted ? 'text-[20px]' : 'text-[30px]'" v-if="showForm">NORTH SIMCOE PROPERTY MANAGEMENT</h2>
+      <h2 class="text-brown" :class="isSubmitted ? 'text-[20px]' : 'text-[30px]'" v-if="showForm">COMMERCIAL RENTAL APPLICATION</h2>
 
         <div v-if="currentStep === 1 && showForm || showAll" class="w-full relative">
             <div

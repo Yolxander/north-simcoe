@@ -145,7 +145,7 @@ export default {
     description: {
       type: String,
       default:
-        "Don’t worry - we got you covered. Our team services across Simcoe County, York, Dufferin, Muskoka, and Peel Regions.",
+        "Don’t worry - we got you covered. Our team services across Simcoe County, York, Dufferin, Niagara, Hamilton, Muskoka and Peel Regions.",
     },
     areasTitle: {
       type: String,

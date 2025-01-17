@@ -47,8 +47,18 @@
                 {{ service.phone }}
               </a>
             </p>
-            <router-link
-              v-if="service.link && service.linkTitle"
+              <a
+                      v-if="isExternalLink(service.link) && service.linkTitle"
+                      :href="service.link"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-brown bg-teal font-bold rounded-full text-sm px-5 py-2.5 text-center mt-3 hover:bg-tealdark hover:text-white focus:outline-none focus:ring-4 focus:ring-tealdark uppercase"
+
+              >
+                  {{ service.linkTitle }}
+              </a>
+              <router-link
+                      v-else-if="service.link && service.linkTitle"
               :to="service.link"
               type="button"
               class="text-brown bg-teal font-bold rounded-full text-sm px-5 py-2.5 text-center mt-3 hover:bg-tealdark hover:text-white focus:outline-none focus:ring-4 focus:ring-tealdark uppercase"
@@ -68,6 +78,11 @@ export default {
   props: {
     service: Object,
   },
+    methods: {
+        isExternalLink(link) {
+            return /^(https?:\/\/)/.test(link);
+        },
+    },
 };
 </script>
 

@@ -38,6 +38,26 @@ export default {
     ServiceCard,
     LayoutTwoSections,
   },
+    methods: {
+        updateLinksForMobile() {
+            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+            if (isMobile) {
+                // Directly assign the absolute URL
+                this.services[0].link = "https://form.jotform.com/240387727172057";
+                this.services[1].link = "https://form.jotform.com/240397250346052";
+            } else {
+                // For non-mobile devices, keep the internal routing if needed
+                this.services[0].link = "/residential-form";
+                this.services[1].link = "/commercial-form";
+            }
+        },
+        isExternalLink(link) {
+            return /^(https?:\/\/)/.test(link);
+        }
+    },
+    mounted() {
+        this.updateLinksForMobile();
+    },
   data() {
     return {
       hero: {

@@ -22,7 +22,7 @@ const routes = [
           meta: [
             {
               name: `description`,
-              content: "North Simcoe Property Management is a full service property management company helping landlords & tenants in Simcoe, York, Peel, Dufferin & Muskoka regions."
+              content: "North Simcoe Property Management is a full service property management company helping landlords & tenants in Simcoe, York, Peel, Dufferin, Hamilton & Muskoka regions."
             },
           ],
         });
@@ -39,7 +39,7 @@ const routes = [
           meta: [
             {
               name: `description`,
-              content: "We're a professional property management team in Simcoe County. We service Simcoe, York, Peel, Dufferin & Muskoka regions. Contact us today."
+              content: "We're a professional property management team in Simcoe County. We service Simcoe, York, Peel, Dufferin, Hamilton, Niagara & Muskoka regions. Contact us today."
             },
           ],
         });

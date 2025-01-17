@@ -93,20 +93,19 @@
                 class="chevron"
               />
             </p>
-            <div v-if="showDropdown" class="w-64 z-10 text-2xl">
-              <router-link
-                to="/commercial-form"
-                class="block text-brown p-2"
-                active-class="text-tealdark"
-                >COMMERCIAL FORM</router-link
-              >
-              <router-link
-                to="/residential-form"
-                class="block text-brown p-2"
-                active-class="text-tealdark"
-                >RESIDENTIAL FORM</router-link
-              >
-            </div>
+              <div v-if="showDropdown" class="w-64 z-10 text-2xl">
+                  <a
+                          :href="commercial_link"
+                          target="_blank"
+                          class="block text-brown p-2"
+                  >COMMERCIAL FORM</a>
+                  <a
+                          :href="residential_link"
+                          target="_blank"
+                          class="block text-brown p-2"
+                  >RESIDENTIAL FORM</a>
+              </div>
+
           </div>
           <router-link
             to="/gallery"
@@ -135,6 +134,8 @@ export default {
     return {
       isMenuOpen: false,
       showDropdown: false,
+        residential_link: "",
+        commercial_link: ""
     };
   },
 
@@ -145,12 +146,32 @@ export default {
     toggleDropdown() {
       this.showDropdown = !this.showDropdown;
     },
+      updateLinksForMobile() {
+          const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+          if (isMobile) {
+              // Directly assign the absolute URL
+              this.residential_link = "https://form.jotform.com/240387727172057";
+              this.commercial_link = "https://form.jotform.com/240397250346052";
+          } else {
+              // For non-mobile devices, keep the internal routing if needed
+              this.residential_link  = "/residential-form";
+              this.commercial_link = "/commercial-form";
+
+          }
+      },
+      isExternalLink(link) {
+          return /^(https?:\/\/)/.test(link);
+      }
   },
   watch: {
     $route() {
       this.isMenuOpen = false;
     },
   },
+    mounted() {
+        this.updateLinksForMobile();
+    },
+
 };
 </script>
 

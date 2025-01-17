@@ -66,7 +66,7 @@
               Area
             </h3>
             <p class="font-open-sans text-brown text-xl md:text-2xl">
-              Simcoe, York, Peel, Dufferin and Muskoka Regions
+              Simcoe, York, Peel, Dufferin, Niagara and Muskoka Regions
             </p>
           </div>
         </div>

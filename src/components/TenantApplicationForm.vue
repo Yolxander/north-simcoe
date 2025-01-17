@@ -5,9 +5,10 @@
             @submit.prevent="submitForm"
             :class="{ submitted: isSubmitted }"
             id="form"
-            :style="{ width: this.isSubmitted ? fromSize : '100w'  }"        >
+            :style="{ width: this.isSubmitted ? fromSize : '100w',display: this.isMobileScreen ? 'none' : 'block'  }"        >
             <PdfGenerator class="hidden" ref="pdfGenerator" :form="form"/>
-            <h2 class="text-brown" :class="isSubmitted ? 'text-[20px]' : 'text-[30px]'" v-if="showForm">TENANT RENTAL APPLICATION</h2>
+           <h2 class="text-brown text-center" :class="isSubmitted ? 'text-[20px]' : 'text-[30px]'" v-if="showForm">NORTH SIMCOE PROPERTY MANAGEMENT</h2>
+            <h2 class="text-brown pb-3 text-center" :class="isSubmitted ? 'text-[20px]' : 'text-[30px]'" v-if="showForm">TENANT RENTAL APPLICATION</h2>
             <div v-if="currentStep === 1 && showForm || showAll" class="w-full relative">
 
                 <div
@@ -392,7 +393,7 @@
                             id="applicant2_sin"
                             class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer"
                             placeholder=" "
-                            
+
                         />
                         <label
                             for="applicant2_sin"
@@ -477,7 +478,7 @@
                                     :id="`dependant_name_${index}`"
                                     class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer"
                                     placeholder=" "
-                                    
+
                                 />
                                 <label
                                     :for="`dependant_name_${index}`"
@@ -493,7 +494,7 @@
                                     :name="`dependant_dob_${index}`"
                                     :id="`dependant_dob_${index}`"
                                     class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer"
-                                    
+
                                 />
                                 <label
                                     :for="`dependant_dob_${index}`"
@@ -515,7 +516,7 @@
                             id="present_address"
                             class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer"
                             placeholder=" "
-                            
+
                         />
                         <label
                             for="present_address"
@@ -531,7 +532,7 @@
                             id="city"
                             class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer"
                             placeholder=" "
-                            
+
                         />
                         <label
                             for="city"
@@ -578,7 +579,7 @@
                             id="present_address"
                             class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer"
                             placeholder=" "
-                            
+
                         />
                         <label
                             for="present_address"
@@ -595,7 +596,7 @@
                             id="city"
                             class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer"
                             placeholder=" "
-                            
+
                         />
                         <label
                             for="city"
@@ -612,7 +613,7 @@
                             id="province"
                             class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer"
                             placeholder=" "
-                            
+
                         />
                         <label
                             for="province"
@@ -646,7 +647,7 @@
                             id="duration_at_address"
                             class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer"
                             placeholder=" "
-                            
+
                         />
                         <label
                             for="duration_at_address"
@@ -663,7 +664,7 @@
                             id="landlord_name"
                             class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer"
                             placeholder=" "
-                            
+
                         />
                         <label
                             for="landlord_name"
@@ -680,7 +681,7 @@
                             id="landlord_phone"
                             class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer"
                             placeholder=" "
-                            
+
                         />
                         <label
                             for="landlord_phone"
@@ -704,7 +705,7 @@
                                 :id="'city' + index"
                                 class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer"
                                 placeholder=" "
-                                
+
                             >
                             <label
                                 :for="'city' + index"
@@ -723,7 +724,7 @@
                                 :id="'province' + index"
                                 class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer"
                                 placeholder=" "
-                                
+
                             >
                             <label
                                 :for="'province' + index"
@@ -761,7 +762,7 @@
                                 :id="'duration' + index"
                                 class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer"
                                 placeholder=" "
-                                
+
                             >
                             <label
                                 :for="'duration' + index"
@@ -780,7 +781,7 @@
                                 :id="'landlord' + index"
                                 class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer"
                                 placeholder=" "
-                                
+
                             >
                             <label
                                 :for="'landlord' + index"
@@ -799,7 +800,7 @@
                                 :id="'phone' + index"
                                 class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer"
                                 placeholder=" "
-                                
+
                             >
                             <label
                                 :for="'phone' + index"
@@ -872,7 +873,7 @@
                         <!-- Parking Space  Field -->
                         <div class="relative z-0 w-full mb-4 group">
                             <input v-model="vehicle.parking_space_" type="text" :name="`vehicle_parking_space__${index}`" :id="`vehicle_parking_space__${index}`" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none focus:outline-none focus:ring-0 focus:border-black peer" placeholder=" "  />
-                            <label :for="`vehicle_parking_space__${index}`" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Parking Space </label>
+                            <label :for="`vehicle_parking_space__${index}`" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin- peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Parking Space</label>
                         </div>
                     </div>
 
@@ -1147,6 +1148,10 @@ export default {
         };
     },
     methods: {
+        // Existing methods
+        openTenantRentalApplication() {
+            window.open('https://form.jotform.com/240387727172057', 'blank', 'scrollbars=yes, toolbar=no, width=700, height=500');
+        },
         undo(fieldRef) {
             this.$refs[fieldRef].undoSignature();
         },
@@ -1236,6 +1241,12 @@ export default {
 </script>
 
 <style scoped>
+/* Add styles for your link if needed */
+.tenant-rental-application-link {
+    /* Style your link here */
+    color: blue; /* Example style */
+    cursor: pointer;
+}
 .main_form{
     margin-left: 30px;
 }
@@ -1264,9 +1275,8 @@ export default {
         margin-left: 0px;
     }
 
-    .main_form{
-        margin-top: 65px;
-        margin-left: 0px;
+    .main_form_container{
+        display: none;
     }
     h2{
         font-size: 15px;

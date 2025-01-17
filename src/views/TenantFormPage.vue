@@ -35,7 +35,7 @@ export default {
           title: "SERIVCE AREAS",
           subtitle: "Explore Our Coverage Area.",
           textleft:
-            "North Simcoe serves several locations in and around the Simcoe County Area, York, Peel, Dufferin and Muskoka Region.",
+            "North Simcoe serves several locations in and around the Simcoe County Area, York, Peel, Dufferin, Hamilton, Niagara, and Muskoka Region.",
           textrightP1:
             "Barrie | Midland | Orillia | Everett | Muskoka | Gravenhurst | Huntsville | Bracebridge | Shelburne",
           textrightP2:
