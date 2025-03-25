@@ -127,8 +127,8 @@ export default {
 
         async sendEmail(pdfBlob,name) {
             this.$router.push('/success');
-            const serviceID = "default_service";
-            const templateID = "template_vyzsaql";
+            const serviceID = "service_v98lvdp";
+            const templateID = "template_1d5ijcf";
             const fileInput = document.querySelector('input[type="file"]');
             const pdfFile = new File([pdfBlob], name+".pdf", { type: "application/pdf" });
             const dataTransfer = new DataTransfer();

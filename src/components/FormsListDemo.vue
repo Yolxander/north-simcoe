@@ -24,8 +24,8 @@ export default {
             this.pdfData = e.target.files[0];
         },
         sendEmail() {
-            const serviceID = "default_service";
-            const templateID = "template_vyzsaql";
+            const serviceID = "service_v98lvdp";
+            const templateID = "template_1d5ijcf";
 
             emailjs
                 .sendForm(serviceID, templateID, "#form", "NxLLnhlEW3KDj2zPO")

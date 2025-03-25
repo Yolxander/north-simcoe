@@ -97,7 +97,7 @@ export default {
 
     methods: {
         sendEmail() {
-            emailjs.send('default_service', 'template_u6gxk3u', {
+            emailjs.send('service_v98lvdp', 'template_1d5ijcf', {
                 user_name: this.user_name,
                 user_email: this.user_email,
                 message: this.message,

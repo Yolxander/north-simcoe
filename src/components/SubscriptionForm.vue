@@ -47,7 +47,7 @@ export default {
     methods: {
 
         submit() {
-            emailjs.send('service_v98lvdp', 'template_zwprldn', {
+            emailjs.send('service_v98lvdp', 'template_1d5ijcf', {
                 email: this.email
             }, 'NxLLnhlEW3KDj2zPO')
                 .then((result) => {
