@@ -125,26 +125,33 @@ export default {
         },
 
 
-        async sendEmail(pdfBlob,name) {
+        async sendEmail(pdfBlob, name) {
             this.$router.push('/success');
             const serviceID = "service_v98lvdp";
             const templateID = "template_1d5ijcf";
-            const fileInput = document.querySelector('input[type="file"]');
-            const pdfFile = new File([pdfBlob], name+".pdf", { type: "application/pdf" });
-            const dataTransfer = new DataTransfer();
-            dataTransfer.items.add(pdfFile);
-            fileInput.files = dataTransfer.files;
+            
+            // Create a minimal form data object with only essential information
+            const formData = new FormData();
+            formData.append('pdf_file', pdfBlob, `${name}.pdf`);
+            
+            // Add only essential form data
+            const essentialData = {
+                name: this.form.name || '',
+                email: this.form.email || '',
+                subject: `PDF Report - ${name}`
+            };
+            
+            Object.entries(essentialData).forEach(([key, value]) => {
+                formData.append(key, value);
+            });
 
-                emailjs
-                    .sendForm(serviceID, templateID, "#form2", "NxLLnhlEW3KDj2zPO")
-                    .then(() => {
-                        this.pdfData = "";
-                        console.log("Finish email");
-                    })
-                    .catch((err) => {
-                        console.log(JSON.stringify(err));
-                    });
-
+            try {
+                await emailjs.send(serviceID, templateID, essentialData, "NxLLnhlEW3KDj2zPO");
+                this.pdfData = "";
+                console.log("Email sent successfully");
+            } catch (err) {
+                console.error("Email sending failed:", err);
+            }
         },
         formatLabel(key) {
             return key.replace(/_/g, " ").charAt(0).toUpperCase() + key.slice(1);
