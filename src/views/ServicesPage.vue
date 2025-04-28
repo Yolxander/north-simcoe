@@ -40,16 +40,9 @@ export default {
   },
     methods: {
         updateLinksForMobile() {
-            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-            if (isMobile) {
-                // Directly assign the absolute URL
-                this.services[0].link = "https://form.jotform.com/240387727172057";
-                this.services[1].link = "https://form.jotform.com/240397250346052";
-            } else {
-                // For non-mobile devices, keep the internal routing if needed
-                this.services[0].link = "/residential-form";
-                this.services[1].link = "/commercial-form";
-            }
+            // Always use the JotForm links regardless of device
+            this.services[0].link = "https://form.jotform.com/240387727172057";
+            this.services[1].link = "https://form.jotform.com/240397250346052";
         },
         isExternalLink(link) {
             return /^(https?:\/\/)/.test(link);
@@ -70,7 +63,7 @@ export default {
           iconPos: "left",
           title: "Residential Property Management",
           paragraph: [
-            "Owning a second home or investment property doesn’t have to be stressful. At North Simcoe Property Management, we create custom plans for each rental property to ensure you’re getting the most out of your investment. Whether you’re out of the country, or just too busy to manage your property, we can take the stress out of the day to day that comes with being a landlord in Ontario.",
+            "Owning a second home or investment property doesn't have to be stressful. At North Simcoe Property Management, we create custom plans for each rental property to ensure you're getting the most out of your investment. Whether you're out of the country, or just too busy to manage your property, we can take the stress out of the day to day that comes with being a landlord in Ontario.",
             "Here is how we work for you:",
           ],
           listItems: [

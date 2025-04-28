@@ -146,20 +146,12 @@ export default {
     toggleDropdown() {
       this.showDropdown = !this.showDropdown;
     },
-      updateLinksForMobile() {
-          const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-          if (isMobile) {
-              // Directly assign the absolute URL
-              this.residential_link = "https://form.jotform.com/240387727172057";
-              this.commercial_link = "https://form.jotform.com/240397250346052";
-          } else {
-              // For non-mobile devices, keep the internal routing if needed
-              this.residential_link  = "/residential-form";
-              this.commercial_link = "/commercial-form";
-
-          }
-      },
-      isExternalLink(link) {
+    updateLinksForMobile() {
+        // Always use the JotForm links regardless of device
+        this.residential_link = "https://form.jotform.com/240387727172057";
+        this.commercial_link = "https://form.jotform.com/240397250346052";
+    },
+    isExternalLink(link) {
           return /^(https?:\/\/)/.test(link);
       }
   },
