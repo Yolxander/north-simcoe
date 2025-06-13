@@ -16,7 +16,7 @@
           Meet the talented team at North Simcoe PM
         </h3>
         <p class="font-open-sans text-brown text-2xl">
-          Meet the dynamic duo driving our success: Linda Shipley and Larry
+          Meet the dynamic duo driving our success: Linda Rossi and Larry
           Pomfret, who together seamlessly blend strategic vision and
           operational wizardry to elevate every property under our care.
         </p>
