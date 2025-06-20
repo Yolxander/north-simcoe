@@ -82,7 +82,7 @@ export default {
             "We are a full service property management company in Simcoe County. Our service areas include York, Simcoe, Dufferin, Hamilton, Niagara, Muskoka and Peel Regions.",
           textrightP1: "",
           textrightP2:
-            "We help landlords that own residential, commercial and multi-use properties. Our team will also handle all Landlord Tenant Board issues and we offer FREE legal advice.",
+            "We help landlords that own residential, commercial and multi-use properties. Our team will also handle all Landlord Tenant Board issues and we offer FREE legal services.",
         },
       ],
       serviceAreas: [
