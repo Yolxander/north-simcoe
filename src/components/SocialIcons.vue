@@ -24,7 +24,7 @@
             </button>
         </a>
 
-        <a href="https://youtube.com/shorts/VspN0xe1wzc?si=PQTCMLgVvefbpGf1">
+        <a href="https://www.youtube.com/@NorthSimcoePropertyManagement/shorts">
             <button class="icon-btn">
                   <font-awesome-icon :icon="['fab', 'youtube']" size="1x" />
             </button>

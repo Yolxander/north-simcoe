@@ -24,7 +24,7 @@
         <font-awesome-icon :icon="['fab', 'facebook-f']" />
       </a>
       <a
-        href="https://youtube.com/shorts/VspN0xe1wzc?si=PQTCMLgVvefbpGf1"
+        href="https://www.youtube.com/@NorthSimcoePropertyManagement/shorts"
         class="text-brown hover:text-gray-800 text-2xl"
       >
         <font-awesome-icon :icon="['fab', 'youtube']" />

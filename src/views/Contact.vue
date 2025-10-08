@@ -89,7 +89,7 @@
               <a href="https://www.instagram.com/northsimcoe_propertymanagement?igsh=NHVzNWUwdTE4OTcx&utm_source=qr" target="_blank" class="text-brown hover:text-pink-600 transition-colors duration-200">
                 <font-awesome-icon :icon="['fab', 'instagram']" size="2x" />
               </a>
-              <a href="https://youtube.com/shorts/VspN0xe1wzc?si=PQTCMLgVvefbpGf1" target="_blank" class="text-brown hover:text-red-600 transition-colors duration-200">
+              <a href="https://www.youtube.com/@NorthSimcoePropertyManagement/shorts" target="_blank" class="text-brown hover:text-red-600 transition-colors duration-200">
                 <font-awesome-icon :icon="['fab', 'youtube']" size="2x" />
               </a>
             </div>
