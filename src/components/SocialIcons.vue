@@ -10,7 +10,7 @@
             </button>
         </a>
 
-        <a href="https://www.facebook.com/people/North-Simcoe-Property-Management/100091986706375/?mibextid=D4KYl">
+        <a href="https://www.facebook.com/share/1FdDUTEdVB/?mibextid=wwXIfr">
             <button class="icon-btn">
                     <font-awesome-icon
                         :icon="['fab', 'facebook-f']" size="1x"
@@ -18,9 +18,15 @@
             </button>
         </a>
 
-        <a href="https://instagram.com/northsimcoe_propertymanagement?igshid=MzRlODBiNWFlZA==">
+        <a href="https://www.instagram.com/northsimcoe_propertymanagement?igsh=NHVzNWUwdTE4OTcx&utm_source=qr">
             <button class="icon-btn">
                   <font-awesome-icon :icon="['fab', 'instagram']" size="1x" />
+            </button>
+        </a>
+
+        <a href="https://youtube.com/shorts/VspN0xe1wzc?si=PQTCMLgVvefbpGf1">
+            <button class="icon-btn">
+                  <font-awesome-icon :icon="['fab', 'youtube']" size="1x" />
             </button>
         </a>
 

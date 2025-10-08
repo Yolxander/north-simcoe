@@ -70,6 +70,31 @@
             </p>
           </div>
         </div>
+
+        <!-- Social Media Section -->
+        <div class="flex items-start content-center mb-4">
+          <font-awesome-icon
+            :icon="['fas', 'share-alt']"
+            class="text-teal mr-4 text-5xl"
+          />
+          <div class="animate-link">
+            <h3 class="text-xl font-semibold text-brown font-archivo align-end">
+              Follow Us
+            </h3>
+            <p class="font-open-sans text-brown text-2xl">Connect with us on social media</p>
+            <div class="flex items-center space-x-4 mt-2">
+              <a href="https://www.facebook.com/share/1FdDUTEdVB/?mibextid=wwXIfr" target="_blank" class="text-brown hover:text-blue-600 transition-colors duration-200">
+                <font-awesome-icon :icon="['fab', 'facebook-f']" size="2x" />
+              </a>
+              <a href="https://www.instagram.com/northsimcoe_propertymanagement?igsh=NHVzNWUwdTE4OTcx&utm_source=qr" target="_blank" class="text-brown hover:text-pink-600 transition-colors duration-200">
+                <font-awesome-icon :icon="['fab', 'instagram']" size="2x" />
+              </a>
+              <a href="https://youtube.com/shorts/VspN0xe1wzc?si=PQTCMLgVvefbpGf1" target="_blank" class="text-brown hover:text-red-600 transition-colors duration-200">
+                <font-awesome-icon :icon="['fab', 'youtube']" size="2x" />
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- Right Section - Map -->

@@ -12,16 +12,22 @@
 
     <div class="flex flex-col items-center mb-4">
       <a
-        href="https://www.instagram.com/northsimcoe_propertymanagement/?hl=en"
+        href="https://www.instagram.com/northsimcoe_propertymanagement?igsh=NHVzNWUwdTE4OTcx&utm_source=qr"
         class="text-brown hover:text-gray-800 text-2xl"
       >
         <font-awesome-icon :icon="['fab', 'instagram']" />
       </a>
       <a
-        href="https://www.alpha.facebook.com/people/North-Simcoe-Property-Management/100091986706375/?mibextid=LQQJ4d"
+        href="https://www.facebook.com/share/1FdDUTEdVB/?mibextid=wwXIfr"
         class="text-brown hover:text-gray-800 text-2xl"
       >
         <font-awesome-icon :icon="['fab', 'facebook-f']" />
+      </a>
+      <a
+        href="https://youtube.com/shorts/VspN0xe1wzc?si=PQTCMLgVvefbpGf1"
+        class="text-brown hover:text-gray-800 text-2xl"
+      >
+        <font-awesome-icon :icon="['fab', 'youtube']" />
       </a>
     </div>
   </div>

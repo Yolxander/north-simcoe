@@ -18,11 +18,13 @@ import {
   faCheck,
   faShop,
   faChevronDown,
+  faShareAlt,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebookF,
   faInstagram,
   faLinkedinIn,
+  faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
 import { gsap } from "gsap";
 
@@ -35,11 +37,13 @@ library.add(
   faFacebookF,
   faInstagram,
   faLinkedinIn,
+  faYoutube,
   faEnvelope,
   faLocationDot,
   faCircle,
   faShop,
   faChevronDown,
+  faShareAlt,
     faCheck
 );
 
