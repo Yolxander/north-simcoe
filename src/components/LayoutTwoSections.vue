@@ -15,17 +15,14 @@
         <h3 class="text-3xl font-semibold mb-4 text-brown font-archivo">
           {{ intro[0].subtitle }}
         </h3>
-        <p class="font-open-sans text-2xl text-brown">
-          {{ intro[0].textleft }}
+        <p class="font-open-sans text-2xl text-brown" v-html="intro[0].textleft">
         </p>
       </div>
       <div class="md:w-1/2 self-end font-open-sans text-2xl text-brown">
-        <p>
-          {{ intro[0].textrightP1 }}
+        <p v-html="intro[0].textrightP1">
         </p>
         <br />
-        <p>
-          {{ intro[0].textrightP2 }}
+        <p v-html="intro[0].textrightP2">
         </p>
       </div>
     </div>

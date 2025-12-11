@@ -24,7 +24,7 @@
         We are a full service property management company located in Simcoe
         County. We work with landlords by helping them enjoy all the benefits of
         owning investment properties by taking away all the stress and hassles
-        of dealing with day to day.
+        of dealing with day to day. Learn more about our <a href="/services" class="text-teal hover:underline font-semibold">property management services</a> or <a href="/contact" class="text-teal hover:underline font-semibold">contact us</a> for a consultation.
       </p>
       <router-link
         to="/our-company"

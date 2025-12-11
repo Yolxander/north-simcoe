@@ -18,7 +18,7 @@
         <p class="font-open-sans text-2xl text-brown">
           From finding quality tenants, FREE legal advice to property
           maintenance and beyond, we provide full service property management on
-          residential, commercial, and mixed-use buildings.
+          residential, commercial, and mixed-use buildings. <a href="/services" class="text-teal hover:underline font-semibold">View our complete property management services</a> or <a href="/contact" class="text-teal hover:underline font-semibold">get in touch</a> to learn more.
         </p>
       </div>
       <div

@@ -11,7 +11,7 @@
         {{ subtitle }}
       </h3>
       <p class="font-open-sans text-2xl">
-        {{ description }}
+        {{ description }} <a href="/services" class="text-teal hover:underline font-semibold">Explore our property management services</a> or <a href="/contact" class="text-teal hover:underline font-semibold">contact us</a> to discuss your property needs.
       </p>
     </div>
     <div class="md:w-1/2 relative">

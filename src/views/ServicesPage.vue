@@ -140,11 +140,11 @@ export default {
           title: "WHAT WE OFFER",
           subtitle: "Our Property Management Services.",
           textleft:
-            "We at North Simcoe have many reasons why we differ from the rest. We offer custom pricing, free legal advice when it comes to the landlord tenant board, as well as no charge for filing any forms and starting the process to get a court date.",
+            "We at North Simcoe have many reasons why we differ from the rest. We offer custom pricing, free legal advice when it comes to the landlord tenant board, as well as no charge for filing any forms and starting the process to get a court date. <a href='/our-company' class='text-teal hover:underline font-semibold'>Learn more about our team</a> or <a href='/contact' class='text-teal hover:underline font-semibold'>contact us</a> for more information.",
           textrightP1:
             "We do not charge the common one month rent to find a tenant, that is all inclusive in our monthly fee, which, in the long run, do to us waving that cost, we end up being the better value from our competitors.",
           textrightP2:
-            "Our services are tax deductable and there are no hidden fees. Those are just a few of the many reasons why you should pick us to manage your property for you!",
+            "Our services are tax deductable and there are no hidden fees. Those are just a few of the many reasons why you should pick us to manage your property for you! <a href='/gallery' class='text-teal hover:underline font-semibold'>View our property gallery</a> to see examples of our work. For information about landlord and tenant rights in Ontario, visit the <a href='https://tribunalsontario.ca/ltb/' target='_blank' rel='noopener noreferrer' class='text-teal hover:underline font-semibold'>Landlord Tenant Board</a>.",
         },
       ],
     };

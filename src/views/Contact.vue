@@ -14,7 +14,7 @@
           Contact info
         </h3>
         <p class="text-brown mb-6 font-open-sans text-xl">
-          Get in touch with us for any inquiries.
+          Get in touch with us for any inquiries. Learn more about our <a href="/services" class="text-teal hover:underline font-semibold">property management services</a> or <a href="/our-company" class="text-teal hover:underline font-semibold">meet our team</a>.
         </p>
 
         <!-- Email Section -->

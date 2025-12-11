@@ -2,9 +2,12 @@
   <HeroGlobal :hero="hero" />
   <ObserverComponent classToToggle="fadeInTop" playOnce="true">
     <div class="p-12 md:p-24 text-center">
-      <h3 class="text-3xl font-semibold text-brown font-archivo">
+      <h3 class="text-3xl font-semibold text-brown font-archivo mb-4">
         See some of the beautiful properties we manage
       </h3>
+      <p class="text-brown font-open-sans text-xl">
+        Browse our property gallery showcasing residential, commercial, and mixed-use properties. <a href="/services" class="text-teal hover:underline font-semibold">Learn about our property management services</a> or <a href="/contact" class="text-teal hover:underline font-semibold">contact us</a> to discuss your property needs.
+      </p>
     </div>
   </ObserverComponent>
   <div
