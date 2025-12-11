@@ -60,6 +60,26 @@ export default {
         {
           "@type": "City",
           "name": "Muskoka"
+        },
+        {
+          "@type": "City",
+          "name": "Bolton"
+        },
+        {
+          "@type": "City",
+          "name": "Bradford"
+        },
+        {
+          "@type": "City",
+          "name": "Caledon"
+        },
+        {
+          "@type": "City",
+          "name": "Newmarket"
+        },
+        {
+          "@type": "City",
+          "name": "Barrie"
         }
       ],
       "sameAs": [
