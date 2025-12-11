@@ -31,11 +31,20 @@ export default {
     // Local Business JSON-LD Schema
     const localBusinessSchema = {
       "@context": "https://schema.org",
-      "@type": "PropertyManagementService",
+      "@type": "LocalBusiness",
       "name": "North Simcoe Property Management",
       "telephone": "+1 (647) 500-1747",
       "email": "info@northsimcoepm.ca",
       "url": "https://northsimcoepm.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Simcoe County",
+        "addressRegion": "Ontario",
+        "addressRegionCode": "ON",
+        "addressCountry": "CA",
+        "addressCountryCode": "CA"
+      },
+      "@id": "https://northsimcoepm.com",
       "areaServed": [
         {
           "@type": "City",
@@ -89,9 +98,44 @@ export default {
       ]
     };
 
+    // Organization JSON-LD Schema
+    const organizationSchema = {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "North Simcoe Property Management",
+      "alternateName": "North Simcoe PM",
+      "url": "https://northsimcoepm.com",
+      "logo": "https://northsimcoepm.com/logo.png",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+1-647-500-1747",
+        "contactType": "Customer Service",
+        "email": "info@northsimcoepm.ca",
+        "areaServed": ["CA"],
+        "availableLanguage": ["en"]
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Simcoe County",
+        "addressRegion": "Ontario",
+        "addressRegionCode": "ON",
+        "addressCountry": "CA",
+        "addressCountryCode": "CA"
+      },
+      "sameAs": [
+        "https://www.facebook.com/share/1FdDUTEdVB/?mibextid=wwXIfr",
+        "https://www.instagram.com/northsimcoe_propertymanagement?igsh=NHVzNWUwdTE4OTcx&utm_source=qr",
+        "https://www.youtube.com/@NorthSimcoePropertyManagement/shorts"
+      ],
+      "description": "North Simcoe Property Management is a full service property management company providing professional landlord and tenant services for residential, commercial, and mixed-use properties in Simcoe County, York, Peel, Dufferin, Hamilton, Niagara, and Muskoka regions."
+    };
+
     useHead({
       // Can be static or computed
       title: computed(() => siteData.title),
+      htmlAttrs: {
+        lang: "en",
+      },
       meta: [
         {
           name: `description`,
@@ -102,6 +146,10 @@ export default {
         {
           type: "application/ld+json",
           children: JSON.stringify(localBusinessSchema),
+        },
+        {
+          type: "application/ld+json",
+          children: JSON.stringify(organizationSchema),
         },
       ],
     });

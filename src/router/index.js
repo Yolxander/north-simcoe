@@ -21,8 +21,8 @@ const routes = [
       ...Home,
       setup() {
         const pageUrl = baseUrl;
-        const pageTitle = "Property Management Simcoe County | Residential & Commercial Rental Services";
-        const pageDescription = "Expert property management services in Simcoe County, York, Peel, Dufferin, Hamilton & Muskoka. Professional landlord and tenant services for residential and commercial properties. Contact us today!";
+        const pageTitle = "Property Management Simcoe County | Rental Services";
+        const pageDescription = "Expert property management in Simcoe County, York, Peel, Dufferin, Hamilton & Muskoka. Professional landlord and tenant services for residential and commercial properties.";
         useHead({
           title: pageTitle,
           meta: [

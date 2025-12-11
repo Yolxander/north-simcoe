@@ -4,12 +4,17 @@
       class="w-full mx-auto max-w-screen-xl p-4 md:pl-28 md:flex md:items-center md:justify-between"
     >
       <div class="flex flex-col md:flex-row md:items-center">
-        <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400"
-          >© 2023
-          <a href="https://flowbite.com/" class="hover:underline"
-            >North Simcoe LLP</a
-          >. All Rights Reserved.
-        </span>
+        <div class="flex flex-col">
+          <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400"
+            >© 2023
+            <a href="https://flowbite.com/" class="hover:underline"
+              >North Simcoe LLP</a
+            >. All Rights Reserved.
+          </span>
+          <span class="text-xs text-gray-400 sm:text-center dark:text-gray-500 mt-1">
+            Serving: Bolton, Bradford, Caledon, Newmarket, Barrie, and surrounding areas
+          </span>
+        </div>
         
         <!-- Social Media Section -->
         <div class="flex items-center space-x-4 mt-4 md:mt-0 md:ml-8">

@@ -61,12 +61,14 @@
             class="text-teal mr-4 text-6xl"
           />
           <div>
-            <!-- <div class="flex"> -->
             <h3 class="text-xl font-semibold text-brown font-archivo align-end">
-              Area
+              Address
             </h3>
             <p class="font-open-sans text-brown text-xl md:text-2xl">
-              Simcoe, York, Peel, Dufferin, Niagara and Muskoka Regions
+              Simcoe County, Ontario, Canada
+            </p>
+            <p class="font-open-sans text-brown text-lg md:text-xl mt-2">
+              Serving: Simcoe, York, Peel, Dufferin, Niagara and Muskoka Regions. Cities include: Bolton, Bradford, Caledon, Newmarket, Barrie, and more.
             </p>
           </div>
         </div>
