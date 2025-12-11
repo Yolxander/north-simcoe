@@ -35,7 +35,7 @@ export default {
       "name": "North Simcoe Property Management",
       "telephone": "+1 (647) 500-1747",
       "email": "info@northsimcoepm.ca",
-      "url": "https://northsimcoepm.ca",
+      "url": "https://northsimcoepm.com",
       "areaServed": [
         {
           "@type": "City",

@@ -11,7 +11,7 @@ import NotFound from "@/views/NotFound.vue";
 import { useHead } from "@vueuse/head";
 import SuccessComponent from "@/components/SuccessComponent.vue";
 
-const baseUrl = "https://northsimcoepm.ca";
+const baseUrl = "https://northsimcoepm.com";
 const defaultImage = `${baseUrl}/logo.png`;
 
 const routes = [
