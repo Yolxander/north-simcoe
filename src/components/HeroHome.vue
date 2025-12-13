@@ -19,7 +19,7 @@
   </div>
 
   <section id="section05" class="demo">
-    <a style="margin-bottom: 20px; cursor: pointer" @click="scrollToNext"
+    <a href="#next-section" style="margin-bottom: 20px; cursor: pointer" @click.prevent="scrollToNext"
       ><span class="scroll-arrow"></span
     ></a>
   </section>
