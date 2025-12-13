@@ -1,0 +1,15 @@
+{
+  "name": "North Simcoe Property Management",
+  "short_name": "North Simcoe PM",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "205x70",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "display": "standalone"
+}
+
