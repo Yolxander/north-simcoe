@@ -9,6 +9,7 @@ import Forms from "@/views/TenantFormPage.vue";
 import CommercialFormPage from "@/views/CommercialFormPage.vue";
 import NotFound from "@/views/NotFound.vue";
 import LocationPage from "@/views/LocationPage.vue";
+import FAQPage from "@/views/FAQPage.vue";
 import { useHead } from "@vueuse/head";
 import SuccessComponent from "@/components/SuccessComponent.vue";
 
@@ -373,6 +374,64 @@ const routes = [
         const pageUrl = `${baseUrl}/gallery`;
         const pageTitle = "Property Gallery | Residential & Commercial Rental Properties";
         const pageDescription = "Browse our gallery of professionally managed rental properties in Simcoe County. View residential, commercial, and mixed-use properties available for lease.";
+        useHead({
+          title: pageTitle,
+          meta: [
+            {
+              name: `description`,
+              content: pageDescription,
+            },
+            {
+              property: "og:title",
+              content: pageTitle,
+            },
+            {
+              property: "og:description",
+              content: pageDescription,
+            },
+            {
+              property: "og:url",
+              content: pageUrl,
+            },
+            {
+              property: "og:type",
+              content: "website",
+            },
+            {
+              property: "og:image",
+              content: defaultImage,
+            },
+            {
+              name: "twitter:card",
+              content: "summary_large_image",
+            },
+            {
+              name: "twitter:title",
+              content: pageTitle,
+            },
+            {
+              name: "twitter:description",
+              content: pageDescription,
+            },
+          ],
+          link: [
+            {
+              rel: "canonical",
+              href: pageUrl,
+            },
+          ],
+        });
+      },
+    },
+  },
+  {
+    path: "/faq",
+    component: {
+      ...FAQPage,
+      setup() {
+        const pageUrl = `${baseUrl}/faq`;
+        const pageTitle = "FAQ | Property Management Questions | North Simcoe PM";
+        const pageDescription = "Frequently asked questions about property management services in Simcoe County. Learn about our services, pricing, tenant screening, maintenance, and more. Get answers to common landlord questions.";
         useHead({
           title: pageTitle,
           meta: [
