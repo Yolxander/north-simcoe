@@ -23,8 +23,8 @@ const routes = [
       ...Home,
       setup() {
         const pageUrl = baseUrl;
-        const pageTitle = "Property Management Simcoe County | Rental Services";
-        const pageDescription = "Expert property management in Simcoe County, York, Peel, Dufferin, Hamilton & Muskoka. Professional landlord and tenant services for residential and commercial properties.";
+        const pageTitle = "Property Management Simcoe | Rental Services";
+        const pageDescription = "Expert property management in Simcoe, York, Peel, Dufferin, Hamilton & Muskoka. Professional landlord and tenant services for residential and commercial properties.";
         useHead({
           title: pageTitle,
           meta: [
@@ -81,7 +81,7 @@ const routes = [
       ...CompanyPage,
       setup() {
         const pageUrl = `${baseUrl}/our-company`;
-        const pageTitle = "Professional Property Management Team | Simcoe County Experts";
+        const pageTitle = "Professional Property Management Team | Simcoe Experts";
         const pageDescription = "Meet our experienced property management team serving Simcoe, York, Peel, Dufferin, Hamilton, Niagara & Muskoka. Expert landlord services and tenant management. Get started today!";
         useHead({
           title: pageTitle,
@@ -198,7 +198,7 @@ const routes = [
       ...Contact,
       setup() {
         const pageUrl = `${baseUrl}/contact`;
-        const pageTitle = "Contact Property Management Experts | Simcoe County";
+        const pageTitle = "Contact Property Management Experts | Simcoe";
         const pageDescription = "Contact North Simcoe Property Management for expert landlord and tenant services. Serving Simcoe, York, Peel, Dufferin, Hamilton & Muskoka regions. Get a free consultation today!";
         useHead({
           title: pageTitle,
@@ -257,7 +257,7 @@ const routes = [
       setup() {
         const pageUrl = `${baseUrl}/residential-form`;
         const pageTitle = "Residential Tenant Application | Apply for Rental Properties";
-        const pageDescription = "Apply for residential rental properties in Simcoe County. Complete our tenant application form for residential property rentals. Quick and easy application process.";
+        const pageDescription = "Apply for residential rental properties in Simcoe. Complete our tenant application form for residential property rentals. Quick and easy application process.";
         useHead({
           title: pageTitle,
           meta: [
@@ -315,7 +315,7 @@ const routes = [
       setup() {
         const pageUrl = `${baseUrl}/commercial-form`;
         const pageTitle = "Commercial Property Rental Application | Business Space Leasing";
-        const pageDescription = "Apply for commercial and mixed-use property rentals in Simcoe County. Complete our commercial tenant application for office, retail, and business space leasing.";
+        const pageDescription = "Apply for commercial and mixed-use property rentals in Simcoe. Complete our commercial tenant application for office, retail, and business space leasing.";
         useHead({
           title: pageTitle,
           meta: [
@@ -373,7 +373,7 @@ const routes = [
       setup() {
         const pageUrl = `${baseUrl}/gallery`;
         const pageTitle = "Property Gallery | Residential & Commercial Rental Properties";
-        const pageDescription = "Browse our gallery of professionally managed rental properties in Simcoe County. View residential, commercial, and mixed-use properties available for lease.";
+        const pageDescription = "Browse our gallery of professionally managed rental properties in Simcoe. View residential, commercial, and mixed-use properties available for lease.";
         useHead({
           title: pageTitle,
           meta: [
@@ -431,7 +431,7 @@ const routes = [
       setup() {
         const pageUrl = `${baseUrl}/faq`;
         const pageTitle = "FAQ | Property Management Questions | North Simcoe PM";
-        const pageDescription = "Frequently asked questions about property management services in Simcoe County. Learn about our services, pricing, tenant screening, maintenance, and more. Get answers to common landlord questions.";
+        const pageDescription = "Frequently asked questions about property management services in Simcoe. Learn about our services, pricing, tenant screening, maintenance, and more. Get answers to common landlord questions.";
         useHead({
           title: pageTitle,
           meta: [
@@ -811,7 +811,7 @@ const routes = [
       setup() {
         const pageUrl = `${baseUrl}/property-management-bradford`;
         const pageTitle = "Property Management Bradford | Expert Landlord Services";
-        const pageDescription = "Professional property management services in Bradford, Ontario. Expert landlord and tenant services for residential and commercial properties. Serving Bradford property owners in Simcoe County with comprehensive property management solutions.";
+        const pageDescription = "Professional property management services in Bradford, Ontario. Expert landlord and tenant services for residential and commercial properties. Serving Bradford property owners in Simcoe with comprehensive property management solutions.";
         useHead({
           title: pageTitle,
           meta: [
@@ -1075,7 +1075,7 @@ const routes = [
       setup() {
         const pageUrl = `${baseUrl}/property-management-cookstown`;
         const pageTitle = "Property Management Cookstown | Expert Landlord Services";
-        const pageDescription = "Professional property management services in Cookstown, Ontario. Expert landlord and tenant services for residential and commercial properties. Serving Cookstown property owners in Simcoe County with comprehensive property management solutions.";
+        const pageDescription = "Professional property management services in Cookstown, Ontario. Expert landlord and tenant services for residential and commercial properties. Serving Cookstown property owners in Simcoe with comprehensive property management solutions.";
         useHead({
           title: pageTitle,
           meta: [
@@ -1163,7 +1163,7 @@ const routes = [
       setup() {
         const pageUrl = `${baseUrl}/property-management-tottenham`;
         const pageTitle = "Property Management Tottenham | Expert Landlord Services";
-        const pageDescription = "Professional property management services in Tottenham, Ontario. Expert landlord and tenant services for residential and commercial properties. Serving Tottenham property owners in Simcoe County with comprehensive property management solutions.";
+        const pageDescription = "Professional property management services in Tottenham, Ontario. Expert landlord and tenant services for residential and commercial properties. Serving Tottenham property owners in Simcoe with comprehensive property management solutions.";
         useHead({
           title: pageTitle,
           meta: [
@@ -1427,7 +1427,7 @@ const routes = [
       setup() {
         const pageUrl = `${baseUrl}/property-management-alliston`;
         const pageTitle = "Property Management Alliston | Expert Landlord Services";
-        const pageDescription = "Professional property management services in Alliston, Ontario. Expert landlord and tenant services for residential and commercial properties. Serving Alliston property owners in Simcoe County with comprehensive property management solutions.";
+        const pageDescription = "Professional property management services in Alliston, Ontario. Expert landlord and tenant services for residential and commercial properties. Serving Alliston property owners in Simcoe with comprehensive property management solutions.";
         useHead({
           title: pageTitle,
           meta: [

@@ -8,7 +8,7 @@
         <p class="text-lg mb-4 text-white">NORTH SIMCOE PROPERTY MANAGEMENT</p>
         <hr class="w-10 md:w-48 h-1 my-4 border-0 rounded bg-white" />
         <h1 class="text-4xl md:text-7xl mb-4 text-white">
-          Top property management company in Simcoe County.
+          Top property management company in Simcoe.
         </h1>
         <hr class="w-10 md:w-48 h-1 my-4 border-0 rounded bg-white" />
         <p class="text-lg mb-4 text-white">

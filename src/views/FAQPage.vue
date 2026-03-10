@@ -10,7 +10,7 @@
         Common Questions About Our Property Management Services
       </h3>
       <p class="font-open-sans text-brown text-xl mb-12">
-        Find answers to the most common questions about property management services in Simcoe County and surrounding areas. <a href="/contact" class="text-teal hover:underline font-semibold">Contact us</a> if you have additional questions.
+        Find answers to the most common questions about property management services in Simcoe and surrounding areas. <a href="/contact" class="text-teal hover:underline font-semibold">Contact us</a> if you have additional questions.
       </p>
     </div>
   </ObserverComponent>
@@ -73,7 +73,7 @@ export default {
         {
           question: "What areas do you serve?",
           answer:
-            "We provide property management services throughout Simcoe County and beyond. Our service areas include York, Peel, Dufferin, Hamilton, Niagara, and Muskoka Regions. We serve cities such as Barrie, Newmarket, Caledon, Bradford, Bolton, and many more communities. <a href='/services' class='text-teal hover:underline font-semibold'>View our full service areas</a>.",
+            "We provide property management services throughout Simcoe and beyond. Our service areas include York, Peel, Dufferin, Hamilton, Niagara, and Muskoka Regions. We serve cities such as Barrie, Newmarket, Caledon, Bradford, Bolton, and many more communities. <a href='/services' class='text-teal hover:underline font-semibold'>View our full service areas</a>.",
           isOpen: true,
         },
         {
@@ -145,7 +145,7 @@ export default {
         {
           name: `description`,
           content:
-            "Frequently asked questions about property management services in Simcoe County. Learn about our services, pricing, tenant screening, maintenance, and more. Get answers to common landlord questions.",
+            "Frequently asked questions about property management services in Simcoe. Learn about our services, pricing, tenant screening, maintenance, and more. Get answers to common landlord questions.",
         },
         {
           property: "og:title",
@@ -154,7 +154,7 @@ export default {
         {
           property: "og:description",
           content:
-            "Frequently asked questions about property management services in Simcoe County. Learn about our services, pricing, tenant screening, maintenance, and more.",
+            "Frequently asked questions about property management services in Simcoe. Learn about our services, pricing, tenant screening, maintenance, and more.",
         },
         {
           property: "og:url",
@@ -179,7 +179,7 @@ export default {
         {
           name: "twitter:description",
           content:
-            "Frequently asked questions about property management services in Simcoe County. Learn about our services, pricing, and more.",
+            "Frequently asked questions about property management services in Simcoe. Learn about our services, pricing, and more.",
         },
       ],
       link: [
