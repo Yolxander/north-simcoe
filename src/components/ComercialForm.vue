@@ -423,7 +423,7 @@
 </template>
 
 <script>
-
+import { trackEvent } from "@/services/analytics";
 import "jspdf-autotable"
 import PdfGenerator from "@/components/PdfGenerator.vue";
 
@@ -568,11 +568,18 @@ export default {
 
             this.isSubmitted = true;
 
+            // Track commercial form submission
+            trackEvent("commercial_form_submit", {
+                event_category: "conversion",
+                event_label: "commercial_application"
+            });
+
             // Debug: Log the current screen width
             console.log("Current window.innerWidth:", window.innerWidth);
             // Check if on a mobile device (typically consider < 768px as mobile)
             this.isMobileScreen = window.innerWidth < 768;
 
+            // ...
             // Debug: Log the value of isMobileScreen
             console.log("Is Mobile Screen:", this.isMobileScreen);
 

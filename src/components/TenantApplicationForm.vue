@@ -1178,6 +1178,14 @@ export default {
         submitForm() {
             this.isSubmitted = true;
 
+            // Track residential form submission
+            if (window.gtag) {
+                window.gtag("event", "residential_form_submit", {
+                    event_category: "conversion",
+                    event_label: "tenant_application"
+                });
+            }
+
             // Debug: Log the current screen width
             console.log("Current window.innerWidth:", window.innerWidth);
             // Check if on a mobile device (typically consider < 768px as mobile)

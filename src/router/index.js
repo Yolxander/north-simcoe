@@ -1613,6 +1613,8 @@ const router = createRouter({
   },
 });
 
+import { trackPage } from "../services/analytics"
+
 router.beforeEach((to, from, next) => {
   document.title = to.meta.title || 'Default Title';
   const metaDescription = document.querySelector('meta[name="description"]');
@@ -1620,6 +1622,10 @@ router.beforeEach((to, from, next) => {
     metaDescription.setAttribute('content', to.meta.description || 'Default Description');
   }
   next();
+});
+
+router.afterEach((to) => {
+  trackPage(to.fullPath)
 });
 
 export default router;

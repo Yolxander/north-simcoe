@@ -4,13 +4,13 @@
 
     <div class="social-icons flex justify-between text-white">
 
-        <a href="tel:+16475001747">
+        <a href="tel:+16475001747" @click="trackPhoneClick">
             <button class="icon-btn">
                     <font-awesome-icon :icon="['fas', 'phone']" size="1x" />
             </button>
         </a>
 
-        <a href="https://www.facebook.com/share/1FdDUTEdVB/?mibextid=wwXIfr">
+        <a href="https://www.facebook.com/share/1FdDUTEdVB/?mibextid=wwXIfr" @click="trackSocialClick('facebook')">
             <button class="icon-btn">
                     <font-awesome-icon
                         :icon="['fab', 'facebook-f']" size="1x"
@@ -18,13 +18,13 @@
             </button>
         </a>
 
-        <a href="https://www.instagram.com/northsimcoe_propertymanagement?igsh=NHVzNWUwdTE4OTcx&utm_source=qr">
+        <a href="https://www.instagram.com/northsimcoe_propertymanagement?igsh=NHVzNWUwdTE4OTcx&utm_source=qr" @click="trackSocialClick('instagram')">
             <button class="icon-btn">
                   <font-awesome-icon :icon="['fab', 'instagram']" size="1x" />
             </button>
         </a>
 
-        <a href="https://www.youtube.com/@NorthSimcoePropertyManagement/shorts">
+        <a href="https://www.youtube.com/@NorthSimcoePropertyManagement/shorts" @click="trackSocialClick('youtube')">
             <button class="icon-btn">
                   <font-awesome-icon :icon="['fab', 'youtube']" size="1x" />
             </button>
@@ -37,9 +37,24 @@
 
 
 <script>
+import { trackEvent } from "@/services/analytics";
 
 export default {
-    name: 'SocialIcons'
+    name: 'SocialIcons',
+    methods: {
+        trackPhoneClick() {
+            trackEvent("phone_click", {
+                event_category: "contact",
+                event_label: "social_icons"
+            });
+        },
+        trackSocialClick(platform) {
+            trackEvent("social_click", {
+                event_category: "engagement",
+                event_label: platform
+            });
+        }
+    }
 }
 </script>
 

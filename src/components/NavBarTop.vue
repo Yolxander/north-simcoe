@@ -9,7 +9,7 @@
         class="flex w-full items-center justify-between px-10 p-4 md:space-x-8 md:w-auto md:pl-2 md:border md:border-transparent md:border-solid md:border-1 md:backdrop-filter md:backdrop-blur-lg md:bg-teal/40 md:rounded relative"
       >
         <p class="text-brown">
-          <a href="tel:+16475001747" class="flex items-center">
+          <a href="tel:+16475001747" @click="trackPhoneClick" class="flex items-center">
             <svg
               class="svg-inline--fa fa-phone text-3xl"
               aria-hidden="true"
@@ -96,11 +96,13 @@
               <div v-if="showDropdown" class="w-64 z-10 text-2xl">
                   <a
                           :href="commercial_link"
+                          @click="trackFormClick('commercial')"
                           target="_blank"
                           class="block text-brown p-2"
                   >COMMERCIAL FORM</a>
                   <a
                           :href="residential_link"
+                          @click="trackFormClick('residential')"
                           target="_blank"
                           class="block text-brown p-2"
                   >RESIDENTIAL FORM</a>
@@ -132,6 +134,8 @@
 </template>
 
 <script>
+import { trackEvent } from "@/services/analytics";
+
 export default {
   name: "NavBarTop",
   // components: {SocialIcons},
@@ -159,7 +163,19 @@ export default {
     },
     isExternalLink(link) {
           return /^(https?:\/\/)/.test(link);
-      }
+      },
+    trackPhoneClick() {
+      trackEvent("phone_click", {
+        event_category: "contact",
+        event_label: "navbar"
+      });
+    },
+    trackFormClick(formType) {
+      trackEvent("form_click", {
+        event_category: "conversion",
+        event_label: formType
+      });
+    }
   },
   watch: {
     $route() {

@@ -30,6 +30,7 @@
             <p class="font-open-sans text-brown text-2xl">Send us an email</p>
             <a
               href="mailto:info@northsimcoepm.ca"
+              @click="trackEmailClick"
               class="font-open-sans text-brown text-xl md:text-2xl animate-link"
               >info@northsimcoepm.ca</a
             >
@@ -48,6 +49,7 @@
             <p class="font-open-sans text-brown text-2xl">Give us a call</p>
             <a
               href="tel:+1(647)-500-1747"
+              @click="trackPhoneClick"
               class="font-open-sans text-brown text-xl md:text-2xl"
             >
               +1 (647) 500-1747
@@ -85,13 +87,13 @@
             </h3>
             <p class="font-open-sans text-brown text-2xl">Connect with us on social media</p>
             <div class="flex items-center space-x-4 mt-2">
-              <a href="https://www.facebook.com/share/1FdDUTEdVB/?mibextid=wwXIfr" target="_blank" class="text-brown hover:text-blue-600 transition-colors duration-200">
+              <a href="https://www.facebook.com/share/1FdDUTEdVB/?mibextid=wwXIfr" @click="trackSocialClick('facebook')" target="_blank" class="text-brown hover:text-blue-600 transition-colors duration-200">
                 <font-awesome-icon :icon="['fab', 'facebook-f']" size="2x" />
               </a>
-              <a href="https://www.instagram.com/northsimcoe_propertymanagement?igsh=NHVzNWUwdTE4OTcx&utm_source=qr" target="_blank" class="text-brown hover:text-pink-600 transition-colors duration-200">
+              <a href="https://www.instagram.com/northsimcoe_propertymanagement?igsh=NHVzNWUwdTE4OTcx&utm_source=qr" @click="trackSocialClick('instagram')" target="_blank" class="text-brown hover:text-pink-600 transition-colors duration-200">
                 <font-awesome-icon :icon="['fab', 'instagram']" size="2x" />
               </a>
-              <a href="https://www.youtube.com/@NorthSimcoePropertyManagement/shorts" target="_blank" class="text-brown hover:text-red-600 transition-colors duration-200">
+              <a href="https://www.youtube.com/@NorthSimcoePropertyManagement/shorts" @click="trackSocialClick('youtube')" target="_blank" class="text-brown hover:text-red-600 transition-colors duration-200">
                 <font-awesome-icon :icon="['fab', 'youtube']" size="2x" />
               </a>
             </div>
@@ -116,6 +118,7 @@ import "tailwindcss/tailwind.css";
 import ContactUs from "../components/ContactUs.vue";
 import HeroGlobal from "../components/HeroGlobal.vue";
 import ObserverComponent from "../components/IntersectionObserver.vue";
+import { trackEvent } from "../services/analytics";
 
 // Import OpenLayers dependencies
 import "ol/ol.css";
@@ -188,6 +191,24 @@ export default {
         }),
       });
     },
+    trackPhoneClick() {
+      trackEvent("phone_click", {
+        event_category: "contact",
+        event_label: "contact_page"
+      });
+    },
+    trackEmailClick() {
+      trackEvent("email_click", {
+        event_category: "contact",
+        event_label: "contact_page"
+      });
+    },
+    trackSocialClick(platform) {
+      trackEvent("social_click", {
+        event_category: "engagement",
+        event_label: platform
+      });
+    }
   },
 };
 </script>

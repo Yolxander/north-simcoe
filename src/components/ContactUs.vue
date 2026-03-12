@@ -84,6 +84,7 @@
 
 <script>
 import emailjs from '@emailjs/browser';
+import { trackEvent } from "@/services/analytics";
 export default {
   name: "ContactUs",
     data() {
@@ -103,7 +104,11 @@ export default {
                 message: this.message,
             }, 'NxLLnhlEW3KDj2zPO')
                 .then((result) => {
-                    this.email_sent = true,
+                    this.email_sent = true;
+                    trackEvent("contact_form_submit", {
+                        event_category: "conversion",
+                        event_label: "contact_us"
+                    });
                     console.log('SUCCESS!', result.text);
                 }, (error) => {
                     console.log('FAILED...', error.text);
