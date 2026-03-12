@@ -24,7 +24,7 @@ const routes = [
       setup() {
         const pageUrl = baseUrl;
         const pageTitle = "Property Management Simcoe | Rental Services";
-        const pageDescription = "Expert property management in Simcoe, York, Peel, Dufferin, Hamilton & Muskoka. Professional landlord and tenant services for residential and commercial properties.";
+        const pageDescription = "Expert property management in Simcoe, York, Peel, Dufferin & Muskoka. Professional landlord and tenant services for residential and commercial properties.";
         useHead({
           title: pageTitle,
           meta: [
@@ -82,7 +82,7 @@ const routes = [
       setup() {
         const pageUrl = `${baseUrl}/our-company`;
         const pageTitle = "Professional Property Management Team | Simcoe Experts";
-        const pageDescription = "Meet our experienced property management team serving Simcoe, York, Peel, Dufferin, Hamilton, Niagara & Muskoka. Expert landlord services and tenant management. Get started today!";
+        const pageDescription = "Meet our experienced property management team serving Simcoe, York, Peel, Dufferin & Muskoka. Expert landlord services and tenant management. Get started today!";
         useHead({
           title: pageTitle,
           meta: [
@@ -199,7 +199,7 @@ const routes = [
       setup() {
         const pageUrl = `${baseUrl}/contact`;
         const pageTitle = "Contact Property Management Experts | Simcoe";
-        const pageDescription = "Contact North Simcoe Property Management for expert landlord and tenant services. Serving Simcoe, York, Peel, Dufferin, Hamilton & Muskoka regions. Get a free consultation today!";
+        const pageDescription = "Contact North Simcoe Property Management for expert landlord and tenant services. Serving Simcoe, York, Peel, Dufferin & Muskoka regions. Get a free consultation today!";
         useHead({
           title: pageTitle,
           meta: [

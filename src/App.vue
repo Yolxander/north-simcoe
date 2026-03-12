@@ -64,10 +64,6 @@ export default {
         },
         {
           "@type": "City",
-          "name": "Niagara Region"
-        },
-        {
-          "@type": "City",
           "name": "Muskoka"
         },
         {
@@ -127,7 +123,7 @@ export default {
         "https://www.instagram.com/northsimcoe_propertymanagement?igsh=NHVzNWUwdTE4OTcx&utm_source=qr",
         "https://www.youtube.com/@NorthSimcoePropertyManagement/shorts"
       ],
-      "description": "North Simcoe Property Management is a full service property management company providing professional landlord and tenant services for residential, commercial, and mixed-use properties in Simcoe, York, Peel, Dufferin, Hamilton, Niagara, and Muskoka regions."
+      "description": "North Simcoe Property Management is a full service property management company providing professional landlord and tenant services for residential, commercial, and mixed-use properties in Simcoe, York, Peel, Dufferin and Muskoka regions."
     };
 
     useHead({

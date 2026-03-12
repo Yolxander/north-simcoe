@@ -73,7 +73,7 @@ export default {
         {
           question: "What areas do you serve?",
           answer:
-            "We provide property management services throughout Simcoe and beyond. Our service areas include York, Peel, Dufferin, Hamilton, Niagara, and Muskoka Regions. We serve cities such as Barrie, Newmarket, Caledon, Bradford, Bolton, and many more communities. <a href='/services' class='text-teal hover:underline font-semibold'>View our full service areas</a>.",
+            "We provide property management services throughout Simcoe and beyond. Our service areas include York, Peel, Dufferin and Muskoka Regions. We serve cities such as Barrie, Newmarket, Caledon, Bradford, Bolton, and many more communities. <a href='/services' class='text-teal hover:underline font-semibold'>View our full service areas</a>.",
           isOpen: true,
         },
         {
