@@ -15,6 +15,9 @@
   <ObserverComponent classToToggle="fadeInLeft" playOnce="true">
     <TestimonialsHome />
   </ObserverComponent>
+  <ObserverComponent classToToggle="fadeInRight" playOnce="true">
+    <MailchimpSignup />
+  </ObserverComponent>
   <ObserverComponent classToToggle="fadeInBottom" playOnce="true">
     <ContactUs />
   </ObserverComponent>
@@ -29,6 +32,7 @@ import ServiceAriaHome from "../components/ServiceAriaHome.vue";
 import TestimonialsHome from "../components/TestimonialsHome.vue";
 import LayoutTwoSections from "../components/LayoutTwoSections.vue";
 import ContactUs from "../components/ContactUs.vue";
+import MailchimpSignup from "../components/MailchimpSignup.vue";
 import ObserverComponent from "../components/IntersectionObserver.vue";
 
 export default {
@@ -41,6 +45,7 @@ export default {
     ServiceAriaHome,
     TestimonialsHome,
     ContactUs,
+    MailchimpSignup,
     ObserverComponent,
   },
   data() {

@@ -116,6 +116,12 @@
             >GALLERY</router-link
           >
           <router-link
+            to="/videos"
+            class="block text-brown mb-2"
+            active-class="text-tealdark"
+            >VIDEOS</router-link
+          >
+          <router-link
             to="/faq"
             class="block text-brown mb-2"
             active-class="text-tealdark"
