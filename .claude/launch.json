@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "dev",
+      "runtimeExecutable": "/Users/humancontact/.nvm/versions/node/v22.11.0/bin/node",
+      "runtimeArgs": ["node_modules/.bin/vue-cli-service", "serve"],
+      "port": 8080
+    }
+  ]
+}
