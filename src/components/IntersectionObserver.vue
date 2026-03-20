@@ -13,8 +13,16 @@ export default {
       default: "fadeInTop",
     },
     playOnce: {
-      type: Boolean,
+      type: [Boolean, String],
       default: false,
+    },
+  },
+  computed: {
+    shouldPlayOnce() {
+      if (typeof this.playOnce === "string") {
+        return this.playOnce.toLowerCase() === "true";
+      }
+      return Boolean(this.playOnce);
     },
   },
   mounted() {
@@ -32,7 +40,7 @@ export default {
         ) {
           entry.target.classList.add(this.classToToggle);
 
-          if (this.playOnce) {
+          if (this.shouldPlayOnce) {
             observer.unobserve(entry.target);
           } else {
             setTimeout(() => {
