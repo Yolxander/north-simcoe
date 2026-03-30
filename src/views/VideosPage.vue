@@ -124,16 +124,15 @@ export default {
   constants: {
     SUPABASE_STORAGE_BASE_URL:
       "https://kvirwlcodrpwnwzvfcqr.supabase.co/storage/v1/object/public/client-cms",
-    VIDEO_FOLDER: "northsimcoe/client-videos",
+    VIDEO_FOLDER: "northsimcoe/loomly-videos",
     VIDEO_FILENAMES: [
-      "North Simcoe PM - introductions.mp4",
-      "North Simcoe PM - laws & regs.mp4",
-      "North Simcoe PM - like plumbing(1).mp4",
-      "North Simcoe PM - priority of calls.mp4",
-      "North Simcoe PM - technology.mp4",
-      "North Simcoe PM - tenant screening quality re.mp4",
-      "North Simcoe PM - what makes us different.mp4",
-      "North Simcoe PM rap.mp4",
+      "Introducing Linda & Larry.mov",
+      "Aesthetic reel.mov",
+      "Bad tenants = bad investments.mov",
+      "Maintenance chaos.mov",
+      "Maintenance Vs management.mov",
+      "One missed regulation.mov",
+      "The right technology.mov",
     ],
   },
   components: {
