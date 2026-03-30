@@ -1,7 +1,7 @@
 <template>
   <HeroGlobal :hero="hero" />
   <ObserverComponent classToToggle="fadeInTop" :playOnce="true">
-    <div class="p-12 md:p-24 text-center">
+    <div class="pl-10 md:pl-48 pr-10 md:pr-48 py-12 md:py-24 text-center">
       <h3 class="text-3xl font-semibold text-brown font-archivo mb-4">
         Property Management Videos
       </h3>
@@ -12,7 +12,7 @@
     </div>
   </ObserverComponent>
   <div
-    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-8 pb-12 md:px-24"
+    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pl-10 md:pl-48 pr-10 md:pr-48 pb-12"
   >
     <ObserverComponent
       v-for="video in videos"
