@@ -127,12 +127,16 @@ export default {
     VIDEO_FOLDER: "northsimcoe/loomly-videos",
     VIDEO_FILENAMES: [
       "Introducing Linda & Larry.mov",
+        "About North Simcoe PM.MOV",
       "Aesthetic reel.mov",
       "Bad tenants = bad investments.mov",
       "Maintenance chaos.mov",
       "Maintenance Vs management.mov",
       "One missed regulation.mov",
       "The right technology.mov",
+      "Key Factors to look for.MOV",
+      "Story Time.MOV",
+      "Why Hiring the Right Property Management Company Matters.MOV"
     ],
   },
   components: {

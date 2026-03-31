@@ -32,7 +32,7 @@
     "path-browserify": "^1.0.1",
     "pdfkit": "^0.14.0",
     "swiper": "^10.1.0",
-    "vercel": "^50.32.5",
+    "vercel": "^50.37.3",
     "vue": "^3.2.13",
     "vue-router": "^4.2.4",
     "vue-signature-pad": "^3.0.2",
