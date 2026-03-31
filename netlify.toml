@@ -5,7 +5,7 @@ publish = "dist"
 [build.environment]
 NODE_ENV = "development"
 NPM_FLAGS = "--legacy-peer-deps"
-node_version = "16"
+node_version = "20"
 
 [[redirects]]
 from = "/*"
