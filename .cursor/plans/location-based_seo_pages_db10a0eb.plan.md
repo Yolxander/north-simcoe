@@ -84,7 +84,7 @@ Each location will have:
 - **description**: Meta description with location keywords
 - **h1**: Main heading for the page
 - **introContent**: Location-specific introductory paragraph
-- **region**: Regional context (e.g., "Simcoe County", "York Region")
+- **region**: Regional context (e.g., "Simcoe", "York Region")
 - **nearbyAreas**: Related nearby locations for internal linking
 
 ## Implementation Details
@@ -123,7 +123,7 @@ Each location will have:
 
 - Each location page emphasizes local expertise
 - Content mentions the specific city/town name naturally
-- Includes regional context (e.g., "in Simcoe County" for Barrie)
+- Includes regional context (e.g., "in Simcoe" for Barrie)
 - References nearby areas for broader coverage
 - Maintains consistent service descriptions with location context
 
@@ -138,7 +138,7 @@ Each location will have:
 
 ## Location List (3 priority areas)
 
-1. **Barrie** (Simcoe County) - Largest city in Simcoe County, major market
+1. **Barrie** (Simcoe) - Largest city in Simcoe, major market
 2. **Newmarket** (York Region) - Growing urban center in York Region
 3. **Caledon** (Peel Region) - Expanding community in Peel Region
 
