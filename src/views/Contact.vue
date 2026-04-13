@@ -67,10 +67,10 @@
               Address
             </h3>
             <p class="font-open-sans text-brown text-xl md:text-2xl">
-              Simcoe, Ontario, Canada
+              Simcoe County, Ontario, Canada
             </p>
             <p class="font-open-sans text-brown text-lg md:text-xl mt-2">
-              Serving: Simcoe, York, Peel, Dufferin and Muskoka Regions. Cities include: Bolton, Bradford, Caledon, Newmarket, Barrie, and more.
+              Serving: Simcoe County, York, Peel, Dufferin and Muskoka Regions. Cities include: Bolton, Bradford, Caledon, Newmarket, Barrie, and more.
             </p>
           </div>
         </div>

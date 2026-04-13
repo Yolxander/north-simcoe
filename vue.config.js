@@ -11,7 +11,7 @@ module.exports = defineConfig({
   },
   chainWebpack: config => {
     config.plugin('html').tap(args => {
-      args[0].title = 'North Simcoe Property Management in Simcoe'
+      args[0].title = 'North Simcoe Property Management in Simcoe County'
       return args
     })
   }

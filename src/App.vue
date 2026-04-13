@@ -24,8 +24,8 @@ export default {
   },
   setup() {
     const siteData = reactive({
-      title: `North Simcoe Property Management in Simcoe`,
-      description: `North Simcoe Property Management is a leading full service property management company in Simcoe. Contact us today`,
+      title: `North Simcoe Property Management in Simcoe County`,
+      description: `North Simcoe Property Management is a leading full service property management company in Simcoe County. Contact us today`,
     });
 
     // Local Business JSON-LD Schema
@@ -38,7 +38,7 @@ export default {
       "url": "https://northsimcoepm.com",
       "address": {
         "@type": "PostalAddress",
-        "addressLocality": "Simcoe",
+        "addressLocality": "Simcoe County",
         "addressRegion": "Ontario",
         "addressRegionCode": "ON",
         "addressCountry": "CA",
@@ -48,7 +48,7 @@ export default {
       "areaServed": [
         {
           "@type": "City",
-          "name": "Simcoe"
+          "name": "Simcoe County"
         },
         {
           "@type": "City",
@@ -112,7 +112,7 @@ export default {
       },
       "address": {
         "@type": "PostalAddress",
-        "addressLocality": "Simcoe",
+        "addressLocality": "Simcoe County",
         "addressRegion": "Ontario",
         "addressRegionCode": "ON",
         "addressCountry": "CA",
@@ -123,7 +123,7 @@ export default {
         "https://www.instagram.com/northsimcoe_propertymanagement?igsh=NHVzNWUwdTE4OTcx&utm_source=qr",
         "https://www.youtube.com/@NorthSimcoePropertyManagement/shorts"
       ],
-      "description": "North Simcoe Property Management is a full service property management company providing professional landlord and tenant services for residential, commercial, and mixed-use properties in Simcoe, York, Peel, Dufferin and Muskoka regions."
+      "description": "North Simcoe Property Management is a full service property management company providing professional landlord and tenant services for residential, commercial, and mixed-use properties in Simcoe County, York, Peel, Dufferin and Muskoka regions."
     };
 
     useHead({
