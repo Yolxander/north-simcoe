@@ -142,7 +142,10 @@ export default {
       "Key Factors to look for.MOV",
       "Story Time.MOV",
       "Why good tenants leave.mov",
-      "Why Hiring the Right Property Management Company Matters.MOV"
+      "Why Hiring the Right Property Management Company Matters.MOV",
+      "When it says cozy",
+      "Landlord Tips",
+      "Would you rent this?",
     ],
   },
   components: {
