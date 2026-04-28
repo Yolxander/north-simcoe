@@ -143,9 +143,9 @@ export default {
       "Story Time.MOV",
       "Why good tenants leave.mov",
       "Why Hiring the Right Property Management Company Matters.MOV",
-      "When it says cozy",
-      "Landlord Tips",
-      "Would you rent this?",
+      "When it says cozy.mov",
+      "Landlord Tips.mov",
+      "Would you rent this?.mov",
     ],
   },
   components: {
