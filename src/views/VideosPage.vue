@@ -146,6 +146,11 @@ export default {
       "When it says cozy.mov",
       "Landlord Tips.mov",
       "Would you rent this?.mov",
+      "You are Not Just a Landlord.mov",
+      "Madonna trend.mov",
+      "What property managers actually do.mov",
+      "Journey Into Property Management.mov",
+      "POV Balancing Property Management.mov"
     ],
   },
   components: {
