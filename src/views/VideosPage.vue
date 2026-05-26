@@ -150,7 +150,12 @@ export default {
       "Madonna trend.mov",
       "What property managers actually do.mov",
       "Journey Into Property Management.mov",
-      "POV Balancing Property Management.mov"
+      "POV Balancing Property Management.mov",
+      "Describe Property Management in 5 Words.mov",
+      "Your investment property should be making you money.mov",
+      "Every property manager has their role.mov",
+      "Seasonal Maintenance.mov",
+      "Call to newsletter.mov"
     ],
   },
   components: {
