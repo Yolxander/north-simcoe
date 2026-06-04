@@ -155,7 +155,11 @@ export default {
       "Your investment property should be making you money.mov",
       "Every property manager has their role.mov",
       "Seasonal Maintenance.mov",
-      "Call to newsletter.mov"
+      "Call to newsletter.mov",
+      "Cost of Cheap Management.mov",
+      "3rd year in business anniversary.mov",
+      "NEW LOCAL.mov",
+      "I am a.mov"
     ],
   },
   components: {
