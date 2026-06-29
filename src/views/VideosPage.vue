@@ -159,7 +159,16 @@ export default {
       "Cost of Cheap Management.mov",
       "3rd year in business anniversary.mov",
       "NEW LOCAL.mov",
-      "I am a.mov"
+      "I am a.mov",
+      "Legal updates in ontario.mov",
+      "What happens when a tenant stops paying rent?.mov",
+      "Larry talking to himself TikTok trend.mov",
+      "How rental pricing strategies actually work.mov",
+      "Why is property management worth it?.mov",
+      "A Day in the Life of a Property Manager.mov",
+      "Pet-friendly rentals, what landlords should know.mov",
+      "Linda s eviction experience.mov",
+
     ],
   },
   components: {
