@@ -167,7 +167,7 @@ export default {
       "Why is property management worth it?.mov",
       "A Day in the Life of a Property Manager.mov",
       "Pet-friendly rentals, what landlords should know.mov",
-      "Linda s eviction experience.mov",
+      "Eviction experience.mov",
 
     ],
   },
