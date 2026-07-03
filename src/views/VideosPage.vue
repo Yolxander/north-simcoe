@@ -168,7 +168,8 @@ export default {
       "A Day in the Life of a Property Manager.mov",
       "Pet-friendly rentals, what landlords should know.mov",
       "Eviction experience.mov",
-
+      "Canada Day post.mov",
+      "Were viral reactions.mov",
     ],
   },
   components: {
