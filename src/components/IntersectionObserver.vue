@@ -7,6 +7,7 @@
 <script>
 export default {
   name: "ObserverComponent",
+  emits: ["visible"],
   props: {
     classToToggle: {
       type: String,
@@ -32,6 +33,7 @@ export default {
       threshold: 0.3,
     };
 
+    let hasEmittedVisible = false;
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (
@@ -39,6 +41,11 @@ export default {
           !entry.target.classList.contains(this.classToToggle)
         ) {
           entry.target.classList.add(this.classToToggle);
+
+          if (!hasEmittedVisible) {
+            hasEmittedVisible = true;
+            this.$emit("visible");
+          }
 
           if (this.shouldPlayOnce) {
             observer.unobserve(entry.target);

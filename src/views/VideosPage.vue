@@ -15,10 +15,11 @@
     class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pl-10 md:pl-48 pr-10 md:pr-48 pb-12"
   >
     <ObserverComponent
-      v-for="video in videos"
+      v-for="(video, index) in videos"
       :key="video.id"
-      :classToToggle="video.id % 2 === 0 ? 'fadeInTop' : 'fadeInBottom'"
+      :classToToggle="index % 2 === 0 ? 'fadeInTop' : 'fadeInBottom'"
       :playOnce="true"
+      @visible="onVideoVisible(video.id)"
     >
       <div class="bg-white rounded-lg shadow-md overflow-hidden">
         <button
@@ -28,6 +29,7 @@
           :aria-label="`Play video: ${video.title}`"
         >
           <video
+            v-if="loadedThumbnails.has(video.id)"
             class="absolute inset-0 w-full h-full object-cover"
             :src="video.videoUrl + '#t=1'"
             preload="metadata"
@@ -49,9 +51,6 @@
           <h4 class="text-lg font-semibold text-brown font-archivo mb-2">
             {{ video.title }}
           </h4>
-          <p class="text-sm text-gray-600 font-open-sans">
-            {{ video.description }}
-          </p>
           <button
             type="button"
             class="mt-4 inline-flex items-center text-teal hover:underline font-semibold"
@@ -118,59 +117,22 @@ import ContactUs from "../components/ContactUs.vue";
 import HeroGlobal from "../components/HeroGlobal.vue";
 import MailchimpSignup from "../components/MailchimpSignup.vue";
 import ObserverComponent from "../components/IntersectionObserver.vue";
+import { useHead } from "@vueuse/head";
+
+let cachedVideos = null;
 
 export default {
   name: "VideosPage",
+  setup() {
+    useHead({
+      link: [
+        { rel: "preconnect", href: "https://videocdn.loomly.com" },
+        { rel: "dns-prefetch", href: "https://videocdn.loomly.com" },
+      ],
+    });
+  },
   constants: {
-    SUPABASE_STORAGE_BASE_URL:
-      "https://kvirwlcodrpwnwzvfcqr.supabase.co/storage/v1/object/public/client-cms",
-    VIDEO_FOLDER: "northsimcoe/loomly-videos",
-    VIDEO_FILENAMES: [
-      "Introducing Linda & Larry.mov",
-      "About North Simcoe PM.MOV",
-      "Aesthetic reel.mov",
-      "Bad tenants = bad investments.mov",
-      "Blooper Reel - April fools fun.mov",
-      "Measure twice, cut once.mov",
-      "Maintenance chaos.mov",
-      "Maintenance Vs management.mov",
-      "One missed regulation.mov",
-      "Renting in Simcoe County is not the same as renting in Toronto.mp4",
-      "Unit TLC.mov",
-      "Weird things people leave behind.mov",
-      "The right technology.mov",
-      "Key Factors to look for.MOV",
-      "Story Time.MOV",
-      "Why good tenants leave.mov",
-      "Why Hiring the Right Property Management Company Matters.MOV",
-      "When it says cozy.mov",
-      "Landlord Tips.mov",
-      "Would you rent this?.mov",
-      "You are Not Just a Landlord.mov",
-      "Madonna trend.mov",
-      "What property managers actually do.mov",
-      "Journey Into Property Management.mov",
-      "POV Balancing Property Management.mov",
-      "Describe Property Management in 5 Words.mov",
-      "Your investment property should be making you money.mov",
-      "Every property manager has their role.mov",
-      "Seasonal Maintenance.mov",
-      "Call to newsletter.mov",
-      "Cost of Cheap Management.mov",
-      "3rd year in business anniversary.mov",
-      "NEW LOCAL.mov",
-      "I am a.mov",
-      "Legal updates in ontario.mov",
-      "What happens when a tenant stops paying rent?.mov",
-      "Larry talking to himself TikTok trend.mov",
-      "How rental pricing strategies actually work.mov",
-      "Why is property management worth it?.mov",
-      "A Day in the Life of a Property Manager.mov",
-      "Pet-friendly rentals, what landlords should know.mov",
-      "Eviction experience.mov",
-      "Canada Day post.mov",
-      "Were viral reactions.mov",
-    ],
+    VIDEOS_JSON_URL: "/videos/loomly-videos.json",
   },
   components: {
     ContactUs,
@@ -200,48 +162,41 @@ export default {
       },
       activeVideo: null,
       videos: [],
+      loadedThumbnails: new Set(),
     };
   },
   mounted() {
     this.loadVideos();
   },
   methods: {
-    loadVideos() {
-      const baseUrl = this.$options.constants.SUPABASE_STORAGE_BASE_URL;
-      const folder = this.$options.constants.VIDEO_FOLDER;
-      const filenames = this.$options.constants.VIDEO_FILENAMES;
+    async loadVideos() {
+      try {
+        if (cachedVideos) {
+          this.videos = cachedVideos;
+          return;
+        }
 
-      this.videos = filenames.map((filename, index) => {
-        const encodedName = encodeURIComponent(filename);
-        const title = this.formatTitleFromFilename(filename);
-
-        return {
-          id: index + 1,
-          title,
-          description: `Watch ${title} from North Simcoe Property Management.`,
-          videoUrl: `${baseUrl}/${folder}/${encodedName}`,
-        };
-      });
-    },
-    formatTitleFromFilename(filename) {
-      const withoutExtension = filename.replace(/\.[^/.]+$/, "");
-      const decoded = decodeURIComponent(withoutExtension);
-      const cleaned = decoded
-        .replace(/[_-]+/g, " ")
-        .replace(/\s+/g, " ")
-        .trim()
-        .replace(/^north simcoe pm\s*/i, "")
-        .replace(/^north simcoe\s*/i, "")
-        .trim();
-
-      if (!cleaned) {
-        return "Property Management Video";
+        const response = await fetch(this.$options.constants.VIDEOS_JSON_URL);
+        if (!response.ok) {
+          throw new Error(
+            `Failed to load videos: ${response.status} ${response.statusText}`
+          );
+        }
+        const videos = await response.json();
+        cachedVideos = videos.map((video) => ({
+          ...video,
+          videoUrl: video.url,
+        }));
+        this.videos = cachedVideos;
+      } catch (error) {
+        console.error("Error loading videos:", error);
+        this.videos = [];
       }
-
-      return cleaned
-        .split(" ")
-        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(" ");
+    },
+    onVideoVisible(id) {
+      if (!this.loadedThumbnails.has(id)) {
+        this.loadedThumbnails.add(id);
+      }
     },
     openVideo(video) {
       this.activeVideo = video;
