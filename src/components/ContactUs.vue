@@ -1,85 +1,80 @@
 <template>
-  <div
-    class="contact-us max-w-screen-xl p-10 md:p-32 mx-auto flex flex-wrap md:flex-nowrap md:items-center md:space-x-8 md:gap-5"
-  >
-    <div class="py-10 md:py-0 md:w-3/5">
-      <h2 class="text-sm font-semibold mb-4 text-brown font-archivo">
-        CONTACT US
-      </h2>
-      <hr class="w-10 h-1 my-4 border-0 rounded bg-teal" />
-      <h3 class="text-3xl font-semibold mb-4 text-brown font-archivo">
-        Ready to start?
+  <section class="max-w-6xl mx-auto w-full py-20 md:py-24 px-8 md:px-12 flex flex-col md:flex-row gap-12 md:gap-16 items-start">
+    <!-- Form Intro -->
+    <div class="w-full md:w-1/3 pt-0 md:pt-12">
+      <h3 class="text-sm font-semibold tracking-wider uppercase text-brown font-archivo mb-2">
+        Contact Us
       </h3>
-      <p class="font-open-sans text-brown text-2xl">Reach out to us now!</p>
+      <div class="w-12 h-1 bg-teal mb-6"></div>
+      <h2 class="text-3xl md:text-4xl font-bold mb-4 text-brown font-archivo">
+        Ready to start?
+      </h2>
+      <p class="text-gray-600 font-open-sans text-xl">
+        Reach out to us now!
+      </p>
     </div>
 
-    <form ref="form" @submit.prevent="sendEmail" class="w-full relative md:w-2/5">
-      <div
-        class="flex flex-col mb-2 z-10 relative bg-white rounded-lg shadow-md p-4 border-4 border-solid border-teal"
-      >
-        <div class="relative z-0 w-full mb-6 group">
-          <input
-            type="text"
-            v-model="user_name"
-            id="floating_text"
-            class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer"
-            placeholder=" "
-            required
-          />
-          <label
-            for="floating_email"
-            class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-            >Name</label
-          >
-        </div>
-        <div class="relative z-0 w-full mb-6 group">
-          <input
-            type="email"
-            v-model="user_email"
-            name="floating_email"
-            id="floating_email"
-            class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-teal appearance-none focus:outline-none focus:ring-0 focus:border-teal peer"
-            placeholder=" "
-            required
-          />
-          <label
-            for="floating_email"
-            class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-teal peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-            >Email address</label
-          >
-        </div>
-        <div>
-          <label
-            for="message"
-            class="block mb-2 text-sm font-medium text-brown dark:text-white"
-          ></label>
-          <textarea
-            id="message"
-            v-model="message"
-            rows="4"
-            class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-teal focus:ring-teal focus:border-teal"
-            placeholder="Your message here..."
-          ></textarea>
-        </div>
-      </div>
-      <div
-        class="bg-teal w-[300px] h-[250px] absolute top-[-20px] right-[-20px] md:top-[-40px] md:right-[-40px] z-negative"
-      ></div>
-      <button
+    <!-- Form Area -->
+    <div class="w-full md:w-2/3 relative flex justify-end">
+      <!-- Decorative background rectangle -->
+      <div class="absolute top-0 right-0 w-3/4 h-full bg-teal/60 z-0 -mt-8 -mr-8 rounded-tr-lg hidden md:block"></div>
+      <div class="relative z-10 bg-white border-2 border-teal rounded-lg p-8 md:p-10 w-full shadow-lg">
+        <form ref="form" @submit.prevent="sendEmail" class="flex flex-col gap-6">
+          <div>
+            <input
+              type="text"
+              v-model="user_name"
+              id="name"
+              name="name"
+              placeholder="Name"
+              required
+              class="w-full border-0 border-b-2 border-gray-300 focus:border-teal focus:ring-0 py-3 px-0 text-gray-700 bg-transparent transition-colors placeholder:text-gray-500 font-open-sans"
+            />
+          </div>
+          <div>
+            <input
+              type="email"
+              v-model="user_email"
+              id="email"
+              name="email"
+              placeholder="Email address"
+              required
+              class="w-full border-0 border-b-2 border-gray-300 focus:border-teal focus:ring-0 py-3 px-0 text-gray-700 bg-transparent transition-colors placeholder:text-gray-500 font-open-sans"
+            />
+          </div>
+          <div class="mt-2">
+            <textarea
+              id="message"
+              v-model="message"
+              name="message"
+              placeholder="Your message here..."
+              required
+              rows="5"
+              class="w-full border-2 border-gray-300 focus:border-teal focus:ring-0 rounded-md py-3 px-4 text-gray-700 bg-white transition-colors placeholder:text-gray-500 font-open-sans"
+            ></textarea>
+          </div>
+          <div class="mt-2">
+            <button
               v-if="!email_sent"
-        type="submit"
-        class="text-brown bg-teal hover:bg-tealdark hover:text-white focus:ring-4 focus:outline-none focus:ring-teal font-medium rounded-lg text-sm w-auto sm:w-auto px-5 py-2.5 text-center"
-      >
-        Submit
-      </button>
-        <button v-if="email_sent"
-                type="submit" class="text-brown bg-teal hover:bg-tealdark hover:text-white focus:ring-4 focus:outline-none focus:ring-teal font-medium rounded-full text-sm w-10 h-10 flex items-center justify-center">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              type="submit"
+              class="bg-teal hover:bg-tealdark text-white font-medium py-3 px-8 rounded-md transition-colors shadow-sm"
+            >
+              Submit
+            </button>
+            <button
+              v-if="email_sent"
+              type="submit"
+              class="bg-teal hover:bg-tealdark text-white font-medium rounded-full text-sm w-10 h-10 flex items-center justify-center transition-colors shadow-sm"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-            </svg>
-        </button>
-    </form>
-  </div>
+              </svg>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script>

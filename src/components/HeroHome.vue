@@ -57,12 +57,12 @@ export default {
   background-color: rgba(0, 128, 128, 0.6);
 }
 
-section {
+#section05 {
   position: relative;
   width: 100%;
   height: 100%;
 }
-section::after {
+#section05::after {
   position: absolute;
   bottom: 0;
   left: 0;

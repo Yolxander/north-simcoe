@@ -19,6 +19,7 @@ import {
   faShop,
   faChevronDown,
   faShareAlt,
+  faShareNodes,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebookF,
@@ -44,6 +45,7 @@ library.add(
   faShop,
   faChevronDown,
   faShareAlt,
+  faShareNodes,
     faCheck
 );
 
