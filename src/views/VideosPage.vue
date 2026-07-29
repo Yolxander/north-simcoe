@@ -159,6 +159,8 @@ export default {
     return {
       hero: {
         title: "VIDEOS",
+        image: "/photos/IMG_1491.JPG",
+        flip: true,
       },
       activeVideo: null,
       videos: [],

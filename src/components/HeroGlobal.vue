@@ -2,6 +2,12 @@
   <div
     class="hero-container-global xl:h-[30vh] flex items-end md:items center p-10 pt-20 pl-10 md:pl-48 md:pb-10"
   >
+    <div
+      v-if="hero.image"
+      class="hero-bg"
+      :class="{ 'hero-bg-flip': hero.flip }"
+      :style="{ backgroundImage: `url('${hero.image}')` }"
+    ></div>
     <div class="hero-overlay"></div>
     <div class="flex flex-col justify-center md:w-4/5 font-archivo absolute">
       <p class="text-m pr-2 md:mb-4 text-white font-semibold">
@@ -35,6 +41,20 @@ export default {
   background-size: cover;
   background-position: center;
   height: 90vh;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-bg-flip {
+  transform: scaleX(-1);
 }
 
 .hero-overlay {
