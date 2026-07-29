@@ -161,6 +161,7 @@ export default {
         title: "VIDEOS",
         image: "/photos/IMG_1491.JPG",
         flip: true,
+        gradient: "linear-gradient(to right, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0))",
       },
       activeVideo: null,
       videos: [],

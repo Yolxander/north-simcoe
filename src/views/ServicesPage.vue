@@ -55,6 +55,7 @@ export default {
     return {
       hero: {
         title: "OUR SERVICES",
+        image: "/photos/D0BA72F8-3E5A-4CB0-9677-0CEFF867880F.PNG",
       },
       services: [
         {

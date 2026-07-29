@@ -8,7 +8,10 @@
       :class="{ 'hero-bg-flip': hero.flip }"
       :style="{ backgroundImage: `url('${hero.image}')` }"
     ></div>
-    <div class="hero-overlay"></div>
+    <div
+      class="hero-overlay"
+      :style="hero.gradient ? { background: hero.gradient } : {}"
+    ></div>
     <div class="flex flex-col justify-center md:w-4/5 font-archivo absolute">
       <p class="text-m pr-2 md:mb-4 text-white font-semibold">
         NORTH SIMCOE PROPERTY MANAGEMENT
