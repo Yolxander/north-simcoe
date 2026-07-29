@@ -160,8 +160,9 @@ export default {
       hero: {
         title: "VIDEOS",
         image: "/photos/IMG_1491.JPG",
+        mobileImage: "/photos/IMG_1491-mobile.JPG",
         flip: true,
-        gradient: "linear-gradient(to right, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0))",
+        gradient: "linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5))",
       },
       activeVideo: null,
       videos: [],

@@ -2,12 +2,26 @@
   <div
     class="hero-container-global xl:h-[30vh] flex items-end md:items center p-10 pt-20 pl-10 md:pl-48 md:pb-10"
   >
-    <div
-      v-if="hero.image"
-      class="hero-bg"
-      :class="{ 'hero-bg-flip': hero.flip }"
-      :style="{ backgroundImage: `url('${hero.image}')` }"
-    ></div>
+    <template v-if="hero.image">
+      <div
+        v-if="!hero.mobileImage"
+        class="hero-bg"
+        :class="{ 'hero-bg-flip': hero.flip }"
+        :style="{ backgroundImage: `url('${hero.image}')` }"
+      ></div>
+      <div
+        v-if="hero.mobileImage"
+        class="hero-bg hidden md:block"
+        :class="{ 'hero-bg-flip': hero.flip }"
+        :style="{ backgroundImage: `url('${hero.image}')` }"
+      ></div>
+      <div
+        v-if="hero.mobileImage"
+        class="hero-bg hero-bg-mobile md:hidden"
+        :class="{ 'hero-bg-flip': hero.flip }"
+        :style="{ backgroundImage: `url('${hero.mobileImage}')` }"
+      ></div>
+    </template>
     <div
       class="hero-overlay"
       :style="hero.gradient ? { background: hero.gradient } : {}"
@@ -58,6 +72,13 @@ export default {
 
 .hero-bg-flip {
   transform: scaleX(-1);
+}
+
+.hero-bg-mobile {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #000;
 }
 
 .hero-overlay {
