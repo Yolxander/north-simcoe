@@ -106,6 +106,7 @@ export default {
 /* Custom styling for the Hero component here */
 .hero-container-global {
   position: relative;
+  overflow: hidden;
   background-image: url("../assets/hero-global.jpeg");
   background-size: cover;
   background-position: center;
@@ -113,6 +114,7 @@ export default {
 }
 
 .hero-bg {
+  --flip: 1;
   position: absolute;
   top: 0;
   left: 0;
@@ -120,10 +122,14 @@ export default {
   height: 100%;
   background-size: cover;
   background-position: center;
+  transform-origin: center;
+  will-change: transform;
+  backface-visibility: hidden;
+  animation: heroBgZoom 25s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;
 }
 
 .hero-bg-flip {
-  transform: scaleX(-1);
+  --flip: -1;
 }
 
 .hero-bg-mobile {
@@ -187,5 +193,14 @@ export default {
   object-fit: contain;
   border-radius: 0.5rem;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes heroBgZoom {
+  0% {
+    transform: scale(1) scaleX(var(--flip, 1));
+  }
+  100% {
+    transform: scale(1.1) scaleX(var(--flip, 1));
+  }
 }
 </style>

@@ -40,12 +40,31 @@ export default {
 <style>
 .hero-container {
   position: relative;
-  background-image: url("../assets/hero1.jpeg");
-  background-size: cover;
-  background-position: center;
+  overflow: hidden;
   height: 100vh;
   align-items: center;
   display: flex;
+}
+
+.hero-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../assets/hero1.jpeg");
+  background-size: cover;
+  background-position: center;
+  transform-origin: center;
+}
+
+@media (min-width: 768px) {
+  .hero-container::before {
+    will-change: transform;
+    backface-visibility: hidden;
+    animation: homeBgZoom 20s ease-in-out infinite alternate;
+  }
 }
 
 .hero-overlay {
@@ -55,6 +74,15 @@ export default {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 128, 128, 0.6);
+}
+
+@keyframes homeBgZoom {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
 }
 
 #section05 {
