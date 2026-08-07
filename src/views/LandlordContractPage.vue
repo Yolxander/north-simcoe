@@ -3,16 +3,18 @@
     <iframe
       title="NEW LANDLORD CONTRACT NORTH SIMCOE"
       src="https://eu.jotform.com/sign/262174751376058/invite/01kzcszdpq4a94a0fe4deeba0e?signEmbed=1"
-      class="w-full h-full border-0 z-10"
-      scrolling="auto"
-      @load="handleLoad"
+      class="w-full h-full border-0"
+      loading="eager"
+      allow="camera; microphone"
     ></iframe>
-    <div
-      v-if="isLoading"
-      class="absolute inset-0 bg-teal flex flex-col items-center justify-center z-20"
+    <a
+      href="https://eu.jotform.com/sign/262174751376058/invite/01kzcszdpq4a94a0fe4deeba0e?signEmbed=1"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="absolute top-4 right-4 z-20 bg-white/95 text-brown px-4 py-2 rounded shadow text-sm font-semibold"
     >
-      <h1 class="text-2xl font-archivo font-semibold text-white">New Landlord Contract ...</h1>
-    </div>
+      Open Contract Directly
+    </a>
   </section>
 </template>
 
@@ -21,15 +23,5 @@ import "tailwindcss/tailwind.css";
 
 export default {
   name: "LandlordContractPage",
-  data() {
-    return {
-      isLoading: true,
-    };
-  },
-  methods: {
-    handleLoad() {
-      this.isLoading = false;
-    },
-  },
 };
 </script>
