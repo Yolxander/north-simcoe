@@ -13,6 +13,7 @@ import FAQPage from "@/views/FAQPage.vue";
 import VideosPage from "@/views/VideosPage.vue";
 import { useHead } from "@vueuse/head";
 import SuccessComponent from "@/components/SuccessComponent.vue";
+import LandlordContractPage from "../views/LandlordContractPage.vue";
 
 const baseUrl = "https://northsimcoepm.com";
 const defaultImage = `${baseUrl}/logo.png`;
@@ -1654,6 +1655,11 @@ const routes = [
         });
       },
     },
+  },
+  {
+    path: "/landlord-contract",
+    name: "LandlordContract",
+    component: LandlordContractPage,
   },
   {
     path: "/:pathMatch(.*)*",
