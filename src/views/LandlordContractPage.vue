@@ -6,7 +6,6 @@
       class="w-full h-full border-0"
       scrolling="auto"
     ></iframe>
-    <div class="absolute bottom-0 left-0 w-full h-16 bg-white z-10"></div>
   </section>
 </template>
 
