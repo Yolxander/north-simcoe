@@ -1657,7 +1657,7 @@ const routes = [
     },
   },
   {
-    path: "/landlord-contract",
+    path: "/landlord-contract/a7b3c9d2-e1f6-4890-9abc-1d2e3f4a5b6c",
     name: "LandlordContract",
     component: LandlordContractPage,
   },
